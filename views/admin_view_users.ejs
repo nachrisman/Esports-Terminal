@@ -1,0 +1,41 @@
+<% include ./partials/admin_header %>
+	  <div class='container'>
+		<div class='content-actions'>
+		  <p><a href='/admin/new-user'>Add a New User</a></p>
+		  <div class='form-group row'>
+  			<label for='content-search' class='col-2 col-form-label'>Search</label>
+  			<div class='col-4'>
+  			  <input class='form-control' type='search' placeholder='search users' id='content-search'>
+  			</div>
+  		  </div>
+	  	</div>
+	    <table class='item-list' id='user-list'>
+		  <thead>
+		    <tr>
+			  <th>Name</th>
+			  <th>Username</th>
+			  <th>E-Mail Address</th>
+			  <th>Phone Number</th>
+			  <th>Role</th>
+			  <th>Edit</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  <% users.forEach(function(user){  %>
+		  <% 	if(user.role === 'admin') { %>
+		    <tr>
+		      <td><%= user.firstName + ' ' + user.lastName %></td>
+		      <td><%= user.username %></td>
+		      <td><%= user.email %></td>
+		      <td><%= user.phone %></td>
+		      <td><%= user.role %></td>
+		      <td>
+		    	<a href='/admin/edit-user/<%= user._id %>'>Edit</a>
+		      </td>
+		    </tr>
+		  <% };                              %>
+		  <% });                             %>
+		  </tbody>
+	    </table>
+	  </div>
+<% include ./partials/admin_footer %>

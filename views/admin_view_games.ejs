@@ -1,0 +1,39 @@
+<% include ./partials/admin_header %>
+	  <div class='container'>
+		<div class='content-actions'>
+		  <p><a href='/admin/new-game'>Add a New Game</a></p>
+		  <div class='form-group row'>
+	  		<label for='content-search' class='col-2 col-form-label'>Search</label>
+	  		<div class='col-4'>
+	  		  <input class='form-control' type='search' placeholder='search games' id='content-search'>
+	  		</div>
+	  	  </div>
+	  	</div>
+	    <table class='item-list' id='game-list'>
+		  <thead>
+	  	    <tr>
+	  	      <th>Logo</th>
+		      <th>Title</th>
+		      <th>Abbreviation</th>
+		      <th>Platform(s)</th>
+		      <th>Genre(s)</th>
+		      <th>Edit</th>
+	  	    </tr>
+		  </thead>
+		  <tbody>
+		  <% games.forEach(function(game){ %>
+		    <tr>
+		      <td><img src='<%= game.logopng %>'></td>
+		      <td><%= game.title %></td>
+		      <td><%= game.abbreviation %></td>
+		      <td><%= game.platform %></td>
+		      <td><%= game.genre %></td>
+		      <td>
+		        <a href='/admin/edit-game/<%= game._id %>'>Edit</a>
+		      </td>
+		    </tr>
+		  <% });                            %>
+		  </tbody>
+	    </table>
+	  </div>
+<% include ./partials/admin_footer %>

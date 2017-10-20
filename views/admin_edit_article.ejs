@@ -1,0 +1,43 @@
+<% include ./partials/admin_header %>
+	<div class='container'>
+	  <h2>Edit '<%= article.title %>':</h2>
+	  <form class='new-item-entry' id='new-article' action='/news/<%= article._id %>?_method=PUT' method='POST'>
+		<fieldset id='meta'>
+		  <label>Author: </label>
+		  <input type='text' name='article[author]' value='<%= article.author %>'>
+		  <br>
+		  <label>Date: [TODAY]</label><br>
+		  <div class='game-select'>
+		  <% games.forEach(function(game) { %>
+			<label>
+			  <input type='checkbox' name='article[categories]' value='<%= game.title %>'>
+			  <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
+			</label>
+		  <% });                            %>
+		  </div>
+		  <br>
+		  <label>Title: </label>
+		  <input type='text' name='article[title]' value='<%= article.title %>' >
+		  <br>
+		</fieldset>
+	    <label>Main Content: </label>
+		<textarea name='article[body]' ><%= article.body %></textarea>
+		<label>Header Image (local) URL: </label>
+		<input type='text' name='article[image]' value='<%= article.image %>' >
+		<br>
+		<label>Image Caption: </label>
+		<input type='text' name='article[imageCaption]' value='<%= article.imageCaption %>'>
+		<br>
+		<label>Image Source: </label>
+		<input type='text' name='article[imageSource]' value='<%= article.imageSource %>'>
+		<br>
+		<label>Source Link (if applicable): </label>
+		<input type='text' name='article[sourceLink]' value=<%= article.sourceLink %> >
+		<br>
+		<button type='submit'>Update Article</button>
+	  </form>
+	  <form class='new-item-entry' id='delete-item' action='/news/<%= article._id %>?_method=DELETE' method='POST'>
+		<button type='submit'>DELETE ARTICLE</button>
+	  </form>
+	</div>
+<% include ./partials/admin_footer %>

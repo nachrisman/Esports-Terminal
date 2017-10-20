@@ -1,0 +1,27 @@
+{
+  "name": "esports_terminal",
+  "version": "1.0.0",
+  "description": "eSports News Website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nate Chrisman",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "countryjs": "^1.8.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.1",
+    "express-sanitizer": "^1.0.2",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
+    "moment": "^2.19.0",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.12.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.2.1"
+  }
+}

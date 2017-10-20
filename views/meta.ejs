@@ -1,0 +1,94 @@
+<% include ./partials/header %>
+	  <div class='container-fluid' id='primary-wrapper'>
+	    <div class='row'>
+		  <div class='col-xs-12 col-md-12'>
+		    <h3>Here's your META for today, <%= currentUser.username.charAt(0).toUpperCase() + currentUser.username.slice(1) %>!</h3>
+		  </div>
+	    </div>
+	    <div class='row'>
+		  <div class='col-xs-12 col-md-12' id='user-meta-header'>
+    	    <img class='meta-header-image' src='../media/branding/meta_section_news.png'>
+		  </div>
+	    </div>
+	    <% var userMeta = currentUser.meta; %>
+	    <% userMeta.forEach(function(meta) { %>
+	    <div class='row'>
+		  <div class='col-xs-12 col-md-12'>
+			<div class='user-meta-sub-header'>
+			  <h2><%= meta.game %></h2>
+			</div>
+		    <div class='preview' id='meta-news-preview'>
+	     	<%	articles.forEach(function(foundArticle) { %>
+	     	<%    	var categories = foundArticle.categories; %>
+	     	<% 	    if(categories.indexOf(meta.game) > -1) { %>
+	  		  <div class='article-preview'>
+			    <a class='preview-link' href='/news/<%= foundArticle._id %>'>
+			  	  <div class='article-preview-image'>
+				    <img class='article-preview-image' src='<%= foundArticle.image %>'>
+				  </div>
+				  <div class='preview-headline'>
+				    <h3 class='article-title'><%= foundArticle.title.substr(0, 80) %>...</h3>
+				  </div>
+			    </a>
+			  </div>
+	  		<%            }                                                  %>
+	  		<%          });                                                  %>
+	  	    </div>
+	  	  </div>
+	  	  <div class='clear-div'></div>
+	  	  <div class='read-more' id='meta-read-more'>
+	  		<a href='/news' >View More > > ></a>
+	  	  </div>
+	    </div>	
+	    <% });                                                       %>
+	    <div class='row'>
+		  <div class='col-xs-12 col-md-12' id='user-meta-header'>
+    	    <img class='meta-header-image' src='../media/branding/meta_section_events.png'>
+		  </div>
+	    </div>
+	    <% userMeta.forEach(function(meta) {                         %>
+		  <div class='row'>
+			<div class='col-xs-12 col-md-12'>
+			  <div class='user-meta-sub-header'>
+				<h2><%= meta.game %></h2>
+			  </div>
+			  <table class='events-list'>
+        	    <thead>
+        	      <tr>
+		            <th><button id='list-sort'>Game/Event</button></th>
+		            <th><button id='list-sort'>Event Page</button></th>
+		            <th><button id='list-sort'>Location</button></th>
+		            <th><button id='list-sort'>Date/Time</button></th>
+		            <th><button id='list-sort'>EST Stream</button></th>
+        	      </tr>
+        	    </thead>
+        	    <tbody>
+        	    <% foundEvents.forEach(function(foundEvent) {  %>
+        	    <% var relatedEvent = foundEvent.games; 	   %>
+        	    <% 	if(relatedEvent.indexOf(meta.game) > -1) { 	   %>
+          	      <tr>
+                    <td>
+            	      <img class='event-game-thumbnail' src='<%= foundEvent.image %>'>
+            	    </td>
+            	    <td>
+            	      <a class='direct-event-link' href='/events/<%= foundEvent._id %>'><%= foundEvent.title %></a>
+            	    </td>
+            	    <td><%= foundEvent.venue + ', ' + foundEvent.city + ', ' + foundEvent.state %>
+            	    </td>
+            	    <td><%= foundEvent.date.toDateString()  %></td>
+            	    <td><% if(foundEvent.stream === true) { %>
+                		    <%= 'Yes'   %>
+                	    <% } else { 						%>
+                		  <%= 'No'    %>
+                	    <% };       						%>
+            	    </td>
+          	      </tr>
+          	    <% 	  }; 									   %>
+          	    <% });										   %>
+        	    </tbody>
+              </table>
+		    </div>
+		  </div>
+		<%}); 														  %>
+	  </div>
+<% include ./partials/footer %>

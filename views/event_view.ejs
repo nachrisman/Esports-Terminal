@@ -1,0 +1,109 @@
+<% include ./partials/header %>
+    	<div class='container-fluid' id='primary-wrapper'>
+        <div class='col-xs-12 col-md-12'>
+          <img class='billboard-ad' src='/media/ads/billboard.jpg'>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4 col-md-4'>
+            <div class='content-divider' id='related-articles'>
+              <img class='header-image' src='/media/branding/related_articles.png'>
+            </div>
+            <div class='preview'>
+            <% relatedArticles.forEach(function(relatedArticle) {         %>
+            <%    var relatedCategories = relatedArticle.categories;      %>
+            <%    var foundGames = foundEvent.games;                      %>
+            <%    relatedCategories.forEach(function(relatedCategory) {   %>
+            <%        if(foundGames.indexOf(relatedCategory) > -1) {      %>
+              <div class='article-preview'>
+                <a class='preview-link' href='/news/<%= relatedArticle._id %>'>
+                  <div class='article-preview-image'>
+                    <img class='article-preview-image' src='<%= relatedArticle.image %>'>
+                  </div>
+                  <div class='preview-headline'>
+                    <h3 class='article-title'><%= relatedArticle.title.substr(0, 30) %>...</h3>
+                  </div>
+                </a>
+              </div>
+              <%      }                                                   %>
+              <%    });                                                   %>
+              <% });                                                      %>
+            </div>
+            <img class='rectangle-ad' src='/media/ads/medium_rectangle.jpg'>
+            <img class='rectangle-ad' src='/media/ads/medium_rectangle.jpg'>
+          </div>
+          <div class='col-xs-8 col-md-8' id='post-wrapper'>
+        	  <article>
+          		<header class='event-header'>
+          		  <h1><%= foundEvent.title %></h1>
+          		  <figure>
+          			 <img class='event-figure' src='<%= foundEvent.image %>'
+          		  </figure>
+          		</header>
+          		<div class='event-meta-container'>
+          		  <div class='content-divider'>
+                  <img class='header-image' src='/media/branding/when_where.png'>
+                </div>
+          		  <h3>Date: </h3><p><%= foundEvent.date.toDateString() %></p>
+          		  <h3>Location: </h3><p><%= foundEvent.venue + ', ' + foundEvent.city + ', ' + foundEvent.state %></p>
+          		  <h3>EST Stream Hosting: </h3>
+          		  <p>
+          			<% if(foundEvent.stream === true) {  %>
+    	            <%= 'Yes'   %>
+    	          <%    } else {                       %>
+    	            <%= 'No'    %>
+    	          <% };                                %>
+          		  </p>
+          		</div>
+          		<div class='post-content'>
+        			  <div class='content-divider'>
+                  <img class='header-image' src='/media/branding/everything_else.png'>
+                </div>
+          		  <p><%- foundEvent.description %></p>
+                <p>More Info/Source Link: <a class='source-link' href='<%= foundEvent.sourceLink %>' target='_blank'>Click Here</a></p>
+                <p class='end-content-return'><a href='/events'>Return to Events Page > > ></a></p>
+          		</div>
+        	  </article>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12 col-md-12' id='related-events'>
+            <div class='content-divider'>
+                <img class='header-image' src='/media/branding/related_events.png'>
+            </div>
+            <table class='events-list' id='events-today'>
+              <thead>
+                <tr>
+                  <th><button id='list-sort'>Game/Event</button></th>
+                  <th><button id='list-sort'>Event Page</button></th>
+                  <th><button id='list-sort'>Location</button></th>
+                  <th><button id='list-sort'>Date/Time</button></th>
+                  <th><button id='list-sort'>EST Stream</button></th>
+                </tr>
+              </thead>
+              <tbody>
+              <% relatedEvents.forEach(function(relatedEvent) {      %>
+              <%      var relatedGames = relatedEvent.games;         %>
+              <%      var foundGames = foundEvent.games;             %>
+              <%      relatedGames.forEach(function(relatedGame) {   %>
+              <%        if(foundGames.indexOf(relatedGame) > -1) {   %>
+                <tr>
+                  <td><img class='event-game-thumbnail' src='<%= relatedEvent.image %>'></td>
+                  <td><a class='direct-event-link' href='/events/<%= relatedEvent._id %>'><%= relatedEvent.title %></a></td>
+                  <td><%= relatedEvent.venue + ', ' + relatedEvent.city + ', ' + relatedEvent.state %></td>
+                  <td><%= relatedEvent.date.toDateString()  %></td>
+                  <td><% if(relatedEvent.stream === true) { %>
+                      <%= 'Yes'   %>
+                      <%    } else {                        %>
+                      <%= 'No'    %>
+                      <% };                                 %>
+                  </td>
+                </tr>
+                <%     };                                             %>
+                <%   });                                              %>
+                <% });                                                %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+<% include ./partials/footer %>

@@ -1,0 +1,15 @@
+<% include ./partials/header %>
+	  <div class='container-fluid' id='primary-wrapper'>
+        <div class='col-xs-12 col-md-12'>
+		  <form id='login-page-auth' action='/login' method='POST'>
+			<img src='/media/branding/login_top.png'>
+			<label>Username: </label>
+			<input type='text' name='username' placeholder='username'><br>
+			<label>Password: </label>
+			<input type='password' name='password' placeholder='password'><br>
+			<button type='submit'>Log In</button>
+			<img src='/media/branding/login_bottom.png'>
+		  </form>
+	    </div>
+	  </div>
+<% include ./partials/footer %>

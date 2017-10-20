@@ -1,0 +1,38 @@
+<% include ./partials/admin_header %>
+	<div class='container'>
+	  <div class='content-actions'>
+	    <p><a href='/admin/new-article'>Add a new Article</a></p>
+	    <div class='form-group row'>
+		  <label for='content-search' class='col-2 col-form-label'>Search</label>
+		  <div class='col-4'>
+		    <input class='form-control' type='search' placeholder='search articles' id='content-search'>
+		  </div>
+	    </div>
+	  </div>
+	  <table class='item-list' id='article-list'>
+	    <thead>
+	      <tr>
+	        <th>Publish Date</th>
+	        <th>Author</th>
+	        <th>Title</th>
+		    <th>Categories</th>
+		    <th>Edit / View on Site</th>
+		  </tr>
+	    </thead>
+	    <tbody>
+	    <% articles.forEach(function(article){ %>
+		  <tr>
+		    <td><%= article.published.toDateString() %></td>
+		    <td><%= article.author %></td>
+		    <td><%= article.title %></td>
+		    <td><%= article.categories %></td>
+		    <td>
+			  <a href='/admin/edit-article/<%= article._id %>'>Edit</a> / 
+			  <a href='/news/<%= article._id %>'>View</a>
+		    </td>
+		  </tr>
+	    <% });                                  %>
+	    </tbody>
+	  </table>
+	</div>
+<% include ./partials/admin_footer %>

@@ -1,0 +1,81 @@
+<% include ./partials/admin_header %>
+<div class='container'>
+	  <h2>Edit <%= user.firstName + ' ' + user.lastName %></h2>
+	  <form class='new-item-entry' id='new-user' action='/admin/edit-user/<%= user._id %>?_method=PUT' method='POST'>
+		<label>USER PERSONAL INFORMATION</label>
+		<br>
+		<label>First Name: </label>
+		<input type='text' name='user[firstName]' value='<%= user.firstName %>'>
+		<br>
+		<label>Last Name: </label>
+		<input type='text' name='user[lastName]' value='<%= user.lastName %>'>
+		<br>
+		<label>E-Mail: </label>
+		<input type='email' name='user[email]' value='<%= user.email %>'>
+		<br>
+		<label>Phone: </label>
+		<input type='phone' name='user[phone]' value='<%= user.phone %>'>
+		<br>
+		<label>Username: </label>
+		<input type='text' name='user[username]' value='<%= user.username %>'>
+		<br>
+		<label>Password: [<a href='/admin/change_password'>Change Password</a>]</label>
+		<br>
+		<label>Gender: </label>
+		<select name='user[gender]' value='<% user.gender %>'>
+		<% if(user.gender === 'male') {          %>
+		  <option value='male' selected='selected'>Male</option>
+		  <option value='female'>Female</option>
+		  <option value='unspecified'>Prefer Not to Say</option>
+		<% } else if(user.gender === 'female') { %>
+		  <option value='male'>Male</option>
+		  <option value='female' selected='selected'>Female</option>
+		  <option value='unspecified'>Prefer Not to Say</option>
+		<% } else {                              %>
+		  <option value='male'>Male</option>
+		  <option value='female'>Female</option>
+		  <option value='unspecified' selected='selected'>Prefer Not to Say</option>
+		<% };                                    %>
+		</select>
+		<br>
+		<label>ADDRESS</label>
+		<br>
+		<label>Street: </label>
+		<input type='text' name='user[location][street]' value='<%= user.location.street %>'>
+		<br>
+		<label>City: </label>
+		<input type='text' name='user[location][city]' value='<%= user.location.city %>'>
+		<label>State: </label>
+		<select name='user[location][state]' value='<%= user.location.state %>'>
+		<% states.forEach(function(state) {            %>
+		  <option value='<%= state %>' 
+		<%     if(state === user.location.state) {     %> 
+			selected='selected'><%= state %></option>
+		<%     } else {                                %>
+			><%= state %></option>
+		<% 	   };                                      %>
+		<% });                                         %>
+		</select>
+		<label>Zip Code: </label>
+		<input type='text' name='user[location][zip]' value='<%= user.location.zip %>'>
+		<br>
+		<label>Country: </label>
+		<select name='country'>
+		  <option value='US'>US</option>
+		</select>
+		<br>
+		<label>ACCESS LEVEL</label>
+		<br>
+		<label>Role: </label>
+		<select name='user[role]' value='<%= user.role %>'>
+		  <option value='admin'>Admin</option>
+		  <option value='editor'>Editor</option>
+		  <option value='user'>Standard User</option>
+		</select>
+		  <button type='submit'>Update User</button>
+	  </form>
+	  <form class='new-item-entry' id='delete-item' action='/admin/view-user/<%= user._id %>?_method=DELETE' method='POST'>
+		<button type='submit'>DELETE USER</button>
+	  </form>
+	  </div>
+<% include ./partials/admin_footer %>

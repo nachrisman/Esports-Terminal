@@ -1,0 +1,75 @@
+<% include ./partials/header %>
+  	<div class='container-fluid' id='primary-wrapper'>
+    	<div class='row'>
+    		<div class='col-xs-3 col-md-3'>
+    			<div class='account-nav'>
+    				<h3>My Account</h3>
+    				<ul>
+    					<li><a href='/account/meta-settings'>META Settings</a></li>
+    					<li><a href='/account/info'>Account Information</a></li>
+    					<li><a href='/account/security'>Security</a></li>
+    					<li><a href='/logout'>Log Out</a></li>
+    				</ul>
+    			</div>
+    		</div>
+    		<div class='col-xs-9 col-md-9'>
+    			<div class='account-content'>
+    				<form class='user-account-edit' action='/account/info?_method=PUT' method='POST'>
+    					<h3>User Information</h3>
+    					<div class='form-group' id='user-names'>
+    					  <label>First Name: 
+                  <input type='text' name='user[firstName]' value='<%= currentUser.firstName %>'>
+                </label> 
+    					  <label>Last Name: 
+                  <input type='text' name='user[lastName]' value='<%= currentUser.lastName %>'>
+                </label> 
+    					</div>
+    					<div class='form-group' id='user-location'>
+    					  <label>Address</label>
+    					  <label>Street: 
+                  <input type='text' name='user[location][street]' value='<%= currentUser.location.street %>'>
+                </label> 
+    					  <label>City: 
+                  <input type='text' name='user[location][city]' value='<%= currentUser.location.city %>'>
+                </label>
+    					  <label>State: 
+      						<select name='user[location][state]'>
+      						<% states.forEach(function(state) { %>
+      							<option value='<%= state %>'><%= state %></option>
+      						<% });                              %>
+      						</select>
+  					    </label>
+  					    <label>Zip Code: 
+                  <input type='text' name='user[location][zip]' value='<%= currentUser.location.zip %>'>
+                </label>
+    					</div>
+    					<div class='form-group'>
+    						<label>E-Mail: 
+                  <input type='email' name='user[email]' value='<%= currentUser.email %>'>
+                </label>
+    						<label>Username: <%= currentUser.username %></label>
+    						<label>Gender: 
+    							<select name='user[gender]'>
+    								<% if(currentUser.gender === 'male') {          %>
+    									<option value='male' selected='selected'>Male</option>
+    									<option value='female'>Female</option>
+    									<option value='unspecified'>Prefer Not to Say</option>
+    								<% } else if(currentUser.gender === 'female') { %>
+    									<option value='male'>Male</option>
+    									<option value='female' selected='selected'>Female</option>
+    									<option value='unspecified'>Prefer Not to Say</option>
+    								<% } else {                                     %>
+    									<option value='male'>Male</option>
+    									<option value='female'>Female</option>
+    									<option value='unspecified' selected='selected'>Prefer Not to Say</option>
+    								<% };                                           %>
+    							</select>
+  						  </label>
+  						  <button type='submit' >Save</button>
+    					</div>
+    				</form>	
+    			</div>
+    		</div>
+    	</div>
+    </div>
+<% include ./partials/footer %>

@@ -1,0 +1,45 @@
+<% include ./partials/admin_header %>
+<div class='container'>
+	  <h2>Add a new event:</h2>
+	  <form class='new-item-entry' id='new-event' action='/events' method='POST'>
+	  	<fieldset id='meta'>
+  		  <label>Event Title: </label>
+  		  <input type='text' name='event[title]'>
+  		  <br>
+  		  <label>Date of Event: </label>
+  		  <input type='date' name='event[date]'>
+  		  <br>
+  		  <label>Games Involved: </label>
+  		  <br>
+  		  <div class='game-select'>
+  		  <% games.forEach(function(game) { %>
+      	    <label>
+      		  <input type='checkbox' name='event[games]' value='<%= game.title %>'>
+      		  <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
+      	    </label>
+  		  <% });                            %>
+	  	  </div>
+	  	</fieldset>
+	  	<label>Description: </label>
+	  	<textarea name='event[description]'></textarea>
+	 	<label>Event Image URL: </label>
+	 	<input type='text' name='event[image]'>
+	 	<br>
+	 	<label>Venue: </label>
+	 	<input type='text' name='event[venue]'>
+	 	<br>
+	 	<label>City: </label>
+	 	<input type='text' name='event[city]'>
+	 	<br>
+	 	<label>State: </label>
+	 	<input type='text' name='event[state]'>
+	 	<label>EST Stream: </label>
+	 	<input type='checkbox' name='event[stream]' value='yes'> Yes
+	 	<input type='checkbox' name='event[stream]' value='no'> No
+	 	<br>
+	 	<label>Source Link (if applicable): </label>
+	 	<input type='text' name='event[sourceLink]'>
+	 	<button type='submit'>Add Event</button>
+	</form>
+	</div>
+<% include ./partials/admin_footer %>

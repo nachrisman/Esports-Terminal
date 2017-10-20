@@ -1,0 +1,167 @@
+<% include ./partials/header %>
+	  <div class='container-fluid'>
+	    <div class='row'>
+	      <div class='col-xs-12 col-md-12'>
+	      	<div class='content-divider'>
+	          <img class='header-image' src='/media/branding/happening_today.png'>
+	        </div>
+	        <table class='events-list' id='events-today'>
+	          <thead>
+		        <tr>
+		          <th><button id='list-sort'>Game/Event</button></th>
+		          <th><button id='list-sort'>Event Page</button></th>
+		          <th><button id='list-sort'>Location</button></th>
+		          <th><button id='list-sort'>Date/Time</button></th>
+		          <th><button id='list-sort'>EST Stream</button></th>
+		        </tr>
+	          </thead>
+	          <tbody>
+	          <% currentEvents.forEach(function(currentEvent) { %>
+	            <tr>
+		          <td>
+		            <img class='event-game-thumbnail' src='<%= currentEvent.image %>'>
+		          </td>
+		          <td>
+		            <a class='direct-event-link' href='/events/<%= currentEvent._id %>'><%= currentEvent.title %></a>
+		          </td>
+		          <td>
+		            <%= currentEvent.venue + ', ' + currentEvent.city + ', ' + currentEvent.state %>
+		          </td>
+		          <td>
+		            <%= currentEvent.date.toDateString() %>
+		          </td>
+		          <td>
+		          	<% if(currentEvent.stream === true) { %>
+		            <%= 'Yes' %>
+		            <%   } else { 						  %>
+		            <%= 'No' %>
+		            <% }; 								  %>
+		          </td>
+		      <% }); 											%>
+	            </tr>
+	          </tbody>
+	      	</table>
+	      </div>
+	  	</div>
+	  	<div class='row'>
+	  	  <div class='col-xs-12 col-md-12'>
+	      	<div class='read-more' id='meta-read-more'>
+			  <a href='/news' >View More > > ></a>
+			</div>
+	  	  </div>
+	  	</div>
+	    <div class='row'>
+	      <div class='col-xs-12 col-md-12'>
+	      	<div class='content-divider'>
+	          <img class='header-image' src='/media/branding/current_stream.png'>
+	        </div>
+	        <div id='twitch-stream-player'>
+	          <script type='text/javascript'>insertTwitchFeed();</script>
+	        </div>
+	      </div>
+	  	</div>
+	  	<div class='row'>
+	      <div class='col-xs-12 col-md-12'>
+	        <img class='billboard-ad' src='../media/ads/billboard.jpg'>
+	      </div>
+	    </div>
+	    <div class='row'>
+	      <div class='col-xs-12 col-md-12'>
+	    	<div class='content-divider'>
+	      	  <img class='header-image' src='/media/branding/upcoming_events.png'>
+	      	</div>
+	        <table class='events-list' id='upcoming-events-list'>
+	          <thead>
+		        <tr>
+		          <th><button id='list-sort'>Game/Event</button></th>
+		          <th><button id='list-sort'>Event Page</button></th>
+		          <th><button id='list-sort'>Location</button></th>
+		          <th><button id='list-sort'>Date/Time</button></th>
+		          <th><button id='list-sort'>EST Stream</button></th>
+		        </tr>
+	          </thead>
+	          <tbody>
+	          <% upcomingEvents.forEach(function(upcomingEvent) { %>
+	            <tr>
+		          <td>
+		            <img class='event-game-thumbnail' src='<%= upcomingEvent.image %>'>
+		          </td>
+		          <td>
+		            <a href='/events/<%= upcomingEvent._id %>'><%= upcomingEvent.title %></a>
+		          </td>
+		          <td>
+		            <%= upcomingEvent.venue + ', ' + upcomingEvent.city + ', ' + upcomingEvent.state %>
+		          </td>
+		          <td>
+		            <%= upcomingEvent.date.toDateString() %>
+		          </td>
+		          <td>
+		          	<% if(upcomingEvent.stream === true) { %>
+		            <%= 'Yes' %>
+		            <% } else { 						   %>
+		            <%= 'No' %>
+		            <% }; 								   %>
+		          </td>
+		      <% }); 											   %>
+	            </tr>
+	          </tbody>
+	        </table>
+	      </div>
+	    </div>
+	    <div class='row'>
+	      <div class='col-xs-12 col-md-12'>
+	      	<img class='billboard-ad' src='../media/ads/billboard.jpg'>
+	      </div>
+	  	</div>
+	  	<div class='row'>
+	      <div class='col-xs-12 col-md-12'>
+	        <div class='content-divider'>
+	      	  <img class='header-image' src='/media/branding/last_weeks_events.png'>
+	        </div>
+	        <table class='events-list' id='past-events-list'>
+	          <thead>
+	            <tr>
+	              <th><button id='list-sort'>Game/Event</button></th>
+	              <th><button id='list-sort'>Event Page</button></th>
+	              <th><button id='list-sort'>Location</button></th>
+	              <th><button id='list-sort'>Date/Time</button></th>
+	              <th><button id='list-sort'>EST Stream</button></th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	          <% pastEvents.forEach(function(pastEvent) { %>
+                <tr>
+	              <td>
+	                <img class='event-game-thumbnail' src='<%= pastEvent.image %>'>
+	              </td>
+	              <td>
+	                <a href='/events/<%= pastEvent._id %>'><%= pastEvent.title %></a>
+	              </td>
+	              <td>
+	                <%= pastEvent.venue + ', ' + pastEvent.city + ', ' + pastEvent.state %>
+	              </td>
+	              <td>
+	                <%= pastEvent.date.toDateString() %>
+	              </td>
+	              <td>
+	          	  <% if(pastEvent.stream === true) { %>
+	                <%= 'Yes' %>
+	              <% } else { 					   %>
+	                <%= 'No' %>
+	              <% }; 							 %>
+	              </td>
+		      <% }); 								   	   %>
+	            </tr>
+	          </tbody>
+	        </table>
+	      </div>
+	    </div>
+	    <div class='row'>
+	      <div class='col-xs-12 col-md-12'>
+	        <div id='event-contact'>
+	          <h3>Know of an event we aren't showing? <a href='info.html#contact-us'>Contact Us!</a></h3>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+<% include ./partials/footer %>

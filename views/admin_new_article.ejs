@@ -1,0 +1,43 @@
+<% include ./partials/admin_header %>
+<div class='container'>
+	  <p><a href='/admin/view-articles'>Return to Articles</a></p>
+	  <h2>Publish a new article:</h2>
+	  <form class='new-item-entry' id='new-article' action='/news' method='POST'>
+		<fieldset id='meta'>
+		  <label>Author: </label>
+		  <input type='text' name='article[author]' value='<%= currentUser.firstName + ' ' + currentUser.lastName %>'>
+		  <br>
+		  <label>Date: [TODAY]</label>
+		  <br>
+		  <label>Categories: </label>
+		  <br>
+		  <div class='game-select'>
+	      <% games.forEach(function(game) { %>
+		    <label>
+		      <input type='checkbox' name='article[categories]' value='<%= game.title %>'>
+		      <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
+		    </label>
+	      <% });                            %>
+	      </div>
+		  <label>Title: </label>
+		  <input type='text' name='article[title]'>
+		  <br>
+		</fieldset>
+	  	<label>Main Content: </label>
+	  	<textarea name='article[body]'></textarea>
+	 	<label>Header Image (local) URL: </label>
+	 	<input type='text' name='article[image]'>
+	 	<br>
+	 	<label>Image Caption: </label>
+	 	<input type='text' name='article[imageCaption]'>
+	 	<br>
+	 	<label>Image Source: </label>
+	 	<input type='text' name='article[imageSource]'>
+	 	<br>
+	 	<label>Source Link (if applicable): </label>
+	 	<input type='text' name='article[sourceLink]'>
+	 	<br>
+	 	<button type='submit'>Post Article</button>
+	  </form>
+	  </div>
+<% include ./partials/admin_footer %>

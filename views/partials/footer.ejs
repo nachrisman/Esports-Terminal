@@ -1,0 +1,69 @@
+    <footer id='footer'>
+      <div class='container-fluid' id='footer-container'>
+        <div class='row'>
+          <div class='col-xs-3'>
+            <img class='footer-logo' src='/media/branding/logo_est_reg.png'>
+          </div>          
+          <div class='col-xs-3'>
+            <h4>Navigation</h4>
+            <ul>
+              <% if(!currentUser) { %>
+              <li><a href='/news'>News</a></li>
+              <li><a href='/events'>Events &amp; Tournaments</a></li>
+              <li><a href='/stream'>Stream</a></li>
+              <li><a href='/login'>Login</a> <b>or</b> <a href='/register'>Set Up Your META</a></li>
+              <% } else { %>
+              <li><a href='/meta'>My META</a></li>
+              <li><a href='/news'>News</a></li>
+              <li><a href='/events'>Events &amp; Tournaments</a></li>
+              <li><a href='/stream'>Stream</a></li>
+              <li><a href='/logout'>Logout</a></li>
+              <% }; %>
+            </ul>
+          </div>
+          <div class='col-xs-3'>
+            <h4>General Information</h4>
+            <ul>
+              <li><a href='/info'>About Us</a></li>
+              <li><a href='/info#faq'>FAQ</a></li>
+              <li><a href='/info#contact-us'>Contact</a></li>
+            </ul>
+          </div>
+          <div class='col-xs-3'>
+            <h4>Follow Us on Social Media</h4>
+            <ul id='footer-social'>
+              <li>
+                <a class='btn' href='https://www.facebook.com/EST-1458819794184730/' target='_blank'>
+                  <button type='button' class='btn btn-fb'>
+                    <i class='fa fa-facebook left'></i> Facebook
+                  </button>
+                </a>
+              </li>
+              <li>
+                <a class='btn' href='www.twitter.com/esttweets' target='_blank'>
+                  <button type='button' class='btn btn-tw'>
+                    <i class='fa fa-twitter left'></i> Twitter
+                  </button>
+                </a>
+              </li>
+              <li>
+                <a class='btn' href='www.instagram.com/esportsterminal' target='_blank'>
+                  <button type='button' class='btn btn-ins'>
+                    <i class='fa fa-instagram left'></i> Instagram
+                  </button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class='container-fluid' id='copyright'>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <p>Copyright &copy; 2017 eSportsTerminal.com | <a href='privacy-policy'>Privacy Policy</a> | <a href='terms-of-use'>Terms of Service</a> | <a href='sitemap'>Sitemap</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

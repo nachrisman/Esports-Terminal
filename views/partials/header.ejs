@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>eSports Terminal - News, Events, Meta</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='/stylesheets/stylesheet.css'>
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src='//player.twitch.tv/js/embed/v1.js'></script>
+    <script src='/scripts/scripts.js'></script>
+  </head>
+  <body>
+    <nav class='navbar navbar-default'>
+      <div class='navbar-header'>
+        <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#main-nav-links' aria-expanded='false'>
+          <span class='sr-only'>Toggle navigation</span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+        <a href='/news' class='nav navbar-nav'>
+          <img src='/media/branding/logo_est_reg.png' id='nav-logo'>
+        </a>
+      </div>
+      <div class='collapse navbar-collapse' id='main-nav-links'>
+        <ul class='nav navbar-nav'>
+          <li><a href='/news'>News</a></li>
+          <li><a href='/events'>Events &amp; Tournaments</a></li>
+          <li><a href='/stream'>Stream</a></li>
+        </ul>
+        <ul class='nav navbar-nav navbar-right'>
+          <li><a class='btn' href='https://www.facebook.com/EST-1458819794184730/' target='_blank'>
+          <button type='button' class='btn btn-fb' id='quick-fb'><i class='fa fa-facebook'></i></button></a></li>
+          <li><a class='btn' id='nav-quick-social' href='http://www.twitter.com/esttweets' target='_blank'>
+          <button type='button' class='btn btn-tw' id='quick-tw'><i class='fa fa-twitter'></i></button></a></li>
+          <li><a class='btn' id='nav-quick-social' href='http://www.instagram.com/esportsterminal' target='_blank'>
+          <button type='button' class='btn btn-ins' id='quick-ins'><i class='fa fa-instagram'></i></button></a>
+          </li>
+          <% if(!currentUser) { %>
+            <li><a href='/login'>Log In</a></li>
+          <% } else {           %>
+            <li><a href='/meta'>My META</a></li>
+            <li><a href='/account/meta-settings'>My Account</a></li>
+            <li><a href='/logout'>Logout</a></li>
+          <% };                 %>
+        </ul>
+      </div>
+    </nav>
+    <div class='container'>
+      <% if(error && error.length > 0) {     %>
+        <div class='alert alert-danger' role='alert'>
+          <%= error %>
+        </div>
+      <% };                                  %>
+      <% if(success && success.length > 0) { %>
+      <div class='alert alert-success' role='alert'>
+        <%= success %>
+      </div>
+      <% };                                  %>
+    </div>

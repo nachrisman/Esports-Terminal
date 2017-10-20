@@ -1,0 +1,47 @@
+<% include ./partials/admin_header %> 
+<div class='container'>
+	  <p><a href='/admin/view-events'>Return to Events</a></p>
+	  <h2>Edit <%= event.title %>:</h2>
+	  <form class='new-item-entry' id='new-event' action='/events/<%= event._id %>?_method=PUT' method='POST'>
+		<fieldset id='meta'>
+		  <label>Event Title: </label>
+		  <input type='text' name='event[title]' value='<%= event.title %>'>
+		  <br>
+		  <label>Date of Event: </label>
+		  <input type='date' name='event[date]' value='<%= event.date %>'>
+		  <br>
+		  <div class='game-select'>
+		  <% games.forEach(function(game) {          %>
+			<label>
+		  <% 	if(event.games.indexOf(game) > -1) { %>
+			  <input type='checkbox' name='event[games]' value='<%= game.title %>' selected='selected'>
+		  <% 	} else {                             %>
+			  <input type='checkbox' name='event[games]' value='<%= game.title %>'>
+		  <% 	};                                   %>
+			  <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
+			</label>
+		  <% });                                     %>
+		  </div>
+		</fieldset>
+		<label>Description: </label>
+		<textarea name='event[description]'><%= event.description %></textarea>
+		<label>Event Image URL: </label>
+		<input type='text' name='event[image]' value='<%= event.image %>'>
+		<br>
+		<label>Venue: </label>
+		<input type='text' name='event[venue]' value='<%= event.venue %>'>
+		<br>
+		<label>City: </label>
+		<input type='text' name='event[city]' value='<%= event.city %>'>
+		<br>
+		<label>State: </label>
+		<input type='text' name='event[state]' value='<%= event.state %>'>
+		<label>Source Link (if applicable): </label>
+		<input type='text' name='event[sourceLink]' value='<%= event.sourceLink %>'>
+		<button type='submit'>Update Event</button>
+	  </form>
+	  <form class='new-item-entry' id='delete-item' action='/events/<%= event._id %>?_method=DELETE' method='POST'>
+	    <button type='submit'>DELETE EVENT</button>
+	  </form>
+	  </div>
+<% include ./partials/admin_footer %>

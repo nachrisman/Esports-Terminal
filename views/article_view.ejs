@@ -1,0 +1,81 @@
+<% include ./partials/header %>
+    <div class='container-fluid' id='primary-wrapper'>
+      <div class='col-xs-12 col-md-12'>
+        <img class='billboard-ad' src='../media/ads/billboard.jpg'>
+      </div>
+      <div class='row'>
+        <div class='col-xs-4 col-md-4'>
+          <div class='content-divider' id='related-articles'>
+            <img class='header-image' src='/media/branding/related_articles.png'>
+          </div>
+          <div class='preview'>
+          <% var foundCategories = foundArticle.categories;                      %>
+          <% var usedArticleIds = [];                                            %>
+          <% relatedArticles.forEach(function(relatedArticle) {                  %>
+          <% var relatedCategories = relatedArticle.categories;                  %>
+          <%    relatedCategories.forEach(function(relatedCategory) {            %>
+          <%        if((foundCategories.indexOf(relatedCategory) > -1) && !(usedArticleIds.indexOf(relatedArticle._id) > -1)) {                                 %>
+          <%          usedArticleIds.push(relatedArticle._id);                   %>
+            <div class='article-preview'>
+              <a class='sidebar-link' href='/news/<%= relatedArticle._id %>'>
+                <div class='article-preview-image'>
+                  <img class='article-preview-image' src='<%= relatedArticle.image %>'>
+                </div>
+                <div class='preview-headline'>
+                  <h3 class='article-title'><%= relatedArticle.title.substr(0, 30) %>...</h3>
+                </div>
+              </a>
+            </div>
+            <%        }                                                           %>
+            <%    });                                                             %>
+            <% });                                                                %>
+          </div>
+          <img class='rectangle-ad' src='../media/ads/medium_rectangle.jpg'>
+          <img class='rectangle-ad' src='../media/ads/medium_rectangle.jpg'>
+        </div>
+        <div class='col-xs-8 col-md-8' id='post-wrapper'>
+      		<article>
+      			<header>
+      				<h1><%=foundArticle.title%></h1>
+      			</header>
+      			<div class='meta-container'>
+      				<p>Author: <%=foundArticle.author%></p>
+      				<p>Published: <%= foundArticle.published.toDateString() %></p>
+      				<p>Categories: <%= foundArticle.categories %></p>
+      			</div>
+      			<div class='post-content'>
+      				<figure>
+      					<img class='article-figure' src='<%=foundArticle.image%>'>
+                <figcaption>
+                  Description: <%= foundArticle.imageCaption %> ---
+                  Source: <%= foundArticle.imageSource %>  
+                </figcaption>
+      				</figure>
+      				<p class='article-body'><%- foundArticle.body %></p>
+              <p>Source Article: <a class='source-link' target='_blank' href='<%= foundArticle.sourceLink %>'>Click here</a></p>
+      				<p class='end-content-return'><a  href='/news'>Go back to the News page > > ></a></p>
+      			</div>
+      		</article>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12 col-md-12' id='suggested-articles'>
+          <div class='content-divider'>
+            <img class='header-image' src='/media/branding/suggested_articles.png'>
+          </div>
+          <div class='preview'>
+            <div class='article-preview'>
+              <a class='preview-link' href='/news/'>
+                <div class='article-preview-image'>
+                  <img class='article-preview-image' src=''>
+                </div>
+                <div class='preview-headline'>
+                  <h3 class='article-title'>title...</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% include ./partials/footer %>

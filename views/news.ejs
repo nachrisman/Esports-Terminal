@@ -1,0 +1,105 @@
+<% include ./partials/header %>
+      <div class='container-fluid' id='primary-wrapper'>
+        <div class='row'>
+          <div class='col-xs-12 col-md-12'>
+            <img class='billboard-ad' src='../media/ads/billboard.jpg'>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4 col-md-4' id='sidebar-container'>
+            <div class='content-divider'>
+              <img class='header-image' src='/media/branding/icymi.png'>
+            </div>
+            <div class='preview'>
+            <% if(pastArticles.length == 0) {               %>
+              <p>No Articles to show</p>
+            <% } else {                                     %>
+            <% pastArticles.forEach(function(pastArticle) { %>
+              <div class='article-preview'>
+                <a class='preview-link' href='/news/<%= pastArticle._id %>'>
+                  <div class='article-preview-image'>
+                    <img class='article-preview-image' src='<%= pastArticle.image %>'>
+                  </div>
+                  <div class='preview-headline'>
+                    <h3 class='article-title'><%= pastArticle.title.substr(0, 30) %>...</h3>
+                  </div>
+                </a>
+              </div>
+            <% });                                          %>
+            <% };                                           %>
+            </div>
+            <img class='rectangle-ad' src='/media/ads/medium_rectangle.jpg'>
+            <div class='content-divider'>
+              <img class='header-image' src='/media/branding/icymi.png'>
+            </div>
+            <div class='preview'>
+            <% if(pastArticles.length == 0) {               %>
+              <p>No Articles to show</p>
+            <% } else {                                     %>
+            <% pastArticles.forEach(function(pastArticle) { %>
+              <div class='article-preview'>
+                <a class='preview-link' href='/news/<%= pastArticle._id %>'>
+                  <div class='article-preview-image'>
+                    <img class='article-preview-image' src='<%= pastArticle.image %>'>
+                  </div>
+                  <div class='preview-headline'>
+                    <h3 class='article-title'><%= pastArticle.title.substr(0, 30) %>...</h3>
+                  </div>
+                </a>
+              </div>
+            <% }); %>
+            <% }; %>
+            </div>
+            <img class='rectangle-ad' src='/media/ads/medium_rectangle.jpg'>
+          </div>
+          <div class='col-xs-8 col-md-8' id='post-wrapper'>
+        	<% articles.forEach(function(article){ %>
+            <div class='post-preview'>
+        		  <article>
+                <div id='header-preview'>
+          			 <header>
+          			   <h1 class='article-header'><a href='/news/<%= article._id %>' ><%= article.title %></a></h1>
+          			 </header>
+                </div>
+                <div class='image-preview'>
+                  <figure>
+                    <img class='article-figure' src=<%= article.image %>
+                  </figure>
+                </div>
+        			  <div class='post-content' id='content-preview'>
+        				  <p class='article-body-preview'><%- article.body.substr(0, 300) %>...</p>
+                  <p class='read-more'><a  href='/news/<%= article._id %>'>Read More > > ></a></p>
+        			  </div>
+        		  </article>
+            </div>
+            <div class='clear-div'></div>
+        	<% });                                  %>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-xs-12 col-md-12' id='suggested-articles'>
+          <div class='content-divider'>
+            <img class='header-image' src='/media/branding/suggested_articles.png'>
+          </div>
+          <div class='preview'>
+          <% if(pastArticles.length == 0) {               %>
+            <p>No Articles to show</p>
+          <% } else {                                     %>
+          <% pastArticles.forEach(function(pastArticle) { %>
+            <div class='article-preview'>
+              <a class='preview-link' href='/news/<%= pastArticle._id %>'>
+                <div class='article-preview-image'>
+                  <img class='article-preview-image' src='<%= pastArticle.image %>'>
+                </div>
+                <div class='preview-headline'>
+                  <h3 class='article-title'><%= pastArticle.title.substr(0, 80) %>...</h3>
+                </div>
+              </a>
+            </div>
+          <% });                                          %>
+          <% };                                           %>
+          </div>
+        </div>
+        </div>
+      </div>
+<% include ./partials/footer %>

@@ -1,0 +1,44 @@
+<% include ./partials/admin_header %>
+	  <div class='container'>
+		<div class='content-actions'>
+		  <p><a href='/admin/new-event'>Add a new Event</a></p>
+		  <div class='form-group row'>
+  			<label for='content-search' class='col-2 col-form-label'>Search</label>
+  			<div class='col-4'>
+  			  <input class='form-control' type='search' placeholder='search events' id='content-search'>
+  			</div>
+  		  </div>
+	  	</div>
+	    <table class='item-list' id='event-list'>
+		  <thead>
+		    <tr>
+			  <th>Event Date</th>
+			  <th>Title</th>
+			  <th>Games</th>
+			  <th>Location</th>
+			  <th>City</th>
+			  <th>State</th>
+			  <th>EST Stream</th>
+			  <th>Edit/View</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  <% events.forEach(function(event){ %>
+		    <tr>
+		      <td><%= event.date.toDateString() %></td>
+		      <td><%= event.title %></td>
+		      <td><%= event.games %></td>
+		      <td><%= event.venue %></td>
+		      <td><%= event.city %></td>
+		      <td><%= event.state %></td>
+		      <td><%= event.stream %></td>
+		      <td>
+		    	<a href='/admin/edit-event/<%= event._id %>'>Edit</a> / 
+		    	<a href='/events/<%= event._id %>'>View</a>
+		      </td>
+		    </tr>
+		  <% });                              %>
+		  </tbody>
+	    </table>
+	  </div>
+<% include ./partials/admin_footer %>
