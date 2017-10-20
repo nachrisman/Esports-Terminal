@@ -19,9 +19,11 @@ var adminRoutes 	= require('./routes/admin'),
 	accountRoutes 	= require('./routes/account'),
 	indexRoutes 	= require('./routes/index');
 
+var url = process.env.DATABASEURL || 'mongodb://localhost/est';
+
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect('mongodb://estadmin:estadmin@ds125555.mlab.com:25555/esports_terminal');
+
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
