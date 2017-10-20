@@ -17,37 +17,46 @@
     				<form class='user-account-edit' action='/account/info?_method=PUT' method='POST'>
     					<h3>User Information</h3>
     					<div class='form-group' id='user-names'>
+    					  <label>Username: 
+    					      <input type='text' name='user[username]' value='<%= currentUser.username %>'>
+    					  </label>
     					  <label>First Name: 
-                  <input type='text' name='user[firstName]' value='<%= currentUser.firstName %>'>
-                </label> 
-    					  <label>Last Name: 
-                  <input type='text' name='user[lastName]' value='<%= currentUser.lastName %>'>
-                </label> 
+                              <input type='text' name='user[firstName]' value='<%= currentUser.firstName %>'>
+                          </label> 
+    			          <label>Last Name: 
+                              <input type='text' name='user[lastName]' value='<%= currentUser.lastName %>'>
+                            </label> 
+                          <label>Phone: 
+		                    <input type='phone' name='user[phone]' value='<%= currentUser.phone %>'>
+    					  </label>
     					</div>
     					<div class='form-group' id='user-location'>
     					  <label>Address</label>
     					  <label>Street: 
-                  <input type='text' name='user[location][street]' value='<%= currentUser.location.street %>'>
-                </label> 
-    					  <label>City: 
-                  <input type='text' name='user[location][city]' value='<%= currentUser.location.city %>'>
-                </label>
-    					  <label>State: 
+                              <input type='text' name='user[location][street]' value='<%= currentUser.location.street %>'>
+                          </label> 
+    			          <label>City: 
+                              <input type='text' name='user[location][city]' value='<%= currentUser.location.city %>'>
+                          </label>
+    			          <label>State: 
       						<select name='user[location][state]'>
       						<% states.forEach(function(state) { %>
+      						<%     if(currentUser.location.state == state) {%>
+      							<option value='<%= state %>' selected><%= state %></option>
+      							<% } else { %>
       							<option value='<%= state %>'><%= state %></option>
-      						<% });                              %>
+      							<% } %>
+      						<% }); %>
       						</select>
-  					    </label>
-  					    <label>Zip Code: 
-                  <input type='text' name='user[location][zip]' value='<%= currentUser.location.zip %>'>
-                </label>
+  					      </label>
+  					      <label>Zip Code: 
+                              <input type='text' name='user[location][zip]' value='<%= currentUser.location.zip %>'>
+                          </label>
     					</div>
     					<div class='form-group'>
     						<label>E-Mail: 
-                  <input type='email' name='user[email]' value='<%= currentUser.email %>'>
-                </label>
-    						<label>Username: <%= currentUser.username %></label>
+                              <input type='email' name='user[email]' value='<%= currentUser.email %>'>
+                            </label>
     						<label>Gender: 
     							<select name='user[gender]'>
     								<% if(currentUser.gender === 'male') {          %>

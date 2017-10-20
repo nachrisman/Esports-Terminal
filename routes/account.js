@@ -10,7 +10,7 @@ var express 	= require('express'),
 var states = country.states('US');
 
 router.get('/', middleware.isLoggedIn, function(req, res){
-	res.render('account');
+	res.redirect('/meta_settings');
 });
 
 router.get('/info/', middleware.isLoggedIn, function(req, res){

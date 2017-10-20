@@ -14,6 +14,10 @@ router.get('/', middleware.isAdmin, function(req, res){
 	res.render('admin');
 });
 
+router.get('/account', middleware.isAdmin, function(req, res){
+	res.render('admin_account', {states: states});	
+});
+
 router.get('/view-users', middleware.isAdmin, function(req, res){
 	User.find({}).sort({lastName: 1}).exec(function(err, users){
 		if(err){

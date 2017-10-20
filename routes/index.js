@@ -9,18 +9,20 @@ var express 	= require('express'),
 	middleware  = require('../middleware');
 
 /*=============
-  OTHER PAGES
+  MISC ROUTES
 =============*/
-//Stream Page with upcoming streams list
+//stream view with upcoming streams list
 router.get('/stream', function(req, res){
 	var today = moment().startOf('day');
 
-	Event.find({stream: true, date: {$gt: today.toDate()}}).sort({date: -1}).exec(function(err, upcomingStreams){
+	Event.find({
+		stream: true, 
+		date: {$gt: today.toDate()}}).sort({date: 1}).exec(function(err, upcomingStreams){
 		if(err){
 			console.log(err);
 		} else {
 			res.render('stream', {upcomingStreams: upcomingStreams});
-		};
+		}
 	});
 });
 
@@ -33,24 +35,26 @@ router.get('/terms-of-use', function(req, res){
 	res.render('terms_of_use');
 });
 
-
-//Website About
+//info page
 router.get('/info', function(req, res){
 	res.render('info');
 });
 
-//Podcast View
-router.get('/podcast', function(req, res){
-	res.render('podcast');
-});
+//Podcast View - waiting on this for now
+// router.get('/podcast', function(req, res){
+// 	res.render('podcast');
+// });
 
 
 /*==================
    AUTHENTICATION
 ==================*/
-//landing page
 router.get('/', function(req, res){
-	res.render('index');
+	if(req.isAuthenticated()){
+		res.redirect('/meta');
+	} else {
+		res.redirect('/news');
+	}
 });
 
 router.get('/login', function(req, res){
@@ -60,7 +64,7 @@ router.get('/login', function(req, res){
 //META Routes
 router.get('/meta/', middleware.isLoggedIn, function(req, res){
 	var today = moment().startOf('day');
-	var nextWeek = moment().add(7, 'days')
+	var nextWeek = moment().add(7, 'days');
 
 	Article.find({}).sort({published: -1}).limit(9).exec(function(err, articles){
 		if(err){
@@ -75,9 +79,9 @@ router.get('/meta/', middleware.isLoggedIn, function(req, res){
 						articles: articles,
 						foundEvents: foundEvents
 					});
-				};
+				}
 			});	
-		};
+		}
 	});
 });
 
@@ -100,7 +104,7 @@ router.get('/register', function(req, res){
 			console.log(err);
 		} else {
 			res.render('register', {games: games});
-		};
+		}
 	});
 });
 
@@ -121,7 +125,7 @@ router.post('/register', function(req, res){
 			return res.redirect('/register');
 		}
 		passport.authenticate('local')(req, res, function(){
-			req.flash('success', 'Welcome, ' + user.username + '! ' + 'Account successfully created!')
+			req.flash('success', 'Welcome, ' + user.username + '! ' + 'Let\'s finish your META');
 			res.redirect('/account');
 		});
 	});

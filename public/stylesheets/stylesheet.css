@@ -313,7 +313,7 @@ body, html {
 
 /* meta settings */
 #user-meta-settings{
-    justify-content: left;
+    justify-content: flex-start;
 }
 
 .user-meta-settings{
@@ -335,15 +335,22 @@ body, html {
 
 /* account info */
 .user-account-edit{
-    width:30%;
+    width:50%;
+}
+
+.user-account-edit label, input{
+    display:inline-block;
+    vertical-align: baseline;
 }
 
 .user-account-edit label{
-    display:block;
+    margin-left:0;
+    width:100%;
  }
 
- .user-account-edit input{
-    width:100%;
+ .user-account-edit input, select{
+    float:right;
+    width:80%;
  }
 
 /* meta - complete */

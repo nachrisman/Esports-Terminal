@@ -8,14 +8,6 @@ middlewareObj.isLoggedIn = function(req, res, next){
 	res.redirect('/login');
 };
 
-middlewareObj.isLoggedInMeta = function(req, res, next){
-	if(req.isAuthenticated()){
-		return next();
-	} else {
-		res.redirect('/');
-	}
-};
-
 middlewareObj.isAdmin = function(req, res, next){
 	if(req.isAuthenticated() && (req.user.role === 'admin')){
 		return next();

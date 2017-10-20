@@ -12,7 +12,7 @@
             <div id='twitch-stream-player'>
               <script type='text/javascript'>insertTwitchFeed();</script>
             </div>
-            <div class='container'>
+            <div>
               <img class="leaderboard-ad" src="/media/ads/leaderboard.jpg">
             </div>
           </div>
@@ -31,34 +31,40 @@
             <div class='content-divider'>
               <img class='header-image' src='/media/branding/upcoming_streams.png'>
             </div>
-            <table class='events-list' id='upcoming-streams'>
-              <thead>
-                <tr>
-                  <th><button id='list-sort'>Game/Event</button></th>
-                  <th><button id='list-sort'>Event Page</button></th>
-                  <th><button id='list-sort'>Location</button></th>
-                  <th><button id='list-sort'>Date/Time</button></th>
-                </tr>
-              </thead>
-              <tbody>
-              <% upcomingStreams.forEach(function(upcomingStream) { %>
-                <tr>
-                  <td>
-                    <img class='event-game-thumbnail' src='<%= upcomingStream.image %>'>
-                  </td>
-                  <td>
-                    <a href='/events/<%= upcomingStream._id %>'><%= upcomingStream.title %></a>
-                  </td>
-                  <td>
-                    <%= upcomingStream.venue + ', ' + upcomingStream.city + ', ' + upcomingStream.state %>
-                  </td>
-                  <td>
-                    <%= upcomingStream.date.toDateString() %>
-                  </td>
-              <% });                                                  %>
-                </tr>
-              </tbody>
-            </table>
+            <div class='container'>
+              <% if(!upcomingStreams) { %>
+              <h1>We don't have any upcoming streams :(. We're working on it!</h1>
+              <% } else { %>
+              <table class='events-list' id='upcoming-streams'>
+                <thead>
+                  <tr>
+                    <th><button id='list-sort'>Game/Event</button></th>
+                    <th><button id='list-sort'>Event Page</button></th>
+                    <th><button id='list-sort'>Location</button></th>
+                    <th><button id='list-sort'>Date/Time</button></th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% upcomingStreams.forEach(function(upcomingStream) { %>
+                  <tr>
+                    <td>
+                      <img class='event-game-thumbnail' src='<%= upcomingStream.image %>'>
+                    </td>
+                    <td>
+                      <a href='/events/<%= upcomingStream._id %>'><%= upcomingStream.title %></a>
+                    </td>
+                    <td>
+                      <%= upcomingStream.venue + ', ' + upcomingStream.city + ', ' + upcomingStream.state %>
+                    </td>
+                    <td>
+                      <%= upcomingStream.date.toDateString() %>
+                    </td>
+                <% }); %>
+                <% } %>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
