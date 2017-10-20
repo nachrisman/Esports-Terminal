@@ -42,6 +42,13 @@
 	width:50%;
 }
 
+/* dashboard */
+#quick-stats label, p{
+    display: inline-block;
+}
+
+
+
 /* Forms */
 .user-account-edit{
     text-align:center;

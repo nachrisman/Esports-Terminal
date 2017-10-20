@@ -11,7 +11,31 @@ var express 	= require('express'),
 var states = country.states('US');
 
 router.get('/', middleware.isAdmin, function(req, res){
-	res.render('admin');
+	Article.find({}, function(err, articles){
+		if(err){
+			console.log(err);
+		} else {
+			Event.find({}, function(err, events){
+				if(err){
+					console.log(err);
+				} else {
+					Game.find({}, function(err, games){
+						if(err){
+							console.log(err);
+						} else {
+							User.find({}, function(err, users){
+								if(err){
+									console.log(err);
+								} else {
+									res.render('admin', {articles: articles, events: events, games: games, users: users});
+								}
+							});
+						}
+					});
+				}
+			});
+		}
+	});
 });
 
 router.get('/account', middleware.isAdmin, function(req, res){
@@ -134,9 +158,9 @@ router.get('/edit-event/:id', middleware.isAdmin, function(req, res){
 					console.log(err);
 				} else {
 					res.render('admin_edit_event', {event: foundEvent, games: games});
-				};
+				}
 			});
-		};
+		}
 	});
 });
 

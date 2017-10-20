@@ -2,8 +2,9 @@
 body, html {
     background-color:#fff;
     color:#000;
-    font-family:Geneva;
-    font-size:12pt;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Signika', sans-serif;
+    font-size:14pt;
 }
 
 #primary-wrapper{
@@ -171,8 +172,8 @@ body, html {
 
 .image-preview{
     float:left;
-    margin: 0 10px 10px 10px;
-    width:500px;
+    margin: 0 50px 10px 30px;
+    max-width:500px;
     height:auto;
 }
 
@@ -182,7 +183,8 @@ body, html {
 }
 
 .post-preview{
-    max-height:400px;
+    background-color:yellow;
+    max-height:100%;
 }
 
 .article-body-preview{
@@ -202,7 +204,7 @@ body, html {
 .article-preview{
     position:relative;
     text-decoration: none;
-    border: 2px solid #000;
+    /*border: 2px solid #000;*/
     max-width:48%;
     height:auto;
     object-fit: cover;
@@ -258,7 +260,7 @@ body, html {
 .article-figure{
     max-width:100%;
     max-height:300px;
-    border: 2px solid #000;
+    /*border: 2px solid #000;*/
     margin-bottom:20px;
     margin:0 auto;
     display:block;
