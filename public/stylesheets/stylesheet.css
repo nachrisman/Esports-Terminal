@@ -47,6 +47,11 @@ h2{
     max-width:100%;
 }
 
+.leaderboard-ad{
+    width:720px;
+    height:90px;
+}
+
 .source-link{
     text-align:left;
 }
@@ -201,7 +206,7 @@ hr{
 }
 
 .post-preview{
-    max-height:100%;
+    max-height:90%;
 }
 
 .article-body-preview{
@@ -224,7 +229,6 @@ hr{
     /*border: 2px solid #000;*/
     max-width:48%;
     height:auto;
-    object-fit: cover;
     margin:0 auto 20px auto;
 }
 
@@ -581,19 +585,20 @@ hr{
     width:90%;
 }
 
-
 /* stream - complete */
 #twitch-stream-player{
     text-align:center;
 }
 
-#stream-view .leaderboard-ad{
+#leaderboard{
+    display:block;
     margin: 75px auto;
 }
 
 #stream-chat{
     text-align:left;
 }
+
 
 /* register - complete */
 #registration-form-container{
