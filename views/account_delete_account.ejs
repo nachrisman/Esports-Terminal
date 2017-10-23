@@ -1,0 +1,50 @@
+<% include ./partials/header %>
+      <div class='container-fluid' id='primary-wrapper'>
+        <div class='row'>
+        	<div class='col-xs-3 col-md-3'>
+        		<div class='account-nav'>
+        			<h3>My Account</h3>
+        			<ul>
+        				<li><a href='/account/meta-settings'>META Settings</a></li>
+        				<li><a href='/account/info'>Account Information</a></li>
+        				<li><a href='/account/security'>Security</a></li>
+        				<li><a href='/logout'>Log Out</a></li>
+        			</ul>
+        		</div>
+        	</div>
+        	<div class='col-xs-9 col-md-9'>
+        		<div class='account-content'>
+                  <h1>Delete Account</h1>
+                  <p>Are you sure you want to delete your account? We're sorry to see you go.</p>
+                  <p>Please tell us why you're leaving.</p>
+                  <form class='delete-account' action='/delete-account?_method=DELETE' method='POST'>
+                      <label>Reason for Leaving: 
+                          <select required>
+                              <option selected>Select a Reason</option>
+                              <option>The content was not relevant</option>
+                              <option>The site is too hard to use</option>
+                              <option>I don't use the site anymore</option>
+                              <option>Other</option>
+                          </select>
+                      </label>
+                      <label>Any additional comments?
+                          <textarea></textarea>
+                      </label>
+                      <br>
+                      <br>
+                      <p>You must enter your password to delete your account.</p>
+                      <label>Current Password: 
+    				    <input type='password' name='password'>
+    			      </label>
+    			      <br>
+    			      <br>
+    			      <p class='text-danger'>WARNING! Your account will be PERMANENTLY DELETED!</p>
+    			      <p class='text-danger'>Only click the button below if you are absolutely sure you want to delete your account.</p>
+    			      <p class='text-danger'>This cannot be undone.</p>
+    			      <button class='btn btn-danger' type='submit'>DELETE ACCOUNT</button>
+                  </form>
+                </div>
+          </div>
+        </div>
+      </div>
+<% include ./partials/footer %>

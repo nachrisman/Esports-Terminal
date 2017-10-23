@@ -41,7 +41,7 @@
       			<div class='meta-container'>
       				<p>Author: <%=foundArticle.author%></p>
       				<p>Published: <%= foundArticle.published.toDateString() %></p>
-      				<p>Categories: <%= foundArticle.categories %></p>
+      				<p>Categories: <% foundArticle.categories.forEach(function(category){ %> <%= category + ', ' %> <% }); %></p>
       			</div>
       			<div class='post-content'>
       				<figure>
@@ -52,7 +52,7 @@
                 </figcaption>
       				</figure>
       				<p class='article-body'><%- foundArticle.body %></p>
-              <p>Source Article: <a class='source-link' target='_blank' href='<%= foundArticle.sourceLink %>'>Click here</a></p>
+              <p class='article-body'>Source Article: <a class='source-link' target='_blank' href='<%= foundArticle.sourceLink %>'>Click here</a></p>
       				<p class='end-content-return'><a  href='/news'>Go back to the News page > > ></a></p>
       			</div>
       		</article>

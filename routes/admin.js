@@ -4,11 +4,12 @@ var express 	= require('express'),
 	Event 		= require('../models/event'),
 	Article 	= require('../models/article'),
 	Game 		= require('../models/game'),
-	passport 	= require('passport'),
 	middleware  = require('../middleware'),
-	country		= require('countryjs');
+	country		= require('countryjs'),
+	countryList = require('country-list')();
 
-var states = country.states('US');
+var states	  = country.states('US'),
+	countries = countryList.getNames();
 
 router.get('/', middleware.isAdmin, function(req, res){
 	Article.find({}, function(err, articles){
@@ -39,7 +40,7 @@ router.get('/', middleware.isAdmin, function(req, res){
 });
 
 router.get('/account', middleware.isAdmin, function(req, res){
-	res.render('admin_account', {states: states});	
+	res.render('admin_account', {states: states, countries: countries});	
 });
 
 router.get('/view-users', middleware.isAdmin, function(req, res){
@@ -53,7 +54,7 @@ router.get('/view-users', middleware.isAdmin, function(req, res){
 });
 
 router.get('/new-user', middleware.isAdmin, function(req, res){
-	res.render('admin_new_user', {states: states});
+	res.render('admin_new_user', {states: states, countries: countries});
 });
 
 router.post('/new-user', middleware.isAdmin, function(req, res){
@@ -77,7 +78,7 @@ router.post('/new-user', middleware.isAdmin, function(req, res){
 		if(err){
 			req.flash('error', 'Could not add user. Check error logs.');
 			console.log(err);
-			return res.render('admin_new_user', {states: states});
+			return res.render('admin_new_user', {states: states, countries: countries});
 		}
 		req.flash('success', 'User added successfully!');
 		res.redirect('/admin/view-users');
@@ -89,7 +90,7 @@ router.get('/edit-user/:id', middleware.isAdmin, function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render('admin_edit_user', {user: foundUser, states: states});
+			res.render('admin_edit_user', {user: foundUser, states: states, countries: countries});
 		}
 	});
 });

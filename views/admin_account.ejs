@@ -58,8 +58,14 @@
 			<input type='text' name='user[location][zip]' value='<%= currentUser.location.zip %>'>
 		</label>
 		<label>Country: 
-			<select name='country'>
-		  		<option value='US'>US</option>
+			<select name='user[location][country]'>
+			  <% countries.forEach(function(country) { %>
+			  <% 	if(currentUser.location.country == country) { %>
+			  	<option value='<%= country %>' selected><%= country %></option>
+			  	<% } else { %>
+			  	<option value='<%= country %>'><%= country %></option>
+			  	<% } %>
+			  <% }); %>
 			</select>
 		</label>
 		<br>

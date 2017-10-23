@@ -47,22 +47,28 @@
 		<input type='text' name='user[location][city]' value='<%= user.location.city %>'>
 		<label>State: </label>
 		<select name='user[location][state]' value='<%= user.location.state %>'>
-		<% states.forEach(function(state) {            %>
+		<% states.forEach(function(state) { %>
 		  <option value='<%= state %>' 
-		<%     if(state === user.location.state) {     %> 
+		<%     if(state === user.location.state) { %> 
 			selected='selected'><%= state %></option>
-		<%     } else {                                %>
+		<%     } else { %>
 			><%= state %></option>
-		<% 	   };                                      %>
-		<% });                                         %>
+		<% 	   }; %>
+		<% }); %>
+		</select>
+		<br>
+		<label>Country: </label>
+		<select name='user[location][country]'>
+		  <% countries.forEach(function(country) { %>
+		  <% 	if(user.location.country == country) { %>
+		  	<option value='<%= country %>' selected><%= country %></option>
+		  	<% } else { %>
+		  	<option value='<%= country %>'><%= country %></option>
+		  	<% } %>
+		  <% }); %>
 		</select>
 		<label>Zip Code: </label>
 		<input type='text' name='user[location][zip]' value='<%= user.location.zip %>'>
-		<br>
-		<label>Country: </label>
-		<select name='country'>
-		  <option value='US'>US</option>
-		</select>
 		<br>
 		<label>ACCESS LEVEL</label>
 		<br>

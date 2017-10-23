@@ -12,7 +12,6 @@ var passportLocalMongoose = require('passport-local-mongoose'),
 	express               = require('express'),
 	app                   = express();
 
-
 var adminRoutes 	= require('./routes/admin'),
 	newsRoutes  	= require('./routes/news'),
 	eventRoutes 	= require('./routes/events'),
@@ -20,8 +19,8 @@ var adminRoutes 	= require('./routes/admin'),
 	indexRoutes 	= require('./routes/index');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASEURL);
-// mongoose.connect('mongodb://localhost/est', {useMongoClient: true});
+mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
+//mongoose.connect('mongodb://localhost/est', {useMongoClient: true});
 
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));

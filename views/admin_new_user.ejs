@@ -43,13 +43,16 @@
 		<% });                              %>
 		</select>
 		<br>
-		<label>Zip Code: </label>
-		<input type='number' name='zip'>
-		<br>
 		<label>Country: </label>
 		<select name='country'>
-		  <option value='US'>US</option>
+		  <% countries.forEach(function(country) { %>
+		  	<option value='<%= country %>'><%= country %></option>
+		  <% }); %>
 		</select>
+		<br>
+		<label>Zip Code: </label>
+		<input type='text' name='zip'>
+		<br>
 		<label>ACCESS LEVEL</label>
 		<br>
 		<label>Role: </label>

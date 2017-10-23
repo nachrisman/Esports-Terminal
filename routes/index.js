@@ -6,11 +6,20 @@ var express 	= require('express'),
 	moment 		= require('moment'),
 	passport 	= require('passport'),
 	User 	 	= require('../models/user'),
-	middleware  = require('../middleware');
+	middleware  = require('../middleware'),
+	countryList = require('country-list')(),
+	country		= require('countryjs');
+	
+var states	  = country.states('US'),
+	countries = countryList.getNames();
 
 /*=============
   MISC ROUTES
 =============*/
+router.get('/search', function(req, res){
+	res.render('search');	
+});
+
 //stream view with upcoming streams list
 router.get('/stream', function(req, res){
 	var today = moment().startOf('day');
@@ -103,7 +112,7 @@ router.get('/register', function(req, res){
 			req.flash('error', 'Something went wrong.');
 			console.log(err);
 		} else {
-			res.render('register', {games: games});
+			res.render('register', {games: games, countries: countries, states: states});
 		}
 	});
 });
@@ -113,7 +122,8 @@ router.post('/register', function(req, res){
 		username: req.body.username,
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
-		email: req.body.email
+		email: req.body.email,
+		location: {country: req.body.country}
 	});
 	var metaGames = req.body.title;
 	for(var i=0; i < metaGames.length; i++){
@@ -135,6 +145,7 @@ router.post('/login', passport.authenticate('local',
 	{
 		successRedirect: '/meta',
 		failureRedirect: '/login',
+		failureFlash : { type: 'error', message: 'Invalid username or password.' }
 	}), function(req, res){
 });
 
@@ -142,6 +153,28 @@ router.get('/logout', function(req, res){
 	req.logout();
 	req.flash('success', 'Successfully logged out!');
 	res.redirect('/news');
+});
+
+router.get('/reset-password', middleware.isLoggedIn, function(req, res){
+	res.render('reset_password');	
+});
+
+router.put('/reset-password', function(req, res){
+	User.findById(req.user._id, function(err, foundUser){
+		if(err){
+			console.log(err, err.message);
+		} else {
+			foundUser.changePassword(req.body.oldPassword, req.body.newPassword, function(err, next){
+				if(err){
+					console.log(err, err.message);
+				} else {
+					req.flash('success', 'Password Updated!');
+					res.redirect('/account/info');
+				}
+			});
+		}
+	});
+	
 });
 
 module.exports = router;

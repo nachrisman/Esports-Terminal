@@ -2,9 +2,16 @@
 body, html {
     background-color:#fff;
     color:#000;
-    font-family: 'Raleway', sans-serif;
-    font-family: 'Signika', sans-serif;
     font-size:14pt;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    font-family: 'Russo One', sans-serif;
+}
+
+h2{
+    font-family: 'Russo One', sans-serif;
 }
 
 #primary-wrapper{
@@ -31,12 +38,17 @@ body, html {
 
 .clear-div{
     clear:both;
+    padding-top: 4px;
 }
 
 .leaderboard-ad, .billboard-ad, .rectangle-ad, .skyscraper-ad{
     display:block;
     margin:25px auto;
     max-width:100%;
+}
+
+.source-link{
+    text-align:left;
 }
 
 .source-link:hover{
@@ -97,7 +109,7 @@ body, html {
 
 /* navigation - complete */
 .navbar.navbar-default{
-    line-height: 170px;
+    line-height: 120px;
     background-color:#fff;
     border-bottom: 3px solid rgba(0, 0, 0, 0.5);
 }
@@ -107,13 +119,14 @@ body, html {
 
 #nav-logo{
     width:auto;
-    max-height:150px;
+    max-height:100px;
 }
 
 .collapse.navbar-collapse > ul{
-    font-size:16pt;
+    font-size:14pt;
+    font-family: 'Russo One', sans-serif;
     color:#000;
-    margin: 120px 0 0 20px;
+    margin: 70px 0 0 20px;
 }
 
 .collapse.navbar-collapse li > a{
@@ -166,6 +179,11 @@ body, html {
 }
 
 /* news - complete */
+hr{
+    display:block;
+    border-color:rgba(0, 0, 0, 0.5);
+    width:60%;
+}
 .article-header > a{
     color:rgba(0, 0, 0, 1.0);
 }
@@ -183,7 +201,6 @@ body, html {
 }
 
 .post-preview{
-    background-color:yellow;
     max-height:100%;
 }
 
@@ -243,8 +260,13 @@ body, html {
 
 /* article view - complete */
 #post-wrapper{
+    border-left: 2px solid rgb(0, 0, 0);
     border-left: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 25px 0 0 0;
+}
+
+.post-content figure{
+    margin: 50px 0 50px 0;
 }
 
 .post-content a{
@@ -260,8 +282,6 @@ body, html {
 .article-figure{
     max-width:100%;
     max-height:300px;
-    /*border: 2px solid #000;*/
-    margin-bottom:20px;
     margin:0 auto;
     display:block;
 }
@@ -277,7 +297,7 @@ body, html {
 }
 
 .article-body{
-    margin:25px 0px 25px 0px;
+    margin:25px 50px 25px 50px;
     text-align:left;
     white-space: pre-wrap;
 }
@@ -314,25 +334,42 @@ body, html {
 }
 
 /* meta settings */
-#user-meta-settings{
-    justify-content: flex-start;
-}
-
 .user-meta-settings{
     margin:0 auto;
 }
 
-#events-check, #news-check{
-    visibility:visible;
+.user-meta-settings button{
+    margin-top:20px;
+    width:30%;
 }
 
-#user-meta-settings label{
+#meta-titles{
+    width:30%;
     display:block;
-    width:15%;
+    margin: 0 auto;
+    overflow:hidden;
 }
 
-.sub-meta{
-    text-align:center;
+#meta-events-sub{
+    display:block;
+    margin: 0 auto;
+    width:30%;
+}
+
+#meta-events-sub select{
+    float:left;
+    margin-bottom:-3px;
+}
+
+#meta-news-sub{
+    display:block;
+    margin: 0 auto;
+    width:30%;
+}
+
+#meta-news-sub select{
+    margin-bottom:-3px;
+    float:left;
 }
 
 /* account info */
@@ -348,11 +385,75 @@ body, html {
 .user-account-edit label{
     margin-left:0;
     width:100%;
+    margin:10px 0 0 0;
  }
 
  .user-account-edit input, select{
     float:right;
     width:80%;
+    font-weight:normal;
+ }
+ 
+ .user-account-edit button{
+     display:block;
+     width:30%;
+     margin: 20px 0 0 0;
+ }
+ 
+ /* account reset password */
+.reset-password{
+    width:50%;
+}
+
+.reset-password label, input{
+    display:inline-block;
+    vertical-align: baseline;
+}
+
+.reset-password label{
+    margin-left:0;
+    width:100%;
+    margin:10px 0 0 0;
+ }
+
+.reset-password input{
+    float:right;
+    width:70%;
+    font-weight:normal;
+ }
+ 
+.reset-password button{
+     display:block;
+     width:30%;
+     margin: 20px 0 0 0;
+ }
+ 
+ /* account delete */
+.delete-account{
+    width:70%;
+}
+
+.delete-account label, input, textarea{
+    display:inline-block;
+    vertical-align: baseline;
+}
+
+.delete-account label{
+    margin-left:0;
+    width:100%;
+    margin:10px 0 0 0;
+ }
+
+.delete-account input, select, textarea{
+    float:right;
+    width:70%;
+    font-weight:normal;
+ }
+ 
+.delete-account button{
+     display:block;
+     width:30%;
+     margin: 20px 0 0 0;
  }
 
 /* meta - complete */
@@ -468,6 +569,10 @@ body, html {
     margin-bottom:25px;
 }
 
+#event-description{
+    margin:25px 50px 25px 50px;
+}
+
 #related-events{
     border-top: 2px solid rgba(0, 0, 0, 0.5);
 }
@@ -505,7 +610,7 @@ body, html {
     margin: 20px auto;
 }
 
-.new-user-entry label, input{
+.new-user-entry label, input, select{
     display:inline-block;
     vertical-align: baseline;
 }
@@ -519,6 +624,11 @@ body, html {
     border-radius:3px;
     width:50%;
     color:#000;
+}
+
+#country select{
+    width:52%;
+    margin-left:15px;
 }
 
 #user-info{
@@ -569,7 +679,7 @@ body, html {
 }
 
 .game-select label > input:checked + img{
-    background-color:rgba(114, 114, 192);
+    background-color:rgba(114, 114, 192, 1);
     border-radius:10px;
     border: 2px solid black;
 }
@@ -580,6 +690,10 @@ body, html {
     display:block;
     text-align:center;
     margin:0 auto;
+}
+
+.finish-registration img{
+    max-width:100%;
 }
 
 .registration-guide{
@@ -623,7 +737,7 @@ body, html {
     display:block;
     margin: 0 auto;
     width: auto;
-    height: 50%;
+    max-height: 50%;
 }
 
 /* privacy policy - complete */
@@ -658,6 +772,7 @@ body, html {
 
 #footer p{
     font-weight:bold;
+    max-width:100%;
 }
 
 #footer-social{ 

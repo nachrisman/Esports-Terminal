@@ -1,0 +1,35 @@
+                <div class='game-select' id='user-meta-settings'>
+                
+                <% var userMeta = currentUser.meta; %>
+                <% games.forEach(function(game) {   %>
+                <%   if(userMeta.find(meta => meta.game == game.title)) { %>
+                    <label>
+                      <input type='checkbox' name='game' value='<%= game.title %>' checked>
+                      <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
+                    </label>
+                <% } else { %>
+                    <label>
+                      <input type='checkbox' name='game' value='<%= game.title %>' >
+                      <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
+                    </label>
+                <% } %>
+                <% if((userMeta.find(meta => meta.events == true) && userMeta.find(meta => meta.game == game.title))) { %>
+                    <label class='sub-meta' for='game'>Events <br>
+                      <input id='events-check' type='checkbox' name='events' checked>
+                    </label>
+                <% } else { %>
+                    <label class='sub-meta' for='game'>Events <br>
+                      <input id='events-check' type='checkbox' name='events'>
+                    </label>
+                <% }; %>
+                <% if((userMeta.find(meta => meta.news == true) && userMeta.find(meta => meta.game == game.title))) { %>
+                    <label class='sub-meta'>News <br>
+                      <input id='news-check' type='checkbox' name='news' checked>
+                    </label>
+                <% } else { %>
+                    <label class='sub-meta'>News <br>
+                      <input id='news-check' type='checkbox' name='news'>
+                    </label>
+                <% }; %>
+                <% }); %>
+                </div>

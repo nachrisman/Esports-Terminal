@@ -29,6 +29,14 @@
 			    <label>Password: 
 				  <input type='password' name='password'>
 			    </label>
+			    <label id='country'>Country: 
+				    <select name='country' required>
+						<% countries.forEach(function(country) { %>
+						  	<option value='<%= country %>'><%= country %></option>
+						<% }); %>
+							<option selected>Select a Country</option>
+					</select>
+				</label>
 			  </div>
 			  <br>
 			  <br>
