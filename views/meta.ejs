@@ -2,7 +2,7 @@
 	  <div class='container-fluid' id='primary-wrapper'>
 	    <div class='row'>
 		  <div class='col-xs-12 col-md-12'>
-		    <h3>Here's your META for today, <%= currentUser.username.charAt(0).toUpperCase() + currentUser.username.slice(1) %>!</h3>
+		    <h1><%= currentUser.username.charAt(0).toUpperCase() + currentUser.username.slice(1) %>'s META</h1>
 		  </div>
 	    </div>
 	    <div class='row'>
@@ -43,6 +43,9 @@
 	    </div>
 	    <% } %>
 	    <% }); %>
+	    <div class='clear-div'>
+	    	<hr>
+	    </div>
 	    <div class='row'>
 		  <div class='col-xs-12 col-md-12' id='user-meta-header'>
     	    <img class='meta-header-image' src='../media/branding/meta_section_events.png'>

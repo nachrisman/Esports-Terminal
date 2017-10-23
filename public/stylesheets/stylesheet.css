@@ -4,7 +4,7 @@ body, html {
     color:#000;
     font-size:14pt;
     font-family: 'Poppins', sans-serif;
-}
+}    
 
 h1{
     font-family: 'Russo One', sans-serif;
@@ -116,7 +116,7 @@ h2{
 .navbar.navbar-default{
     line-height: 120px;
     background-color:#fff;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 .navbar-header{
     padding-left:25px;
@@ -131,7 +131,7 @@ h2{
     font-size:14pt;
     font-family: 'Russo One', sans-serif;
     color:#000;
-    margin: 70px 0 0 20px;
+    margin: 40px 0 0 20px;
 }
 
 .collapse.navbar-collapse li > a{
@@ -578,6 +578,7 @@ hr{
 }
 
 #related-events{
+    padding-top:50px;
     border-top: 2px solid rgba(0, 0, 0, 0.5);
 }
 
