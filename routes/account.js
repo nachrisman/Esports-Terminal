@@ -10,7 +10,7 @@ var states	  = country.states('US'),
 	countries = countryList.getNames();
 
 router.get('/', middleware.isLoggedIn, function(req, res){
-	res.redirect('/meta-settings');
+	res.redirect('/account/meta-settings');
 });
 
 router.get('/info/', middleware.isLoggedIn, function(req, res){
@@ -29,11 +29,11 @@ router.put('/info', middleware.isLoggedIn, function(req, res){
 	});
 });
 
-router.get('/meta-settings/', middleware.isLoggedIn, function(req, res){
+router.get('/meta-settings', middleware.isLoggedIn, function(req, res){
 	Game.find({}, function(err, games){
 		if(err){
 			console.log(err);
-			return res.redirect('/myaccount');
+			return res.redirect('/account');
 		} else {
 			res.render('account_meta_settings', {games: games});
 		}

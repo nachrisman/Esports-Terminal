@@ -600,6 +600,10 @@ hr{
     text-align:left;
 }
 
+#upcoming-streams{
+    width:100%;
+}
+
 
 /* register - complete */
 #registration-form-container{
@@ -766,7 +770,7 @@ hr{
 }
 
 .footer-logo{
-    max-height:150px;
+    max-height:100px;
     width:auto;
     margin: 0 auto;
     display:block;
@@ -774,11 +778,13 @@ hr{
 
 #footer a{
     color:#000;
+    font-size:12px;
 }
 
 #footer p{
     font-weight:bold;
     max-width:100%;
+    font-size:12px;
 }
 
 #footer-social{ 
@@ -799,5 +805,6 @@ hr{
 }
 
 #copyright p{
+    font-size: 12px;
     font-weight:normal;
 }
