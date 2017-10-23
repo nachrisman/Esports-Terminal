@@ -129,17 +129,22 @@ router.post('/register', function(req, res){
 	for(var i=0; i < metaGames.length; i++){
 		newUser.meta.push({ game: metaGames[i], events: true, news: true});
 	}
-	User.register(newUser, req.body.password, function(err, user){
-		if(err){
-			req.flash('error', err.message);
-			return res.redirect('/register');
-		}
-		passport.authenticate('local')(req, res, function(){
-			req.flash('success', 'Welcome, ' + user.username + '! ' + 'Let\'s finish your META');
-			res.redirect('/account');
+	if(req.body.password == req.body.confirmedPassword){
+		User.register(newUser, req.body.password, function(err, user){
+			if(err){
+				req.flash('error', err.message);
+				return res.redirect('/register');
+			}
+			passport.authenticate('local')(req, res, function(){
+				req.flash('success', 'Welcome, ' + user.username + '! ' + 'Let\'s finish your META');
+				res.redirect('/account');
+			});
 		});
+	} else {
+		req.flash('error', 'Passwords did not match, please try registering again.');
+		res.redirect('/register');
+	}
 	});
-});
 
 router.post('/login', passport.authenticate('local', 
 	{
