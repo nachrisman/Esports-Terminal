@@ -10,15 +10,12 @@
   		  <input type='date' name='event[date]'>
   		  <br>
   		  <label>Games Involved: </label>
-  		  <br>
-  		  <div class='game-select'>
-  		  <% games.forEach(function(game) { %>
-      	    <label>
-      		  <input type='checkbox' name='event[games]' value='<%= game.title %>'>
-      		  <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
-      	    </label>
-  		  <% });                            %>
-	  	  </div>
+  		  <select type='select' name='event[games]'>
+	      <% games.forEach(function(game) { %>
+	      	<option value='<%= game.title %>'><%= game.title %></option>
+	      <% }); %>
+	      </select>
+	      <br>
 	  	</fieldset>
 	  	<label>Description: </label>
 	  	<textarea name='event[description]'></textarea>
@@ -33,6 +30,9 @@
 	 	<br>
 	 	<label>State: </label>
 	 	<input type='text' name='event[state]'>
+	 	<br>
+	 	<label>Country: </label>
+	 	<input type='text' name='event[country]'>
 	 	<label>EST Stream: </label>
 	 	<input type='checkbox' name='event[stream]' value='yes'> Yes
 	 	<input type='checkbox' name='event[stream]' value='no'> No

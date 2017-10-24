@@ -6,7 +6,11 @@
 		  <label>Author: </label>
 		  <select type='select' name='article[author]'>
 		  <% authors.forEach(function(author){ %>
-		  	<option value='<%= author.firstName + ' ' + author.lastName %>'><%= author.firstName + ' ' + author.lastName %></option>
+		  <% 	if(currentUser.fullname == author.fullname) { %>
+		  	<option value='<%= currentUser.fullname %>'><%= currentUser.fullname %></option>
+		  	<% } else { %>
+		  	<option value='<%= author.fullname %>'><%= author.fullname %></option>
+		  	<% } %>
 		  <% }); %>
 		  </select>
 		  <br>
@@ -16,7 +20,11 @@
 		  <label>Categories: </label>
 		  <select type='select' name='article[categories]'>
 	      <% games.forEach(function(game) { %>
+	      <% 	if(article.categories.indexOf(game.title) > -1) { %>
+	      	<option value='<%= game.title %>' selected><%= game.title %></option>
+	      	<% } else { %>
 	      	<option value='<%= game.title %>'><%= game.title %></option>
+	      	<% } %>
 	      <% }); %>
 	      </select>
 	      <br>

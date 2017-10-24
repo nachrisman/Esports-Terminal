@@ -10,18 +10,16 @@
 		  <label>Date of Event: </label>
 		  <input type='date' name='event[date]' value='<%= event.date %>'>
 		  <br>
-		  <div class='game-select'>
-		  <% games.forEach(function(game) {          %>
-			<label>
-		  <% 	if(event.games.indexOf(game) > -1) { %>
-			  <input type='checkbox' name='event[games]' value='<%= game.title %>' selected='selected'>
-		  <% 	} else {                             %>
-			  <input type='checkbox' name='event[games]' value='<%= game.title %>'>
-		  <% 	};                                   %>
-			  <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
-			</label>
-		  <% });                                     %>
-		  </div>
+		  <label>Games Involved: </label>
+		  <select type='select' name='event[games]'>
+	      <% games.forEach(function(game) { %>
+	      <% 	if(event.games.indexOf(game.title) > -1) { %>
+	      	<option value='<%= game.title %>' selected><%= game.title %></option>
+	      	<% } else { %>
+	      	<option value='<%= game.title %>'><%= game.title %></option>
+	      <% }); %>
+	      </select>
+	      <br>
 		</fieldset>
 		<label>Description: </label>
 		<textarea name='event[description]'><%= event.description %></textarea>

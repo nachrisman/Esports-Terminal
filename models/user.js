@@ -30,6 +30,10 @@ var userSchema = new mongoose.Schema({
 	}
 });
 
+userSchema.virtual('fullname').get(function () {
+    return this.firstName + ' ' + this.lastName;
+});
+
 userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', userSchema);

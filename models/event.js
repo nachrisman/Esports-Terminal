@@ -9,6 +9,7 @@ var eventSchema = mongoose.Schema({
 	venue: String,
 	city: String,
 	state: String,
+	country: String,
 	stream: Boolean,
 	sourceLink: String
 });

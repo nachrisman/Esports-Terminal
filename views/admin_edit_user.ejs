@@ -33,7 +33,7 @@
 		  <option value='male'>Male</option>
 		  <option value='female'>Female</option>
 		  <option value='unspecified' selected='selected'>Prefer Not to Say</option>
-		<% };                                    %>
+		<% }; %>
 		</select>
 		<br>
 		<label>ADDRESS</label>
@@ -72,9 +72,19 @@
 		<br>
 		<label>Role: </label>
 		<select name='user[role]' value='<%= user.role %>'>
-		  <option value='admin'>Admin</option>
+			<% if(user.role == 'admin') { %>
+		  <option value='admin' selected>Admin</option>
 		  <option value='editor'>Editor</option>
 		  <option value='user'>Standard User</option>
+		  <% } else if(user.role == 'editor') { %>
+		  <option value='admin'>Admin</option>
+		  <option value='editor' selected>Editor</option>
+		  <option value='user'>Standard User</option>
+		  <% } else { %>
+		  <option value='admin'>Admin</option>
+		  <option value='editor'>Editor</option>
+		  <option value='user' selected>Standard User</option>
+		  <% } %>
 		</select>
 		  <button type='submit'>Update User</button>
 	  </form>
