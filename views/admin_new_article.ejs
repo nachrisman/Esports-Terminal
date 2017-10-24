@@ -7,18 +7,16 @@
 		  <label>Author: </label>
 		  <input type='text' name='article[author]' value='<%= currentUser.firstName + ' ' + currentUser.lastName %>'>
 		  <br>
-		  <label>Date: [TODAY]</label>
+		  <label>Date: </label>
+		  <input type='date' name='article[published]'>
 		  <br>
 		  <label>Categories: </label>
-		  <br>
-		  <div class='game-select'>
+		  <select type='select' name='article[categories]'>
 	      <% games.forEach(function(game) { %>
-		    <label>
-		      <input type='checkbox' name='article[categories]' value='<%= game.title %>'>
-		      <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
-		    </label>
-	      <% });                            %>
-	      </div>
+	      	<option value='<%= game.title %>'><%= game.title %></option>
+	      <% }); %>
+	      </select>
+	      <br>
 		  <label>Title: </label>
 		  <input type='text' name='article[title]'>
 		  <br>

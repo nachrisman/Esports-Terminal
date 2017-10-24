@@ -15,19 +15,20 @@
 
 /* Header/Navigation */
 .navbar.navbar-default{
-    line-height: 170px;
+    line-height: 120px;
     background-color:#fff;
     border-bottom: 1px solid #000;
 }
 
 #nav-logo{
     width:auto;
-    max-height:150px;
+    max-height:100px;
 }
 
 .collapse.navbar-collapse > ul{
-    font-size:16pt;
-    margin: 120px 0 0 20px;
+    font-size:14pt;
+    margin: 70px 0 0 20px;
+    float:right;
 }
 
 .collapse.navbar-collapse li > a{
@@ -46,8 +47,6 @@
 #quick-stats label, p{
     display: inline-block;
 }
-
-
 
 /* Forms */
 .user-account-edit{

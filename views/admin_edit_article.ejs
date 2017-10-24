@@ -9,15 +9,13 @@
 		  <label>Date: </label>
 		  <input type='date' name='article[published]' value='<%= article.published %>'>
 		  <br>
-		  <div class='game-select'>
-		  <% games.forEach(function(game) { %>
-			<label>
-			  <input type='checkbox' name='article[categories]' value='<%= game.title %>'>
-			  <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
-			</label>
-		  <% });                            %>
-		  </div>
-		  <br>
+		  <label>Categories: </label>
+		  <select type='select' name='article[categories]'>
+	      <% games.forEach(function(game) { %>
+	      	<option value='<%= game.title %>'><%= game.title %></option>
+	      <% }); %>
+	      </select>
+	      <br>
 		  <label>Title: </label>
 		  <input type='text' name='article[title]' value='<%= article.title %>' >
 		  <br>
