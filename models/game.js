@@ -6,7 +6,11 @@ var gameSchema = new mongoose.Schema({
 	platform: [String],
 	logojpg: String,
 	logopng: String,
-	genre: [String],
+	genre: {
+		type: String,
+		enum: ['FPS', 'MOBA', 'TPS', 'Fighting'],
+		default: 'user'
+	},
 	meta: [{events: Boolean, default: false},
 		   {news:Boolean, default: false}]
 });
