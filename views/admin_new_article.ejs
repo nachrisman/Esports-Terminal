@@ -5,7 +5,11 @@
 	  <form class='new-item-entry' id='new-article' action='/news' method='POST'>
 		<fieldset id='meta'>
 		  <label>Author: </label>
-		  <input type='text' name='article[author]' value='<%= currentUser.firstName + ' ' + currentUser.lastName %>'>
+		  <select type='select' name='article[author]'>
+		  <% authors.forEach(function(author){ %>
+		  	<option value='<%= author.firstName + ' ' + author.lastName %>'><%= author.firstName + ' ' + author.lastName %></option>
+		  <% }); %>
+		  </select>
 		  <br>
 		  <label>Date: </label>
 		  <input type='date' name='article[published]'>

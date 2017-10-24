@@ -4,7 +4,11 @@
 	  <form class='new-item-entry' id='new-article' action='/news/<%= article._id %>?_method=PUT' method='POST'>
 		<fieldset id='meta'>
 		  <label>Author: </label>
-		  <input type='text' name='article[author]' value='<%= article.author %>'>
+		  <select type='select' name='article[author]'>
+		  <% authors.forEach(function(author){ %>
+		  	<option value='<%= author.firstName + ' ' + author.lastName %>'><%= author.firstName + ' ' + author.lastName %></option>
+		  <% }); %>
+		  </select>
 		  <br>
 		  <label>Date: </label>
 		  <input type='date' name='article[published]' value='<%= article.published %>'>

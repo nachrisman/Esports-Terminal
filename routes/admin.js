@@ -124,7 +124,13 @@ router.get('/new-article', middleware.isAdmin, function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render('admin_new_article', {games: games});
+			User.find({role: 'admin'}, function(err, authors){
+				if(err){
+					console.log(err, err.message);
+				} else {
+					res.render('admin_new_article', {games: games, authors: authors});
+				}
+			});
 		}
 	});
 });
@@ -184,7 +190,13 @@ router.get('/edit-article/:id', middleware.isAdmin, function(req, res){
 				if(err){
 					console.log(err);
 				} else {
-					res.render('admin_edit_article', {article: foundArticle, games: games});
+					User.find({role: 'admin'}, function(err, authors){
+						if(err){
+							console.log(err, err.message);
+						} else {
+							res.render('admin_edit_article', {games: games, authors: authors, article: foundArticle});
+						}
+					});
 				}
 			});
 		}
