@@ -7,13 +7,19 @@
         </div>
         <div class='row'>
           <div class='col-xs-12 col-md-12'>
+            <div class='clear-div'>
+              <hr>
+            </div>
             <img class='billboard-ad' src='../media/ads/billboard.jpg'>
+            <div class='clear-div'>
+              <hr>
+            </div>
           </div>
         </div>
         <div class='row'>
           <div class='col-xs-4 col-md-4' id='sidebar-container'>
-            <div class='content-divider'>
-              <img class='header-image' src='/media/branding/icymi.png'>
+            <div class='content-divider-sm'>
+              <h2>ICYMI</h2>
             </div>
             <div class='preview'>
             <% if(pastArticles.length == 0) {               %>
@@ -33,9 +39,15 @@
             <% });                                          %>
             <% };                                           %>
             </div>
+            <div class='clear-div'>
+              <hr>
+            </div>
             <img class='rectangle-ad' src='/media/ads/medium_rectangle.jpg'>
-            <div class='content-divider'>
-              <img class='header-image' src='/media/branding/icymi.png'>
+            <div class='clear-div'>
+              <hr>
+            </div>
+            <div class='content-divider-sm'>
+              <h2>ICYMI</h2>
             </div>
             <div class='preview'>
             <% if(pastArticles.length == 0) {               %>
@@ -55,7 +67,13 @@
             <% }); %>
             <% }; %>
             </div>
+            <div class='clear-div'>
+              <hr>
+            </div>
             <img class='rectangle-ad' src='/media/ads/medium_rectangle2.gif'>
+            <div class='clear-div'>
+              <hr>
+            </div>
           </div>
           <div class='col-xs-8 col-md-8' id='post-wrapper'>
         	<% articles.forEach(function(article){ %>
@@ -85,8 +103,8 @@
       </div>
       <div class='row'>
         <div class='col-xs-12 col-md-12' id='suggested-articles'>
-          <div class='content-divider'>
-            <img class='header-image' src='/media/branding/suggested_articles.png'>
+          <div class='content-divider-lg'>
+            <h2>Suggested Articles</h2>
           </div>
           <div class='preview'>
           <% if(pastArticles.length == 0) {               %>

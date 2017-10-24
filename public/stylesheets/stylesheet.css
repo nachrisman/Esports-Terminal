@@ -8,10 +8,12 @@ body, html {
 
 h1{
     font-family: 'Russo One', sans-serif;
+    text-align:center;
 }
 
 h2{
     font-family: 'Russo One', sans-serif;
+    text-align:center;
 }
 
 #primary-wrapper{
@@ -19,18 +21,23 @@ h2{
     width:95%;
 }
 
-#primary-wrapper h1, h2{
-    text-align:center;
-}
-
 /* common items */
-.content-divider{
-    /*border-bottom: 3px solid red;*/
-    margin: -10px 0 10px 0;
+.content-divider-sm h2{
+    border-bottom:3px solid red;
+    width:50%;
+    margin:0 auto 20px auto;
 }
 
-.content-divider img{
+.content-divider-lg h2{
+    border-bottom:3px solid red;
     width:20%;
+    margin:0 auto 20px auto;
+}
+
+.content-divider-md h2{
+    border-bottom:3px solid red;
+    width:25%;
+    margin:0 auto 20px auto;
 }
 
 .header-image{
@@ -46,7 +53,7 @@ h2{
 
 .leaderboard-ad, .billboard-ad, .rectangle-ad, .skyscraper-ad{
     display:block;
-    margin:25px auto;
+    margin:0 auto;
     max-width:100%;
 }
 
@@ -192,6 +199,7 @@ hr{
     border-color:rgba(0, 0, 0, 0.5);
     width:60%;
 }
+
 .article-header > a{
     color:rgba(0, 0, 0, 1.0);
 }
@@ -200,12 +208,14 @@ hr{
     margin: 0 auto;
 }
 
-.image-preview img{
-    height:100%;
+.image-preview figure{
+    width:100%;
+    margin-bottom:25px;
 }
 
 .post-preview{
     max-height:100%;
+    margin-bottom:25px;
 }
 
 .post-preview .content-preview{
@@ -293,7 +303,7 @@ hr{
 
 .article-figure{
     max-width:100%;
-    max-height:300px;
+    max-height:100%;
     margin:0 auto;
     display:block;
 }
@@ -317,6 +327,13 @@ hr{
 #suggested-articles{
     border-top: 2px solid rgba(0, 0, 0, 0.5);
     margin:20px 0 20px 0;
+    
+}
+
+#suggested-articles h2{
+    border-bottom:3px solid red;
+    margin:25px auto 20px auto;
+    width:20%;
 }
 
 #suggested-articles .article-preview{
@@ -550,10 +567,10 @@ hr{
 }
 
 #event-contact a:hover{
+    color: #000;
     color: rgba(0, 0, 0, 0.7);
     text-decoration: underline;
 }
-
 
 /* event view - complete */ 
 .event-figure{
@@ -566,6 +583,10 @@ hr{
 
 .event-meta-container, .event-header{
     border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.event-meta-container{
+    padding-top:25px;
 }
 
 .event-meta-container h3, p{
@@ -582,7 +603,7 @@ hr{
 }
 
 #event-description{
-    margin:25px 50px 25px 50px;
+    margin:25px auto;
 }
 
 #related-events{
@@ -592,6 +613,18 @@ hr{
 
 #related-articles .header-image{
     width:90%;
+}
+
+#related-articles{
+    border-bottom:3px solid red;
+    width:50%;
+    margin:0 auto 20px auto;
+}
+
+#related-events h2{
+    border-bottom:3px solid red;
+    width:20%;
+    margin:0 auto 20px auto;
 }
 
 /* stream - complete */

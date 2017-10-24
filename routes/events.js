@@ -15,7 +15,7 @@ router.get('/', function(req, res){
 			console.log('Error');
 		} else {
 			//Query for 5 future events
-			Event.find({date: {$gt: today.toDate()}}).sort({date: -1}).limit(5).exec(function(err, upcomingEvents){
+			Event.find({date: {$gt: today.toDate()}}).sort({date: 1}).limit(6).exec(function(err, upcomingEvents){
 				if(err){
 					console.log(err);
 				} else {

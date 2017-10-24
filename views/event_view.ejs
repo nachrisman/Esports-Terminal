@@ -2,11 +2,14 @@
     	<div class='container-fluid' id='primary-wrapper'>
         <div class='col-xs-12 col-md-12'>
           <img class='billboard-ad' src='/media/ads/billboard.jpg'>
+          <div class='clear-div'>
+            <hr>
+          </div>
         </div>
         <div class='row'>
           <div class='col-xs-4 col-md-4'>
-            <div class='content-divider' id='related-articles'>
-              <img class='header-image' src='/media/branding/related_articles.png'>
+            <div class='content-divider-sm'>
+              <h2>Related Articles</h2>
             </div>
             <div class='preview'>
             <% relatedArticles.forEach(function(relatedArticle) {         %>
@@ -28,6 +31,9 @@
               <%    }); %>
               <% }); %>
             </div>
+            <div class='clear-div'>
+              <hr>
+            </div>
             <img class='rectangle-ad' src='/media/ads/medium_rectangle.jpg'>
             <img class='rectangle-ad' src='/media/ads/medium_rectangle2.gif'>
           </div>
@@ -40,8 +46,8 @@
           		  </figure>
           		</header>
           		<div class='event-meta-container'>
-          		  <div class='content-divider'>
-                  <img class='header-image' src='/media/branding/when_where.png'>
+          		  <div class='content-divider-md'>
+                  <h2>When &amp; Where</h2>
                 </div>
           		  <h3>Date: </h3><p><%= foundEvent.date.toDateString() %></p>
           		  <h3>Location: </h3><p><%= foundEvent.venue + ', ' + foundEvent.city + ', ' + foundEvent.state %></p>
@@ -55,8 +61,8 @@
           		  </p>
           		</div>
           		<div class='post-content' id='event-description'>
-        			  <div class='content-divider'>
-                  <img class='header-image' src='/media/branding/everything_else.png'>
+        			  <div class='content-divider-md'>
+                  <h2>Everything Else</h2>
                 </div>
           		  <p><%- foundEvent.description %></p>
                 <p>More Info/Source Link: <a class='source-link' href='<%= foundEvent.sourceLink %>' target='_blank'>Click Here</a></p>
@@ -67,8 +73,8 @@
         </div>
         <div class='row'>
           <div class='col-xs-12 col-md-12' id='related-events'>
-            <div class='content-divider'>
-                <img class='header-image' src='/media/branding/related_events.png'>
+            <div class='content-divider-lg'>
+                <h2>Related Events</h2>
             </div>
             <table class='events-list' id='events-today'>
               <thead>
