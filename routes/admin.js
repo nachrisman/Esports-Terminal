@@ -139,19 +139,6 @@ router.get('/new-event', middleware.isAdmin, function(req, res){
 	});
 });
 
-router.post('/events/:id', function(req, res){
-	Event.create(req.body.event, function(err, newEvent){
-		if(err){
-			req.flash('error', 'Event could not be added. Check error logs.');
-			console.log(err);
-			res.redirect('/admin/view-events');
-		} else {
-			req.flash('success', 'Event added successfully!');
-			res.redirect('/events/:id');
-		};
-	});
-});
-
 router.get('/view-events', middleware.isAdmin, function(req, res){
 	Event.find({}).sort({date: 1}).exec(function(err, events){
 		if(err){
