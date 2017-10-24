@@ -12,7 +12,7 @@ router.get('/', function(req, res){
 			console.log(err);
 		} else {
 			Article.find({
-				published: {$lt: today.toDate(), $gte: lastWeek.toDate()}
+				published: {$gte: lastWeek.toDate(), $lt: today.toDate()}
 			}).sort({published: -1}).limit(5).exec(function(err, pastArticles){
 				if(err){
 					console.log(err);
