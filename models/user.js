@@ -23,6 +23,7 @@ var userSchema = new mongoose.Schema({
 	meta: [ {game: String, events: {type: Boolean, default: false}, news: {type: Boolean, default: false}}],
 	podcast: {type: Boolean, default: false},
 	stream: {type: Boolean, default: false},
+	newsletter: {type: Boolean, default: false},
 	role:{
 		type: String,
 		enum: ['admin', 'editor', 'user'],

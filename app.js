@@ -22,7 +22,7 @@ mongoose.connect(url, {useMongoClient: true});
 
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(flash());
 // app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));

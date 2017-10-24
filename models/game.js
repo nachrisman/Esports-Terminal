@@ -12,9 +12,7 @@ var gameSchema = new mongoose.Schema({
 		type: String,
 		enum: genres,
 		default: 'none'
-	},
-	meta: [{events: Boolean, default: false},
-		   {news:Boolean, default: false}]
+	}
 });
 
 gameSchema.virtual('genres').get(function () {

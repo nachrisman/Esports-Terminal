@@ -1,13 +1,18 @@
 <% include ./partials/header %>
 	  <div class='container-fluid' id='primary-wrapper'>
 	    <div class='row'>
-		  <div class='col-xs-12 col-md-12'>
+		  <div class='col-xs-12 col-md-12' id='meta-welcome'>
 		    <h1><%= currentUser.username.charAt(0).toUpperCase() + currentUser.username.slice(1) %>'s META</h1>
+		  	<div class='clear-div'>
+		  		<hr>
+		  	</div>
 		  </div>
 	    </div>
 	    <div class='row'>
-		  <div class='col-xs-12 col-md-12' id='user-meta-header'>
-    	    <img class='meta-header-image' src='../media/branding/meta_section_news.png'>
+		  <div class='col-xs-12 col-md-12'>
+    	    <div class='content-divider-lg'>
+    	    	<h1>News</h1>
+    	    </div>
 		  </div>
 	    </div>
 	    <% var userMeta = currentUser.meta; %>
@@ -47,8 +52,10 @@
 	    	<hr>
 	    </div>
 	    <div class='row'>
-		  <div class='col-xs-12 col-md-12' id='user-meta-header'>
-    	    <img class='meta-header-image' src='/media/branding/meta_section_events.png'>
+		  <div class='col-xs-12 col-md-12'>
+    	    <div class='content-divider-lg'>
+    	    	<h1>Events</h1>
+    	    </div>
 		  </div>
 	    </div>
 	    <% userMeta.forEach(function(meta) { %>
@@ -84,13 +91,13 @@
             	    <td><%= foundEvent.date.toDateString()  %></td>
             	    <td><% if(foundEvent.stream === true) { %>
                 		    <%= 'Yes'   %>
-                	    <% } else { 						%>
-                		  <%= 'No'    %>
-                	    <% };       						%>
+                	    <% } else { %>
+                		  <%= 'No' %>
+                	    <% }; %>
             	    </td>
           	      </tr>
-          	    <% 	  }; 									   %>
-          	    <% });										   %>
+          	    <% 	  }; %>
+          	    <% }); %>
         	    </tbody>
               </table>
 		    </div>

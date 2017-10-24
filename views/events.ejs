@@ -15,8 +15,14 @@
 	      		<hr>
 	      	</div>
 	      	<div class='content-divider-lg'>
-	          <h2>Happening Today</h2>
+	          <h1>Happening Today</h1>
 	        </div>
+	        <% if(currentEvents.length == 0) { %>
+	        <div class='no-content-msg'>
+	        	<h3>No events happening today! :(</h3>
+	        	<h3>Know of one we aren't showing? <a href='/info#contact'>Let us know</a>!</h3>
+	        </div>
+	        <% } else { %>
 	        <table class='events-list' id='events-today'>
 	          <thead>
 		        <tr>
@@ -45,22 +51,16 @@
 		          <td>
 		          	<% if(currentEvent.stream === true) { %>
 		            <%= 'Yes' %>
-		            <%   } else { 						  %>
+		            <%   } else { %>
 		            <%= 'No' %>
-		            <% }; 								  %>
+		            <% }; %>
 		          </td>
-		      <% }); 											%>
 	            </tr>
+	            <% }); %>
 	          </tbody>
 	      	</table>
+	      	<% } %>
 	      </div>
-	  	</div>
-	  	<div class='row'>
-	  	  <div class='col-xs-12 col-md-12'>
-	      	<div class='read-more' id='meta-read-more'>
-			  <a href='/news' >View More > > ></a>
-			</div>
-	  	  </div>
 	  	</div>
 	  	<div class='row'>
 	      <div class='col-xs-12 col-md-12'>
@@ -78,7 +78,7 @@
 	    <div class='row'>
 	      <div class='col-xs-12 col-md-12'>
 	    	<div class='content-divider-lg'>
-	      	  <h2>Upcoming Events</h2>
+	      	  <h1>Upcoming Events</h1>
 	      	</div>
 	        <table class='events-list' id='upcoming-events-list'>
 	          <thead>
@@ -112,8 +112,8 @@
 		            <%= 'No' %>
 		            <% }; %>
 		          </td>
-		      <% }); %>
 	            </tr>
+	            <% }); %>
 	          </tbody>
 	        </table>
 	      </div>
@@ -124,8 +124,13 @@
 	  	<div class='row'>
 	      <div class='col-xs-12 col-md-12'>
 	        <div class='content-divider-lg'>
-	      	  <h2>Last Week's Events</h2>
+	      	  <h1>Last Week's Events</h1>
 	        </div>
+	        <% if(pastEvents.length == 0) { %>
+	        <div class='no-content-msg'>
+	        	<h3>Last week was a ghost town...</h3>
+	        </div>
+	        <% } else { %>
 	        <table class='events-list' id='past-events-list'>
 	          <thead>
 	            <tr>
@@ -158,17 +163,14 @@
 	                <%= 'No' %>
 	              <% }; 							 %>
 	              </td>
-		      <% }); 								   	   %>
 	            </tr>
+	            <% }); %>
 	          </tbody>
 	        </table>
+	        <% } %>
 	      </div>
-	    </div>
-	    <div class='row'>
-	      <div class='col-xs-12 col-md-12'>
-	        <div id='event-contact'>
-	          <h3>Know of an event we aren't showing? <a href='info.html#contact-us'>Contact Us!</a></h3>
-	        </div>
+	      <div class='clear-div'>
+	      	<hr>
 	      </div>
 	    </div>
 	  </div>

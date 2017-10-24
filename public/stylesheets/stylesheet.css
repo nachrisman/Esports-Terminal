@@ -22,22 +22,26 @@ h2{
 }
 
 /* common items */
-.content-divider-sm h2{
+.content-divider-sm{
     border-bottom:3px solid red;
     width:50%;
     margin:0 auto 20px auto;
 }
 
-.content-divider-lg h2{
+.content-divider-lg{
     border-bottom:3px solid red;
     width:20%;
     margin:0 auto 20px auto;
 }
 
-.content-divider-md h2{
+.content-divider-md{
     border-bottom:3px solid red;
     width:25%;
     margin:0 auto 20px auto;
+}
+
+.no-content-msg{
+    text-align:center;
 }
 
 .header-image{
@@ -495,6 +499,10 @@ hr{
     display:block;
     margin:0 auto;
     width:15%;
+}
+
+#meta-welcome{
+    margin-bottom:50px;
 }
 
 .user-meta-sub-header{
