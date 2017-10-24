@@ -13,14 +13,14 @@ router.get('/', function(req, res){
 		} else {
 			Article.find({
 				published: {$lt: today.toDate(), $gte: lastWeek.toDate()}
-			}).sort({published: -1}).limit(4).exec(function(err, pastArticles){
+			}).sort({published: -1}).limit(5).exec(function(err, pastArticles){
 				if(err){
 					console.log(err);
 				} else {
 					res.render('news', {articles: articles, pastArticles: pastArticles});
-				};
+				}
 			});	
-		};
+		}
 	});
 });
 

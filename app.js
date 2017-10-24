@@ -19,8 +19,8 @@ var adminRoutes 	= require('./routes/admin'),
 	indexRoutes 	= require('./routes/index');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASEURL, {useMongoClient: true});
-// mongoose.connect('mongodb://localhost/est', {useMongoClient: true});
+var url = process.env.DATABASEURL || 'mongodb://localhost/est';
+mongoose.connect(url, {useMongoClient: true});
 
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
