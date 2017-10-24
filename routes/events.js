@@ -70,18 +70,7 @@ router.get('/:id', function(req, res){
 	});	
 });
 
-router.post('/', function(req, res){
-	Event.create(req.body.event, function(err, newEvent){
-		if(err){
-			req.flash('error', 'Event could not be added. Check error logs.');
-			console.log(err);
-			res.redirect('/admin/view-events');
-		} else {
-			req.flash('success', 'Event added successfully!');
-			res.redirect('/:id');
-		};
-	});
-});
+
 
 router.put('/:id', function(req, res){
 	Event.findByIdAndUpdate(req.params.id, req.body.event, function(err, updatedEvent){
