@@ -11,8 +11,13 @@
 	  	  <label>Platform(s): </label>
 	  	  <input type='text' name='game[platform]'>
 	  	  <br>
-	  	  <label>Genre(s): </label>
-	  	  <input type='text' name='game[genre]'>
+	  	  <label>Genre: </label>
+	  	  <select type='select' name='game[genre]'>
+	  	  	<% genres.forEach(function(genre){ %>
+	  	  		<option value='<%= genre %>'><%= genre %></option>
+	  	  	<% }); %> 
+	  	  </select>
+	  	  <br>
 	  	  <label>Game Logo (JPG) URL: </label>
 	 	  <input type='text' name='game[logojpg]'>
 	 	  <label>Game Logo (PNG) URL: </label>

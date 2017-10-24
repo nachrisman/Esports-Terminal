@@ -12,7 +12,16 @@
 		  <input type='text' name='game[platform]' value='<%= game.platform %>'>
 		  <br>
 		  <label>Genre(s): </label>
-		  <input type='text' name='game[genre]' value='<%= game.genre %>'>
+		  <select type='select' name='game[genre]'>
+	  	  	<% genres.forEach(function(genre){ %>
+	  	  	<% if(game.genre == genre) { %>
+	  	  		<option value='<%= genre %>' selected><%= genre %></option>
+	  	  		<% } else { %>
+	  	  		<option value='<%= genre %>'><%= genre %></option>
+	  	  		<% } %>
+	  	  	<% }); %> 
+	  	  </select>
+	  	  <br>
 		  <label>Game Logo (JPG) URL: </label>
 		  <input type='text' name='game[logojpg]' value='<%= game.logojpg %>'>
 	      <label>Game Logo (PNG) URL: </label>

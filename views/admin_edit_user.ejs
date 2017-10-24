@@ -19,8 +19,6 @@
 		<label>Username: </label>
 		<input type='text' name='user[username]' value='<%= user.username %>'>
 		<br>
-		<label>Password: [<a href='/admin/change_password'>Change Password</a>]</label>
-		<br>
 		<label>Gender: </label>
 		<select name='user[gender]' value='<% user.gender %>'>
 		<% if(user.gender === 'male') {          %>

@@ -214,7 +214,14 @@ router.get('/view-games', middleware.isAdmin, function(req, res){
 });
 
 router.get('/new-game', middleware.isAdmin, function(req, res){
-	res.render('admin_new_game');
+	Game.findOne({}, function(err, game){
+		if(err){
+			console.log(err);
+		} else {
+			var genres = game.genres;
+			res.render('admin_new_game', {genres: genres});
+		}	
+	});
 });
 
 router.post('/view-games', middleware.isAdmin, function(req, res){
@@ -233,7 +240,8 @@ router.get('/edit-game/:id', middleware.isAdmin, function(req, res){
 		if(err){
 			res.redirect('/admin/view-games');
 		} else {
-			res.render('admin_edit_game', {game: foundGame});
+			var genres = foundGame.genres;
+			res.render('admin_edit_game', {game: foundGame, genres: genres});
 		}
 	});
 });

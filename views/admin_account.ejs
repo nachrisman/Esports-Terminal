@@ -2,7 +2,7 @@
     <div class='container'>
 	  <form class='user-account-edit' id='new-user' action='/admin/edit-user/<%= currentUser._id %>?_method=PUT' method='POST'>
 	  	
-	  	<label>Password: [<a href='/admin/change_password'>Change Password</a>]</label>
+	  	<label>Password: [<a href='/reset-password'>Change Password</a>]</label>
 		<label>First Name: 
 			<input type='text' name='user[firstName]' value='<%= currentUser.firstName %>'>
 		</label>

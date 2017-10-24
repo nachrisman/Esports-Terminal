@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+var genres = ['FPS', 'MOBA', 'TPS', 'Fighting'];
+
 var gameSchema = new mongoose.Schema({
 	title: String,
 	abbreviation: {type: String, default: 'None'},
@@ -8,11 +10,15 @@ var gameSchema = new mongoose.Schema({
 	logopng: String,
 	genre: {
 		type: String,
-		enum: ['FPS', 'MOBA', 'TPS', 'Fighting'],
-		default: 'user'
+		enum: genres,
+		default: 'none'
 	},
 	meta: [{events: Boolean, default: false},
 		   {news:Boolean, default: false}]
+});
+
+gameSchema.virtual('genres').get(function () {
+    return genres;
 });
 
 module.exports = mongoose.model('Game', gameSchema);
