@@ -312,6 +312,18 @@ hr{
     text-align:middle;
 }
 
+.article-body-preview img{
+    display:block;
+    margin:0 auto;
+    text-align:middle;
+}
+
+.article-body-preview iframe{
+    display:block;
+    margin:0 auto;
+    text-align:middle;
+}
+
 #suggested-articles{
     border-top: 2px solid rgba(0, 0, 0, 0.5);
     margin:20px 0 20px 0;
