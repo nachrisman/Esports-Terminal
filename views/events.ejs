@@ -43,7 +43,7 @@
 		            <a class='direct-event-link' href='/events/<%= currentEvent._id %>'><%= currentEvent.title %></a>
 		          </td>
 		          <td>
-		          	<% if(currentEvent.state == 'Select a State') { %>
+		          	<% if(!currentEvent.state) { %>
 		          	<%= currentEvent.venue + ', ' + currentEvent.city + ', ' + currentEvent.country %>
 		          	<% } else { %>
 		            <%= currentEvent.venue + ', ' + currentEvent.city + ', ' + currentEvent.state %>
@@ -104,7 +104,7 @@
 		            <a href='/events/<%= upcomingEvent._id %>'><%= upcomingEvent.title %></a>
 		          </td>
 		          <td>
-		          	<% if(upcomingEvent.state == 'Select a State') { %>
+		          	<% if(!upcomingEvent.state) { %>
 		          	<%= upcomingEvent.venue + ', ' + upcomingEvent.city + ', ' + upcomingEvent.country %>
 		          	<% } else { %>
 		            <%= upcomingEvent.venue + ', ' + upcomingEvent.city + ', ' + upcomingEvent.state %>
@@ -159,7 +159,7 @@
 	                <a href='/events/<%= pastEvent._id %>'><%= pastEvent.title %></a>
 	              </td>
 	              <td>
-	              	<% if(pastEvent.state == 'Select a State') { %>
+	              	<% if(!pastEvent.state) { %>
 	              	<%= pastEvent.venue + ', ' + pastEvent.city + ', ' + pastEvent.country %>
 	              	<% } else { %>
 	                <%= pastEvent.venue + ', ' + pastEvent.city + ', ' + pastEvent.state %>
