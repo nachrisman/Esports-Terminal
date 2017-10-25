@@ -91,42 +91,13 @@ h2{
     text-decoration: underline;
 }
 
-/* landing - complete */
-#landing-wrapper{
-    display:inline-block;
-    position:relative;
+hr{
+    display:block;
+    border-color:rgba(0, 0, 0, 0.5);
+    width:60%;
 }
 
-.background{
-    width:100%;
-    max-width:100%;
-}
-
-#landing-link-1{
-    position:absolute;
-    right: 7%;
-    top: 28%;
-    width: 20%;
-    max-width:20%;
-}
-
-#landing-link-2{
-    position:absolute;
-    right: 7%;
-    top: 45%;
-    width: 20%;
-    max-width:20%;
-}
-
-#landing-link-3{
-    position:absolute;
-    right: 7%;
-    top: 63%;
-    width: 20%;
-    max-width:20%;
-}
-
-/* navigation - complete */
+/* navigation */
 .navbar.navbar-default{
     line-height: 120px;
     background-color:#fff;
@@ -166,7 +137,7 @@ h2{
     margin-right:25px;
 }
 
-/* login - complete */
+/* login */
 #login-page-auth{
     margin-top:50px;
     text-align:center;
@@ -197,13 +168,7 @@ h2{
     height:50px;
 }
 
-/* news - complete */
-hr{
-    display:block;
-    border-color:rgba(0, 0, 0, 0.5);
-    width:60%;
-}
-
+/* news */
 .article-header > a{
     color:rgba(0, 0, 0, 1.0);
 }
@@ -237,7 +202,7 @@ hr{
     max-width:100%;
 }
 
-/* content preview - complete */ 
+/* content preview */ 
 .preview{
     display:flex;
     flex-direction: row;
@@ -284,7 +249,7 @@ hr{
     color: #fff;
 }
 
-/* article view - complete */
+/* article view */
 #post-wrapper{
     border-left: 2px solid rgb(0, 0, 0);
     border-left: 2px solid rgba(0, 0, 0, 0.5);
@@ -348,7 +313,6 @@ hr{
 #suggested-articles{
     border-top: 2px solid rgba(0, 0, 0, 0.5);
     margin:20px 0 20px 0;
-    
 }
 
 #suggested-articles h2{
@@ -552,7 +516,7 @@ hr{
     text-decoration:underline;
 }
 
-/* events - complete */
+/* events */
 .events-list{
     margin: 0 auto;
     width:80%;
@@ -597,7 +561,7 @@ hr{
     text-decoration: underline;
 }
 
-/* event view - complete */ 
+/* event view */ 
 .event-figure{
     max-width:100%;
     max-height:400px;
@@ -652,7 +616,7 @@ hr{
     margin:0 auto 20px auto;
 }
 
-/* stream - complete */
+/* stream */
 #twitch-stream-player{
     text-align:center;
 }
@@ -671,7 +635,7 @@ hr{
 }
 
 
-/* register - complete */
+/* register */
 #registration-form-container{
     border-right:2px solid red;
     border-left:2px solid red;
@@ -816,17 +780,17 @@ hr{
     max-height: 50%;
 }
 
-/* privacy policy - complete */
+/* privacy policy */
 #privacy-policy-content * {
     text-align:left;
 }
 
-/* terms of service - complete */
+/* terms of service */
 #terms-of-use-content * {
     text-align:left;
 }
 
-/* footer - complete */
+/* footer */
 #footer{
 	padding-top:15px;
     position:relative;
