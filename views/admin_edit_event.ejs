@@ -12,6 +12,7 @@
 		  <br>
 		  <label>Games Involved: </label>
 		  <select type='select' name='event[games]'>
+		  	<option value='multiple'>Multiple Games</option>
 	      <% games.forEach(function(game) { %>
 	      <% 	if(event.games.indexOf(game.title) > -1) { %>
 	      	<option value='<%= game.title %>' selected><%= game.title %></option>
@@ -35,6 +36,7 @@
 		<br>
 		<label>State: </label>
 		<select type='select' name='event[state]'>
+			<option>Select a State</option>
 	 		<% states.forEach(function(state){ %>
 	 		<% 	if(state == event.state) { %>
 	 			<option value='<%= state %>' selected><%= state %></option>
