@@ -315,12 +315,6 @@ hr{
     margin:20px 0 20px 0;
 }
 
-#suggested-articles h2{
-    border-bottom:3px solid red;
-    margin:25px auto 20px auto;
-    width:20%;
-}
-
 #suggested-articles .article-preview{
     max-width:20%;
     margin: 0 10px 10px 10px;
