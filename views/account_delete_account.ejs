@@ -14,27 +14,27 @@
         	</div>
         	<div class='col-xs-9 col-md-9'>
         		<div class='account-content'>
-                  <h1>Delete Account</h1>
-                  <p>Are you sure you want to delete your account? We're sorry to see you go.</p>
-                  <p>Please tell us why you're leaving.</p>
-                  <form class='delete-account' action='/delete-account?_method=DELETE' method='POST'>
-                      <label>Reason for Leaving: 
-                          <select required>
-                              <option selected>Select a Reason</option>
-                              <option>The content was not relevant</option>
-                              <option>The site is too hard to use</option>
-                              <option>I don't use the site anymore</option>
-                              <option>Other</option>
-                          </select>
-                      </label>
-                      <label>Any additional comments?
-                          <textarea></textarea>
-                      </label>
-                      <br>
-                      <br>
-                      <p>You must enter your password to delete your account.</p>
-                      <label>Current Password: 
-    				    <input type='password' name='password'>
+            <h1>Delete Account</h1>
+            <p>Are you sure you want to delete your account? We're sorry to see you go.</p>
+            <p>Please tell us why you're leaving.</p>
+            <form class='delete-account' action='/account?_method=DELETE' method='POST'>
+                <label>Reason for Leaving: 
+                    <select type='select'>
+                        <option selected disabled>Select a Reason</option>
+                        <option>The content was not relevant</option>
+                        <option>The site is too hard to use</option>
+                        <option>I don't use the site anymore</option>
+                        <option>Other</option>
+                    </select>
+                </label>
+                <label>Any additional comments?
+                    <textarea></textarea>
+                </label>
+                <br>
+                <br>
+                <p>You must enter your password to delete your account.</p>
+                <label>Current Password: 
+    				      <input type='password' name='user[password]'>
     			      </label>
     			      <br>
     			      <br>
@@ -42,8 +42,8 @@
     			      <p class='text-danger'>Only click the button below if you are absolutely sure you want to delete your account.</p>
     			      <p class='text-danger'>This cannot be undone.</p>
     			      <button class='btn btn-danger' type='submit'>DELETE ACCOUNT</button>
-                  </form>
-                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

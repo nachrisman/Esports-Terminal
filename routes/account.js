@@ -13,7 +13,7 @@ router.get('/', middleware.isLoggedIn, function(req, res){
 	res.redirect('/account/meta-settings');
 });
 
-router.get('/info/', middleware.isLoggedIn, function(req, res){
+router.get('/info', middleware.isLoggedIn, function(req, res){
 	res.render('account_info', {states: states, countries: countries});
 });
 
@@ -79,12 +79,11 @@ router.get('/security', middleware.isLoggedIn, function(req, res){
 	res.render('account_security');
 });
 
-router.get('/delete-account', middleware.isLoggedIn, function(req, res){
+router.get('/delete-account/:id', middleware.isLoggedIn, function(req, res){
 	res.render('account_delete_account');	
 });
 
-router.delete('/delete-account', function(req, res){
-	if(req.user.password == req.body.password){
+router.delete('/account', middleware.isLoggedIn, function(req, res){
 		User.findByIdAndRemove(req.user._id, function(err){
 		if(err){
 			req.flash('error', 'Could not delete account. Please contact us for more info.')
@@ -94,7 +93,6 @@ router.delete('/delete-account', function(req, res){
 			res.redirect('/news');
 		}
 		});
-	}
 });
 
 module.exports = router;

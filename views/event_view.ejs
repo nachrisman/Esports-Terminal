@@ -57,7 +57,7 @@
           		  <h3>Date: </h3><p><%= foundEvent.date.toDateString() %></p>
           		  <h3>Location: </h3>
           		  <p><%= foundEvent.venue %></p>
-          		  <% if(foundEvent.state == 'Select a State') { %>
+          		  <% if(!foundEvent.state) { %>
           		  <p><%= foundEvent.city + ', ' + foundEvent.country %></p>
           		  <% } else { %>
           		  <p><%= foundEvent.city + ', ' + foundEvent.state + ', ' + foundEvent.country %></p>
