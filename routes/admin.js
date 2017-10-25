@@ -6,6 +6,7 @@ var express 	= require('express'),
 	Game 		= require('../models/game'),
 	middleware  = require('../middleware'),
 	country		= require('countryjs'),
+	moment		= require('moment'),
 	countryList = require('country-list')();
 
 var states	  = country.states('US'),
@@ -133,10 +134,12 @@ router.get('/new-article', middleware.isAdmin, function(req, res){
 							console.log(err);
 						} else {
 							var contentTypes = article.contentTypes;
+							var today = moment();
 							res.render('admin_new_article', {
 								games: games, 
 								authors: authors,
-								contentTypes: contentTypes
+								contentTypes: contentTypes,
+								today: today
 							});
 						}
 					});

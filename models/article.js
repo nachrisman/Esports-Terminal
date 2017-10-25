@@ -1,7 +1,8 @@
 var mongoose = require('mongoose'),
 	mongoosePaginate = require('mongoose-paginate');
 	
-var contentTypes = ['standard', 'video']
+var contentTypes = ['standard', 'video'],
+	currentDate	 = Date.now();
 
 var articleSchema = new mongoose.Schema({
 	title: String,

@@ -7,12 +7,12 @@
 		  <label>Author: </label>
 		  <select type='select' name='article[author]'>
 		  <% authors.forEach(function(author){ %>
-		  	<option value='<%= author.firstName + ' ' + author.lastName %>'><%= author.firstName + ' ' + author.lastName %></option>
+		  	<option value='<%= author.fullname %>'><%= author.fullname %></option>
 		  <% }); %>
 		  </select>
 		  <br>
 		  <label>Date: </label>
-		  <input type='date' name='article[published]'>
+		  <input type='date' name='article[published]' value='<%= today %>' required>
 		  <br>
 		  <label>Categories: </label>
 		  <select type='select' name='article[categories]'>
