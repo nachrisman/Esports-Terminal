@@ -43,7 +43,11 @@
 		            <a class='direct-event-link' href='/events/<%= currentEvent._id %>'><%= currentEvent.title %></a>
 		          </td>
 		          <td>
+		          	<% if(currentEvent.state == 'Select a State') { %>
+		          	<%= currentEvent.venue + ', ' + currentEvent.city + ', ' + currentEvent.country %>
+		          	<% } else { %>
 		            <%= currentEvent.venue + ', ' + currentEvent.city + ', ' + currentEvent.state %>
+		            <% } %>
 		          </td>
 		          <td>
 		            <%= currentEvent.date.toDateString() %>
@@ -100,8 +104,8 @@
 		            <a href='/events/<%= upcomingEvent._id %>'><%= upcomingEvent.title %></a>
 		          </td>
 		          <td>
-		          	<% if(!upcomingEvent.state) { %>
-		          	<%= upcomingEvent.venue + ', ' + upcomingEvent.country %>
+		          	<% if(upcomingEvent.state == 'Select a State') { %>
+		          	<%= upcomingEvent.venue + ', ' + upcomingEvent.city + ', ' + upcomingEvent.country %>
 		          	<% } else { %>
 		            <%= upcomingEvent.venue + ', ' + upcomingEvent.city + ', ' + upcomingEvent.state %>
 		            <% } %>
@@ -155,8 +159,11 @@
 	                <a href='/events/<%= pastEvent._id %>'><%= pastEvent.title %></a>
 	              </td>
 	              <td>
-	              	
+	              	<% if(pastEvent.state == 'Select a State') { %>
+	              	<%= pastEvent.venue + ', ' + pastEvent.city + ', ' + pastEvent.country %>
+	              	<% } else { %>
 	                <%= pastEvent.venue + ', ' + pastEvent.city + ', ' + pastEvent.state %>
+	                <% } %>
 	              </td>
 	              <td>
 	                <%= pastEvent.date.toDateString() %>
