@@ -13,6 +13,7 @@
             </div>
             <div class='preview'>
             <% relatedArticles.forEach(function(relatedArticle) {         %>
+            <%   if(relatedArticle.contentType == 'standard') { %>
             <%    var relatedCategories = relatedArticle.categories;      %>
             <%    var foundGames = foundEvent.games;                      %>
             <%    relatedCategories.forEach(function(relatedCategory) {   %>
@@ -29,6 +30,7 @@
               </div>
               <%      } %>
               <%    }); %>
+              <%   } %>
               <% }); %>
             </div>
             <div class='clear-div'>

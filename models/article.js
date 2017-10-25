@@ -1,5 +1,7 @@
 var mongoose = require('mongoose'),
 	mongoosePaginate = require('mongoose-paginate');
+	
+var contentTypes = ['standard', 'video']
 
 var articleSchema = new mongoose.Schema({
 	title: String,
@@ -10,9 +12,18 @@ var articleSchema = new mongoose.Schema({
 	imageSource: String,
 	body: String,
 	sourceLink: String,
-	categories: [String]
-});
+	categories: [String],
+	contentType: {
+		type: String,
+		enum: [contentTypes],
+		default: 'standard'
+		}
+	});
 
 articleSchema.plugin(mongoosePaginate);
+
+articleSchema.virtual('contentTypes').get(function () {
+    return contentTypes;
+});
 
 module.exports = mongoose.model('Article', articleSchema);

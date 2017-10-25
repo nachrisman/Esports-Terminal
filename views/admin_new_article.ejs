@@ -22,8 +22,11 @@
 	      </select>
 	      <br>
 	      <label>Article Type: </label>
-	      <select disabled>
-	      	<option>Select an option</option>
+	      <select type='select' name='article[contentType]'>
+	      	<option value='' selected disabled>Select a Content Type</option>
+	      	<% contentTypes.forEach(function(contentType){ %>
+	      		<option value='<%= contentType %>'><%= contentType %></option>
+	      	<% }); %>
 	      </select>
 	      <br>
 		  <label>Title: </label>

@@ -23,7 +23,7 @@
             </div>
             <div class='preview'>
             <% if(pastArticles.length == 0) {               %>
-              <p>No Articles to show</p>
+              <p>Nothing to see here...</p>
             <% } else {                                     %>
             <% pastArticles.forEach(function(pastArticle) { %>
               <div class='article-preview'>
@@ -51,9 +51,10 @@
             </div>
             <div class='preview'>
             <% if(pastArticles.length == 0) {               %>
-              <p>No Articles to show</p>
+              <p>Nothing to see here...</p>
             <% } else {                                     %>
             <% pastArticles.forEach(function(pastArticle) { %>
+            <%   if(pastArticle.contentType != 'video') { %>
               <div class='article-preview'>
                 <a class='preview-link' href='/news/<%= pastArticle._id %>'>
                   <div class='article-preview-image'>
@@ -64,6 +65,7 @@
                   </div>
                 </a>
               </div>
+              <% } %>
             <% }); %>
             <% }; %>
             </div>
@@ -79,9 +81,10 @@
             </div>
             <div class='preview'>
             <% if(pastArticles.length == 0) {               %>
-              <p>No Articles to show</p>
+              <p>Nothing to see here...</p>
             <% } else {                                     %>
             <% pastArticles.forEach(function(pastArticle) { %>
+            <%   if(pastArticle.contentType == 'video') { %>
               <div class='article-preview'>
                 <a class='preview-link' href='/news/<%= pastArticle._id %>'>
                   <div class='article-preview-image'>
@@ -92,8 +95,12 @@
                   </div>
                 </a>
               </div>
+              <% } %>
             <% }); %>
             <% }; %>
+            </div>
+            <div class='clear-div'>
+              <hr>
             </div>
           </div>
           <div class='col-xs-8 col-md-8' id='post-wrapper'>

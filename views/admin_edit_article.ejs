@@ -28,6 +28,18 @@
 	      <% }); %>
 	      </select>
 	      <br>
+	      <label>Article Type: </label>
+	      <select type='select' name='article[contentType]'>
+	      	<option value='' selected disabled>Select a Content Type</option>
+	      	<% contentTypes.forEach(function(contentType) { %>
+	      	<% 	if(article.contentType == contentType) { %>
+	      			<option value='<%= contentType %>' selected><%= contentType %></option>
+	      		<% } else { %>
+	      			<option value='<%= contentType %>'><%= contentType %></option>
+	      		<% } %>
+	      	<% }); %>
+	      </select>
+	      <br>
 		  <label>Title: </label>
 		  <input type='text' name='article[title]' value='<%= article.title %>' >
 		  <br>
