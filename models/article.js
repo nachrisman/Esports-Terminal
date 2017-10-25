@@ -1,8 +1,7 @@
 var mongoose = require('mongoose'),
 	mongoosePaginate = require('mongoose-paginate');
 	
-var contentTypes = ['standard', 'video'],
-	currentDate	 = Date.now();
+var contentTypes = ['standard', 'video'];
 
 var articleSchema = new mongoose.Schema({
 	title: String,
@@ -16,7 +15,7 @@ var articleSchema = new mongoose.Schema({
 	categories: [String],
 	contentType: {
 		type: String,
-		enum: [contentTypes],
+		enum: contentTypes,
 		default: 'standard'
 		}
 	});

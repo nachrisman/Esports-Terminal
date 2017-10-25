@@ -5,10 +5,9 @@
 		<fieldset id='meta'>
 		  <label>Author: </label>
 		  <select type='select' name='article[author]'>
+		  	<option value='<%= article.author %>' selected><%= article.author %></option>
 		  <% authors.forEach(function(author){ %>
-		  <% 	if(currentUser.fullname == author.fullname) { %>
-		  			<option value='<%= author.fullname %>' selected><%= author.fullname %></option>
-		  	<% } else { %>
+		  <% 	if(author.fullname != article.author) { %>
 		  	<option value='<%= author.fullname %>'><%= author.fullname %></option>
 		  	<% } %>
 		  <% }); %>
