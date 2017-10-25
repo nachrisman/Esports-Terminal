@@ -36,7 +36,7 @@
 		<br>
 		<label>State: </label>
 		<select type='select' name='event[state]'>
-			<option>Select a State</option>
+			<option value=''>Select a State</option>
 	 		<% states.forEach(function(state){ %>
 	 		<% 	if(state == event.state) { %>
 	 			<option value='<%= state %>' selected><%= state %></option>
