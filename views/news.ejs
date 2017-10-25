@@ -7,10 +7,10 @@
         </div>
         <div class='row'>
           <div class='col-xs-12 col-md-12'>
-            <div class='clear-div'>
-              <hr>
-            </div>
-            <img class='billboard-ad' src='../media/ads/billboard.jpg'>
+            <!--<div class='clear-div'>-->
+            <!--  <hr>-->
+            <!--</div>-->
+            <!--<img class='billboard-ad' src='../media/ads/billboard.jpg'>-->
             <div class='clear-div'>
               <hr>
             </div>
@@ -42,12 +42,12 @@
             <div class='clear-div'>
               <hr>
             </div>
-            <img class='rectangle-ad' src='/media/ads/medium_rectangle.jpg'>
-            <div class='clear-div'>
-              <hr>
-            </div>
+            <!--<img class='rectangle-ad' src='/media/ads/medium_rectangle.jpg'>-->
+            <!--<div class='clear-div'>-->
+            <!--  <hr>-->
+            <!--</div>-->
             <div class='content-divider-sm'>
-              <h2>ICYMI</h2>
+              <h2>Suggested</h2>
             </div>
             <div class='preview'>
             <% if(pastArticles.length == 0) {               %>
@@ -67,12 +67,33 @@
             <% }); %>
             <% }; %>
             </div>
+            <!--<div class='clear-div'>-->
+            <!--  <hr>-->
+            <!--</div>-->
+            <!--<img class='rectangle-ad' src='/media/ads/medium_rectangle2.gif'>-->
             <div class='clear-div'>
               <hr>
             </div>
-            <img class='rectangle-ad' src='/media/ads/medium_rectangle2.gif'>
-            <div class='clear-div'>
-              <hr>
+            <div class='content-divider-sm'>
+              <h2>Popular Videos</h2>
+            </div>
+            <div class='preview'>
+            <% if(pastArticles.length == 0) {               %>
+              <p>No Articles to show</p>
+            <% } else {                                     %>
+            <% pastArticles.forEach(function(pastArticle) { %>
+              <div class='article-preview'>
+                <a class='preview-link' href='/news/<%= pastArticle._id %>'>
+                  <div class='article-preview-image'>
+                    <img class='article-preview-image' src='<%= pastArticle.image %>'>
+                  </div>
+                  <div class='preview-headline'>
+                    <h3 class='article-title'><%= pastArticle.title.substr(0, 30) %>...</h3>
+                  </div>
+                </a>
+              </div>
+            <% }); %>
+            <% }; %>
             </div>
           </div>
           <div class='col-xs-8 col-md-8' id='post-wrapper'>
@@ -101,30 +122,5 @@
         	<% }); %>
         </div>
       </div>
-      <div class='row'>
-        <div class='col-xs-12 col-md-12' id='suggested-articles'>
-          <div class='content-divider-lg'>
-            <h2>Suggested Articles</h2>
-          </div>
-          <div class='preview'>
-          <% if(pastArticles.length == 0) {               %>
-            <p>No Articles to show</p>
-          <% } else {                                     %>
-          <% pastArticles.forEach(function(pastArticle) { %>
-            <div class='article-preview'>
-              <a class='preview-link' href='/news/<%= pastArticle._id %>'>
-                <div class='article-preview-image'>
-                  <img class='article-preview-image' src='<%= pastArticle.image %>'>
-                </div>
-                <div class='preview-headline'>
-                  <h3 class='article-title'><%= pastArticle.title.substr(0, 80) %>...</h3>
-                </div>
-              </a>
-            </div>
-          <% });                                          %>
-          <% };                                           %>
-          </div>
-        </div>
-        </div>
       </div>
 <% include ./partials/footer %>

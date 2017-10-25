@@ -1,4 +1,5 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+	mongoosePaginate = require('mongoose-paginate');
 
 var articleSchema = new mongoose.Schema({
 	title: String,
@@ -11,5 +12,7 @@ var articleSchema = new mongoose.Schema({
 	sourceLink: String,
 	categories: [String]
 });
+
+articleSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Article', articleSchema);
