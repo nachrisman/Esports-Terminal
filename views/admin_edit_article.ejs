@@ -7,7 +7,7 @@
 		  <select type='select' name='article[author]'>
 		  <% authors.forEach(function(author){ %>
 		  <% 	if(currentUser.fullname == author.fullname) { %>
-		  			<option value='<%= currentUser.fullname %>' selected><%= currentUser.fullname %></option>
+		  			<option value='<%= author.fullname %>' selected><%= author.fullname %></option>
 		  	<% } else { %>
 		  	<option value='<%= author.fullname %>'><%= author.fullname %></option>
 		  	<% } %>
