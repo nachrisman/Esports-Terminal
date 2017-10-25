@@ -56,7 +56,7 @@
           		  <h3>Location: </h3>
           		  <p><%= foundEvent.venue %></p>
           		  <% if(!foundEvent.state) { %>
-          		  <p>foundEvent.city + ', ' + foundEvent.country %></p>
+          		  <p><%= foundEvent.city + ', ' + foundEvent.country %></p>
           		  <% } else { %>
           		  <p><%= foundEvent.city + ', ' + foundEvent.state + ', ' + foundEvent.country %></p>
           		  <% } %>
