@@ -35,6 +35,9 @@
               <hr>
             </div>
             <img class='rectangle-ad' src='/media/ads/medium_rectangle.jpg'>
+            <div class='clear-div'>
+              <hr>
+            </div>
             <img class='rectangle-ad' src='/media/ads/medium_rectangle2.gif'>
           </div>
           <div class='col-xs-8 col-md-8' id='post-wrapper'>
@@ -50,7 +53,13 @@
                   <h2>When &amp; Where</h2>
                 </div>
           		  <h3>Date: </h3><p><%= foundEvent.date.toDateString() %></p>
-          		  <h3>Location: </h3><p><%= foundEvent.venue + ', ' + foundEvent.city + ', ' + foundEvent.state %></p>
+          		  <h3>Location: </h3>
+          		  <p><%= foundEvent.venue %></p>
+          		  <% if(!foundEvent.state) { %>
+          		  <p>foundEvent.city + ', ' + foundEvent.country %></p>
+          		  <% } else { %>
+          		  <p><%= foundEvent.city + ', ' + foundEvent.state + ', ' + foundEvent.country %></p>
+          		  <% } %>
           		  <h3>EST Stream Hosting: </h3>
           		  <p>
           			<% if(foundEvent.stream === true) {  %>
@@ -64,8 +73,8 @@
         			  <div class='content-divider-md'>
                   <h2>Everything Else</h2>
                 </div>
-          		  <p><%- foundEvent.description %></p>
-                <p>More Info/Source Link: <a class='source-link' href='<%= foundEvent.sourceLink %>' target='_blank'>Click Here</a></p>
+          		  <div class='article-body'><%- foundEvent.description %></div>
+                <p>Source: <a class='source-link' href='<%= foundEvent.sourceLink %>' target='_blank'>Click Here</a></p>
                 <p class='end-content-return'><a href='/events'>Return to Events Page > > ></a></p>
           		</div>
         	  </article>

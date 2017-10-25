@@ -34,7 +34,38 @@
 		<input type='text' name='event[city]' value='<%= event.city %>'>
 		<br>
 		<label>State: </label>
-		<input type='text' name='event[state]' value='<%= event.state %>'>
+		<select type='select' name='event[state]'>
+	 		<% states.forEach(function(state){ %>
+	 		<% 	if(state == event.state) { %>
+	 			<option value='<%= state %>' selected><%= state %></option>
+	 			<% } else { %>
+	 			<option value='<%= state %>'><%= state %></option>
+	 			<% } %>
+	 		<% }); %>
+	 	</select>
+	 	<br>
+	 	<label>Country: </label>
+	 	<select type='select' name='event[country]'>
+	 		<% countries.forEach(function(country){ %>
+	 		<% 	if(country == event.country) { %>
+	 			<option value='<%= country %>' selected><%= country %></option>
+	 			<% } else { %>
+	 			<option value='<%= country %>'><%= country %></option>
+	 			<% } %>
+	 		<% }); %>
+	 	</select>
+	 	<br>
+	 	<label>EST Stream: </label>
+	 	<select type='select' name='event[stream]'>
+	 		<% if(event.stream == true) { %>
+	 		<option value='yes' selected>Yes</option>
+	 		<option value='no'>No</option>
+	 		<% } else { %>
+	 		<option value='yes'>Yes</option>
+	 		<option value='no' selected>No</option>
+	 		<% } %>
+	 	</select>
+	 	<br>
 		<label>Source Link (if applicable): </label>
 		<input type='text' name='event[sourceLink]' value='<%= event.sourceLink %>'>
 		<button type='submit'>Update Event</button>

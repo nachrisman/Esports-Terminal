@@ -9,8 +9,9 @@
   		  <label>Date of Event: </label>
   		  <input type='date' name='event[date]'>
   		  <br>
-  		  <label>Games Involved: </label>
+  		  <label>Game(s) Involved: </label>
   		  <select type='select' name='event[games]'>
+  		  	<option value='multiple'>Multiple Games</option>
 	      <% games.forEach(function(game) { %>
 	      	<option value='<%= game.title %>'><%= game.title %></option>
 	      <% }); %>
@@ -29,15 +30,25 @@
 	 	<input type='text' name='event[city]'>
 	 	<br>
 	 	<label>State: </label>
-	 	<input type='text' name='event[state]'>
+	 	<select type='select' name='event[state]'>
+	 		<% states.forEach(function(state){ %>
+	 			<option value='<%= state %>'><%= state %></option>
+	 		<% }); %>
+	 	</select>
 	 	<br>
 	 	<label>Country: </label>
-	 	<input type='text' name='event[country]'>
+	 	<select type='select' name='event[country]'>
+	 		<% countries.forEach(function(country){ %>
+	 			<option value='<%= country %>'><%= country %></option>
+	 		<% }); %>
+	 	</select>
 	 	<label>EST Stream: </label>
-	 	<input type='checkbox' name='event[stream]' value='yes'> Yes
-	 	<input type='checkbox' name='event[stream]' value='no'> No
+	 	<select type='select' name='event[stream]'>
+	 		<option value='yes'>Yes</option>
+	 		<option value='no'>No</option>
+	 	</select>
 	 	<br>
-	 	<label>Source Link (if applicable): </label>
+	 	<label>Source Link: </label>
 	 	<input type='text' name='event[sourceLink]'>
 	 	<button type='submit'>Add Event</button>
 	</form>

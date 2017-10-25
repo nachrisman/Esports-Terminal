@@ -610,12 +610,6 @@ hr{
     margin:0 auto 20px auto;
 }
 
-#related-events h2{
-    border-bottom:3px solid red;
-    width:20%;
-    margin:0 auto 20px auto;
-}
-
 /* stream */
 #twitch-stream-player{
     text-align:center;

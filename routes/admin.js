@@ -140,7 +140,7 @@ router.get('/new-event', middleware.isAdmin, function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			res.render('admin_new_event', {games: games});
+			res.render('admin_new_event', {games: games, countries: countries, states: states});
 		}
 	});
 });
@@ -164,7 +164,7 @@ router.get('/edit-event/:id', middleware.isAdmin, function(req, res){
 				if(err){
 					console.log(err);
 				} else {
-					res.render('admin_edit_event', {event: foundEvent, games: games});
+					res.render('admin_edit_event', {event: foundEvent, games: games, countries: countries, states: states});
 				}
 			});
 		}
