@@ -17,12 +17,15 @@ var adminRoutes 	= require('./routes/admin'),
 	indexRoutes 	= require('./routes/index');
 
 mongoose.Promise = global.Promise;
+
 var url = process.env.DATABASEURL || 'mongodb://localhost/est';
 mongoose.connect(url, {useMongoClient: true});
 
+
+
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(flash());
 // app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
@@ -42,6 +45,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next){
 	res.locals.currentUser = req.user;
 	res.locals.error = req.flash('error');
+	res.locals.warning = req.flash('warning');
 	res.locals.success = req.flash('success');
 	next();
 });

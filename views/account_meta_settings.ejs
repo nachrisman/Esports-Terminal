@@ -1,5 +1,4 @@
 <% include ./partials/header %>
-
   <div class='container-fluid' id='primary-wrapper'>
   	<div class='row'>
   		<div class='col-xs-3 col-md-3'>
@@ -8,7 +7,7 @@
   				<ul>
   					<li><a href='/account/meta-settings'>META Settings</a></li>
   					<li><a href='/account/info'>Account Information</a></li>
-  					<li><a href='/account/security'>Security</a></li>
+  					<li><a href='/account/security'>Security & Other</a></li>
   					<li><a href='/logout'>Log Out</a></li>
   				</ul>
   			</div>
@@ -18,91 +17,103 @@
   				<div class='meta-settings'>
             <h1>Games</h1>
             <p>These are your game subscriptions. Change them anytime!</p>
+            <div class='row' id='meta-settings-columns'>
+              <div class='col-xs-4 col-md-4'>
+                <h3>Titles</h3>
+              </div>
+              <div class='col-xs-4 col-md-4'>
+                <h3>News</h3>
+              </div>
+              <div class='col-xs-4 col-md-4'>
+                <h3>Events</h3>
+              </div>
+            </div>
             <form class='user-meta-settings' action='/account/meta-settings?_method=PUT' method='POST'>
-              <div class='row'>
-                <div class='col-xs-6 col-md-6' id='meta-titles'>
-                  <h3>Titles</h3>
+              <div class='form-group row'>
+                <div class='col-xs-4 col-md-4' id='meta-titles'>
                   <% var userMeta = currentUser.meta; %>
-                  <% games.forEach(function(game) {   %>
+                  <% games.forEach(function(game) { %>
                   <%   if(userMeta.find(meta => meta.game == game.title)) { %>
-                      <label>
-                        <input type='checkbox' name='title' value='<%= game.title %>' checked> <% if(game.abbreviation != 'None'){ %> <%= game.abbreviation %> <% } else { %> <%=game.title %> <% } %>
+                    <div class="form-check form-check-inline">
+                      <label class="btn btn-primary btn-est">
+                        <input type="checkbox" name='title[]' value='<%= game.title %>' autocomplete="off" checked><%= game.title %>
                       </label>
+                    </div>
                   <% } else { %>
-                      <label>
-                        <input type='checkbox' name='title' value='<%= game.title %>'> <% if(game.abbreviation != 'None'){ %> <%= game.abbreviation %> <% } else { %> <%=game.title %> <% } %>
+                    <div class="form-check form-check-inline">
+                      <label class="btn btn-primary btn-est">
+                        <input type="checkbox" name='title[]' value='<%= game.title %>' autocomplete="off"><%= game.title %>
                       </label>
+                    </div>
                   <% } %>
                   <% }); %>
                 </div>
-                <div class='col-xs-3 col-md-3' id='meta-events-sub'>
-                  <h3>Events</h3>
-                  <% var subscribedEvents = []; %>
-                  <% var nonSubscribedEvents = []; %>
-                  <% userMeta.forEach(function(meta){ %>
-                  <%    if(meta.events == true){ %>
-                  <%      subscribedEvents.push(meta); %>
+                <div class='col-xs-4 col-md-4' id='meta-news'>
+                  <% games.forEach(function(game) { %>
+                  <%   if(userMeta.find(meta => meta.news == true && meta.game == game.title)) { %>
+                        <div class="form-check form-check-inline sub-meta-check">
+                          <label class="btn btn-primary btn-est">
+                            <input type="checkbox" name='news[]' value='yes' autocomplete="off" checked> Yes
+                          </label>
+                          <label class="btn btn-danger btn-est-danger">
+                            <input type="checkbox" name='news[]' value='no' autocomplete="off"> No
+                          </label>
+                        </div>
+                  <% } else if(userMeta.find(meta => meta.news == false && meta.game == game.title)){ %>
+                        <div class='form-check form-check-inline sub-meta-check'>
+                          <label class="btn btn-primary btn-est">
+                            <input type="checkbox" name='news[]' value='yes' autocomplete="off"> Yes
+                          </label>
+                          <label class="btn btn-danger btn-est-danger">
+                            <input type="checkbox" name='news[]' value='no' autocomplete="off" checked> No
+                          </label>
+                        </div>
                   <% } else { %>
-                  <%   nonSubscribedEvents.push(meta); %>
+                        <div class='form-check form-check-inline sub-meta-check'>
+                          <label class="btn btn-primary btn-est">
+                            <input type="checkbox" name='news[]' value='yes' autocomplete="off"> Yes
+                          </label>
+                          <label class="btn btn-danger btn-est-danger">
+                            <input type="checkbox" name='news[]' value='no' autocomplete="off"> No
+                          </label>
+                        </div>
                   <% } %>
-                  <% }); %>
-                  <% games.forEach(function(game) {   %>
-                  <%   if(subscribedEvents.find(meta => (meta.game == game.title))) { %>
-                            <select id='events-check' type='select' name='events'>
-                              <option value='subscribed' selected>Subscribed</option>
-                              <option value='unsubscribed'>Not Subscribed</option>
-                              <option>Select an Option</option>
-                            </select>
-                  <% } else if(nonSubscribedEvents.find(meta => (meta.game == game.title))) { %>
-                            <select id='events-check' type='select' name='events'>
-                              <option value='subscribed'>Subscribed</option>
-                              <option value='unsubscribed' selected>Not Subscribed</option>
-                              <option>Select an Option</option>
-                            </select>
-                  <% } else { %>
-                            <select id='events-check' type='select' name='events' disabled>
-                              <option selected>Select an Option</option>
-                              <option value='subscribed' >Subscribed</option>
-                              <option value='unsubscribed'>Not Subscribed</option>
-                            </select>
-                           <% } %>
                   <% }); %>
                 </div>
-                <div class='col-xs-3 col-md-3' id='meta-news-sub'>
-                  <h3>News</h3>
-                  <% var subscribedNews = []; %>
-                  <% var nonSubscribedNews = []; %>
-                  <% userMeta.forEach(function(meta){ %>
-                  <%    if(meta.news == true){ %>
-                  <%      subscribedNews.push(meta); %>
+                <div class='col-xs-4 col-md-4' id='meta-events'>
+                  <% games.forEach(function(game) { %>
+                  <%   if(userMeta.find(meta => meta.events == true && meta.game == game.title)) { %>
+                        <div class="form-check form-check-inline sub-meta-check">
+                          <label class="btn btn-primary btn-est">
+                            <input type="checkbox" name='events[]' value='yes' autocomplete="off" checked> Yes
+                          </label>
+                          <label class="btn btn-danger btn-est-danger">
+                            <input type="checkbox" name='events[]' value='no' autocomplete="off"> No
+                          </label>
+                        </div>
+                  <% } else if(userMeta.find(meta => meta.events == false && meta.game == game.title)) { %>
+                        <div class='form-check form-check-inline sub-meta-check'>
+                          <label class="btn btn-primary btn-est">
+                            <input type="checkbox" name='events[]' value='yes' autocomplete="off"> Yes
+                          </label>
+                          <label class="btn btn-danger btn-est-danger">
+                            <input type="checkbox" name='events[]' value='no' autocomplete="off" checked> No
+                          </label>
+                        </div>
                   <% } else { %>
-                  <%   nonSubscribedNews.push(meta); %>
-                  <% } %>
-                  <% }); %>
-                  <% games.forEach(function(game){ %>
-                    <% if(subscribedNews.find(meta => (meta.game == game.title))) { %>
-                      <select id='news-check' type='select' name='news'>
-                        <option value='subscribed' selected>Subscribed</option>
-                        <option value='unsubscribed'>Not Subscribed</option>
-                        <option>Select an Option</option>
-                      </select>
-                  <% } else if(nonSubscribedNews.find(meta => (meta.game == game.title))){ %>
-                      <select id='news-check' type='select' name='news'>
-                        <option value='subscribed'>Subscribed</option>
-                        <option value='unsubscribed' selected>Not Subscribed</option>
-                        <option>Select an Option</option>
-                      </select>
-                    <% } else { %>
-                      <select id='news-check' type='select' name='news' disabled>
-                        <option value='subscribed'>Subscribed</option>
-                        <option value='unsubscribed' >Not Subscribed</option>
-                        <option selected>Select an Option</option>
-                      </select>
+                        <div class='form-check form-check-inline sub-meta-check'>
+                          <label class="btn btn-primary btn-est">
+                            <input type="checkbox" name='events[]' value='yes' autocomplete="off"> Yes
+                          </label>
+                          <label class="btn btn-danger btn-est-danger">
+                            <input type="checkbox" name='events[]' value='no' autocomplete="off"> No
+                          </label>
+                        </div>
                   <% } %>
                   <% }); %>
                 </div>
               </div>
-              <button class='btn btn-success' type='submit'>Save Changes</button>
+              <button class='btn btn-success account-form-btn' type='submit'>Save Changes</button>
             </form>
           </div>
   			</div>

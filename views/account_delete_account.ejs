@@ -7,7 +7,7 @@
         			<ul>
         				<li><a href='/account/meta-settings'>META Settings</a></li>
         				<li><a href='/account/info'>Account Information</a></li>
-        				<li><a href='/account/security'>Security</a></li>
+        				<li><a href='/account/security'>Security & Other</a></li>
         				<li><a href='/logout'>Log Out</a></li>
         			</ul>
         		</div>
@@ -17,7 +17,7 @@
             <h1>Delete Account</h1>
             <p>Are you sure you want to delete your account? We're sorry to see you go.</p>
             <p>Please tell us why you're leaving.</p>
-            <form class='delete-account' action='/account?_method=DELETE' method='POST'>
+            <form class='delete-account' action='/account/delete-account?_method=DELETE' method='POST'>
                 <label>Reason for Leaving: 
                     <select type='select'>
                         <option selected disabled>Select a Reason</option>
@@ -34,14 +34,14 @@
                 <br>
                 <p>You must enter your password to delete your account.</p>
                 <label>Current Password: 
-    				      <input type='password' name='user[password]'>
+    				      <input type='password' name='password'>
     			      </label>
     			      <br>
     			      <br>
     			      <p class='text-danger'>WARNING! Your account will be PERMANENTLY DELETED!</p>
     			      <p class='text-danger'>Only click the button below if you are absolutely sure you want to delete your account.</p>
     			      <p class='text-danger'>This cannot be undone.</p>
-    			      <button class='btn btn-danger' type='submit'>DELETE ACCOUNT</button>
+    			      <button class='btn btn-danger account-form-btn' type='submit'>DELETE ACCOUNT</button>
               </form>
             </div>
           </div>

@@ -57,10 +57,10 @@
 		<label>Source Link (if applicable): </label>
 		<input type='text' name='article[sourceLink]' value=<%= article.sourceLink %> >
 		<br>
-		<button type='submit'>Update Article</button>
+		<button class='btn btn-success' type='submit'>Update Article</button>
 	  </form>
 	  <form class='new-item-entry' id='delete-item' action='/news/<%= article._id %>?_method=DELETE' method='POST'>
-		<button type='submit'>DELETE ARTICLE</button>
+		<button class='btn btn-danger' type='submit'>DELETE ARTICLE</button>
 	  </form>
 	</div>
 <% include ./partials/admin_footer %>

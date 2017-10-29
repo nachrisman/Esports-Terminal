@@ -43,19 +43,23 @@
 			  </div>
 			  <br>
 			  <br>
-	      	  <div class='section-divider'></div>
+	      	  <div class='clear-div'>
+	      	  	<hr>
+	      	  </div>
 	      	  <div class='game-select'>
 	      	  <% games.forEach(function(game) { %>
 		        <label>
-		      	  <input type='checkbox' name='title' value='<%= game.title %>'>
+		      	  <input type='checkbox' name='title[]' value='<%= game.title %>'>
 		      	  <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
 		        </label>
 	      	  <% }); %>
 	      	  </div>
-	      	  <div class='section-divider'>
+	      	  <div class='clear-div'>
+	      	  	<hr>
       			<h2>All Done? Click it. Finish the job.</h2>
       		  </div>
-	      	  <button type='submit' class='finish-registration'><img src='/media/branding/finish_registration.png'></button>
+      		  <input type='hidden' name='selectedGames' value=''>
+	      	  <button class='btn btn-success account-form-btn' id='registration-btn' type='submit'>CREATE MY ACCOUNT</button>
 	        </form>
 	      </div>
 	      <div class='col-xs-3 col-md-3'>

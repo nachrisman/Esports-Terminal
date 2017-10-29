@@ -49,6 +49,22 @@
 }
 
 /* Forms */
+hr{
+    display:block;
+    border-color:rgba(0, 0, 0, 0.5);
+    width:60%;
+}
+
+#page-header{
+    width:60%;
+    margin:25px auto;
+}
+
+#page-header a{
+    display: block;
+    margin: 0 auto;
+}
+
 .user-account-edit{
     text-align:center;
     width:100%;
@@ -65,7 +81,13 @@
     width:50%;
  }
 
- .user-account-edit input, select{
+ .user-account-edit input{
+    text-align:left;
+    float:right;
+    width:80%;
+ }
+ 
+ .user-account-edit select{
     text-align:left;
     float:right;
     width:80%;
@@ -77,37 +99,47 @@
      height:50px;
      width:25%;
  }
-
-.new-item-entry{
-	width:100%;
-	background-color:#c0d5f7;
-	padding:10px;
-	border:2px solid black;
-	margin-bottom:30px;
-}
+ 
+ .new-item-entry{
+     margin:0 auto 25px auto;
+     display:block;
+     width:50%;
+ }
 
 .new-item-entry button{
-	display:inline-block;
-	width:100%;
-	height:50px;
-	background-color:#02ce0c;
+    display:block;
 }
 
-.checkbox{
-	display:inline-block;
-	padding:25px;
-}
 
-.new-item-entry input{
-	width:100%;
-	text-align:left;
-	border-radius:3px;
-}
+/*.new-item-entry{*/
+/*	width:100%;*/
+/*	background-color:#c0d5f7;*/
+/*	padding:10px;*/
+/*	border:2px solid black;*/
+/*	margin-bottom:30px;*/
+/*}*/
 
-.new-item-entry textarea{
-	width:100%;
-	height:250px;
-}
+/*.checkbox{*/
+/*	display:inline-block;*/
+/*	padding:25px;*/
+/*}*/
+
+/*.new-item-entry button{*/
+/*    width:50%;*/
+/*    display:block;*/
+/*    margin:25px auto;*/
+/*}*/
+
+/*.new-item-entry input{*/
+/*	width:100%;*/
+/*	text-align:left;*/
+/*	border-radius:3px;*/
+/*}*/
+
+/*.new-item-entry textarea{*/
+/*	width:100%;*/
+/*	height:250px;*/
+/*}*/
 
 .item-list thead, th, td, tr{
     padding:10px;
@@ -169,17 +201,11 @@
     border: 2px solid white;
 }
 
-
 #delete-item{
-	background-color:#ff4949;
+    margin: 0 auto 25px auto;
+    width:50%;
 }
 
 #delete-item button{
-	width:100%;
-	background-color:#ff0000;
-	font-style: bold;
-	font-size:24pt;
-	color:#000000;
+    width:100%;
 }
-
-

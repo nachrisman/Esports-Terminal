@@ -7,7 +7,7 @@
     				<ul>
     					<li><a href='/account/meta-settings'>META Settings</a></li>
     					<li><a href='/account/info'>Account Information</a></li>
-    					<li><a href='/account/security'>Security</a></li>
+    					<li><a href='/account/security'>Security & Other</a></li>
     					<li><a href='/logout'>Log Out</a></li>
     				</ul>
     			</div>
@@ -16,6 +16,7 @@
     			<div class='account-content'>
     			    <h1>User Information</h1>
     			    <p>Update your info here. Be sure to save the changes when you're done!</p>
+    			    <p>Most of this is not required, but it can help us server you better in the future.</p>
     				<form class='user-account-edit' action='/account/info?_method=PUT' method='POST'>
     					<div class='form-group' id='user-names'>
     					  <label>Username: 
@@ -86,7 +87,7 @@
     								<% }; %>
     							</select>
   						  </label>
-  						  <button class='btn btn-success' type='submit' >Save Changes</button>
+  						  <button class='btn btn-success account-form-btn' type='submit' >SAVE CHANGES</button>
     					</div>
     				</form>	
     			</div>

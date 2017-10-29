@@ -7,11 +7,22 @@ var express 	= require('express'),
 	passport 	= require('passport'),
 	User 	 	= require('../models/user'),
 	middleware  = require('../middleware'),
+	nodemailer	= require('nodemailer'),
+	sgTransport = require('nodemailer-sendgrid-transport'),
 	countryList = require('country-list')(),
 	country		= require('countryjs');
 	
 var states	  = country.states('US'),
 	countries = countryList.getNames();
+
+var options = {
+  auth: {
+    api_user: 'app79330346@heroku.com',
+    api_key: 'v0po3kna4389'
+  }
+}
+
+var client = nodemailer.createTransport(sgTransport(options));
 
 /*=============
   MISC ROUTES
@@ -20,7 +31,6 @@ router.get('/search', function(req, res){
 	res.render('search');	
 });
 
-//stream view with upcoming streams list
 router.get('/stream', function(req, res){
 	var today = moment().startOf('day');
 
@@ -35,7 +45,6 @@ router.get('/stream', function(req, res){
 	});
 });
 
-//Legal Pages
 router.get('/privacy-policy', function(req, res){
 	res.render('privacy_policy');
 });
@@ -44,16 +53,9 @@ router.get('/terms-of-use', function(req, res){
 	res.render('terms_of_use');
 });
 
-//info page
 router.get('/info', function(req, res){
 	res.render('info');
 });
-
-//Podcast View - waiting on this for now
-// router.get('/podcast', function(req, res){
-// 	res.render('podcast');
-// });
-
 
 /*==================
    AUTHENTICATION
@@ -66,11 +68,6 @@ router.get('/', function(req, res){
 	}
 });
 
-router.get('/login', function(req, res){
-	res.render('login');
-});
-
-//META Routes
 router.get('/meta/', middleware.isLoggedIn, function(req, res){
 	var today = moment().startOf('day');
 	var nextWeek = moment().add(7, 'days');
@@ -102,8 +99,8 @@ router.post('/admin/login', passport.authenticate('local',
 	{
 		successRedirect: '/admin',
 		failureRedirect: '/admin/login',
+		failureFlash: { type: 'error', message: 'Something Went Wrong. Try Again.' }
 	}), function(req, res){
-	
 });
 
 router.get('/register', function(req, res){
@@ -118,37 +115,89 @@ router.get('/register', function(req, res){
 });
 
 router.post('/register', function(req, res){
+	var validationToken = Math.floor(Math.random() * 100 + 54);
+	
 	var newUser = new User({
 		username: req.body.username,
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
 		email: req.body.email,
-		location: {country: req.body.country}
+		location: {country: req.body.country},
+		validationToken: validationToken
 	});
+	
 	var metaGames = req.body.title;
-	for(var i=0; i < metaGames.length; i++){
-		newUser.meta.push({ game: metaGames[i], events: true, news: true});
-	}
+	metaGames.forEach(function(metaGame){
+		newUser.meta.push({ game: metaGame, events: true, news: true});
+	});
+	
 	if(req.body.password == req.body.confirmedPassword){
+		var host = req.get('host');
+    	var link= "http://" + host + "/verify?id=" + validationToken;
 		User.register(newUser, req.body.password, function(err, user){
 			if(err){
 				req.flash('error', err.message);
 				return res.redirect('/register');
 			}
 			passport.authenticate('local')(req, res, function(){
-				req.flash('success', 'Welcome, ' + user.username + '! ' + 'Let\'s finish your META');
-				res.redirect('/account');
+				var email = {
+					  from: 'app79330346@heroku.com',
+					  to: user.email,
+					  subject: 'Please Confirm Your Account',
+					  html: 'Hey, ' + user.firstName + '! <br><br><p>Thanks for creating an account with EST. Next step is to verify your email. <br><br> <a href='+ link +'>Click Here to Confirm Your Account!</a>'
+					};
+					client.sendMail(email, function(err, info){
+					    if (err ){
+					      console.log(err);
+					    }
+					    else {
+					      console.log('Message sent: ' + info.response);
+					      req.flash('warning', 'Please Check Your Email to Confirm Your Account!')
+					      res.redirect('/account');
+					    }
+					});
 			});
 		});
 	} else {
 		req.flash('error', 'Passwords did not match, please try registering again.');
 		res.redirect('/register');
 	}
-	});
+});
+
+router.get('/verify',function(req,res){
+		console.log(req.protocol + ':/' + req.get('host'));
+		
+		if((req.protocol + '://' + req.get('host')) == ('http://' + req.get('host'))){
+		    console.log("Domain is matched. Information is from Authentic email");
+		    
+		    if(req.query.id == req.user.validationToken){
+		        console.log('Email Verified... Activating User Account');
+		        
+		        User.findByIdAndUpdate(req.user.id, {$set: {active: true, validationToken: undefined} }, function(err, user){
+		        	if(err){
+		        		console.log(err);
+		        	} else {
+		        	req.flash('success', 'Your Account Has Been Verified!');
+		        	res.redirect('/account');
+		        	}
+		        });
+		    } else {
+		        console.log('Email Could Not Be Verified');
+		        req.flash('error', 'Your Email Could Not Be Verified.');
+		        res.redirect('/news');
+		    }
+		} else {
+		    res.end('<h1>Request is from unknown source</h1>');
+		}
+});
+	
+router.get('/login', function(req, res){
+	res.render('login');
+});
 
 router.post('/login', passport.authenticate('local', 
 	{
-		successRedirect: '/meta',
+		successRedirect: '/account',
 		failureRedirect: '/login',
 		failureFlash : { type: 'error', message: 'Invalid username or password.' }
 	}), function(req, res){
@@ -179,7 +228,6 @@ router.put('/reset-password', function(req, res){
 			});
 		}
 	});
-	
 });
 
 module.exports = router;

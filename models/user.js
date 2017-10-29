@@ -6,6 +6,7 @@ var userSchema = new mongoose.Schema({
 	lastName: String,
 	username: String,
 	password: String,
+	createdOn: {type: Date, default: Date.now},
 	phone: Number,
 	gender: {
 		type: String,
@@ -20,15 +21,17 @@ var userSchema = new mongoose.Schema({
 		state: {type: String, default: 'none'},
 		zip: {type: Number, default: null},
 	},
-	meta: [ {game: String, events: {type: Boolean, default: false}, news: {type: Boolean, default: false}}],
-	podcast: {type: Boolean, default: false},
-	stream: {type: Boolean, default: false},
-	newsletter: {type: Boolean, default: false},
+	meta: [ {game: String, events: {type: Boolean, default: false}, news: {type: Boolean, default: false}} ],
+	podcast: {type: Boolean, default: true},
+	stream: {type: Boolean, default: true},
+	newsletter: {type: Boolean, default: true},
 	role:{
 		type: String,
 		enum: ['admin', 'editor', 'user'],
 		default: 'user'
-	}
+	},
+	active: {type: Boolean, default: false},
+	validationToken: String
 });
 
 userSchema.virtual('fullname').get(function () {

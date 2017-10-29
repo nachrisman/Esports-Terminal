@@ -339,6 +339,18 @@ hr{
 }
 
 /* account */
+.account-form-btn{
+    font-size: 1vw;
+}
+
+.account-info p{
+    text-align:left;
+}
+
+.account-settings-btn{
+    margin:30px;
+}
+
 .account-nav{
     width:200px;
 }
@@ -365,38 +377,71 @@ hr{
     width:30%;
 }
 
-#meta-titles{
-    width:30%;
-    display:block;
-    margin: 0 auto;
-    overflow:hidden;
+.btn-est{
+    background-color: #333399;
+    border-radius:25px 0 25px 0;
 }
 
-#meta-events-sub{
-    display:block;
-    margin: 0 auto;
-    width:30%;
+#meta-settings-columns{
+    text-align:center;
 }
 
-#meta-events-sub select{
-    float:left;
-    margin-bottom:-3px;
+#meta-titles label{
+    width:100%;
+    margin:5px;
+    text-align:left;
+    font-size:1vw;
 }
 
-#meta-news-sub{
-    display:block;
-    margin: 0 auto;
-    width:30%;
+#meta-titles input{
+    margin-right:10px;
 }
 
-#meta-news-sub select{
-    margin-bottom:-3px;
-    float:left;
+#meta-news label{
+    font-size: 1vw;
+}
+
+#meta-events label{
+    font-size: 1vw;
+}
+
+#meta-news .btn-est, .btn-est-danger{
+    text-align:center;
+    margin:5px;
+    border-radius:5px;
+}
+
+#meta-events .btn-est, .btn-est-danger{
+    text-align:center;
+    margin:5px;
+    border-radius:5px;
+}
+
+.sub-meta-check{
+    text-align:center;
+}
+
+#meta-news label{
+    text-align:center;
+    max-width:40%;
+}
+
+/* account security & general */
+.account-email-settings{
+    text-align:center;
+}
+
+.account-email-settings .account-settings-btn{
+    font-size: 1vw;
+}
+
+#security-settings{
+    margin-top:50px;
 }
 
 /* account info */
 .user-account-edit{
-    width:50%;
+    width:60%;
 }
 
 .user-account-edit label, input{
@@ -424,7 +469,7 @@ hr{
  
  /* account reset password */
 .reset-password{
-    width:50%;
+    width:60%;
 }
 
 .reset-password label, input{
@@ -476,6 +521,39 @@ hr{
      display:block;
      width:30%;
      margin: 20px 0 0 0;
+ }
+ 
+ /* deactivate account */
+ .deactivate-account{
+    width:70%;
+}
+
+.deactivate-account label, input, textarea{
+    display:inline-block;
+    vertical-align: baseline;
+}
+
+.deactivate-account label{
+    margin-left:0;
+    width:100%;
+    margin:10px 0 0 0;
+ }
+
+.deactivate-account input, select, textarea{
+    float:right;
+    width:70%;
+    font-weight:normal;
+ }
+ 
+.deactivate-account button{
+     display:block;
+     width:30%;
+     margin: 20px 0 0 0;
+ }
+ 
+ #account-deletion-link{
+     display:block;
+     text-align:right;
  }
 
 /* meta - complete */
@@ -658,14 +736,15 @@ hr{
 }
 
 .new-user-entry label{
-    text-align:right;
-    width:80%;
+    text-align:center;
+    width:100%;
 }
 
 .new-user-entry input{
     border-radius:3px;
     width:50%;
     color:#000;
+    float:right;
 }
 
 #country select{
@@ -726,16 +805,9 @@ hr{
     border: 2px solid black;
 }
 
-.finish-registration{
-    background-color:transparent;
-    border:none;
+#registration-btn{
     display:block;
-    text-align:center;
-    margin:0 auto;
-}
-
-.finish-registration img{
-    max-width:100%;
+    margin:20px auto;
 }
 
 .registration-guide{
