@@ -1,4 +1,12 @@
-/* Admin Login */
+/* body & html */
+body, html {
+    background-color:#fff;
+    color:#000;
+    font-size:12pt;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* login page */
 #admin-login img{
 	width:250px;
 	height:auto;
@@ -12,12 +20,10 @@
 	margin:5px auto;
 }
 
-
 /* Header/Navigation */
-.navbar.navbar-default{
-    line-height: 120px;
-    background-color:#fff;
+.navbar.navbar-light{
     border-bottom: 1px solid #000;
+    margin-bottom:25px;
 }
 
 #nav-logo{
@@ -27,20 +33,30 @@
 
 .collapse.navbar-collapse > ul{
     font-size:14pt;
-    margin: 70px 0 0 20px;
-    float:right;
+    margin: 50px 0 0 20px;
 }
 
-.collapse.navbar-collapse li > a{
-    color:#000;
+.navbar-nav > .nav-item > .nav-link {
+    color: #000;
 }
 
-.collapse.navbar-collapse li > a:hover{
-    color:#636363;
+/* admin content view */
+.view-header{
+    margin: 0 auto 25px auto;
+	width:70vw;
 }
 
-.content-actions{
-	width:50%;
+.view-header{
+    text-align:center;
+}
+
+.search-label{
+    text-align:right;
+}
+
+.view-list{
+    margin:0 auto;
+    width:80vw;
 }
 
 /* dashboard */
@@ -49,6 +65,16 @@
 }
 
 /* Forms */
+.btn-est{
+    background-color: #333399;
+    font-size: 1vw;
+    width:20vw;
+}
+
+.btn-est-danger{
+    font-size: 1vw;
+}
+
 hr{
     display:block;
     border-color:rgba(0, 0, 0, 0.5);
@@ -101,9 +127,8 @@ hr{
  }
  
  .new-item-entry{
-     margin:0 auto 25px auto;
-     display:block;
-     width:50%;
+     margin:0 auto 50px auto;
+     width:50vw;
  }
 
 .new-item-entry button{
@@ -141,12 +166,12 @@ hr{
 /*	height:250px;*/
 /*}*/
 
-.item-list thead, th, td, tr{
-    padding:10px;
-    text-align:center;
-    color:black;
-    border-bottom:2px solid black;
-}
+/*.item-list thead, th, td, tr{*/
+/*    padding:10px;*/
+/*    text-align:center;*/
+/*    color:black;*/
+/*    border-bottom:2px solid black;*/
+/*}*/
 
 .item-list img{
 	height:125px;
