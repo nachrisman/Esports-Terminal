@@ -1,16 +1,29 @@
 <% include ./partials/header %>
 	  <div class='container-fluid' id='primary-wrapper'>
-        <div class='col-xs-12 col-md-12'>
-		  <form id='login-page-auth' action='/login' method='POST'>
-			<img src='/media/branding/login_top.png'>
-			<label>Username: </label>
-			<input type='text' name='username' placeholder='username'><br>
-			<label>Password: </label>
-			<input type='password' name='password' placeholder='password'><br>
-			<button class='btn btn-primary account-form-btn' type='submit'>LOGIN</button>
-			<p><a href='/register'>Create an Account</a></p>
-			<img src='/media/branding/login_bottom.png'>
-		  </form>
-	    </div>
+	  	<div class='row'>
+	  		<div class='col-xs-12 col-md-12' id='login-container'>
+        		<img src='/media/branding/login_top.png'>
+		    	<form id='login-page-auth' action='/login' method='POST'>
+				<div class='form-group row'>
+					<div class='col-xs-12 col-md-12'>
+						<label for='username'>Username: </label>
+						<input class='form-control' type='text' name='username' placeholder='username' id='username' required>
+					</div>
+				</div>
+				<div class='form-group row'>
+					<div class='col-xs-12 col-md-12'>
+						<label for='password'>Password: </label>
+						<input class='form-control' type='password' name='password' placeholder='password' id='password' required>
+					</div>
+				</div>
+				<div class='clear-div'>
+					<hr>
+				</div>
+				<button class='btn btn-primary btn-est account-form-btn' type='submit'>Log In</button>
+				<p><a href='/register'>Create an Account</a></p>
+		  		</form>
+		  		<img src='/media/branding/login_bottom.png'>
+	    	</div>
+	  	</div>
 	  </div>
 <% include ./partials/footer %>
