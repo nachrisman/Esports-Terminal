@@ -1,7 +1,7 @@
 <% include ./partials/header %>
       <div class='container-fluid' id='primary-wrapper'>
         <div class='row'>
-        	<div class='col-xs-3 col-md-3'>
+        	<div class='col-xs-2 col-md-2'>
         		<div class='account-nav'>
         			<h3>My Account</h3>
         			<ul>
@@ -12,39 +12,58 @@
         			</ul>
         		</div>
         	</div>
-        	<div class='col-xs-9 col-md-9'>
+        	<div class='col-xs-10 col-md-10'>
         		<div class='account-content'>
-            <h1>Delete Account</h1>
-            <p>Are you sure you want to delete your account? We're sorry to see you go.</p>
-            <p>Please tell us why you're leaving.</p>
-            <form class='delete-account' action='/account/delete-account?_method=DELETE' method='POST'>
-                <label>Reason for Leaving: 
-                    <select type='select'>
-                        <option selected disabled>Select a Reason</option>
-                        <option>The content was not relevant</option>
-                        <option>The site is too hard to use</option>
-                        <option>I don't use the site anymore</option>
-                        <option>Other</option>
-                    </select>
-                </label>
-                <label>Any additional comments?
-                    <textarea></textarea>
-                </label>
-                <br>
-                <br>
-                <p>You must enter your password to delete your account.</p>
-                <label>Current Password: 
-    				      <input type='password' name='password'>
-    			      </label>
-    			      <br>
-    			      <br>
-    			      <p class='text-danger'>WARNING! Your account will be PERMANENTLY DELETED!</p>
-    			      <p class='text-danger'>Only click the button below if you are absolutely sure you want to delete your account.</p>
-    			      <p class='text-danger'>This cannot be undone.</p>
-    			      <button class='btn btn-danger account-form-btn' type='submit'>DELETE ACCOUNT</button>
-              </form>
+                    <h1>Delete Account</h1>
+                    <p>Are you sure you want to delete your account? We're sorry to see you go.</p>
+                    <p>Please tell us why you're leaving.</p>
+                    <form class='delete-account' action='/account/delete-account?_method=DELETE' method='POST'>
+                        <div class='form-group row'>
+                            <div class='col-xs-3 col-md-3'>
+                                <label for='deletionReason'>Why are you deleting your account?</label>
+                            </div>
+                            <div class='col-xs-9 col-md-9'>
+                                <select class='form-control custom-select' type='select' id='deletionReason'>
+                                    <option selected disabled>Select a Reason</option>
+                                    <option>I am receiving too many emails</option>
+                                    <option>I just need a break</option>
+                                    <option>The content was not relevant</option>
+                                    <option>The site is too hard to use</option>
+                                    <option>I don't use the site anymore</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class='form-group row'>
+                            <div class='col-xs-3 col-md-3'>
+                                <label for='additionalComments'>Any additional comments?</label>
+                            </div>
+                            <div class='col-xs-9 col-md-9'>
+                                <textarea class='form-control' rows='5' id='additionalComments'></textarea>
+                            </div>
+                        </div>
+                        <p>You must enter your password to delete your account.</p>
+                        <div class='form-group row'>
+                            <div class='col-xs-3 col-md-3'>
+                                <label for='password'>Password: </label>
+                            </div>
+                            <div class='col-xs-9 col-md-9'>
+                                <input class='form-control' type='password' name='password' id='password' required>
+                            </div>
+                        </div>
+                        <div class='clear-div'>
+                            <hr>
+                        </div>
+    			        <p class='text-danger'>WARNING! Your account will be PERMANENTLY DELETED!</p>
+    			        <p class='text-danger'>Only click the button below if you are absolutely sure you want to delete your account.</p>
+    			        <p class='text-danger'>This cannot be undone.</p>
+    			        <div class='clear-div'>
+                            <hr>
+                        </div>
+    			        <button class='btn btn-danger btn-est account-form-btn' type='submit'>Delete My Account</button>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
       </div>
 <% include ./partials/footer %>

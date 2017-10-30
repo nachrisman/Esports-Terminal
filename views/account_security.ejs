@@ -1,7 +1,7 @@
 <% include ./partials/header %>
       <div class='container-fluid' id='primary-wrapper'>
         <div class='row'>
-        	<div class='col-xs-3 col-md-3'>
+        	<div class='col-xs-2 col-md-2'>
         		<div class='account-nav'>
         			<h3>My Account</h3>
         			<ul>
@@ -12,7 +12,7 @@
         			</ul>
         		</div>
         	</div>
-        	<div class='col-xs-9 col-md-9'>
+        	<div class='col-xs-10 col-md-10'>
         		<div class='account-content'>
               <h1>Security & Other Settings</h1>
               <p>Change your password, email settings, etc.</p>
@@ -21,19 +21,19 @@
                   <p>Receive updates on your META, site changes, and other information from EST. We do not use your email for any other purpose.</p>
                   <% if(currentUser.newsletter) { %>
                         <div class="form-check form-check-inline account-email-settings">
-                          <label class="btn btn-primary account-settings-btn">
+                          <label class="btn btn-primary btn-est" id='newsletter-true'>
                             <input type="checkbox" name='news' value='true' autocomplete="off" checked> I want email updates
                           </label>
-                          <label class="btn btn-danger account-settings-btn btn-est-danger">
+                          <label class="btn btn-danger btn-est-danger" id='newsletter-false'>
                             <input type="checkbox" name='news' value='false' autocomplete="off"> I don't want email updates
                           </label>
                         </div>
                   <% } else { %>
                         <div class="form-check form-check-inline account-email-settings">
-                          <label class="btn btn-primary account-settings-btn">
+                          <label class="btn btn-primary btn-est" id='newsletter-true'>
                             <input type="checkbox" name='news' value='true' autocomplete="off"> I want email updates
                           </label>
-                          <label class="btn btn-danger account-settings-btn btn-est-danger">
+                          <label class="btn btn-danger btn-est-danger" id='newsletter-false'>
                             <input type="checkbox" name='news' value='false' autocomplete="off" checked> I don't want email updates
                           </label>
                         </div>
@@ -44,31 +44,29 @@
                   <h3>Stream Settings</h3>
                   <p>Receive general streaming updates such as important upcoming streams, changes to the schedule, etc.</p>
                   <% if(currentUser.stream) { %>
-                        <div class="form-check form-check-inline account-email-settings">
-                          <label class="btn btn-primary account-settings-btn">
+                        <div class="form-check form-check-inline account-email-settings" >
+                          <label class="btn btn-primary btn-est" id='stream-true'>
                             <input type="checkbox" name='stream' value='true' autocomplete="off" checked> I want stream updates
                           </label>
-                          <label class="btn btn-danger account-settings-btn btn-est-danger">
+                          <label class="btn btn-danger btn-est-danger" id='stream-false'>
                             <input type="checkbox" name='stream' value='false' autocomplete="off"> I don't want stream updates
                           </label>
                         </div>
                   <% } else { %>
                     <div class="form-check form-check-inline account-email-settings">
-                          <label class="btn btn-primary account-settings-btn">
+                          <label class="btn btn-primary btn-est" id='stream-true'>
                             <input type="checkbox" name='stream' value='true' autocomplete="off"> I want stream updates
                           </label>
-                          <label class="btn btn-danger account-settings-btn btn-est-danger">
+                          <label class="btn btn-danger btn-est-danger" id='stream-false'>
                             <input type="checkbox" name='stream' value='false' autocomplete="off" checked> I don't want stream updates
                           </label>
                         </div>
                   <% } %>
                 <div class='clear-div'>
+                  <hr>
                 </div>
-                <button class='btn btn-success account-form-btn' type='submit'>Save Changes</button>
+                <button class='btn btn-success btn-est account-form-btn' type='submit'>Save Changes</button>
               </form>
-              <div class='clear-div'>
-                <hr>
-              </div>
               <div class='account-info' id='security-settings'>
                 <h3>Security Settings</h3>
                 <p>Change your password or deactivate your account here.</p>

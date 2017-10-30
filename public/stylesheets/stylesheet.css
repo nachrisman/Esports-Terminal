@@ -97,6 +97,16 @@ hr{
     width:60%;
 }
 
+.btn-est{
+    background-color: #333399;
+    font-size: 1vw;
+    width:30vw;
+}
+
+.btn-est-danger{
+    font-size: 1vw;
+}
+
 /* navigation */
 .navbar.navbar-default{
     line-height: 120px;
@@ -339,9 +349,6 @@ hr{
 }
 
 /* account */
-.account-form-btn{
-    font-size: 1vw;
-}
 
 .account-info p{
     text-align:left;
@@ -352,7 +359,10 @@ hr{
 }
 
 .account-nav{
-    width:200px;
+    
+    height:80vh;
+    border-right:2px solid red;
+    border-radius: 25px;
 }
 
 .account-nav ul{
@@ -372,12 +382,7 @@ hr{
     margin:0 auto;
 }
 
-.user-meta-settings button{
-    margin-top:20px;
-    width:30%;
-}
-
-.btn-est{
+.btn-est-meta{
     background-color: #333399;
     border-radius:25px 0 25px 0;
 }
@@ -405,13 +410,13 @@ hr{
     font-size: 1vw;
 }
 
-#meta-news .btn-est, .btn-est-danger{
+#meta-news .btn-est-meta, #meta-news .btn-est-danger{
     text-align:center;
     margin:5px;
     border-radius:5px;
 }
 
-#meta-events .btn-est, .btn-est-danger{
+#meta-events .btn-est-meta, #meta-news .btn-est-danger{
     text-align:center;
     margin:5px;
     border-radius:5px;
@@ -428,11 +433,32 @@ hr{
 
 /* account security & general */
 .account-email-settings{
-    text-align:center;
+    margin:25px auto;
+    width:50vw;
 }
 
-.account-email-settings .account-settings-btn{
-    font-size: 1vw;
+.account-email-settings input{
+    margin-right:10px;
+}
+
+#newsletter-true{
+    width:20vw;
+    float:left;
+}
+
+#newsletter-false{
+    width:20vw;
+    float:right;
+}
+
+#stream-true{
+    width:20vw;
+    float:left;
+}
+
+#stream-false{
+    width:20vw;
+    float:right;
 }
 
 #security-settings{
@@ -441,115 +467,33 @@ hr{
 
 /* account info */
 .user-account-edit{
-    width:60%;
+    width:50%;
+    margin:0 auto;
 }
 
-.user-account-edit label, input{
-    display:inline-block;
-    vertical-align: baseline;
+.account-form-btn{
+    border-radius: 5px;
+    display:block;
+    margin:25px auto;
 }
 
-.user-account-edit label{
-    margin-left:0;
-    width:100%;
-    margin:10px 0 0 0;
- }
-
- .user-account-edit input, select{
-    float:right;
-    width:80%;
-    font-weight:normal;
- }
- 
- .user-account-edit button{
-     display:block;
-     width:30%;
-     margin: 20px 0 0 0;
- }
- 
  /* account reset password */
 .reset-password{
-    width:60%;
+    width:50vw;
+    margin: 0 auto;
 }
 
-.reset-password label, input{
-    display:inline-block;
-    vertical-align: baseline;
-}
-
-.reset-password label{
-    margin-left:0;
-    width:100%;
-    margin:10px 0 0 0;
- }
-
-.reset-password input{
-    float:right;
-    width:70%;
-    font-weight:normal;
- }
- 
-.reset-password button{
-     display:block;
-     width:30%;
-     margin: 20px 0 0 0;
- }
- 
  /* account delete */
 .delete-account{
-    width:70%;
+    margin: 0 auto;
+    width:50vw;
 }
-
-.delete-account label, input, textarea{
-    display:inline-block;
-    vertical-align: baseline;
-}
-
-.delete-account label{
-    margin-left:0;
-    width:100%;
-    margin:10px 0 0 0;
- }
-
-.delete-account input, select, textarea{
-    float:right;
-    width:70%;
-    font-weight:normal;
- }
- 
-.delete-account button{
-     display:block;
-     width:30%;
-     margin: 20px 0 0 0;
- }
  
  /* deactivate account */
  .deactivate-account{
-    width:70%;
+     margin: 0 auto;
+     width:50vw;
 }
-
-.deactivate-account label, input, textarea{
-    display:inline-block;
-    vertical-align: baseline;
-}
-
-.deactivate-account label{
-    margin-left:0;
-    width:100%;
-    margin:10px 0 0 0;
- }
-
-.deactivate-account input, select, textarea{
-    float:right;
-    width:70%;
-    font-weight:normal;
- }
- 
-.deactivate-account button{
-     display:block;
-     width:30%;
-     margin: 20px 0 0 0;
- }
  
  #account-deletion-link{
      display:block;
@@ -720,44 +664,26 @@ hr{
     border-right:2px solid red;
     border-left:2px solid red;
     border-radius:25px;
-    display:block;
     margin:0 auto;
 }
 
 .new-user-entry{
-    width:95%;
-    height:auto;
-    margin: 20px auto;
+    margin:25px auto;
+    width:45vw;
+}
+
+.new-user-entry label{
+    margin-top:15px;
+}
+
+.new-user-entry #country{
+    margin-top:15px;
+    width:30vw;
 }
 
 .new-user-entry label, input, select{
     display:inline-block;
     vertical-align: baseline;
-}
-
-.new-user-entry label{
-    text-align:center;
-    width:100%;
-}
-
-.new-user-entry input{
-    border-radius:3px;
-    width:50%;
-    color:#000;
-    float:right;
-}
-
-#country select{
-    width:52%;
-    margin-left:15px;
-}
-
-#user-info{
-    width:80%;
-}
-
-#user-info input{
-    margin-left:20px;
 }
 
 .game-select{

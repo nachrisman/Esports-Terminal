@@ -1,7 +1,7 @@
 <% include ./partials/header %>
   	<div class='container-fluid' id='primary-wrapper'>
     	<div class='row'>
-    		<div class='col-xs-3 col-md-3'>
+    		<div class='col-xs-2 col-md-2' id='account-nav-col'>
     			<div class='account-nav'>
     				<h3>My Account</h3>
     				<ul>
@@ -12,67 +12,112 @@
     				</ul>
     			</div>
     		</div>
-    		<div class='col-xs-9 col-md-9'>
+    		<div class='col-xs-10 col-md-10'>
     			<div class='account-content'>
     			    <h1>User Information</h1>
     			    <p>Update your info here. Be sure to save the changes when you're done!</p>
     			    <p>Most of this is not required, but it can help us server you better in the future.</p>
+    			    <div class='clear-div'>
+    			        <hr>
+    			    </div>
     				<form class='user-account-edit' action='/account/info?_method=PUT' method='POST'>
-    					<div class='form-group' id='user-names'>
-    					  <label>Username: 
-    					      <input type='text' name='user[username]' value='<%= currentUser.username %>'>
-    					  </label>
-    					  <label>First Name: 
-                              <input type='text' name='user[firstName]' value='<%= currentUser.firstName %>'>
-                          </label> 
-    			          <label>Last Name: 
-                              <input type='text' name='user[lastName]' value='<%= currentUser.lastName %>'>
-                            </label> 
-                          <label>Phone: 
-		                    <input type='phone' name='user[phone]' value='<%= currentUser.phone %>'>
-    					  </label>
-    					</div>
-    					<div class='form-group' id='user-location'>
-    					  <label>Address</label>
-    					  <label>Street: 
-                              <input type='text' name='user[location][street]' value='<%= currentUser.location.street %>'>
-                          </label> 
-    			          <label>City: 
-                              <input type='text' name='user[location][city]' value='<%= currentUser.location.city %>'>
-                          </label>
-    			          <label>State: 
-      						<select name='user[location][state]'>
-      						<% states.forEach(function(state) { %>
-      						<%     if(currentUser.location.state == state) {%>
-      							<option value='<%= state %>' selected><%= state %></option>
-      							<% } else { %>
-      							<option value='<%= state %>'><%= state %></option>
-      							<% } %>
-      						<% }); %>
-      						</select>
-  					      </label>
-  					      <label>Country: 
-        					<select name='country'>
-        					  <% countries.forEach(function(country) { %>
-        					  <%     if(currentUser.location.country == country) { %>
-        					  	<option value='<%= country %>' selected><%= country %></option>
+    				    <div class='form-group row'>
+    				        <div class='col-xs-3 col-md-3'>
+    				            <label for='username'>Username: </label>
+    				        </div>
+    				        <div class='col-xs-9 col-md-9'>
+    				            <input class='form-control' type='text' name='user[username]' id='username' value='<%= currentUser.username %>' required>
+    				        </div>
+    				    </div>
+    				    <div class='form-group row'>
+    				        <div class='col-xs-3 col-md-3'>
+    				            <label for='firstName'>First Name: </label>
+    				        </div>
+    				        <div class='col-xs-9 col-md-9'>
+    				            <input class='form-control' type='text' name='user[firstName]' id='firstName' value='<%= currentUser.firstName %>' required>
+    				        </div>
+    				    </div>
+    				    <div class='form-group row'>
+    				        <div class='col-xs-3 col-md-3'>
+    				            <label for='lastName'>Last Name: </label>
+    				        </div>
+    				        <div class='col-xs-9 col-md-9'>
+    				            <input class='form-control' type='text' name='user[lastName]' id='lastName' value='<%= currentUser.lastName %>' required>
+    				        </div>
+    				    </div>
+    				    <div class='form-group row'>
+    				        <div class='col-xs-3 col-md-3'>
+    				            <label for='email'>Email: </label>
+    				        </div>
+    				        <div class='col-xs-9 col-md-9'>
+    				            <input class='form-control' type='email' name='user[email]' id='email' value='<%= currentUser.email %>' required>
+    				        </div>
+    				    </div>
+    				    <div class='form-group row'>
+    				        <div class='col-xs-3 col-md-3'>
+    				            <label for='phone'>Phone: </label>
+    				        </div>
+    				        <div class='col-xs-9 col-md-9'>
+    				            <input class='form-control' type='text' name='user[phone]' id='phone' value='<%= currentUser.phone %>'>
+    				        </div>
+    				    </div>
+    					<div class='form-group row'>
+    				        <div class='col-xs-3 col-md-3'>
+    				            <label for='street'>Street: </label>
+    				        </div>
+    				        <div class='col-xs-9 col-md-9'>
+    				            <input class='form-control' type='text' name='user[location][street]' id='street' value='<%= currentUser.location.street %>'>
+    				        </div>
+    				    </div>
+    				    <div class='form-group row'>
+    				        <div class='col-xs-3 col-md-3'>
+    				            <label for='city'>City: </label>
+    				        </div>
+    				        <div class='col-xs-9 col-md-9'>
+    				            <input class='form-control' type='text' name='user[location][city]' id='city' value='<%= currentUser.location.city %>'>
+    				        </div>
+    				    </div>
+    				    <div class='form-group row'>
+    				        <div class='col-xs-6 col-md-6'>
+    				            <label for='state'>State: </label>
+    				            <select class='form-control custom-select' type='select' name='user[location][state]' id='state'>
+		  						<% states.forEach(function(state) { %>
+		  						<%     if(currentUser.location.state == state) { %>
+		  							    <option value='<%= state %>' selected><%= state %></option>
+		  						<% } else { %>
+		  							    <option value='<%= state %>'><%= state %></option>
+		  						<% } %>
+		  						<% }); %>
+		  						</select>
+    				        </div>
+    				        <div class='col-xs-6 col-md-6'>
+    				            <label for='zip'>Zip Code: </label>
+    				            <input class='form-control' type='text' name='user[location][zip]' name='zip' value='<%= currentUser.location.zip %>'>
+    				        </div>
+    				    </div>
+    					<div class='form-group row'>
+    					    <div class='col-xs-3 col-md-3'>
+    					        <label for='country'>Country: </label>
+    					    </div>
+    					    <div class='col-xs-9 col-md-9'>
+    					        <select class='form-control custom-select' type='select' name='user[location][country]' id='country' required>
+        					    <% countries.forEach(function(country) { %>
+        					    <%     if(currentUser.location.country == country) { %>
+        					  	        <option value='<%= country %>' selected><%= country %></option>
         					  	<% } else { %>
-        					  	<option value='<%= country %>'><%= country %></option>
+        					  	        <option value='<%= country %>'><%= country %></option>
         					  	<% } %>
-        					  <% }); %>
-        					</select>
-				          </label>
-  					      <label>Zip Code: 
-                              <input type='text' name='user[location][zip]' value='<%= currentUser.location.zip %>'>
-                          </label>
+        					    <% }); %>
+        					    </select>
+    					    </div>
     					</div>
-    					<div class='form-group'>
-    						<label>E-Mail: 
-                              <input type='email' name='user[email]' value='<%= currentUser.email %>'>
-                            </label>
-    						<label>Gender: 
-    							<select name='user[gender]'>
-    								<% if(currentUser.gender === 'male') {          %>
+    					<div class='form-group row'>
+    					    <div class='col-xs-3 col-md-3'>
+    					        <label for='gender'>Gender: </label>
+    					    </div>
+    					    <div class='col-xs-9 col-md-9'>
+    					        <select class='form-control custom-select' type='select' name='user[gender]' id='gender'>
+    								<% if(currentUser.gender === 'male') { %>
     									<option value='male' selected='selected'>Male</option>
     									<option value='female'>Female</option>
     									<option value='unspecified'>Prefer Not to Say</option>
@@ -80,16 +125,19 @@
     									<option value='male'>Male</option>
     									<option value='female' selected='selected'>Female</option>
     									<option value='unspecified'>Prefer Not to Say</option>
-    								<% } else {                                     %>
+    								<% } else { %>
     									<option value='male'>Male</option>
     									<option value='female'>Female</option>
     									<option value='unspecified' selected='selected'>Prefer Not to Say</option>
     								<% }; %>
     							</select>
-  						  </label>
-  						  <button class='btn btn-success account-form-btn' type='submit' >SAVE CHANGES</button>
+    					    </div>
     					</div>
-    				</form>	
+    					<div class='clear-div'>
+    						<hr>
+    					</div>
+    					<button class='btn btn-primary btn-est account-form-btn' type='submit'>Save Changes</button>
+    				</form>
     			</div>
     		</div>
     	</div>

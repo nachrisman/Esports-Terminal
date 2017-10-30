@@ -5,6 +5,9 @@
 	        <h1>Awesome! You've decided to setup your own META. Lets get started!</h1>
 	      </div>
 	    </div>
+	    <div class='clear-div'>
+	    	<hr>
+	    </div>
 	    <div class='row'>
 	      <div class='col-xs-3 col-md-3'>
 	        <img class='registration-guide' id='step-1' src='/media/branding/register_guide_1.png'>
@@ -12,37 +15,49 @@
 	      </div>
 	      <div class='col-xs-6 col-md-6' id='registration-form-container'>
 	        <form class='new-user-entry' action='/register' method='POST'>
-	      	  <div class='container' id='user-info'>
-	      	    <p>* Required Fields</p>
-	      	    <label>First Name: 
-	      		  <input type='text' name='firstName'>
-	      	    </label>
-			    <label>Last Name: 
-				  <input type='text' name='lastName'>
-			    </label>
-			    <label>E-Mail: 
-				  <input type='email' name='email'>
-			    </label>
-			    <label>Username: 
-				  <input type='text' name='username'>
-			    </label>
-			    <label>Password: 
-				  <input type='password' name='password'>
-			    </label>
-			    <label>Re-Enter Password: 
-				  <input type='password' name='confirmedPassword'>
-			    </label>
-			    <label id='country'>Country: 
-				    <select name='country' required>
-						<% countries.forEach(function(country) { %>
-						  	<option value='<%= country %>'><%= country %></option>
-						<% }); %>
-							<option selected>Select a Country</option>
-					</select>
-				</label>
-			  </div>
-			  <br>
-			  <br>
+	        	<div class='form-group-row'>
+	        		<div class='col-xs-6 col-md-6'>
+	        			<label for='firstName'>First Name: </label>
+	        			<input class='form-control' type='text' name='firstName' id='firstName' required>
+	        		</div>
+	        		<div class='col-xs-6 col-md-6'>
+	        			<label for='lastName'>Last Name: </label>
+	        			<input class='form-control' type='text' name='lastName' id='lastName' required>
+	        		</div>
+	        	</div>
+	        	<div class='form-group-row'>
+	        		<div class='col-xs-6 col-md-6'>
+	        			<label for='email'>Email: </label>
+	        			<input class='form-control' type='email' name='email' id='email' required>
+	        		</div>
+	        		<div class='col-xs-6 col-md-6'>
+	        			<label for='username'>Username: </label>
+	        			<input class='form-control' type='text' name='username' id='username' required>
+	        		</div>
+	        	</div>
+	        	<div class='form-group-row'>
+	        		<div class='col-xs-6 col-md-6'>
+	        			<label for='password'>Password: </label>
+	        			<input class='form-control' type='password' name='password' id='password' required>
+	        		</div>
+	        		<div class='col-xs-6 col-md-6'>
+	        			<label for='confirmedPassword'>Confirm Password: </label>
+	        			<input class='form-control' type='password' name='confirmedPassword' id='confirmedPassword' required>
+	        		</div>
+	        	</div>
+	        	<div class='form-group row'>
+	        		<div class='col-xs-3 col-md-3'>
+	        			<label for='country'>Country: </label>
+	        		</div>
+	        		<div class='col-xs-9 col-md-9'>
+	        			<select class='form-control custom-select' type='select' name='country' id='country' required>
+	        				<option selected disabled>Select a Country</option>
+	        				<% countries.forEach(function(country) { %>
+						  		<option value='<%= country %>'><%= country %></option>
+							<% }); %>
+	        			</select>
+	        		</div>
+	        	</div>
 	      	  <div class='clear-div'>
 	      	  	<hr>
 	      	  </div>
@@ -58,8 +73,7 @@
 	      	  	<hr>
       			<h2>All Done? Click it. Finish the job.</h2>
       		  </div>
-      		  <input type='hidden' name='selectedGames' value=''>
-	      	  <button class='btn btn-success account-form-btn' id='registration-btn' type='submit'>CREATE MY ACCOUNT</button>
+	      	  <button class='btn btn-primary btn-est account-form-btn' type='submit'>Create My Account</button>
 	        </form>
 	      </div>
 	      <div class='col-xs-3 col-md-3'>
