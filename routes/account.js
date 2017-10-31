@@ -8,6 +8,15 @@ var express 	= require('express'),
 
 var states	  = country.states('US'),
 	countries = countryList.getNames();
+	
+// function isVerified(req, res, next){
+// 	if(req.user.active == true){
+// 		return next();
+// 	} else {
+// 		req.flash('warning', 'Please check your email to activate your account!');
+// 		return next();
+// 	}
+// }
 
 router.get('/', middleware.isLoggedIn, function(req, res){
 	res.redirect('/account/meta-settings');

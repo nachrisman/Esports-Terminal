@@ -1,39 +1,55 @@
 <% include ./partials/admin_header %>
-	  <div class='container'>
-		<div class='content-actions'>
-		  <p><a href='/admin/new-game'>Add a New Game</a></p>
-		  <div class='form-group row'>
-	  		<label for='content-search' class='col-2 col-form-label'>Search</label>
-	  		<div class='col-4'>
-	  		  <input class='form-control' type='search' placeholder='search games' id='content-search'>
-	  		</div>
-	  	  </div>
-	  	</div>
-	    <table class='item-list' id='game-list'>
-		  <thead>
-	  	    <tr>
-	  	      <th>Logo</th>
-		      <th>Title</th>
-		      <th>Abbreviation</th>
-		      <th>Platform(s)</th>
-		      <th>Genre(s)</th>
-		      <th>Edit</th>
-	  	    </tr>
-		  </thead>
-		  <tbody>
-		  <% games.forEach(function(game){ %>
-		    <tr>
-		      <td><img src='<%= game.logopng %>'></td>
-		      <td><%= game.title %></td>
-		      <td><%= game.abbreviation %></td>
-		      <td><%= game.platform %></td>
-		      <td><%= game.genre %></td>
-		      <td>
-		        <a href='/admin/edit-game/<%= game._id %>'>Edit</a>
-		      </td>
-		    </tr>
-		  <% });                            %>
-		  </tbody>
-	    </table>
+	  <div class='container-fluid'>
+		<div class='row view-header'>
+			<div class='col-xs-12 col-md-12'>
+				<h1>Games</h1>
+				<div class='clear-div'>
+					<hr>
+				</div>
+				<div class='form-group row'>
+			    	<div class='col-xs-4 col-md-4'>
+			    		<a class="btn btn-primary btn-est" href="/admin/new-game" role="button">Add a New Game</a>
+			    	</div>
+				  	<div class='col-xs-2 col-md-2 search-label'>
+				  		<label for='content-search'>Search: </label>
+				  	</div>
+				  	<div class='col-xs-6 col-md-6 search-field'>
+				  		<input class='form-control' type='search' placeholder='search games' id='content-search'>
+				  	</div>
+			    </div>
+			</div>
+		</div>
+	    <div class='row view-list'>
+			<div class='col-xs-12 col-md-12'>
+				<div class='table-responsive'>
+					<table class='table'>
+					  <thead>
+				  	    <tr>
+				  	      <th>Logo</th>
+					      <th>Title</th>
+					      <th>Abbreviation</th>
+					      <th>Platform(s)</th>
+					      <th>Genre(s)</th>
+					      <th>Edit</th>
+				  	    </tr>
+					  </thead>
+					  <tbody>
+					  <% games.forEach(function(game){ %>
+					    <tr>
+					      <td><img src='<%= game.logopng %>'></td>
+					      <td><%= game.title %></td>
+					      <td><%= game.abbreviation %></td>
+					      <td><%= game.platform %></td>
+					      <td><%= game.genre %></td>
+					      <td>
+					        <a href='/admin/edit-game/<%= game._id %>'>Edit</a>
+					      </td>
+					    </tr>
+					  <% }); %>
+					  </tbody>
+				    </table>
+				</div>
+			</div>
+		</div>
 	  </div>
 <% include ./partials/admin_footer %>

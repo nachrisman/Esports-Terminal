@@ -151,8 +151,7 @@ router.post('/register', function(req, res){
 					      console.log(err);
 					    }
 					    else {
-					      console.log('Message sent: ' + info.response);
-					      req.flash('warning', 'Please Check Your Email to Confirm Your Account!')
+					      req.flash('warning', 'Please Check Your Email to Confirm Your Account!');
 					      res.redirect('/account');
 					    }
 					});
@@ -178,7 +177,7 @@ router.get('/verify',function(req,res){
 		        		console.log(err);
 		        	} else {
 		        	req.flash('success', 'Your Account Has Been Verified!');
-		        	res.redirect('/account');
+		        	res.redirect('/meta-settings');
 		        	}
 		        });
 		    } else {

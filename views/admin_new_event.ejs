@@ -1,57 +1,112 @@
 <% include ./partials/admin_header %>
-<div class='container'>
-	  <h2>Add a new event:</h2>
-	  <form class='new-item-entry' id='new-event' action='/events' method='POST'>
-	  	<fieldset id='meta'>
-  		  <label>Event Title: </label>
-  		  <input type='text' name='event[title]'>
-  		  <br>
-  		  <label>Date of Event: </label>
-  		  <input type='date' name='event[date]'>
-  		  <br>
-  		  <label>Game(s) Involved: </label>
-  		  <select type='select' name='event[games]'>
-  		  	<option value='multiple'>Multiple Games</option>
-	      <% games.forEach(function(game) { %>
-	      	<option value='<%= game.title %>'><%= game.title %></option>
-	      <% }); %>
-	      </select>
-	      <br>
-	  	</fieldset>
-	  	<label>Description: </label>
-	  	<textarea name='event[description]'></textarea>
-	 	<label>Event Image URL: </label>
-	 	<input type='text' name='event[image]'>
-	 	<br>
-	 	<label>Venue: </label>
-	 	<input type='text' name='event[venue]'>
-	 	<br>
-	 	<label>City: </label>
-	 	<input type='text' name='event[city]'>
-	 	<br>
-	 	<label>State: </label>
-	 	<select type='select' name='event[state]'>
-	 		<option value='' selected disabled>Select a State</option>
-	 		<% states.forEach(function(state){ %>
-	 			<option value='<%= state %>'><%= state %></option>
-	 		<% }); %>
-	 	</select>
-	 	<br>
-	 	<label>Country: </label>
-	 	<select type='select' name='event[country]'>
-	 		<% countries.forEach(function(country){ %>
-	 			<option value='<%= country %>'><%= country %></option>
-	 		<% }); %>
-	 	</select>
-	 	<label>EST Stream: </label>
-	 	<select type='select' name='event[stream]'>
-	 		<option value='yes'>Yes</option>
-	 		<option value='no'>No</option>
-	 	</select>
-	 	<br>
-	 	<label>Source Link: </label>
-	 	<input type='text' name='event[sourceLink]'>
-	 	<button type='submit'>Add Event</button>
-	</form>
-	</div>
+			<div class='container-fluid'>
+				<div class='row' id='page-header'>
+					<div class='col-xs-8 col-md-8'>
+						<h2>Post a New Event</h2>
+					</div>
+					<div class='col-xs-4 col-md-4'>
+						<a class='btn btn-primary btn-est' href='/admin/view-events' role='button'>Return to Events</a>
+					</div>
+				</div>
+				<div class='clear-div'>
+					<hr>
+				</div>
+				<div class='row'>
+					<div class='col-xs-12 col-md-12'>
+	  					<form class='new-item-entry' action='/events' method='POST'>
+	  						<div class='form-group row'>
+	  							<div class='col-xs-6 col-md-6'>
+	  								<label for='title'>Title: </label>
+	  								<input class='form-control' type='text' name='event[title]' id='title'>
+	  							</div>
+	  							<div class='col-xs-6 col-md-6'>
+	  								<label for='date'>Date: </label>
+	  								<input class='form-control' type='text' name='event[date]' id='date'>
+	  							</div>
+	  						</div>
+  							<div class='form-group row'>
+			  					<div class='col-xs-2 col-md-2'>
+			  						<label>Categories: </label>
+			  					</div>
+			  					<div class='col-xs-10 col-md-10'>
+			  						<div class="form-check form-check-inline">
+										<label class="form-check-label">
+											<input class="form-check-input" type="checkbox" id="inlineCheckbox1" name='article[categories][]' value='general' checked> General
+										</label>
+									</div>
+									<% games.forEach(function(game){ %>
+										<div class="form-check form-check-inline">
+										  <label class="form-check-label">
+										    <input class="form-check-input" type="checkbox" name='event[games][]' id="inlineCheckbox2" value='<%=game.title%>'><%= game.title %>
+										  </label>
+										</div>
+									<% }); %>
+			  					</div>
+	  						</div>
+	  						<div class='form-group row'>
+	  							<div class='col-xs-2 col-md-2'>
+	  								<label for='description'>Description</label>
+	  							</div>
+	  							<div class='col-xs-10 col-md-10'>
+	  								<textarea class='form-control' type='text' name='event[description]' id='description' rows='5' required></textarea>
+	  							</div>
+	  						</div>
+	  						<div class='form-group row'>
+	  							<div class='col-xs-6 col-md-6'>
+	  								<label for='image'>Image URL: </label>
+	  								<input class='form-control' type='text' name='event[image]' id='image'>
+	  							</div>
+	  							<div class='col-xs-6 col-md-6'>
+	  								<label for='venue'>Venue: </label>
+	  								<input class='form-control' type='text' name='event[venue]' id='venue'>
+	  							</div>
+	  						</div>
+	  						<div class='form-group row'>
+	  							<div class='col-xs-6 col-md-6'>
+	  								<label for='city'>City: </label>
+	  								<input class='form-control' type='text' name='event[city]' id='city'>
+	  							</div>
+	  							<div class='col-xs-6 col-md-6'>
+	  								<label for='state'>State: </label>
+	  								<select class='form-control custom-select' type='select' name='event[state]'>
+								 			<option selected disabled>Select a State</option>
+								 		<% states.forEach(function(state){ %>
+								 			<option value='<%= state %>'><%= state %></option>
+								 		<% }); %>
+								 	</select>
+	  							</div>
+	  						</div>
+	  						<div class='form-group row'>
+	  							<div class='col-xs-6 col-md-6'>
+	  								<label for='country'>Country: </label>
+	  								<select class='form-control custom-select' type='select' name='event[country]'>
+							 		<% countries.forEach(function(country){ %>
+							 			<option value='<%= country %>'><%= country %></option>
+							 		<% }); %>
+							 		</select>
+	  							</div>
+	  							<div class='col-xs-6 col-md-6'>
+	  								<label for='stream'>Are We Streaming? </label>
+	  								<select class='form-control custom-select' type='select' name='event[stream]' id='stream'>
+								 		<option value='yes'>Yes</option>
+								 		<option value='no'>No</option>
+								 	</select>
+	  							</div>
+	  						</div>
+	  						<div class='form-group row'>
+	  							<div class='col-xs-2 col-md-2'>
+	  								<label for='sourceLink'>Source Link: </label>
+	  							</div>
+	  							<div class='col-xs-10 col-md-10'>
+	  								<input class='form-control' type='text' name='event[sourceLink]' id='sourceLink'>
+	  							</div>
+	  						</div>
+	  						<div class='clear-div'>
+	  							<hr>
+	  						</div>
+	 						<button class='btn btn-primary btn-est' type='submit'>Add Event</button>
+						</form>
+					</div>
+				</div>
+			</div>
 <% include ./partials/admin_footer %>
