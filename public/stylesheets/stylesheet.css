@@ -566,6 +566,10 @@ hr{
     flex-basis: 40vw;
 }
 
+#meta-news-preview .article-preview:nth-child(3){
+    flex-basis:90vw;
+}
+
 #meta-read-more{
     text-align:right;
 }

@@ -27,7 +27,7 @@
 				    <% articles.forEach(function(foundArticle) { %>
 				    <% 		var categories = foundArticle.categories; %>
 				    <% 		if(categories.indexOf(meta.game) > -1) { %>
-				  		  	<div class='article-preview'>
+				  		  	<div class='article-preview meta-article-preview'>
                 <a class='preview-link' href='/news/<%= foundArticle._id %>'>
                   <div class='article-preview-image'>
                     <img class='article-preview-image' src='<%= foundArticle.image %>'>

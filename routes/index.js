@@ -72,7 +72,7 @@ router.get('/meta/', middleware.isLoggedIn, function(req, res){
 	var today = moment().startOf('day');
 	var nextWeek = moment().add(7, 'days');
 
-	Article.find({}).sort({published: -1}).limit(9).exec(function(err, articles){
+	Article.find({}).sort({published: -1}).limit(10).exec(function(err, articles){
 		if(err){
 			console.log(err);
 		} else {
