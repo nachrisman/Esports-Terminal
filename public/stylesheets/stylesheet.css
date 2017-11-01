@@ -216,7 +216,7 @@ hr{
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    height:230px;
+    height:35vh;
 }
 
 .article-preview {
