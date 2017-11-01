@@ -13,7 +13,6 @@ middlewareObj.isActiveAccount = function(req, res, next){
 		return next();
 	} else {
 		req.flash('warning', 'Your account has not been confirmed! Please check your email.');
-		return next();
 	}
 }
 

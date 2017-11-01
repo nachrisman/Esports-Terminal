@@ -5,9 +5,6 @@
 	        <h1>Awesome! You've decided to setup your own META. Lets get started!</h1>
 	      </div>
 	    </div>
-	    <div class='clear-div'>
-	    	<hr>
-	    </div>
 	    <div class='row'>
 	      <div class='col-xs-3 col-md-3'>
 	        <img class='registration-guide' id='step-1' src='/media/branding/register_guide_1.png'>
@@ -15,7 +12,7 @@
 	      </div>
 	      <div class='col-xs-6 col-md-6' id='registration-form-container'>
 	        <form class='new-user-entry' action='/register' method='POST'>
-	        	<div class='form-group-row'>
+	        	<div class='form-group row'>
 	        		<div class='col-xs-6 col-md-6'>
 	        			<label for='firstName'>First Name: </label>
 	        			<input class='form-control' type='text' name='firstName' id='firstName' required>
@@ -25,7 +22,7 @@
 	        			<input class='form-control' type='text' name='lastName' id='lastName' required>
 	        		</div>
 	        	</div>
-	        	<div class='form-group-row'>
+	        	<div class='form-group row'>
 	        		<div class='col-xs-6 col-md-6'>
 	        			<label for='email'>Email: </label>
 	        			<input class='form-control' type='email' name='email' id='email' required>
@@ -35,7 +32,7 @@
 	        			<input class='form-control' type='text' name='username' id='username' required>
 	        		</div>
 	        	</div>
-	        	<div class='form-group-row'>
+	        	<div class='form-group row'>
 	        		<div class='col-xs-6 col-md-6'>
 	        			<label for='password'>Password: </label>
 	        			<input class='form-control' type='password' name='password' id='password' required>
@@ -46,10 +43,10 @@
 	        		</div>
 	        	</div>
 	        	<div class='form-group row'>
-	        		<div class='col-xs-3 col-md-3'>
+	        		<div class='col-xs-2 col-md-2'>
 	        			<label for='country'>Country: </label>
 	        		</div>
-	        		<div class='col-xs-9 col-md-9'>
+	        		<div class='col-xs-10 col-md-10'>
 	        			<select class='form-control custom-select' type='select' name='country' id='country' required>
 	        				<option selected disabled>Select a Country</option>
 	        				<% countries.forEach(function(country) { %>
@@ -71,14 +68,14 @@
 	      	  </div>
 	      	  <div class='clear-div'>
 	      	  	<hr>
-      			<h2>All Done? Click it. Finish the job.</h2>
+      			<h2>All Done? Click and Finish the job.</h2>
       		  </div>
 	      	  <button class='btn btn-primary btn-est account-form-btn' type='submit'>Create My Account</button>
 	        </form>
 	      </div>
 	      <div class='col-xs-3 col-md-3'>
 	        <img class='registration-guide' id='step-2' src='/media/branding/register_guide_2.png'>
-	        <h2>Just click on the games you want to follow. We'll customize it even more in a minute. </h2>
+	        <h2 id='step-2-text'>Just click on the games you want to follow. We'll customize it even more in a minute. </h2>
 	      </div>
 	    </div>
 	  </div>

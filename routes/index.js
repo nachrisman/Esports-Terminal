@@ -20,7 +20,7 @@ var options = {
     api_user: 'app79330346@heroku.com',
     api_key: 'v0po3kna4389'
   }
-}
+};
 
 var client = nodemailer.createTransport(sgTransport(options));
 
@@ -127,12 +127,12 @@ router.post('/register', function(req, res){
 	});
 	
 	var metaGames = req.body.title;
+	
 	metaGames.forEach(function(metaGame){
 		newUser.meta.push({ game: metaGame, events: true, news: true});
 	});
 	
 	if(req.body.password == req.body.confirmedPassword){
-		var host = req.get('host');
     	var link= "http://"+req.get('host')+"/verify?id="+validationToken;
 		User.register(newUser, req.body.password, function(err, user){
 			if(err){
