@@ -196,7 +196,7 @@ router.get('/login', function(req, res){
 
 router.post('/login', passport.authenticate('local', 
 	{
-		successRedirect: '/account',
+		successRedirect: '/meta',
 		failureRedirect: '/login',
 		failureFlash : { type: 'error', message: 'Invalid username or password.' }
 	}), function(req, res){

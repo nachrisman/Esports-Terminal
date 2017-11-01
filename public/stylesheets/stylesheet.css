@@ -549,7 +549,7 @@ hr{
     border-bottom: 3px solid red;
 }
 
-.user-meta-sub-header h2{
+.user-meta-sub-header{
     display: inline-block;
 }
 
@@ -558,14 +558,12 @@ hr{
 }
 
 #meta-news-preview{
-    
     width: 90vw;
-    
 }
 
 #meta-news-preview .article-preview{
-    margin: 25px;
-    flex-basis: 25vw;
+    margin: 5px;
+    flex-basis: 40vw;
 }
 
 #meta-read-more{
