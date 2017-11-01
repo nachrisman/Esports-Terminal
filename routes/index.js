@@ -133,7 +133,7 @@ router.post('/register', function(req, res){
 	
 	if(req.body.password == req.body.confirmedPassword){
 		var host = req.get('host');
-    	var link= "http://" + host + "/verify?id=" + validationToken;
+    	var link= "http://"+req.get('host')+"/verify?id="+validationToken;
 		User.register(newUser, req.body.password, function(err, user){
 			if(err){
 				req.flash('error', err.message);
@@ -147,12 +147,12 @@ router.post('/register', function(req, res){
 					  html: 'Hey, ' + user.firstName + '! <br><br><p>Thanks for creating an account with EST. Next step is to verify your email. <br><br> <a href='+ link +'>Click Here to Confirm Your Account!</a>'
 					};
 					client.sendMail(email, function(err, info){
-					    if (err ){
+					    if (err){
 					      console.log(err);
 					    }
 					    else {
 					      req.flash('warning', 'Please Check Your Email to Confirm Your Account!');
-					      res.redirect('/account');
+					      res.redirect('/account/meta-settings');
 					    }
 					});
 			});
@@ -164,9 +164,9 @@ router.post('/register', function(req, res){
 });
 
 router.get('/verify',function(req,res){
-		console.log(req.protocol + ':/' + req.get('host'));
+		console.log(req.protocol+':/'+req.get('host'));
 		
-		if((req.protocol + '://' + req.get('host')) == ('http://' + req.get('host'))){
+		if((req.protocol+'://'+req.get('host'))==('http://'+req.get('host'))){
 		    console.log("Domain is matched. Information is from Authentic email");
 		    
 		    if(req.query.id == req.user.validationToken){
@@ -177,7 +177,7 @@ router.get('/verify',function(req,res){
 		        		console.log(err);
 		        	} else {
 		        	req.flash('success', 'Your Account Has Been Verified!');
-		        	res.redirect('/meta-settings');
+		        	res.redirect('/account/meta-settings');
 		        	}
 		        });
 		    } else {
