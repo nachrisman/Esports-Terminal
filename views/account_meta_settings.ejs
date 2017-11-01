@@ -34,13 +34,13 @@
                   <% var userMeta = currentUser.meta; %>
                   <% games.forEach(function(game) { %>
                   <%   if(userMeta.find(meta => meta.game == game.title)) { %>
-                    <div class="form-check form-check-inline">
+                    <div class="form-check form-check-inline meta-title-check">
                       <label class="btn btn-primary btn-est-meta">
                         <input type="checkbox" name='title[]' value='<%= game.title %>' autocomplete="off" checked><%= game.title %>
                       </label>
                     </div>
                   <% } else { %>
-                    <div class="form-check form-check-inline">
+                    <div class="form-check form-check-inline meta-title-check">
                       <label class="btn btn-primary btn-est-meta">
                         <input type="checkbox" name='title[]' value='<%= game.title %>' autocomplete="off"><%= game.title %>
                       </label>
