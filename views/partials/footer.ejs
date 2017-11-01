@@ -1,58 +1,48 @@
     <footer>
-      <div class='container-fluid' id='primary-wrapper'>
+      <div class='container-fluid footer' id='primary-wrapper'>
         <div class='row'>
-          <div class='col-xs-3 col-md-3' id='footer-col-1'>
+          <div class='col-xs-3 col-md-3' id='footer-logo'>
             <img src='/media/branding/logo_est_reg.png'>
           </div>          
-          <div class='col-xs-3 col-md-3'>
+          <div class='col-xs-6 col-md-6'>
             <p class='footer-header'>Navigation</p>
-            <ul>
+            <div class='footer-nav'>
               <% if(!currentUser) { %>
-              <li><a href='/news'>News</a></li>
-              <li><a href='/events'>Events &amp; Tournaments</a></li>
-              <li><a href='/stream'>Stream</a></li>
-              <li><a href='/login'>Login</a> / <a href='/register'>Set Up Your META</a></li>
+              <a href='/news'>News</a>
+              <a href='/events'>Events &amp; Tournaments</a>
+              <a href='/stream'>Stream</a>
+              <a href='/login'>Login</a>
+              <a href='/register'>Set Up Your META</a>
               <% } else { %>
-              <li><a href='/meta'>My META</a></li>
-              <li><a href='/news'>News</a></li>
-              <li><a href='/events'>Events &amp; Tournaments</a></li>
-              <li><a href='/stream'>Stream</a></li>
-              <li><a href='/logout'>Logout</a></li>
+              <a href='/meta'>My META</a>
+              <a href='/news'>News</a>
+              <a href='/events'>Events &amp; Tournaments</a>
+              <a href='/stream'>Stream</a>
+              <a href='/logout'>Logout</a>
               <% }; %>
-            </ul>
-          </div>
-          <div class='col-xs-3 col-md-3'>
-            <p class='footer-header'>General Information</p>
-            <ul>
-              <li><a href='/info#about'>About Us</a></li>
-              <li><a href='/info#faq'>FAQ</a></li>
-              <li><a href='/info#contact'>Contact</a></li>
-            </ul>
+              <a href='/info#about'>About Us</a>
+              <a href='/info#faq'>FAQ</a>
+              <a href='/info#contact'>Contact</a>
+            </div>
           </div>
           <div class='col-xs-3 col-md-3'>
             <p class='footer-header'>Follow Us on Social Media</p>
-            <ul id='footer-social'>
-              <li>
-                <a class='btn btn-primary btn-est' href='https://www.facebook.com/EST-1458819794184730/' target='_blank'>
-                  <i class="fa fa-facebook left" aria-hidden="true"></i> Facebook
+            <div class='social-btn'>
+              <a class='btn btn-primary btn-sm btn-est' href='https://www.facebook.com/EST-1458819794184730/' target='_blank'>
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
-              </li>
-              <li>
-                <a class='btn btn-primary btn-est' href='https://www.twitter.com/esttweets' target='_blank'>
-                    <i class='fa fa-twitter left'></i> Twitter
+                <a class='btn btn-primary btn-sm btn-est' href='https://www.twitter.com/esttweets' target='_blank'>
+                    <i class='fa fa-twitter'></i>
                 </a>
-              </li>
-              <li>
-                <a class='btn btn-primary btn-est' href='https://www.instagram.com/esportsterminal' target='_blank'>
-                    <i class='fa fa-instagram left'></i> Instagram
+                <a class='btn btn-primary btn-sm btn-est' href='https://www.instagram.com/esportsterminal' target='_blank'>
+                    <i class='fa fa-instagram'></i>
                 </a>
-              </li>
-            </ul>
+            </div>
           </div>
         </div>
       </div>
-        <div class='row' id='copyright'>
-          <div class='col-xs-12 col-md-12'>
+        <div class='row'>
+          <div class='col-xs-12 col-md-12' id='copyright'>
             <p>Copyright &copy; 2017 eSportsTerminal.com | <a href='privacy-policy'>Privacy Policy</a> | <a href='terms-of-use'>Terms of Service</a> | <a href='sitemap'>Sitemap</a></p>
           </div>
         </div>

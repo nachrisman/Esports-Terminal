@@ -571,28 +571,9 @@ hr{
 }
 
 /* events */
-.events-list{
+.event-list{
     margin: 0 auto;
-    width:80%;
-}
-
-.events-list thead, th, td, tr{
-    padding:10px;
-    text-align:center;
-    color:#000;
-}
-
-.events-list thead{
-    background-color: none;
-}
-
-.events-list thead * {
-    border-bottom:2px solid rgba(0, 0, 0, 0.5);
-}
-
-.events-list button{
-    background-color:transparent;
-    border:none;
+    width:80vw;
 }
 
 .event-game-thumbnail{
@@ -823,26 +804,16 @@ hr{
 
 /* footer */
 footer{
-    width: 100vw;
     margin: 0 auto;
+    padding-top: 15px;
+    border-top: 2px solid rgb(0, 0, 0);
     border-top: 2px solid rgba(0, 0, 0, 0.5);
     font-weight:normal;
     font-size:10pt;
 }
 
-.footer-header{
-    text-align:left;
-}
-
 footer a{
     color: #000;
-}
-
-#footer-col-1 img{
-    max-height:100px;
-    width:auto;
-    margin: 15px auto;
-    display:block;
 }
 
 footer p{
@@ -850,14 +821,53 @@ footer p{
     max-width:100%;
 }
 
-#footer-social{ 
-	list-style:none;
+#footer-logo{
+    display: flex;
+    justify-content: center;
+}
+
+#footer-logo img{
+    max-height:100px;
+    width:auto;
+}
+
+.footer-nav{
+    height:75px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: space-around;
+    flex-basis: 20px;
+}
+
+.social-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:flex-start;
+    
+}
+
+@media screen and (max-width: 765px){
+    .social-btn{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    footer .btn{
+        width:100vw;
+    }
 }
 
 footer .btn{
-    margin-bottom:5px;
-    width:20vw;
-    font-size:1vw;
+    margin:5px;
+    flex-grow: 1;
     background-color:#333399;
     color:#fff;
+}
+
+#copyright{
+    display: flex;
+    justify-content: center;
 }
