@@ -211,7 +211,6 @@ hr{
 
 /* content preview */ 
 .preview {
-    border: 5px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -259,7 +258,7 @@ hr{
     padding: 15px;
     opacity: 0;
     background-color: rgb(234, 16, 16);
-    background-color: rgba(234, 16, 16, 1);
+    background-color: rgba(234, 16, 16, 0.7);
     width: 100%;
     height: 100%;
     -webkit-transition: opacity .9s ease-in-out, height .3s ease-in-out;;
