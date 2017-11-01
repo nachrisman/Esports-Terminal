@@ -13,7 +13,7 @@
 				</div>
 				<div class='row'>
 					<div class='col-xs-12 col-md-12'>
-						<form class='new-item-entry' action='/admin/view-games' method='POST'>
+						<form class='new-item-entry' action='/admin/view-games/<%= game._id %>?_method=PUT' method='POST'>
 							<div class='form-group row'>
 								<div class='col-xs-6 col-md-6'>
 									<label for='title'>Title: </label>
@@ -55,7 +55,7 @@
 							<div class='clear-div'>
 								<hr>
 							</div>
-							<button class='btn btn-primary btn-est' type='submit'>Add Game</button>
+							<button class='btn btn-primary btn-est' type='submit'>Update Game</button>
 						</form>
 						<div class='clear-div'>
 							<hr>
