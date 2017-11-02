@@ -18,7 +18,7 @@
 				<% var userMeta = currentUser.meta; %>
 				<% userMeta.forEach(function(meta) { %>
 				<% 	if(meta.news == true) { %>
-				<div class='row'>
+				<div class='row meta-section'>
 					<div class='col-xs-12 col-md-12'>
 						<div class='user-meta-sub-header'>
 						  <h2><%= meta.game %></h2>
@@ -64,7 +64,7 @@
 						<div class='user-meta-sub-header'>
 							<h2><%= meta.game %></h2>
 						</div>
-						<div class='row view-list'>
+						<div class='row view-list meta-section'>
 							<div class='col-xs-12 col-md-12'>
 								<div class='table-responsive event-list'>
 									<table class='table'>

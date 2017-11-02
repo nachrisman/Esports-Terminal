@@ -417,56 +417,48 @@ hr{
 .btn-est-meta{
     background-color: #333399;
     border-radius: 25px 0 25px 0;
-    width:100%;
-}
-
-.meta-title-check{
-    width:100%;
-}
-
-#meta-titles btn-est-meta{
-    width:100%;
+    width: 20vw;
+    font-size: 1vw;
 }
 
 #meta-settings-columns{
-    text-align:center;
+    display: flex;
+    justify-content: space-around;
 }
 
-#meta-titles label{
-    margin:5px;
-    text-align:left;
-    font-size:1vw;
+.meta-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #meta-titles input{
     margin-right:10px;
 }
 
-#meta-news label{
-    font-size: 1vw;
+#meta-news, #meta-events{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-#meta-events label{
-    font-size: 1vw;
+#meta-news .btn-est-meta{
+    border-radius: 5px;
+    width: 10vw;
 }
 
-.sub-meta-check{
-    width:100%;
-    text-align:center;
+#meta-news .btn-est-danger{
+    width: 10vw;
 }
 
-#meta-news .btn-est-meta, #meta-news .btn-est-danger{
-    width:40%;
-    text-align:center;
-    margin:5px;
-    border-radius:5px;
+#meta-events .btn-est-meta{
+    border-radius: 5px;
+    width: 10vw;
 }
 
-#meta-events .btn-est-meta, #meta-events .btn-est-danger{
-    width:40%;
-    text-align:center;
-    margin:5px;
-    border-radius:5px;
+#meta-events .btn-est-danger{
+    width:10vw;
 }
 
 /* account security & general */
@@ -553,29 +545,35 @@ hr{
     display: inline-block;
 }
 
+.meta-section{
+    margin-bottom: 50px;
+}
+
 #meta-section{
     margin-top:10px;
 }
 
 #meta-news-preview{
-    width: 90vw;
+    justify-content: center;
+    width: 100%;
 }
 
 #meta-news-preview .article-preview{
     margin: 5px;
-    flex-basis: 40vw;
+    flex-basis: 25vw;
 }
 
 #meta-news-preview .article-preview:nth-child(3){
-    flex-basis:90vw;
+    flex-basis:80vw;
 }
 
 #meta-read-more{
-    text-align:right;
+    width:100%;
 }
 
 #meta-read-more a{
-    text-decoration:none;
+    display: block;
+    float: right;
 }
 
 #meta-read-more a:hover{
@@ -658,21 +656,10 @@ hr{
 }
 
 /* stream */
-#twitch-stream-player{
-    text-align:center;
-}
-
-#leaderboard{
-    display:block;
-    margin: 75px auto;
-}
-
-#stream-chat{
-    text-align:left;
-}
-
-#upcoming-streams{
-    width:100%;
+.stream-view{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 
@@ -753,10 +740,7 @@ hr{
         height:auto;
 }
 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2){
+@media screen and (max-device-width: 765px){
     .registration-guide{
         display: none;
     }
@@ -771,8 +755,10 @@ hr{
 }
 
 .section-divider{
+    border-top:2px solid rgb(0, 0, 0);
     border-top:2px solid rgba(0, 0, 0, 0.5);
 }
+
 
 /* info - complete */
 #info-content img{

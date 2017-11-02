@@ -6,7 +6,7 @@
           </div>
         </div>
         <div class='row'>
-          <div class='col-xs-12'>
+          <div class='col-xs-12 col-md-12'>
             <div class='clear-div'>
               <hr>
             </div>
@@ -19,19 +19,21 @@
           </div>
         </div>
         <div class='row'>
-          <div class='col-xs-8 col-md-8' id='stream-view'>
-            <div id='twitch-stream-player'>
-              <script type='text/javascript'>insertTwitchFeed();</script>
+          <div class='col-xs-12 col-md-12' id='stream-view'>
+            <div class='stream-view'>
+              <div id='twitch-stream-player'>
+                <script type='text/javascript'>insertTwitchFeed();</script>
+              </div>
+              <div id='stream-chat'>
+                <iframe frameborder='0'
+                  scrolling='no'
+                  id='esportsterminal'
+                  src='//www.twitch.tv/esportsterminal/chat'
+                  height='480'
+                  width='350'>
+                </iframe>
+              </div>
             </div>
-          </div>
-          <div class='col-xs-4 col-md-4' id='stream-chat'>
-            <iframe frameborder='0'
-              scrolling='no'
-              id='esportsterminal'
-              src='//www.twitch.tv/esportsterminal/chat'
-              height='480'
-              width='350'>
-            </iframe>
           </div>
         </div>
         <!--<div class='row'>-->
@@ -52,38 +54,36 @@
             <div class='content-divider-lg'>
               <h1>Upcoming Streams</h1>
             </div>
-              <% if(!upcomingStreams) { %>
+            <% if(!upcomingStreams) { %>
               <h1>We don't have any upcoming streams :(. We're working on it!</h1>
-              <% } else { %>
-              <table class='events-list' id='upcoming-streams'>
-                <thead>
-                  <tr>
-                    <th><button id='list-sort'>Game/Event</button></th>
-                    <th><button id='list-sort'>Event Page</button></th>
-                    <th><button id='list-sort'>Location</button></th>
-                    <th><button id='list-sort'>Date/Time</button></th>
-                  </tr>
-                </thead>
-                <tbody>
-                <% upcomingStreams.forEach(function(upcomingStream) { %>
-                  <tr>
-                    <td>
-                      <img class='event-game-thumbnail' src='<%= upcomingStream.image %>'>
-                    </td>
-                    <td>
-                      <a href='/events/<%= upcomingStream._id %>'><%= upcomingStream.title %></a>
-                    </td>
-                    <td>
-                      <%= upcomingStream.venue + ', ' + upcomingStream.city + ', ' + upcomingStream.state %>
-                    </td>
-                    <td>
-                      <%= upcomingStream.date.toDateString() %>
-                    </td>
-                <% }); %>
-                <% } %>
-                  </tr>
-                </tbody>
-              </table>
+            <% } else { %>
+            <div class='row view-list'>
+		          <div class='col-xs-12 col-md-12'>
+					      <div class='table-responsive event-list'>
+						      <table class='table'>
+                    <thead>
+                      <tr>
+                        <th>Game/Event</th>
+                        <th>Event Page</th>
+                        <th>Location</th>
+                        <th>Date/Time</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <% upcomingStreams.forEach(function(upcomingStream) { %>
+                      <tr>
+                        <td><img class='event-game-thumbnail' src='<%= upcomingStream.image %>'></td>
+                        <td><a href='/events/<%= upcomingStream._id %>'><%= upcomingStream.title %></a></td>
+                        <td><%= upcomingStream.venue + ', ' + upcomingStream.city + ', ' + upcomingStream.state %></td>
+                        <td><%= upcomingStream.date.toDateString() %></td>
+                      </tr>
+                    <% }); %>
+                    <% } %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
