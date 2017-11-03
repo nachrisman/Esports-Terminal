@@ -22,7 +22,6 @@ var url = process.env.DATABASEURL || 'mongodb://localhost/est';
 mongoose.connect(url, {useMongoClient: true});
 
 
-
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 app.use(express.static('public'));

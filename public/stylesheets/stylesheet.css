@@ -235,7 +235,7 @@ hr{
 
 .article-preview-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: 0 auto;
     display: block;
     -webkit-transition: opacity .5s ease-in-out;
