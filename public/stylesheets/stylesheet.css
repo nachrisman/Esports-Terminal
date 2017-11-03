@@ -215,8 +215,7 @@ hr{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center; /* distributing space between items - main axis */
-    align-items: flex-start; /* distributing space between items - cross axis */
-    align-content: space-between; /* distrubing space between rows - cross axis */
+     /* distributing space between items - cross axis */
     width: 30vw;
 }
 
@@ -225,6 +224,7 @@ hr{
     text-decoration: none;
     flex-basis: 14vw;
     flex-grow: 1;
+    flex-shrink: 0;
 }
 
 @media screen and (max-width:765px){
@@ -234,10 +234,9 @@ hr{
 }
 
 .article-preview-image {
-    width: 100%;
     height: 100%;
-    margin: 0 auto;
-    display: block;
+    width:100%;
+    object-fit: cover;
     -webkit-transition: opacity .5s ease-in-out;
     -moz-transition: opacity .5s ease-in-out;
     -o-transition: opacity .5s ease-in-out;

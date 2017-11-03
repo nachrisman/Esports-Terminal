@@ -28,9 +28,7 @@
             <% pastArticles.forEach(function(pastArticle) { %>
               <div class='article-preview'>
                 <a class='preview-link' href='/news/<%= pastArticle._id %>'>
-                  <div class='article-preview-image'>
                     <img class='article-preview-image' src='<%= pastArticle.image %>'>
-                  </div>
                   <div class='preview-headline'>
                     <h3 class='article-title'><%= pastArticle.title.substr(0, 100) %></h3>
                   </div>
