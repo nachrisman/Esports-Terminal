@@ -17,7 +17,13 @@ router.get('/', function(req, res){
 				if(err){
 					console.log(err);
 				} else {
-					res.render('news', {articles: articles, pastArticles: pastArticles});
+					Article.aggregate([{$sample: {size: 5} }], function(err, randomArticles){
+						if(err){
+							console.log(err);
+						} else {
+							res.render('news', {articles: articles, pastArticles: pastArticles, randomArticles: randomArticles});
+						}
+					});
 				}
 			});	
 		}

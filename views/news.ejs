@@ -45,21 +45,21 @@
             <!--  <hr>-->
             <!--</div>-->
             <div class='content-divider-sm'>
-              <h2>Suggested</h2>
+              <h2>Random Picks</h2>
             </div>
             <div class='preview'>
-            <% if(pastArticles.length == 0) {               %>
+            <% if(randomArticles.length == 0) {               %>
               <p>Nothing to see here...</p>
             <% } else {                                     %>
-            <% pastArticles.forEach(function(pastArticle) { %>
-            <%   if(pastArticle.contentType != 'video') { %>
+            <% randomArticles.forEach(function(randomArticle) { %>
+            <%   if(randomArticle.contentType != 'video') { %>
               <div class='article-preview'>
-                <a class='preview-link' href='/news/<%= pastArticle._id %>'>
+                <a class='preview-link' href='/news/<%= randomArticle._id %>'>
                   <div class='article-preview-image'>
-                    <img class='article-preview-image' src='<%= pastArticle.image %>'>
+                    <img class='article-preview-image' src='<%= randomArticle.image %>'>
                   </div>
                   <div class='preview-headline'>
-                    <h3 class='article-title'><%= pastArticle.title.substr(0, 100) %></h3>
+                    <h3 class='article-title'><%= randomArticle.title.substr(0, 100) %></h3>
                   </div>
                 </a>
               </div>
