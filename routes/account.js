@@ -89,6 +89,27 @@ router.put('/security', middleware.isLoggedIn, function(req, res){
 	});	
 });
 
+router.get('/change-password', middleware.isLoggedIn, function(req, res){
+	res.render('account_change_password');	
+});
+
+router.put('/change-password', function(req, res){
+	User.findById(req.user._id, function(err, foundUser){
+		if(err){
+			console.log(err, err.message);
+		} else {
+			foundUser.changePassword(req.body.oldPassword, req.body.newPassword, function(err, next){
+				if(err){
+					console.log(err, err.message);
+				} else {
+					req.flash('success', 'Password Updated!');
+					res.redirect('/account/info');
+				}
+			});
+		}
+	});
+});
+
 router.get('/deactivate', middleware.isLoggedIn, function(req, res){
 	res.render('account_deactivate');	
 });

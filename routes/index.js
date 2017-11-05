@@ -8,6 +8,7 @@ var express 	= require('express'),
 	User 	 	= require('../models/user'),
 	middleware  = require('../middleware'),
 	nodemailer	= require('nodemailer'),
+	crypto		= require('crypto'),
 	sgTransport = require('nodemailer-sendgrid-transport'),
 	countryList = require('country-list')(),
 	country		= require('countryjs');
@@ -115,7 +116,8 @@ router.get('/register', function(req, res){
 });
 
 router.post('/register', function(req, res){
-	var validationToken = Math.floor(Math.random() * 100 + 54);
+	var buf = crypto.randomBytes(256);
+	var token = buf.toString('hex');
 	
 	var newUser = new User({
 		username: req.body.username,
@@ -123,7 +125,8 @@ router.post('/register', function(req, res){
 		lastName: req.body.lastName,
 		email: req.body.email,
 		location: {country: req.body.country},
-		validationToken: validationToken
+		validationToken: {token: token, expiration: moment()}
+		
 	});
 	
 	var metaGames = req.body.title;
@@ -133,7 +136,7 @@ router.post('/register', function(req, res){
 	});
 	
 	if(req.body.password == req.body.confirmedPassword){
-    	var link= "http://"+req.get('host')+"/verify?id="+validationToken;
+    	var link= "http://"+req.get('host')+"/verify?id="+token;
 		User.register(newUser, req.body.password, function(err, user){
 			if(err){
 				req.flash('error', err.message);
@@ -164,15 +167,14 @@ router.post('/register', function(req, res){
 });
 
 router.get('/verify',function(req,res){
-		console.log(req.protocol+':/'+req.get('host'));
+		var yesterday = moment().subtract(1, 'day');
 		
 		if((req.protocol+'://'+req.get('host'))==('http://'+req.get('host'))){
-		    console.log("Domain is matched. Information is from Authentic email");
-		    
-		    if(req.query.id == req.user.validationToken){
+
+		    if(req.query.id == req.user.validationToken.token && req.user.validationToken.expiration >= yesterday){
 		        console.log('Email Verified... Activating User Account');
 		        
-		        User.findByIdAndUpdate(req.user.id, {$set: {active: true, validationToken: undefined} }, function(err, user){
+		        User.findByIdAndUpdate(req.user.id, {$set: {active: true, validationToken: {token: undefined, expiration: undefined} }}, function(err, user){
 		        	if(err){
 		        		console.log(err);
 		        	} else {
@@ -181,7 +183,6 @@ router.get('/verify',function(req,res){
 		        	}
 		        });
 		    } else {
-		        console.log('Email Could Not Be Verified');
 		        req.flash('error', 'Your Email Could Not Be Verified.');
 		        res.redirect('/news');
 		    }
@@ -208,23 +209,97 @@ router.get('/logout', function(req, res){
 	res.redirect('/news');
 });
 
-router.get('/reset-password', middleware.isLoggedIn, function(req, res){
-	res.render('reset_password');	
+router.get('/forgot-password', function(req, res){
+	res.render('forgot_password');
 });
 
-router.put('/reset-password', function(req, res){
-	User.findById(req.user._id, function(err, foundUser){
+router.post('/forgot-password', function(req, res){
+	User.findOne({email: req.body.email}, function(err, user){
 		if(err){
-			console.log(err, err.message);
+			req.flash('error', err.message);
+			res.redirect('/forgot-password');
 		} else {
-			foundUser.changePassword(req.body.oldPassword, req.body.newPassword, function(err, next){
+			var buf = crypto.randomBytes(256),
+				expiration = moment(),
+				token = buf.toString('hex');
+			
+			user.validationToken.token = token;
+			user.validationToken.expiration = expiration;
+			
+			user.save(function (err) {
+				if(err) {
+            	console.error(err);
+        	}});
+			
+			var link= "http://"+req.get('host')+"/forgot-password/change?id="+user._id+"&token="+user.validationToken.token;
+			var email = {
+					  from: 'app79330346@heroku.com',
+					  to: user.email,
+					  subject: 'EST Password Reset Link',
+					  html: 'Hey, ' + user.firstName + '! <br><br><p>You recently requested to reset your password. ' + 
+							'In order to do this, please follow the link below.' + 
+							'<br><br><a href='+ link +'>'+ link + '</a>'
+					};
+			client.sendMail(email, function(err, info){
+				    if (err){
+				      console.log(err);
+				    }
+				    else {
+				      req.flash('warning', 'Please Check Your Email for a Password Reset Link');
+				      res.redirect('/news');
+				    }
+				});
+		}
+	});	
+});
+
+router.get('/forgot-password/change', function(req, res){
+		console.log(req.protocol+':/'+req.get('host'));
+		var yesterday = moment().subtract(1, 'day');
+		
+		if((req.protocol+'://'+req.get('host'))==('http://'+req.get('host'))){
+		    console.log("Domain is matched. Now verifying user...");
+		    
+		    User.findOne({_id: req.query.id}, function(err, user){
+		    	if(err){
+		    		req.flash('error', err.message);
+		    		return res.redirect('/forgot-password');
+		    	}	else {
+		    		if(req.query.token == user.validationToken.token && user.validationToken.expiration >= yesterday){
+		    			res.render('forgot_password_change', {user: user});
+		    		} else {
+		    			req.flash('error', err.message);
+		    			res.redirect('/forgot-password');
+		    		}
+		    	}
+		    });
+		} else {
+		    res.end('<h1>Request is from unknown source</h1>');
+		}
+});
+
+router.put('/forgot-password/change/:id', function(req, res){
+	User.findById(req.params.id, function(err, foundUser){
+		if(err){
+			req.flash('error', err.message);
+			return res.redirect('/forgot-password');
+		} else if(req.body.newPassword == req.body.confirmedPassword){
+			foundUser.validationToken.token = undefined;
+			foundUser.validationToken.expiration = undefined;
+			foundUser.setPassword(req.body.confirmedPassword, function(err){
 				if(err){
-					console.log(err, err.message);
+					req.flash('error', err.message);
+					return res.redirect('/forgot-password');
 				} else {
-					req.flash('success', 'Password Updated!');
-					res.redirect('/account/info');
+					foundUser.save(function(err){
+						if(err){
+							console.log(err);
+						}	
+					});
 				}
 			});
+			req.flash('success', 'Password successfully changed!');
+			res.redirect('/login');
 		}
 	});
 });

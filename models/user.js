@@ -31,7 +31,10 @@ var userSchema = new mongoose.Schema({
 		default: 'user'
 	},
 	active: {type: Boolean, default: false},
-	validationToken: String
+	validationToken: {
+		token: String,
+		expiration: {type: Date, default: undefined}
+	}
 });
 
 userSchema.virtual('fullname').get(function () {
