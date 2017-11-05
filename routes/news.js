@@ -30,7 +30,7 @@ router.get('/', function(req, res){
 	});
 });
 
-router.get('/:lastSeen', function(req, res){
+router.get('/more/:lastSeen', function(req, res){
 	var today = moment().startOf('day');
 	var lastWeek = moment().subtract(7, 'days');
 	
