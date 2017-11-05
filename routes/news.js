@@ -7,7 +7,7 @@ router.get('/', function(req, res){
 	var today = moment().startOf('day');
 	var lastWeek = moment().subtract(7, 'days');
 
-	Article.find({}).sort({published: -1}).limit(9).exec(function(err, articles){
+	Article.find({}).sort({published: -1}).limit(25).exec(function(err, articles){
 		if(err){
 			console.log(err);
 		} else {
@@ -26,6 +26,34 @@ router.get('/', function(req, res){
 					});
 				}
 			});	
+		}
+	});
+});
+
+router.get('/:lastSeen', function(req, res){
+	var today = moment().startOf('day');
+	var lastWeek = moment().subtract(7, 'days');
+	
+	Article.find({published: {$lt: req.params.lastSeen}}).limit(25).sort({published: -1}).exec(function(err, articles){
+		if(err){
+			console.log(err);
+		} 
+		if(articles.length > 0) {
+			Article.find({published: {$gte: lastWeek.toDate(), $lt: today.toDate()}}).sort({published: -1}).limit(5).exec(function(err, pastArticles){
+				if(err){
+					console.log(err);
+				} else {
+					Article.aggregate([{$sample: {size: 5} }], function(err, randomArticles){
+						if(err){
+							console.log(err);
+						} else {
+							res.render('news', {articles: articles, pastArticles: pastArticles, randomArticles: randomArticles});
+						}
+					});
+				}
+			});
+		} else {
+			res.redirect('/news');
 		}
 	});
 });

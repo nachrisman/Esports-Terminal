@@ -1,3 +1,5 @@
+/* global $ */
+
 function insertTwitchFeed() {
 	var options = {
 	          width: 854,
@@ -7,3 +9,6 @@ function insertTwitchFeed() {
 	        var player = new Twitch.Player("twitch-stream-player", options);
 	        player.setVolume(0.5);
 }
+
+
+

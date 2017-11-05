@@ -1,5 +1,5 @@
 <% include ./partials/header %>
-      <div class='container-fluid' id='primary-wrapper' ng-app="app" ng-controller="scrollController">
+      <div class='container-fluid' id='primary-wrapper' >
         <div class='row'>
           <div class='col-xs-12 col-md-12' id='page-header'>
             <h1>News</h1>
@@ -90,38 +90,11 @@
             </div>
           </div>
           <div class='col-xs-8 col-md-8' id='post-wrapper' >
-            <div class='content-feed' >
+            <div class='content-feed'>
               <div class='content-divider-sm' id='news-feed-header'>
                 <h2>News Feed</h2>
               </div>
-              <div class='scroller' infinite-scroll='getMoreArticles()'>
-                <!-- INFINITE SCROLL PORTION -->
-                
-                
-              <!--  <div class='post-preview' ng-repeat="article in articles">-->
-            		<!--  <article>-->
-              <!--      <div id='header-preview'>-->
-              <!--			 <header>-->
-              <!--			   <h1 class='article-header'><a href='/news/{{article._id}}'>{{article.title}}</a></h1>-->
-              <!--			 </header>-->
-              <!--      </div>-->
-              <!--      <div class='image-preview'>-->
-              <!--        <figure>-->
-              <!--          <img class='article-figure' src='{{article.image}}'>-->
-              <!--        </figure>-->
-              <!--      </div>-->
-            		<!--	  <div class='post-content' id='content-preview'>-->
-            		<!--		  <div class='article-body-preview'>{{article.body.substr(0, 300)}}...</div>-->
-              <!--        <p class='read-more'><a  href='/news/{{article._id}}'>Read More > > ></a></p>-->
-            		<!--	  </div>-->
-            		<!--  </article>-->
-              <!--  </div>-->
-              <!--  <div class='clear-div' id='post-preview-clear'>-->
-              <!--    <hr>-->
-              <!--  </div>-->
-              <!--</div>-->
-            	
-            	
+              <% var lastSeen = Date.parse(articles[articles.length - 1].published); %>
             	<% articles.forEach(function(article){ %>
                 <div class='post-preview'>
             		  <article>
@@ -137,16 +110,21 @@
                     </div>
             			  <div class='post-content' id='content-preview'>
             				  <div class='article-body-preview'><%- article.body.substr(0, 300) %>...</div>
-                      <p class='read-more'><a  href='/news/<%= article._id %>'>Read More > > ></a></p>
+                      <a class='btn btn-outline-primary btn-est-outline' href='/news/<%= article._id %>'>Read More</a>
             			  </div>
+            			  
             		  </article>
                 </div>
                 <div class='clear-div' id='post-preview-clear'>
                   <hr>
                 </div>
             	<% }); %>
-            
         	</div>
+        	<% if(articles.length == 25) { %>
+        	<div class='article-query-container'>
+        	  <a class='btn btn-outline-primary btn-est-outline' id='article-query' href='/news/<%= lastSeen %>'>More Articles</a>
+        	</div>
+        	 <% } %>
         </div>
       </div>
       </div>
