@@ -317,13 +317,54 @@ hr{
 #sidebar-container{
     margin-top:25px;
 }
-.post-content figure{
-    margin: 50px 0 50px 0;
+
+.article-author-link{
+    font-size: 11pt;
+    color: rgba(0, 0, 0, 0.7);
 }
 
-.post-content a:hover{
+.article-pub-date{
+    font-size: 11pt;
     color: rgba(0, 0, 0, 0.7);
-    text-decoration: underline;
+    text-align: left;
+}
+
+.article-author-link, .article-pub-date{
+    display: inline-block;
+}
+
+.article-author-label{
+    font-size: 11pt;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.article-author-link:hover{
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.article-figure-caption, .article-figure-source{
+    display: inline-block;
+    text-align:left;
+}
+
+.article-figure-caption{
+    font-size: 11pt;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.article-figure-source{
+    font-size: 11pt;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.article-categories-list{
+    font-size: 11pt;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: left;
+}
+
+.post-content figure{
+    margin: 50px 0 50px 0;
 }
 
 .article-figure {
@@ -385,6 +426,69 @@ hr{
 
 #suggested-articles .preview-headline{
     height:30%;
+}
+
+
+/* overwatch league */
+.team-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; /* distributing space between items - main axis */
+    width: 30vw;
+}
+
+.team-preview {
+    position: relative;
+    text-decoration: none;
+    flex-basis: 14vw;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+@media screen and (max-width:765px){
+    .preview{
+        width:90vw;
+    }
+}
+
+.team-preview-image {
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+}
+
+.team-preview-image:hover{
+    opacity: 0.5;
+}
+
+.team-headline{
+    position:absolute;
+    bottom: 0;
+    padding: 15px;
+    opacity: 0;
+    background-color: rgb(234, 16, 16);
+    background-color: rgba(234, 16, 16, 0.7);
+    width: 100%;
+    height: 100%;
+    -webkit-transition: opacity .9s ease-in-out, height .3s ease-in-out;;
+    -moz-transition: opacity .9s ease-in-out, height .3s ease-in-out;
+    -o-transition: opacity .9s ease-in-out, height .3s ease-in-out;
+    transition: opacity .9s ease-in-out, height .3s ease-in-out;
+}
+
+.team-headline:hover{
+    opacity: 1;
+    height:100%;
+}
+
+.team-name{
+    font-size: 1.2vw;
+    color: #fff;
 }
 
 /* account */
@@ -504,7 +608,7 @@ hr{
 
 /* account info */
 .user-account-edit{
-    width:50%;
+    width:50vw;
     margin:0 auto;
 }
 
@@ -570,22 +674,16 @@ hr{
     flex-basis: 25vw;
 }
 
-#meta-news-preview .article-preview:nth-child(3){
-    flex-basis:80vw;
+#meta-news-preview .article-preview:nth-child(4){
+    flex-basis:40vw;
 }
 
-#meta-read-more{
-    width:100%;
-}
-
-#meta-read-more a{
+.meta-section .btn-est-outline{
     display: block;
-    float: right;
+    font-size: 1vw;
+    margin-left: auto;
 }
 
-#meta-read-more a:hover{
-    text-decoration:underline;
-}
 
 /* events */
 .event-list{

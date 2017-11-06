@@ -101,11 +101,15 @@
                     <div id='header-preview'>
               			 <header>
               			   <h1 class='article-header'><a href='/news/<%= article._id %>' ><%= article.title %></a></h1>
+              			   <a class='article-author-link' href='#'><%= article.author %></a>
+              			   <p class='article-pub-date'>-<%= article.published.toDateString() %></p>
               			 </header>
                     </div>
                     <div class='image-preview'>
                       <figure>
-                        <img class='article-figure' src='<%= article.image %>'>
+                        <a href='/news/<%= article._id %>'>
+                          <img class='article-figure' src='<%= article.image %>'>
+                        </a>
                       </figure>
                     </div>
             			  <div class='post-content' id='content-preview'>

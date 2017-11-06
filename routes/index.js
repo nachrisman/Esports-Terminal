@@ -304,4 +304,8 @@ router.put('/forgot-password/change/:id', function(req, res){
 	});
 });
 
+router.get('/overwatch-league', function(req, res){
+	res.render('overwatch_league');
+})
+
 module.exports = router;

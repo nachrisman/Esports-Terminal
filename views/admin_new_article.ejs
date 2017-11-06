@@ -19,6 +19,7 @@
 								<div class='col-xs-4 col-md-4'>
 									<label for='author'>Author: </label>
 									<select class='form-control custom-select' name='article[author]' id='author' required>
+										<option disabled selected>Select an Author</option>
 		  						<% authors.forEach(function(author){ %>
 		  							<option value='<%= author.fullname %>'><%= author.fullname %></option>
 		  						<% }); %>
@@ -26,7 +27,7 @@
 								</div>
 								<div class='col-xs-8 col-md-8'>
 									<label for='date'>Publishing Date: </label>
-									<input class='form-control' type='date' id='date' value='<%= today %>' required>
+									<input class='form-control' type='text' id='date' value='<%= today %>' required>
 								</div>
 		  				</div>
 		  				<hr>

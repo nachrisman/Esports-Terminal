@@ -1,3 +1,4 @@
-function changeActiveClass(elementId){
-	document.getElementById(elementId).className = 'active';
+function addMemberForm(){
+    var memberForm = document.getElementById('')
 }
+

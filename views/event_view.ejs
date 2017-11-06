@@ -87,14 +87,17 @@
             <div class='content-divider-lg'>
                 <h2>Related Events</h2>
             </div>
-            <table class='events-list' id='events-today'>
+            <div class='row view-list'>
+			        <div class='col-xs-12 col-md-12'>
+						    <div class='table-responsive event-list'>
+							<table class='table'>
               <thead>
                 <tr>
-                  <th><button id='list-sort'>Game/Event</button></th>
-                  <th><button id='list-sort'>Event Page</button></th>
-                  <th><button id='list-sort'>Location</button></th>
-                  <th><button id='list-sort'>Date/Time</button></th>
-                  <th><button id='list-sort'>EST Stream</button></th>
+                  <th>Game/Event</th>
+                  <th>Event Page</th>
+                  <th>Location</th>
+                  <th>Date/Time</th>
+                  <th>EST Stream</th>
                 </tr>
               </thead>
               <tbody>
@@ -120,6 +123,9 @@
                 <% });                                                %>
               </tbody>
             </table>
+            </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>

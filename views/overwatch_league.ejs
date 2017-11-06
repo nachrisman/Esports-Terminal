@@ -1,0 +1,18 @@
+<% include ./partials/header %>
+
+    <div class='container-fluid'>
+        <div class='team-container'>
+            <div class='team-preview'>
+                <a class='preview-link' href='/overwatch-league/'>
+                  <div class='team-preview-image'>
+                    <img class='team-preview-image' src='<%= randomArticle.image %>'>
+                  </div>
+                  <div class='team-headline'>
+                    <h3 class='team-name'><%= randomArticle.title.substr(0, 100) %></h3>
+                  </div>
+                </a>
+              </div>
+        </div>
+    </div>
+
+<% include ./partials/footer %>

@@ -1,14 +1,5 @@
 <% include ./partials/header %>
     <div class='container-fluid' id='primary-wrapper'>
-      <!--<div class='col-xs-12 col-md-12'>-->
-      <!--  <div class='clear-div'>-->
-      <!--    <hr>-->
-      <!--  </div>-->
-      <!--  <img class='billboard-ad' src='../media/ads/billboard.jpg'>-->
-      <!--  <div class='clear-div'>-->
-      <!--    <hr>-->
-      <!--  </div>-->
-      <!--</div>-->
       <div class='row'>
         <div class='col-xs-4 col-md-4' id='sidebar-container'>
           <div class='content-divider-sm'>
@@ -41,11 +32,6 @@
           <div class='clear-div'>
             <hr>
           </div>
-          <!--<img class='rectangle-ad' src='../media/ads/medium_rectangle.jpg'>-->
-          <!--<div class='clear-div'>-->
-          <!--  <hr>-->
-          <!--</div>-->
-          <!--<img class='rectangle-ad' src='../media/ads/medium_rectangle2.gif'>-->
           <div class='content-divider-sm'>
             <h2>Related Videos</h2>
           </div>
@@ -83,16 +69,17 @@
       				<h1><%=foundArticle.title%></h1>
       			</header>
       			<div class='meta-container'>
-      				<p>Author: <%=foundArticle.author%></p>
-      				<p>Published: <%= foundArticle.published.toDateString() %></p>
-      				<p>Categories: <% foundArticle.categories.forEach(function(category){ %> <%= category + ', ' %> <% }); %></p>
+      			  <p class='article-author-label'>Author: </p>
+      				<a class='article-author-link' href='#'><%=foundArticle.author%></a>
+      				<p class='article-pub-date'>Published: <%= foundArticle.published.toDateString() %></p>
+      				<p class='article-categories-list'>Categories: <% foundArticle.categories.forEach(function(category){ %> <%= category + ', ' %> <% }); %></p>
       			</div>
       			<div class='post-content'>
       				<figure>
       					<img class='article-figure' src='<%=foundArticle.image%>'>
                 <figcaption>
-                  Description: <%= foundArticle.imageCaption %> ---
-                  Source: <%= foundArticle.imageSource %>  
+                  <p class='article-figure-caption'><%= foundArticle.imageCaption %> -</p>
+                  <p class='article-figure-source'>Source: <%= foundArticle.imageSource %></p> 
                 </figcaption>
       				</figure>
       				<div class='article-body'><%- foundArticle.body %></div>

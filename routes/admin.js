@@ -4,6 +4,7 @@ var express 	= require('express'),
 	Event 		= require('../models/event'),
 	Article 	= require('../models/article'),
 	Game 		= require('../models/game'),
+	Team		= require('../models/team'),
 	middleware  = require('../middleware'),
 	country		= require('countryjs'),
 	moment		= require('moment'),
@@ -247,7 +248,7 @@ router.get('/new-game', middleware.isAdmin, function(req, res){
 router.post('/view-games', middleware.isAdmin, function(req, res){
 	Game.create(req.body.game, function(err, newGame){
 		if(err){
-			req.flash('error', 'Could not add game. Check error logs.');
+			req.flash('error', err.message);
 			console.log(err);
 		} else {
 			res.redirect('/admin/view-games');
@@ -286,6 +287,39 @@ router.delete('/view-games/:id', middleware.isAdmin, function(req, res){
 		} else {
 			req.flash('success', 'Game deleted successfully!');
 			res.redirect('/admin/view-games');
+		}
+	});
+});
+
+router.get('/view-teams', middleware.isAdmin, function(req, res){
+	Team.find({}, function(err, teams){
+		if(err){
+			req.flash('error', err.message);
+			return res.redirect('/');
+		} else {
+			res.render('admin_view_teams', {teams: teams});
+		}
+	});
+});
+
+router.get('/new-team', middleware.isAdmin, function(req, res){
+	Game.find({}, function(err, games){
+		if(err){
+			req.flash('error', err.message);
+			return res.redirect('/admin/view-teams');
+		} else {
+			res.render('admin_new_team', {games: games, countries: countries});
+		}
+	});
+});
+
+router.post('/view-teams', middleware.isAdmin, function(req, res){
+	Team.create(req.body.team, function(err, newTeam){
+		if(err){
+			req.flash('error', err.message);
+			console.log(err);
+		} else {
+			res.redirect('/admin/view-teams');
 		}
 	});
 });
