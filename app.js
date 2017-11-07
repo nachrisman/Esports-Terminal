@@ -56,5 +56,5 @@ app.use('/account', accountRoutes),
 app.use(indexRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
-	console.log('SERVER RUNNING');
+	console.log('EST Server Started...');
 });

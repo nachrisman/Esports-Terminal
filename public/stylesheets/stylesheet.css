@@ -4,7 +4,12 @@ body, html {
     color:#000;
     font-size:14pt;
     font-family: 'Poppins', sans-serif;
-}   
+}  
+
+#primary-wrapper{
+    display:block;
+    width:95vw;
+}
 
 h1{
     font-family: 'Russo One', sans-serif;
@@ -16,21 +21,16 @@ h2{
     text-align:center;
 }
 
-#primary-wrapper{
+hr{
     display:block;
-    width:95vw;
+    border-color:rgba(0, 0, 0, 0.5);
+    width:60%;
 }
 
-/* common items */
+/* commons */
 .content-divider-sm{
     border-bottom:3px solid red;
     width:50%;
-    margin:0 auto 20px auto;
-}
-
-.content-divider-lg{
-    border-bottom:3px solid red;
-    width:20%;
     margin:0 auto 20px auto;
 }
 
@@ -40,52 +40,19 @@ h2{
     margin:0 auto 20px auto;
 }
 
-.no-content-msg{
-    text-align:center;
+.content-divider-lg{
+    border-bottom:3px solid red;
+    width:20%;
+    margin:0 auto 20px auto;
 }
 
-.header-image{
-    display:block;
-    margin:0 auto;
-    padding-bottom:5px;
+.no-content-msg{
+    text-align:center;
 }
 
 .clear-div{
     clear:both;
     padding-top: 4px;
-}
-
-.leaderboard-ad, .billboard-ad, .rectangle-ad, .skyscraper-ad{
-    display:block;
-    margin:0 auto;
-    max-width:100%;
-}
-
-.leaderboard-ad{
-    width:720px;
-    height:90px;
-}
-
-.source-link{
-    text-align:left;
-}
-
-.source-link:hover{
-    text-decoration: underline;
-}
-
-.end-content-return{
-    text-align:right;
-}
-
-.end-content-return > a:hover{
-    text-decoration: underline;
-}
-
-hr{
-    display:block;
-    border-color:rgba(0, 0, 0, 0.5);
-    width:60%;
 }
 
 .btn-est{
@@ -96,6 +63,28 @@ hr{
 
 .btn-est-danger{
     font-size: 1vw;
+}
+
+.btn-est-outline{
+    border-radius: 20px;
+    border-color: #333399;
+    color: #333399;
+    margin: 20px;
+    width: 20vw;
+    font-size: 1.5vw;
+}
+
+.btn-est-outline:hover{
+    background-color: #333399;
+    color: #fff;
+}
+
+.source-link{
+    text-align:left;
+}
+
+.source-link:hover{
+    text-decoration: underline;
 }
 
 /* navigation */
@@ -165,20 +154,6 @@ hr{
     justify-content: center;
 }
 
-.btn-est-outline{
-    border-radius: 20px;
-    border-color: #333399;
-    color: #333399;
-    margin: 20px;
-    width: 20vw;
-    font-size: 1.5vw;
-}
-
-.btn-est-outline:hover{
-    background-color: #333399;
-    color: #fff;
-}
-
 .post-content .btn-est-outline{
     display: block;
     float: right;
@@ -227,8 +202,7 @@ hr{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center; /* distributing space between items - main axis */
-     /* distributing space between items - cross axis */
+    justify-content: center; 
     width: 30vw;
 }
 
@@ -248,7 +222,7 @@ hr{
 
 .article-preview-image {
     height: 100%;
-    width:100%;
+    width: 100%;
     object-fit: cover;
     -webkit-transition: opacity .5s ease-in-out;
     -moz-transition: opacity .5s ease-in-out;
@@ -280,15 +254,12 @@ hr{
     height:100%;
 }
 
-
-
 .article-title{
     font-size: 1.2vw;
     color: #fff;
 }
 
 /* article view */
-
 #post-wrapper{
     border-left: 2px solid rgb(0, 0, 0);
     border-left: 2px solid rgba(0, 0, 0, 0.5);
@@ -428,7 +399,6 @@ hr{
     height:30%;
 }
 
-
 /* overwatch league */
 .team-container {
     display: flex;
@@ -523,7 +493,6 @@ hr{
 
 
 /* account */
-
 .account-info p{
     text-align:left;
 }

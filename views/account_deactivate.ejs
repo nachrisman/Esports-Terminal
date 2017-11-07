@@ -1,72 +1,72 @@
 <% include ./partials/header %>
-      <div class='container-fluid' id='primary-wrapper'>
-        <div class='row'>
-        	<div class='col-xs-2 col-md-2'>
-        		<div class='account-nav'>
-        			<h3>My Account</h3>
-        			<ul>
-        				<li><a href='/account/meta-settings'>META Settings</a></li>
-        				<li><a href='/account/info'>Account Information</a></li>
-        				<li><a href='/account/security'>Security & Other</a></li>
-        				<li><a href='/logout'>Log Out</a></li>
-        			</ul>
-        		</div>
-        	</div>
-        	<div class='col-xs-10 col-md-10'>
-        		<div class='account-content'>
-                    <h1>Deactivate Your Account</h1>
-                    <p>Are you sure you want to deactivate your account? We're sorry to see you go.</p>
-                    <p>Please tell us why you're leaving.</p>
-                    <div class='clear-div'>
-                        <hr>
-                    </div>
-                    <form class='deactivate-account' action='/account/deactivate?_method=PUT' method='POST'>
-                        <div class='form-group row'>
-                            <div class='col-xs-3 col-md-3'>
-                                <label for='deactivationReason'>Why are you deactivating?</label>
-                            </div>
-                            <div class='col-xs-9 col-md-9'>
-                                <select class='form-control custom-select' type='select' id='deactivationReason'>
-                                    <option selected disabled>Select a Reason</option>
-                                    <option>I am receiving too many emails</option>
-                                    <option>I just need a break</option>
-                                    <option>The content was not relevant</option>
-                                    <option>The site is too hard to use</option>
-                                    <option>I don't use the site anymore</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class='form-group row'>
-                            <div class='col-xs-3 col-md-3'>
-                                <label for='additionalComments'>Any additional comments?</label>
-                            </div>
-                            <div class='col-xs-9 col-md-9'>
-                                <textarea class='form-control' rows='5' id='additionalComments'></textarea>
-                            </div>
-                        </div>
-                        <p>You must enter your password to deactivate your account.</p>
-                        <div class='form-group row'>
-                            <div class='col-xs-3 col-md-3'>
-                                <label for='password'>Password: </label>
-                            </div>
-                            <div class='col-xs-9 col-md-9'>
-                                <input class='form-control' type='password' name='password' id='password' required>
-                            </div>
-                        </div>
-                        <div class='clear-div'>
-                            <hr>
-                        </div>
-    			        <p class='text-info'>Deactivating your account will mean that you won't receive anymore notifications from us.</p>
-    			        <p class='text-info'>We'll make sure to save your preferences, so when you want to come back, just log in to reactivate your account.</p>
-    			        <div class='clear-div'>
-    			            <hr>
-    			        </div>
-    			        <button class='btn btn-info btn-est account-form-btn' type='submit'>Deactivate My Account</button>
-                      </form>
-                      <a href='/account/delete-account' id='account-deletion-link'>I want to permanently delete my account</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+		<div class='container-fluid' id='primary-wrapper'>
+			<div class='row'>
+				<div class='col-xs-2 col-md-2'>
+					<div class='account-nav'>
+						<h3>My Account</h3>
+						<ul>
+							<li><a href='/account/meta-settings'>META Settings</a></li>
+							<li><a href='/account/info'>Account Information</a></li>
+							<li><a href='/account/security'>Security & Other</a></li>
+							<li><a href='/logout'>Log Out</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class='col-xs-10 col-md-10'>
+					<div class='account-content'>
+						<h1>Deactivate Your Account</h1>
+						<p>Are you sure you want to deactivate your account? We're sorry to see you go.</p>
+						<p>Please tell us why you're leaving.</p>
+						<div class='clear-div'>
+							<hr>
+						</div>
+						<form class='deactivate-account' action='/account/deactivate?_method=PUT' method='POST'>
+							<div class='form-group row'>
+								<div class='col-xs-3 col-md-3'>
+									<label for='deactivationReason'>Why are you deactivating?</label>
+								</div>
+								<div class='col-xs-9 col-md-9'>
+									<select class='form-control custom-select' type='select' id='deactivationReason'>
+										<option selected disabled>Select a Reason</option>
+										<option>I am receiving too many emails</option>
+										<option>I just need a break</option>
+										<option>The content was not relevant</option>
+										<option>The site is too hard to use</option>
+										<option>I don't use the site anymore</option>
+										<option>Other</option>
+									</select>
+								</div>
+							</div>
+							<div class='form-group row'>
+								<div class='col-xs-3 col-md-3'>
+									<label for='additionalComments'>Any additional comments?</label>
+								</div>
+								<div class='col-xs-9 col-md-9'>
+									<textarea class='form-control' rows='5' id='additionalComments'></textarea>
+								</div>
+							</div>
+							<p>You must enter your password to deactivate your account.</p>
+							<div class='form-group row'>
+								<div class='col-xs-3 col-md-3'>
+									<label for='password'>Password: </label>
+								</div>
+								<div class='col-xs-9 col-md-9'>
+									<input class='form-control' type='password' name='password' id='password' required>
+								</div>
+							</div>
+							<div class='clear-div'>
+								<hr>
+							</div>
+							<p class='text-info'>Deactivating your account will mean that you won't receive anymore notifications from us.</p>
+							<p class='text-info'>We'll make sure to save your preferences, so when you want to come back, just log in to reactivate your account.</p>
+							<div class='clear-div'>
+								<hr>
+							</div>
+							<button class='btn btn-info btn-est account-form-btn' type='submit'>Deactivate My Account</button>
+						</form>
+						<a href='/account/delete-account' id='account-deletion-link'>I want to permanently delete my account</a>
+					</div>
+				</div>
+			</div>
+		</div>
 <% include ./partials/footer %>

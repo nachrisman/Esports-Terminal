@@ -1,23 +1,21 @@
 <% include ./partials/admin_header %>
-
-    <div class='container' id='quick-stats'>
-        <div class='row'>
-            <div class='col-xs-4 col-md-4'>
-                <h3>Articles</h3>
-                <label>Overall Articles to Date: </label>
-                <p><%= articles.length %></p>
-            </div>
-            <div class='col-xs-4 col-md-4'>
-                <h3>Events</h3>
-                <label>Overall Events to Date: </label>
-                <p><%= events.length %></p>
-            </div>
-            <div class='col-xs-4 col-md-4'>
-                <h3>Games</h3>
-                <label>Games Covered: </label>
-                <p><%= games.length %></p>
-            </div>
-        </div>
-    </div>
-
+		<div class='container' id='quick-stats'>
+			<div class='row'>
+				<div class='col-xs-4 col-md-4'>
+					<h3>Articles</h3>
+					<label>Overall Articles to Date: </label>
+					<p><%= articles.length %></p>
+				</div>
+				<div class='col-xs-4 col-md-4'>
+					<h3>Events</h3>
+					<label>Overall Events to Date: </label>
+					<p><%= events.length %></p>
+				</div>
+				<div class='col-xs-4 col-md-4'>
+					<h3>Games</h3>
+					<label>Games Covered: </label>
+					<p><%= games.length %></p>
+				</div>
+			</div>
+		</div>
 <% include ./partials/admin_footer %>
