@@ -306,6 +306,17 @@ router.put('/forgot-password/change/:id', function(req, res){
 
 router.get('/overwatch-league', function(req, res){
 	res.render('overwatch_league');
-})
+});
+
+router.get('/search/:term', function(req, res){
+	Article.find({$text: {$search: req.params.term} }).limit(30).exec(function(err, foundArticles){
+		if(err){
+			req.flash('error', err.message);
+			return res.redirect('/news');
+		} else {
+			res.render('search', {foundArticles: foundArticles, term: req.params.term});
+		}
+	});	
+});
 
 module.exports = router;

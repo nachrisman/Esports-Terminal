@@ -491,6 +491,37 @@ hr{
     color: #fff;
 }
 
+/* search */
+.search-header{
+    width: 90vw;
+    text-align:left;
+    margin-bottom: 25px;
+}
+
+.search-results{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.search-results article{
+    display: flex;
+    flex-direction: row;
+}
+
+.search-results .search-result-body{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.search-results .article-figure{
+    max-width: 25vw;
+}
+
+
+
 /* account */
 
 .account-info p{
