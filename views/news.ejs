@@ -111,10 +111,8 @@
 								</div>
 								<% } %>
 					  			<div class='post-content' id='content-preview'>
-						  			<div class='article-body-preview'>
-						  				<%- article.body.substr(0, 300) %>...
-						  			</div>
-				  					<a class='btn btn-outline-primary btn-est-outline' href='/news/<%= article._id %>'>Read More</a>
+						  			<div class='article-body-preview'><%- article.body.substr(0, 300) %>...</div>
+						  			<a class='btn btn-outline-primary btn-est-outline' href='/news/<%= article._id %>'>Read More</a>
 					  			</div>
 				  			</article>
 						</div>

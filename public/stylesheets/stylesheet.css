@@ -183,10 +183,11 @@ hr{
 
 .post-preview{
     max-height:100%;
-    margin-bottom:25px;
+    text-align: left;
 }
 
 .post-preview .content-preview{
+    text-align: left;
     width:100%;
 }
 
