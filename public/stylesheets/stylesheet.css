@@ -87,6 +87,17 @@ hr{
     text-decoration: underline;
 }
 
+#page-header{
+    display: flex;
+}
+
+#page-header h1{
+    background-color: #333399;
+    color: #fff;
+    padding: 10px;
+    border-radius: 25px 0 25px 0;
+}
+
 /* navigation */
 .navbar.navbar-light{
     border-bottom: 1px solid #000;
@@ -463,10 +474,23 @@ hr{
 }
 
 /* search */
+.content-search{
+    width: 30vw;
+}
+
+.content-search .btn{
+    width: 8vw;
+}
+
 .search-header{
     width: 90vw;
     text-align:left;
     margin-bottom: 25px;
+}
+
+.search-header form{
+    text-align: center;
+    margin: 0 auto 25px auto;
 }
 
 .search-results{

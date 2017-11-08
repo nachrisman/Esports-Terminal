@@ -28,9 +28,6 @@ var client = nodemailer.createTransport(sgTransport(options));
 /*=============
   MISC ROUTES
 =============*/
-router.get('/search', function(req, res){
-	res.render('search');	
-});
 
 router.get('/stream', function(req, res){
 	var today = moment().startOf('day');
@@ -308,13 +305,13 @@ router.get('/overwatch-league', function(req, res){
 	res.render('overwatch_league');
 });
 
-router.get('/search/:term', function(req, res){
-	Article.find({$text: {$search: req.params.term} }).limit(30).exec(function(err, foundArticles){
+router.get('/search', function(req, res){
+	Article.find({$text: {$search: req.query.search} }).limit(30).exec(function(err, foundArticles){
 		if(err){
 			req.flash('error', err.message);
 			return res.redirect('/news');
 		} else {
-			res.render('search', {foundArticles: foundArticles, term: req.params.term});
+			res.render('search', {foundArticles: foundArticles, search: req.query.search});
 		}
 	});	
 });

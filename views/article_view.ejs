@@ -2,6 +2,16 @@
     <div class='container-fluid' id='primary-wrapper'>
       <div class='row'>
         <div class='col-xs-4 col-md-4' id='sidebar-container'>
+          <p>Search for something.. </p>
+          <form class='content-search' action='/search' method='GET'>
+		    			<div class="input-group">
+					      <input type="text" class="form-control" name='search' placeholder="looking for something...">
+					      <span class="input-group-btn">
+					        <button class='btn btn-primary btn-est' type='submit'>Search</button>
+					      </span>
+					    </div>
+		    		</form>
+		    		<hr>
           <div class='content-divider-sm'>
             <h2>Related Articles</h2>
           </div>
@@ -70,7 +80,7 @@
       			</header>
       			<div class='meta-container'>
       			  <p class='article-author-label'>Author: </p>
-      				<a class='article-author-link' href='#'><%=foundArticle.author%></a>
+      				<a class='article-author-link' href='/search?search=<%= foundArticle.author %>'><%=foundArticle.author%></a>
       				<p class='article-pub-date'>Published: <%= foundArticle.published.toDateString() %></p>
       				<p class='article-categories-list'>Categories: <% foundArticle.categories.forEach(function(category){ %> <%= category + ', ' %> <% }); %></p>
       			</div>
