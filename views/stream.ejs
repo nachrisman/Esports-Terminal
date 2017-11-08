@@ -1,22 +1,18 @@
 <% include ./partials/header %>
       <div class='container-fluid' id='primary-wrapper'>
         <div class='row'>
-          <div class='col-xs-12 col-md-12' id='page-header'>
+      		<div class='col-xs-12 col-md-12' id='page-header'>
             <h1>Stream</h1>
+            <form class='content-search' action='/search' method='GET'>
+        			<div class="input-group">
+    			      <input type="text" class="form-control" name='search' placeholder="search streams...">
+    			      <span class="input-group-btn">
+    			        <button class='btn btn-primary btn-est' type='submit'>Search</button>
+    			      </span>
+    			    </div>
+        		</form>
           </div>
-        </div>
-        <div class='row'>
-          <div class='col-xs-12 col-md-12'>
-            <div class='clear-div'>
-              <hr>
-            </div>
-            <!--<div>-->
-            <!--  <img class="billboard-ad" src="/media/ads/billboard.jpg">-->
-            <!--</div>-->
-            <!--<div class='clear-div'>-->
-            <!--  <hr>-->
-            <!--</div>-->
-          </div>
+          <hr>
         </div>
         <div class='row'>
           <div class='col-xs-12 col-md-12' id='stream-view'>

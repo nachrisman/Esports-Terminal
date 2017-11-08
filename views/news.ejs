@@ -1,22 +1,22 @@
 <% include ./partials/header %>
 	  	<div class='container-fluid' id='primary-wrapper' >
 			<div class='row'>
-		    	<div class='col-xs-12 col-md-12' id='page-header'>
-					<h1>News</h1>
-		  		</div>
-			</div>
+	      		<div class='col-xs-12 col-md-12' id='page-header'>
+	            <h1>News</h1>
+	            <form class='content-search' action='/search/articles' method='GET'>
+
+	        			<div class="input-group">
+	    			      <input type="text" class="form-control" name='search' placeholder="search articles...">
+	    			      <span class="input-group-btn">
+	    			        <button class='btn btn-primary btn-est' type='submit'>Search</button>
+	    			      </span>
+	    			    </div>
+	        		</form>
+	          </div>
+	          <hr>
+	        </div>
 			<div class='row'>
 		    	<div class='col-xs-4 col-md-4' id='sidebar-container'>
-		    		<form class='content-search' action='/search' method='GET'>
-		    			<p>Search for something.. </p>
-		    			<div class="input-group">
-					      <input type="text" class="form-control" name='search' placeholder="looking for something...">
-					      <span class="input-group-btn">
-					        <button class='btn btn-primary btn-est' type='submit'>Search</button>
-					      </span>
-					    </div>
-		    		</form>
-		    		<hr>
 					<div class='content-divider-sm'>
 			  			<h2>Missed It?</h2>
 					</div>

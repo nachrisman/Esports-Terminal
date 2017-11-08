@@ -1,16 +1,21 @@
 <% include ./partials/header %>
     	<div class='container-fluid' id='primary-wrapper'>
-        <div class='row'>
-          <div class='col-xs-4 col-md-4' id='sidebar-container'>
+    	  <div class='row'>
+      		<div class='col-xs-12 col-md-12' id='page-header'>
+            <h1>Events &amp; Tournaments</h1>
             <form class='content-search' action='/search' method='GET'>
         			<div class="input-group">
-    			      <input type="text" class="form-control" name='search' placeholder="looking for something...">
+    			      <input type="text" class="form-control" name='search' placeholder="search events...">
     			      <span class="input-group-btn">
     			        <button class='btn btn-primary btn-est' type='submit'>Search</button>
     			      </span>
     			    </div>
-    			    <hr>
         		</form>
+          </div>
+          <hr>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4 col-md-4' id='sidebar-container'>
             <div class='content-divider-sm'>
               <h2>Related Articles</h2>
             </div>
@@ -74,8 +79,8 @@
                   <h2>Everything Else</h2>
                 </div>
           		  <div class='article-body'><%- foundEvent.description %></div>
-                <p>Source: <a class='source-link' href='<%= foundEvent.sourceLink %>' target='_blank'>Click Here</a></p>
-                <p class='end-content-return'><a href='/events'>Return to Events Page > > ></a></p>
+                <p class='article-body'>Source: <a class='source-link' href='<%= foundEvent.sourceLink %>' target='_blank'>Click Here</a></p>
+                <a class='btn btn-outline-primary btn-est-outline' href='/events'>Return to Events</a>
           		</div>
         	  </article>
           </div>

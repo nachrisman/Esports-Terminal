@@ -1,15 +1,21 @@
 <% include ./partials/header %>
 <div class='container-fluid' id='primary-wrapper'>
 	<div class='row'>
-		<div class='col-xs-12 col-md-12' id='page-header'>
-      <h1>Events &amp; Tournaments</h1>
-    </div>
-  </div>
+      		<div class='col-xs-12 col-md-12' id='page-header'>
+            <h1>Events &amp; Tournaments</h1>
+            <form class='content-search' action='/search/events' method='GET'>
+        			<div class="input-group">
+    			      <input type="text" class="form-control" name='search' placeholder="search events...">
+    			      <span class="input-group-btn">
+    			        <button class='btn btn-primary btn-est' type='submit'>Search</button>
+    			      </span>
+    			    </div>
+        		</form>
+          </div>
+          <hr>
+        </div>
   <div class='row'>
     <div class='col-xs-12 col-md-12'>
-    	<div class='clear-div'>
-	      <hr>
-	    </div>
     	<div class='content-divider-lg'>
         <h1>Happening Today</h1>
       </div>
