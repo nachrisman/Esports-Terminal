@@ -14,7 +14,7 @@ middlewareObj.isActiveAccount = function(req, res, next){
 	} else {
 		req.flash('warning', 'Your account has not been confirmed! Please check your email.');
 	}
-}
+};
 
 middlewareObj.isAdmin = function(req, res, next){
 	if(req.isAuthenticated() && (req.user.role === 'admin')){
