@@ -162,6 +162,18 @@ hr{
     width:100%;
 }
 
+/* write for us */
+#write-for-us{
+    text-align: center;
+}
+.info-tip-submit{
+    margin: 25px 0 25px 0;
+}
+.info-tip-submit .btn{
+    display: block;
+    margin: 0 auto;
+}
+
 /* news */
 .article-query-container{
     display:flex;
@@ -972,7 +984,6 @@ footer a{
 }
 
 footer p{
-    font-weight:bold;
     max-width:100%;
 }
 

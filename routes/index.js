@@ -78,6 +78,8 @@ router.get('/info', function(req, res){
 	res.render('info');
 });
 
+
+
 /*=================
 	EMAIL AUTH
 =================*/
@@ -155,7 +157,6 @@ router.post('/register', function(req, res){
 
 router.get('/verify',function(req,res){
 		var yesterday = moment().subtract(1, 'day');
-		
 		if((req.protocol + '://' + req.get('host')) == ('http://' + req.get('host'))) {
 		    if(req.query.id == req.user.validationToken.token && req.user.validationToken.expiration >= yesterday){
 		        User.findByIdAndUpdate(req.user.id, {$set: {active: true, validationToken: {token: undefined, expiration: undefined} }}, function(err, user){
@@ -173,6 +174,34 @@ router.get('/verify',function(req,res){
 		} else {
 		    res.end('<h1>Request is from unknown source</h1>');
 		}
+});
+
+router.get('/resend-email-verification', function(req, res){
+	var buf = crypto.randomBytes(256);
+	var token = buf.toString('hex');
+	
+	User.findByIdAndUpdate(req.query.uid, {validationToken: {token: token, expiration: moment()}}, function(err, user){
+		if(err){
+			console.log(err);
+		} else {
+			var link = "http://"+req.get('host')+"/verify?id="+token;
+			var email = {
+					  from: 'app79330346@heroku.com',
+					  to: user.email,
+					  subject: 'Please Confirm Your Account',
+					  html: 'Hey, ' + user.firstName + '! <br><br><p>Thanks for creating an account with EST. Next step is to verify your email. <br><br> <a href='+ link +'>Click Here to Confirm Your Account!</a>'
+					};
+					client.sendMail(email, function(err, info){
+					    if (err){
+					      console.log(err);
+					    }
+					    else {
+					      req.flash('warning', 'Email verification resent. Please check your email.');
+					      res.redirect('/news');
+					    }
+					});
+		}
+	});	
 });
 	
 router.get('/login', function(req, res){
@@ -316,7 +345,7 @@ router.get('/search/events', function(req, res){
 });
 
 router.get('/search/streams', function(req, res){
-	Event.find({$text: {$search: req.query.search}, stream: true }).limit(30).exec(function(err, events){
+	Event.find({$text: {$search: req.query.search}, stream: true}).limit(30).exec(function(err, events){
 		if(err){
 			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
 			return res.redirect('/stream');
@@ -337,4 +366,30 @@ router.get('/search/author', function(req, res){
 	});	
 });
 
+
+/*====================
+	INFO/TIP SUBMIT
+=====================*/
+router.get('/write-for-us', function(req, res){
+	res.render('write_for_us');	
+});
+
+router.post('/write-for-us', function(req, res){
+	var email = {
+		from: 'app79330346@heroku.com',
+		to: 'esportsterminal@gmail.com',
+		subject: 'WRITE FOR US Submission',
+		html: 'Date/Time: ' + moment().toDateString() + '<br>Name: ' + req.body.firstName + req.body.lastName + '<br>' + 
+			'Username: ' + req.body.username + '<br>Email: ' + req.body.email + '<br>Message: ' + req.body.message
+	};
+			client.sendMail(email, function(err, info){
+				    if (err){
+				      console.log(err);
+				    }
+				    else {
+				      req.flash('success', 'Thanks for your submission! We\'ll get back to you ASAP!');
+				      res.redirect('/news');
+				    }
+				});
+});
 module.exports = router;

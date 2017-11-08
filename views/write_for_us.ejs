@@ -1,0 +1,93 @@
+<% include ./partials/header %>
+		<div class='container-fluid'>
+			<div class='row'>
+				<div class='col-xs-12 col-md-12' id='page-header'>
+					<h1>Write for Us!</h1>
+					<form class='content-search' action='/search/articles' method='GET'>
+						<div class="input-group">
+						  <input type="text" class="form-control" name='search' placeholder="search articles...">
+						  <span class="input-group-btn">
+							<button class='btn btn-primary btn-est' type='submit'>Search</button>
+						  </span>
+						</div>
+					</form>
+				</div>
+		    </div>
+		    <hr>
+		    <div class='row'>
+		    	<div class='col-xs-12 col-md-12 '>
+		    		<div class='container' id='write-for-us'>
+		    			<h3>Thanks for your interest in writing for us!</h3>
+		    			<p>EST is always looking to add more relevant content for our community. We definitely can't cover every
+		    			nook and cranny, but we can certainly try (we are human, after all). So, if you think you've a tip on something
+		    			that we should write about, or maybe you want to contribute on a regular basis, then please let us know. We love the
+		    			esports industry just as much as you do (hey, if you're on this site, that's a safe bet to make), so we can all try to 
+		    			make it a better community by writing quality content. Just fill out the form below: it will shoot us an email and 
+		    			we'll get back to you as soon as possible.</p>
+		    		</div>
+		    		<div class='container'>
+		    			<form class='info-tip-submit' action='/write-for-us' method='POST'>
+		    				<% if(currentUser) { %>
+		    				<div class='form-group row'>
+		    					<div class='col-xs-6 col-md-6'>
+		    						<label for='firstName'>First Name: </label>
+		    						<input class='form-control' type='text' name='firstName' id='firstName' value='<%= currentUser.firstName %>'>
+		    					</div>
+		    					<div class='col-xs-6 col-md-6'>
+		    						<label for='lastName'>Last Name: </label>
+		    						<input class='form-control' type='text' name='lastName' id='lastName' value='<%= currentUser.lastName %>'>
+		    					</div>
+		    				</div>
+		    				<div class='form-group row'>
+		    					<div class='col-xs-6 col-md-6'>
+		    						<label for='username'>Username: </label>
+		    						<input class='form-control' type='text' name='username' id='username' value='<%= currentUser.username %>'>
+		    					</div>
+		    					<div class='col-xs-6 col-md-6'>
+		    						<label for='email'>Email: </label>
+		    						<input class='form-control' type='email' name='email' id='email' value='<%= currentUser.email %>'>
+		    					</div>
+		    				</div>
+		    				<div class='form-group row'>
+		    					<div class='col-xs-12 col-md-12'>
+		    						<label for='message'>Message: </label>
+		    						<textarea class='form-control' type='text' name='message' id='message' rows='8' required></textarea>
+		    					</div>
+		    				</div>
+		    				<% } else { %>
+		    				<div class='form-group row'>
+		    					<div class='col-xs-6 col-md-6'>
+		    						<label for='firstName'>First Name: </label>
+		    						<input class='form-control' type='text' name='firstName' id='firstName'>
+		    					</div>
+		    					<div class='col-xs-6 col-md-6'>
+		    						<label for='lastName'>Last Name: </label>
+		    						<input class='form-control' type='text' name='lastName' id='lastName'>
+		    					</div>
+		    				</div>
+		    				<div class='form-group row'>
+		    					<div class='col-xs-6 col-md-6'>
+		    						<label for='username'>Username: </label>
+		    						<input class='form-control' type='text' name='username' id='username'>
+		    					</div>
+		    					<div class='col-xs-6 col-md-6'>
+		    						<label for='email'>Email: </label>
+		    						<input class='form-control' type='email' name='email' id='email'>
+		    					</div>
+		    				</div>
+		    				<div class='form-group row'>
+		    					<div class='col-xs-12 col-md-12'>
+		    						<label for='message'>Message: </label>
+		    						<textarea class='form-control' type='text' name='message' id='message' rows='8' required></textarea>
+		    					</div>
+		    				</div>
+		    				<% } %>
+		    				<hr>
+		    				<button class='btn btn-primary btn-est' type='submit'>Submit the Info!</button>
+		    			</form>
+		    		</div>
+		    	</div>
+		    </div>
+	    </div>
+
+<% include ./partials/footer %>
