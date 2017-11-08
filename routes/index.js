@@ -16,48 +16,7 @@ var express 	= require('express'),
 var states	  = country.states('US'),
 	countries = countryList.getNames();
 
-var options = {
-  auth: {
-    api_user: 'app79330346@heroku.com',
-    api_key: 'v0po3kna4389'
-  }
-};
 
-var client = nodemailer.createTransport(sgTransport(options));
-
-/*=============
-  MISC ROUTES
-=============*/
-
-router.get('/stream', function(req, res){
-	var today = moment().startOf('day');
-
-	Event.find({
-		stream: true, 
-		date: {$gt: today.toDate()}}).sort({date: 1}).exec(function(err, upcomingStreams){
-		if(err){
-			console.log(err);
-		} else {
-			res.render('stream', {upcomingStreams: upcomingStreams});
-		}
-	});
-});
-
-router.get('/privacy-policy', function(req, res){
-	res.render('privacy_policy');
-});
-
-router.get('/terms-of-use', function(req, res){
-	res.render('terms_of_use');
-});
-
-router.get('/info', function(req, res){
-	res.render('info');
-});
-
-/*==================
-   AUTHENTICATION
-==================*/
 router.get('/', function(req, res){
 	if(req.isAuthenticated()){
 		res.redirect('/meta');
@@ -66,11 +25,11 @@ router.get('/', function(req, res){
 	}
 });
 
-router.get('/meta/', middleware.isLoggedIn, function(req, res){
+router.get('/meta', middleware.isLoggedIn, function(req, res){
 	var today = moment().startOf('day');
 	var nextWeek = moment().add(7, 'days');
 
-	Article.find({}).sort({published: -1}).limit(10).exec(function(err, articles){
+	Article.find({}).sort({published: -1}).limit(req.user.meta.length * 10).exec(function(err, articles){
 		if(err){
 			console.log(err);
 		} else {
@@ -89,17 +48,51 @@ router.get('/meta/', middleware.isLoggedIn, function(req, res){
 	});
 });
 
-router.get('/admin/login', function(req, res){
-	res.render('admin_login');
+router.get('/stream', function(req, res){
+	var today = moment().startOf('day');
+
+	Event.find({
+		stream: true, 
+		date: {$gt: today.toDate()}}).sort({date: 1}).exec(function(err, upcomingStreams){
+		if(err){
+			console.log(err);
+		} else {
+			res.render('stream', {upcomingStreams: upcomingStreams});
+		}
+	});
 });
 
-router.post('/admin/login', passport.authenticate('local', 
-	{
-		successRedirect: '/admin',
-		failureRedirect: '/admin/login',
-		failureFlash: { type: 'error', message: 'Something Went Wrong. Try Again.' }
-	}), function(req, res){
+router.get('/overwatch-league', function(req, res){
+	res.render('overwatch_league');
 });
+
+router.get('/privacy-policy', function(req, res){
+	res.render('privacy_policy');
+});
+
+router.get('/terms-of-use', function(req, res){
+	res.render('terms_of_use');
+});
+
+router.get('/info', function(req, res){
+	res.render('info');
+});
+
+/*=================
+	EMAIL AUTH
+=================*/
+var options = {
+  auth: {
+    api_user: 'app79330346@heroku.com',
+    api_key: 'v0po3kna4389'
+  }
+};
+
+var client = nodemailer.createTransport(sgTransport(options));
+
+/*==================
+   AUTHENTICATION
+==================*/
 
 router.get('/register', function(req, res){
 	Game.find({}, function(err, games){
@@ -115,7 +108,7 @@ router.get('/register', function(req, res){
 router.post('/register', function(req, res){
 	var buf = crypto.randomBytes(256);
 	var token = buf.toString('hex');
-	
+	var metaGames = req.body.title;
 	var newUser = new User({
 		username: req.body.username,
 		firstName: req.body.firstName,
@@ -123,17 +116,14 @@ router.post('/register', function(req, res){
 		email: req.body.email,
 		location: {country: req.body.country},
 		validationToken: {token: token, expiration: moment()}
-		
 	});
-	
-	var metaGames = req.body.title;
-	
+
 	metaGames.forEach(function(metaGame){
 		newUser.meta.push({ game: metaGame, events: true, news: true});
 	});
 	
-	if(req.body.password == req.body.confirmedPassword){
-    	var link= "http://"+req.get('host')+"/verify?id="+token;
+	if(req.body.password == req.body.confirmedPassword) {
+    	var link = "http://" + req.get('host') + "/verify?id=" + token;
 		User.register(newUser, req.body.password, function(err, user){
 			if(err){
 				req.flash('error', err.message);
@@ -166,11 +156,8 @@ router.post('/register', function(req, res){
 router.get('/verify',function(req,res){
 		var yesterday = moment().subtract(1, 'day');
 		
-		if((req.protocol+'://'+req.get('host'))==('http://'+req.get('host'))){
-
+		if((req.protocol + '://' + req.get('host')) == ('http://' + req.get('host'))) {
 		    if(req.query.id == req.user.validationToken.token && req.user.validationToken.expiration >= yesterday){
-		        console.log('Email Verified... Activating User Account');
-		        
 		        User.findByIdAndUpdate(req.user.id, {$set: {active: true, validationToken: {token: undefined, expiration: undefined} }}, function(err, user){
 		        	if(err){
 		        		console.log(err);
@@ -228,7 +215,7 @@ router.post('/forgot-password', function(req, res){
             	console.error(err);
         	}});
 			
-			var link= "http://"+req.get('host')+"/forgot-password/change?id="+user._id+"&token="+user.validationToken.token;
+			var link = "http://" + req.get('host') + "/forgot-password/change?id=" + user._id + "&token=" + user.validationToken.token;
 			var email = {
 					  from: 'app79330346@heroku.com',
 					  to: user.email,
@@ -251,10 +238,10 @@ router.post('/forgot-password', function(req, res){
 });
 
 router.get('/forgot-password/change', function(req, res){
-		console.log(req.protocol+':/'+req.get('host'));
+		console.log(req.protocol + ':/' + req.get('host'));
 		var yesterday = moment().subtract(1, 'day');
 		
-		if((req.protocol+'://'+req.get('host'))==('http://'+req.get('host'))){
+		if((req.protocol + '://' + req.get('host')) == ('http://'+req.get('host'))) {
 		    console.log("Domain is matched. Now verifying user...");
 		    
 		    User.findOne({_id: req.query.id}, function(err, user){
@@ -301,17 +288,18 @@ router.put('/forgot-password/change/:id', function(req, res){
 	});
 });
 
-router.get('/overwatch-league', function(req, res){
-	res.render('overwatch_league');
-});
+
+/*===================
+	    SEARCH
+===================*/
 
 router.get('/search/articles', function(req, res){
 	Article.find({$text: {$search: req.query.search} }).limit(30).exec(function(err, foundArticles){
 		if(err){
-			req.flash('error', err.message);
+			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
 			return res.redirect('/news');
 		} else {
-			res.render('search', {foundArticles: foundArticles, search: req.query.search});
+			res.render('search_articles', {foundArticles: foundArticles, search: req.query.search});
 		}
 	});	
 });
@@ -319,10 +307,32 @@ router.get('/search/articles', function(req, res){
 router.get('/search/events', function(req, res){
 	Event.find({$text: {$search: req.query.search} }).limit(30).exec(function(err, events){
 		if(err){
-			req.flash('error', err.message);
-			return res.redirect('/news');
+			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
+			return res.redirect('/events');
 		} else {
 			res.render('search_events', {events: events, search: req.query.search});
+		}
+	});	
+});
+
+router.get('/search/streams', function(req, res){
+	Event.find({$text: {$search: req.query.search}, stream: true }).limit(30).exec(function(err, events){
+		if(err){
+			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
+			return res.redirect('/stream');
+		} else {
+			res.render('search_events', {events: events, search: req.query.search});
+		}
+	});		
+});
+
+router.get('/search/author', function(req, res){
+	Article.find({$text: {$search: req.query.search} }).limit(30).exec(function(err, foundArticles){
+		if(err){
+			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
+			return res.redirect('/news');
+		} else {
+			res.render('search_articles', {foundArticles: foundArticles, search: req.query.search});
 		}
 	});	
 });

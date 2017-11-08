@@ -5,6 +5,7 @@ var express 	= require('express'),
 	Article 	= require('../models/article'),
 	Game 		= require('../models/game'),
 	Team		= require('../models/team'),
+	passport 	= require('passport'),
 	middleware  = require('../middleware'),
 	country		= require('countryjs'),
 	moment		= require('moment'),
@@ -12,6 +13,18 @@ var express 	= require('express'),
 
 var states	  = country.states('US'),
 	countries = countryList.getNames();
+	
+router.get('/login', function(req, res){
+	res.render('admin_login');
+});
+
+router.post('/login', passport.authenticate('local', 
+	{
+		successRedirect: '/admin',
+		failureRedirect: '/admin/login',
+		failureFlash: { type: 'error', message: 'Something Went Wrong. Try Again.' }
+	}), function(req, res){
+});
 
 router.get('/', middleware.isAdmin, function(req, res){
 	Article.find({}, function(err, articles){

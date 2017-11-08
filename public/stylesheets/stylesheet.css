@@ -518,6 +518,40 @@ hr{
     max-width: 25vw;
 }
 
+.event-search-results{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 10vh;
+}
+
+.event-search-result-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-between;
+    align-items: center;
+}
+
+.event-search-result-container > div{
+    flex-basis: 25vw;
+}
+
+.event-search-result-image img{
+    width: 25vw;
+}
+
+.event-search-result-meta-info{
+    text-align: center;
+}
+
+.event-search-result-btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
 
 
 /* account */

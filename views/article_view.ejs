@@ -85,7 +85,7 @@
       			</header>
       			<div class='meta-container'>
       			  <p class='article-author-label'>Author: </p>
-      				<a class='article-author-link' href='/search?search=<%= foundArticle.author %>'><%=foundArticle.author%></a>
+      				<a class='article-author-link' href='/search/author?search=<%= foundArticle.author %>'><%=foundArticle.author%></a>
       				<p class='article-pub-date'>Published: <%= foundArticle.published.toDateString() %></p>
       				<p class='article-categories-list'>Categories: <% foundArticle.categories.forEach(function(category){ %> <%= category + ', ' %> <% }); %></p>
       			</div>
