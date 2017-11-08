@@ -118,4 +118,31 @@ router.delete('/:id', function(req, res){
 	});
 });
 
+router.get('/game/:game', function(req, res){
+	var today = moment().startOf('day');
+	var lastWeek = moment().subtract(7, 'days');
+
+	Article.find({categories: req.params.game }).sort({published: -1}).limit(25).exec(function(err, articles){
+		if(err){
+			console.log(err);
+		} else {
+			Article.find({
+				published: {$gte: lastWeek.toDate(), $lt: today.toDate()}
+			}).sort({published: -1}).limit(5).exec(function(err, pastArticles){
+				if(err){
+					console.log(err);
+				} else {
+					Article.aggregate([{$sample: {size: 5} }], function(err, randomArticles){
+						if(err){
+							console.log(err);
+						} else {
+							res.render('news', {articles: articles, pastArticles: pastArticles, randomArticles: randomArticles});
+						}
+					});
+				}
+			});	
+		}
+	});
+});
+
 module.exports = router;
