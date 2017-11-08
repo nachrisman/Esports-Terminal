@@ -379,7 +379,7 @@ router.post('/write-for-us', function(req, res){
 		from: 'app79330346@heroku.com',
 		to: 'esportsterminal@gmail.com',
 		subject: 'WRITE FOR US Submission',
-		html: 'Date/Time: ' + moment().toDateString() + '<br>Name: ' + req.body.firstName + req.body.lastName + '<br>' + 
+		html: 'Date/Time: ' + moment().toDate() + '<br>Name: ' + req.body.firstName + ' ' + req.body.lastName + '<br>' + 
 			'Username: ' + req.body.username + '<br>Email: ' + req.body.email + '<br>Message: ' + req.body.message
 	};
 			client.sendMail(email, function(err, info){
@@ -392,4 +392,29 @@ router.post('/write-for-us', function(req, res){
 				    }
 				});
 });
+
+router.get('/contact', function(req, res){
+	res.render('contact');	
+});
+
+router.post('/contact', function(req, res){
+	var email = {
+		from: 'app79330346@heroku.com',
+		to: 'esportsterminal@gmail.com',
+		subject: 'Contact Form Submission',
+		html: 'Date/Time: ' + moment().toDate() + '<br>Name: ' + req.body.firstName + ' ' + req.body.lastName + '<br>' + 
+			'Username: ' + req.body.username + '<br>Email: ' + req.body.email + '<br>Message: ' + req.body.message
+	};
+			client.sendMail(email, function(err, info){
+				    if (err){
+				      console.log(err);
+				    }
+				    else {
+				      req.flash('success', 'Thanks for your submission! We\'ll get back to you ASAP!');
+				      res.redirect('/news');
+				    }
+				});
+});
+
+
 module.exports = router;
