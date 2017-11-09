@@ -133,7 +133,7 @@ router.post('/register', function(req, res){
 			}
 			passport.authenticate('local')(req, res, function(){
 				var email = {
-					  from: 'app79330346@heroku.com',
+					  from: 'registration@esportsterminal.com',
 					  to: user.email,
 					  subject: 'Please Confirm Your Account',
 					  html: 'Hey, ' + user.firstName + '! <br><br><p>Thanks for creating an account with EST. Next step is to verify your email. <br><br> <a href='+ link +'>Click Here to Confirm Your Account!</a>'
@@ -186,7 +186,7 @@ router.get('/resend-email-verification', function(req, res){
 		} else {
 			var link = "http://"+req.get('host')+"/verify?id="+token;
 			var email = {
-					  from: process.env.SENDGRID_USERNAME,
+					  from: 'registration@esportsterminal.com',
 					  to: user.email,
 					  subject: 'Please Confirm Your Account',
 					  html: 'Hey, ' + user.firstName + '! <br><br><p>Thanks for creating an account with EST. Next step is to verify your email. <br><br> <a href='+ link +'>Click Here to Confirm Your Account!</a>'
@@ -246,7 +246,7 @@ router.post('/forgot-password', function(req, res){
 			
 			var link = "http://" + req.get('host') + "/forgot-password/change?id=" + user._id + "&token=" + user.validationToken.token;
 			var email = {
-					  from: process.env.SENDGRID_USERNAME,
+					  from: 'registration@esportsterminal.com',
 					  to: user.email,
 					  subject: 'EST Password Reset Link',
 					  html: 'Hey, ' + user.firstName + '! <br><br><p>You recently requested to reset your password. ' + 
@@ -376,7 +376,7 @@ router.get('/write-for-us', function(req, res){
 
 router.post('/write-for-us', function(req, res){
 	var email = {
-		from: 'app79330346@heroku.com',
+		from: process.env.SENDGRID_USERNAME,
 		to: 'esportsterminal@gmail.com',
 		subject: 'WRITE FOR US Submission',
 		html: 'Date/Time: ' + moment().toDate() + '<br>Name: ' + req.body.firstName + ' ' + req.body.lastName + '<br>' + 
@@ -399,7 +399,7 @@ router.get('/contact', function(req, res){
 
 router.post('/contact', function(req, res){
 	var email = {
-		from: 'app79330346@heroku.com',
+		from: process.env.SENDGRID_USERNAME,
 		to: 'esportsterminal@gmail.com',
 		subject: 'Contact Form Submission',
 		html: 'Date/Time: ' + moment().toDate() + '<br>Name: ' + req.body.firstName + ' ' + req.body.lastName + '<br>' + 
