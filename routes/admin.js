@@ -326,15 +326,137 @@ router.get('/new-team', middleware.isAdmin, function(req, res){
 	});
 });
 
-router.post('/view-teams', middleware.isAdmin, function(req, res){
-	Team.create(req.body.team, function(err, newTeam){
+router.post('/new-team', middleware.isAdmin, function(req, res){
+	// console.log(req.body.team);
+	var newMembers = [],
+		numOfMembers = req.body.team.members.firstName.length,
+		firstNames = req.body.team.members.firstName,
+		lastNames = req.body.team.members.lastName,
+		handles = req.body.team.members.handle,
+		roles = req.body.team.members.role,
+		dobs = req.body.team.members.dob,
+		homeCountries = req.body.team.members.homeCountry,
+		bios = req.body.team.members.bio,
+		facebooks = req.body.team.members.socialLinks.facebook,
+		twitters = req.body.team.members.socialLinks.twitter,
+		instagrams = req.body.team.members.socialLinks.instagram,
+		twitches = req.body.team.members.socialLinks.twitch,
+		images = req.body.team.members.image;
+
+	for(var i = 0; i < numOfMembers; i++){
+		newMembers.push({
+			firstName: firstNames[i],
+			lastName: lastNames[i],
+			handle: handles[i],
+			role: roles[i],
+			dob: dobs[i],
+			homeCountry: homeCountries[i],
+			bio: bios[i],
+			image: images[i],
+			socialLinks: {
+				facebook: facebooks[i],
+				twitter: twitters[i],
+				instagram: instagrams[i],
+				twitch: twitches[i]
+			}
+		});
+	}
+	
+	var newTeam = new Team({
+		name: req.body.team.name,
+		game: req.body.team.game,
+		country: req.body.team.country,
+		founded: req.body.team.founded,
+		logo: req.body.team.logo,
+		division: req.body.team.division,
+		description: req.body.team.description,
+		members: newMembers
+	});
+	
+	Team.create(newTeam, function(err, newTeam){
 		if(err){
 			req.flash('error', err.message);
-			console.log(err);
+			return res.redirect('/admin/view-teams');
 		} else {
-			res.redirect('/admin/view-teams');
+			req.flash('success', newTeam.name + ' created!');
+			res.redirect('/admin/view-teams')
 		}
 	});
+});
+
+router.get('/edit-team/:id', function(req, res){
+	Team.findById(req.params.id, function(err, team){
+		if(err){
+			req.flash('error', err.message);
+			return res.redirect('/admin/view-teams');
+		} else {
+			Game.find({}, function(err, games){
+				if(err){
+					req.flash('error', err.message);
+					return res.redirect('/admin/view-teams');
+				} else {
+					res.render('admin_edit_team', {team: team, games: games, countries: countries});		
+				}
+			});
+		}	
+	});	
+});
+
+router.put('/edit-team/:id', function(req, res){
+	var updatedMembers = [],
+		numOfMembers = req.body.team.members.firstName.length,
+		firstNames = req.body.team.members.firstName,
+		lastNames = req.body.team.members.lastName,
+		handles = req.body.team.members.handle,
+		roles = req.body.team.members.role,
+		dobs = req.body.team.members.dob,
+		homeCountries = req.body.team.members.homeCountry,
+		bios = req.body.team.members.bio,
+		facebooks = req.body.team.members.socialLinks.facebook,
+		twitters = req.body.team.members.socialLinks.twitter,
+		instagrams = req.body.team.members.socialLinks.instagram,
+		twitches = req.body.team.members.socialLinks.twitch,
+		images = req.body.team.members.image;
+
+	for(var i = 0; i < numOfMembers; i++){
+		updatedMembers.push({
+			firstName: firstNames[i],
+			lastName: lastNames[i],
+			handle: handles[i],
+			role: roles[i],
+			dob: dobs[i],
+			homeCountry: homeCountries[i],
+			bio: bios[i],
+			image: images[i],
+			socialLinks: {
+				facebook: facebooks[i],
+				twitter: twitters[i],
+				instagram: instagrams[i],
+				twitch: twitches[i]
+			}
+		});
+	}
+	
+	var updatedTeam = {
+		name: req.body.team.name,
+		game: req.body.team.game,
+		country: req.body.team.country,
+		founded: req.body.team.founded,
+		logo: req.body.team.logo,
+		division: req.body.team.division,
+		description: req.body.team.description,
+		members: updatedMembers
+	};
+	
+	Team.findByIdAndUpdate(req.params.id, {$set: updatedTeam}, function(err, team){
+		if(err){
+			req.flash('error', err.message);
+			return res.redirect('/admin/view-teams');
+		} else {
+			req.flash('success', team.name + ' has been updated!');
+			res.redirect('/admin/view-games');
+		}
+	});	
 });
 
 module.exports = router;

@@ -1,0 +1,164 @@
+<% include ./partials/admin_header %>
+        <div class='container-fluid'>
+			<div class='row' id='page-header'>
+				<div class='col-xs-8 col-md-8'>
+					<h2>Edit '<%= team.name %>'</h2>
+				</div>
+				<div class='col-xs-4 col-md-4'>
+					<a class='btn btn-primary btn-est' href='/admin/view-teams' role='button'>Return to Teams</a>
+				</div>
+			</div>
+			<hr>
+			<div class='row'>
+				<div class='col-xs-12 col-md-12'>
+					<form class='new-item-entry' action='/admin/edit-team/<%= team._id %>?_method=PUT' method='POST'>
+						<div class='form-group row'>
+							<div class='col-xs-6 col-md-6'>
+								<label for='name'>Name: </label>
+								<input class='form-control' type='text' name='team[name]' id='name' value='<%= team.name %>' required>
+							</div>
+							<div class='col-xs-6 col-md-6'>
+								<label for='game'>Game: </label>
+								<select class='form-control custom-select' type='select' name='team[game]' id='game' required>
+								    <option selected disabled>Select a Game</option>
+								    <% games.forEach(function(game){ %>
+								    <%     if(game.title == team.game) { %>
+								        <option value='<%= game.title %>' selected><%= game.title %></option>
+								    <% } else { %>
+								    	<option value='<%= game.title %>'><%= game.title %></option>
+								    <% } %>
+								    <% }); %>
+								</select>
+							</div>
+						</div>
+						<div class='form-group row'>
+							<div class='col-xs-6 col-md-6'>
+								<label for='country'>Country: </label>
+								<select class='form-control custom-select' type='select' name='team[country]' id='country' required>
+								    <option disabled selected>Select a Country</option>
+								    <% countries.forEach(function(country){ %>
+								    <%     if(country == team.country) { %>
+								       <option value='<%= country %>' selected><%= country %></option>
+								    <% } else { %>
+								    	<option value='<%= country %>'><%= country %></option>
+								    <% } %>
+								    <% }); %>
+								</select>
+							</div>
+							<div class='col-xs-6 col-md-6'>
+								<label for='founded'>Date Founded: </label>
+								<input class='form-control' type='text' name='team[founded]' id='founded' value='<%= team.founded %>' required>
+							</div>
+						</div>
+						<div class='form-group row'>
+							<div class='col-xs-6 col-md-6'>
+								<label for='logo'>Logo URL: </label>
+								<input class='form-control' type='text' name='team[logo]' id='logo' value='<%= team.logo %>' required>
+							</div>
+							<div class='col-xs-6 col-md-6'>
+								<label for='division'>Division: </label>
+								<input class='form-control' type='text' name='team[division]' id='division' value='<%= team.division %>'>
+							</div>
+						</div>
+						<div class='form-group row'>
+							<div class='col-xs-2 col-md-2'>
+								<label for='description'>Description: </label>
+							</div>
+							<div class='col-xs-10 col-md-10'>
+								<textarea class='form-control' name='team[description]' id='description' value='<%= team.description %>' required></textarea>
+							</div>
+						</div>
+						<div class='clear-div'>
+							<hr>
+						</div>
+						<% var members = team.members; %>
+						<% members.forEach(function(member){ %>
+							<div class="form-group row">
+                				<div class="col-xs-6 col-md-6">
+                    				<label for="firstName">First Name: </label>
+                    				<input class="form-control" type="text" name="team[members][firstName][]" id="firstName" value='<%= member.firstName %>' required/>
+                				</div>
+	                			<div class="col-xs-6 col-md-6">
+	                    			<label for="lastName">Last Name: </label>
+	                    			<input class="form-control" type="text" name="team[members][lastName][]" id="lastName" value='<%= member.lastName %>' required/>
+	                			</div>
+            				</div>
+            				<div class="form-group row"> 
+                				<div class="col-xs-6 col-md-6">
+                    				<label for="handle">Player Handle: </label>
+                    				<input class="form-control" type="text" name="team[members][handle][]" id="handle" value='<%= member.handle %>' required />
+                				</div>
+                				<div class="col-xs-6 col-md-6">
+                    				<label for="role">Role: </label>
+                    				<input class="form-control" type="text" name="team[members][role][]" id="role" value='<%= member.role %>' required/>
+                				</div>
+            				</div> 
+            				<div class="form-group row">
+                				<div class="col-xs-6 col-md-6"> 
+                    				<label for="dob">Date of Birth: </label>
+                    				<input class="form-control" type="text" name="team[members][dob][]" id="dob" value='<%= member.lastName %>' required/>
+                				</div>
+                				<div class="col-xs-6 col-md-6">
+				                    <label for="homeCountry">Home Country: </label>
+				                    <input class="form-control" name="team[members][homeCountry][]" id="homeCountry" value='<%= member.homeCountry %>' />
+                				</div> 
+            				</div>
+            				<div class="form-group row">
+                				<div class="col-xs-2 col-md-2">
+                    				<label for="image">Image URL: </label>
+                				</div>
+                				<div class="col-xs-10 col-md-10">
+                    				<input class="form-control" type="text" name="team[members][image][]" id="image" value='<%= member.image %>' />
+                				</div>
+            				</div>
+            				<div class="form-group row">
+                				<div class="col-xs-2 col-md-2">
+                    				<label for="bio">Bio: </label>
+                				</div>
+                				<div class="col-xs-10 col-md-10">
+                    				<textarea class="form-control" name="team[members][bio][]" id="bio" rows="5" value='<%= member.bio %>' required><%= member.bio %></textarea>
+                				</div>
+            				</div>
+				            <div class="form-group row">
+				                <div class="col-xs-2 col-md-2">
+				                    <label for="instagram">Instagram: </label>
+				                </div>
+				                <div class="col-xs-10 col-md-10">
+				                    <input class="form-control" type="text" name="team[members][socialLinks][instagram][]" id="instagram" value='<%= member.socialLinks.instagram %>' />
+				                </div>
+				            </div>
+				            <div class="form-group row">
+				                <div class="col-xs-2 col-md-2">
+				                    <label for="facebook">Facebook: </label>
+				                </div>
+				                <div class="col-xs-10 col-md-10">
+				                    <input class="form-control" type="text" name="team[members][socialLinks][facebook][]" id="facebook" value='<%= member.socialLinks.facebook %>' />
+				                </div>
+				            </div>
+				            <div class="form-group row">
+				                <div class="col-xs-2 col-md-2">
+				                    <label for="twitch">Twitch: </label>
+				                </div>
+				                <div class="col-xs-10 col-md-10">
+				                    <input class="form-control" type="text" name="team[members][socialLinks][twitch][]" id="twitch" value='<%= member.socialLinks.twitch %>' />
+				                </div>
+				            </div>
+				            <div class="form-group row">
+				                <div class="col-xs-2 col-md-2">
+				                    <label for="twitter">Twitter: </label>
+				                </div>
+				                <div class="col-xs-10 col-md-10">
+				                    <input class="form-control" type="text" name="team[members][socialLinks][twitter][]" id="twitter" value='<%= member.socialLinks.twitter %>' />
+				                </div>
+				            </div>
+				            <hr>
+						<% }); %>
+						<button class='btn btn-primary btn-est'>Update Team</button>
+					</form>
+					<form class='new-item-entry' id='delete-item' action='/admin/view-teams/<%= team._id %>?_method=DELETE' method='POST'>
+						<button class='btn btn-danger' type='submit'>Delete Team</button>
+		  			</form>
+				</div>
+			</div>
+		</div>
+<% include ./partials/admin_footer %>

@@ -13,7 +13,7 @@
 				</div>
 				<div class='row'>
 					<div class='col-xs-12 col-md-12'>
-						<form class='new-item-entry' action='/admin/view-teams' method='POST'>
+						<form class='new-item-entry' action='/admin/new-team' method='POST'>
 							<div class='form-group row'>
 								<div class='col-xs-6 col-md-6'>
 									<label for='name'>Name: </label>
@@ -41,80 +41,46 @@
 								</div>
 								<div class='col-xs-6 col-md-6'>
 									<label for='founded'>Date Founded: </label>
-									<input class='form-control' type='text' name='team[founded]' name='founded' required>
+									<input class='form-control' type='text' name='team[founded]' id='founded' required>
+								</div>
+							</div>
+							<div class='form-group row'>
+								<div class='col-xs-6 col-md-6'>
+									<label for='logo'>Logo URL: </label>
+									<input class='form-control' type='text' name='team[logo]' id='logo' required>
+								</div>
+								<div class='col-xs-6 col-md-6'>
+									<label for='division'>Division: </label>
+									<input class='form-control' type='text' name='team[division]' id='division'>
 								</div>
 							</div>
 							<div class='form-group row'>
 								<div class='col-xs-2 col-md-2'>
-									<label for='logo'>Logo URL: </label>
+									<label for='description'>Description: </label>
 								</div>
 								<div class='col-xs-10 col-md-10'>
-									<input class='form-control' type='text' name='team[logo]' id='logo'>
+									<textarea class='form-control' name='team[description]' id='description' required></textarea>
 								</div>
 							</div>
 							<div class='clear-div'>
 								<hr>
 							</div>
 							<div class='form-group row'>
-							    <div class='col-xs-12 col-md-12'>
-							        <label for='numOfMembers'>How many members?</label>
-							    </div>
-							</div>
-							<div class='form-group row'>
-							    <div class='col-xs-6 col-md-6'>
-							        <% var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9] %>
-							        <select class='form-control custom-select' id='numOfMembers' onchange='addMemberForm()'>
-							            <option selected disabled>Select How Many Members</option>
-							            <% numbers.forEach(function(number){ %>
-							               <option value='<%= number %>'><%= number %></option> 
-							            <% }); %>
-							        </select>
-							    </div>
-							    <div class='col-xs-6 col-md-6'>
-							        <button class='btn btn-primary btn-est' id='numOfMembers' for='numOfMembers'>Enter Members</button>
-							    </div>
-							</div>
-							<div class='form-group row'>
-							    <div class='col-xs-12 col-md-12'>
-							        <label for='members'>Members: </label>
-							    </div>
-							</div>
-							<div id='memberForms'>
-							    
-							</div>
-							<div class='form-group row'>
-							    <div class='col-xs-4 col-md-4'>
-							        <label for='firstName'>First Name: </label>
-							        <input class='form-control' type='text' name='team[members][firstName][]' id='firstName'>
-							    </div>
-							    <div class='col-xs-4 col-md-4'>
-							        <label for='lastName'>Last Name: </label>
-							        <input class='form-control' type='text' name='team[members][lastName][]' id='lastName'>
-							    </div>
-							    <div class='col-xs-4 col-md-4'>
-							        <label for='gamertag'>Gamertag: </label>
-							        <input class='form-control' type='text' name='team[members][gamertag][]' id='gamertag'>
-							    </div>
-							</div>
-							<div class='form-group row'>
-							    <div class='col-xs-6 col-md-6'>
-							        <label for='dob'>Date of Birth: </label>
-							        <select class='form-control custom-select' type='select' name='team[members][dob][]' id='dob'>
-							            <option selected disabled>Select an Age</option>
-							        </select>
-							    </div>
-							    <div class='col-xs-6 col-md-6'>
-							        <label for='born'>Home Country: </label>
-							        <select class='form-control custom-select' type='select' name='team[country][]' id='born' required>
-									    <option disabled selected>Select a Country</option>
-									    <% countries.forEach(function(country){ %>
-									       <option value='<%= country %>'><%= country %></option> 
-									    <% }); %>
+								<div class='col-xs-3 col-md-3'>
+									<label for='numOfMembers'>Number of Members: </label>
+								</div>
+								<div class='col-xs-9 col-md-9'>
+									<% var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; %>
+									<select class='form-control custom-select' type='select' id='numOfMembers'>
+										<option selected disabled>Choose a Number</option>
+										<% numbers.forEach(function(number){ %>
+											<option value='<%= number %>'><%= number %></option>
+										<% }); %>
 									</select>
-							    </div>
+								</div>
 							</div>
-							<div class='clear-div'>
-								<hr>
+							<div id='memberInputs'>
+								
 							</div>
 							<button class='btn btn-primary btn-est' type='submit'>Add Team</button>
 						</form>
