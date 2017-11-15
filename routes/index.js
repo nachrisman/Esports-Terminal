@@ -85,13 +85,13 @@ router.get('/overwatch-league', function(req, res){
 				teamNames.push(team.name);	
 			});
 			
-			Article.find({categories: 'Overwatch League'}).sort({published: -1}).exec(function(err, articles){
+			Article.find({categories: {$in: ['Overwatch League', 'Overwatch']}}).sort({published: -1}).limit(7).exec(function(err, articles){
 				if(err){
 					console.log(err);
 				} else {
 					Event.find({teams: {$in: teamNames}}, function(err, events){
 						if(err){
-							console.log(err)
+							console.log(err);
 						} else {
 							res.render('overwatch_league', {teams: teams, articles: articles, events: events});
 						}
