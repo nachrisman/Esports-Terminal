@@ -99,7 +99,7 @@ router.get('/overwatch-league', function(req, res){
 				if(err){
 					console.log(err);
 				} else {
-					Event.find({teams: {$in: teamNames}}).sort({date: -1}).limit(10).exec(function(err, events){
+					Event.find({teams: {$in: teamNames}}).limit(10).exec(function(err, events){
 						if(err){
 							console.log(err);
 						} else {
