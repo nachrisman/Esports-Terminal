@@ -425,8 +425,8 @@ hr{
 }
 
 #team-video{
-    width: 854px;
-    height: 480px;
+    width: 720px;
+    height: 405px;
 }
 
 @media screen and (max-width: 900px){
@@ -868,6 +868,8 @@ hr{
     display:block;
     margin:0 auto;
     text-align:middle;
+    width: 640px;
+    height: 360px;
 }
 
 .article-body-preview img{
