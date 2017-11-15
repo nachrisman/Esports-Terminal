@@ -157,7 +157,7 @@ router.get('/overwatch-league/team/:id', function(req, res){
 var options = {
   auth: {
     api_user: process.env.SENDGRID_USERNAME,
-    api_key: process.env.SENDGRID_PASSWORD
+    api_key: process.env.SENDGRID_API_KEY
   }
 };
 
@@ -212,6 +212,7 @@ router.post('/register', function(req, res){
 					passport.authenticate('local')(req, res, function(){
 						var email = {
 							  from: 'registration@esportsterminal.com',
+							  fromname: 'EST Registration',
 							  to: user.email,
 							  subject: 'Please Confirm Your Account',
 							  html: 'Hey, ' + user.firstName + '! <br><br><p>Thanks for creating an account with EST. Next step is to verify your email. <br><br> <a href='+ link +'>Click Here to Confirm Your Account!</a>'
@@ -267,6 +268,7 @@ router.get('/resend-email-verification', function(req, res){
 			var link = "http://"+req.get('host')+"/verify?id="+token;
 			var email = {
 					  from: 'registration@esportsterminal.com',
+					  fromname: 'EST Registration',
 					  to: user.email,
 					  subject: 'Please Confirm Your Account',
 					  html: 'Hey, ' + user.firstName + '! <br><br><p>Thanks for creating an account with EST. Next step is to verify your email. <br><br> <a href='+ link +'>Click Here to Confirm Your Account!</a>'
@@ -327,6 +329,7 @@ router.post('/forgot-password', function(req, res){
 			var link = "http://" + req.get('host') + "/forgot-password/change?id=" + user._id + "&token=" + user.validationToken.token;
 			var email = {
 					  from: 'registration@esportsterminal.com',
+					  fromname: 'EST Password Reset',
 					  to: user.email,
 					  subject: 'EST Password Reset Link',
 					  html: 'Hey, ' + user.firstName + '! <br><br><p>You recently requested to reset your password. ' + 
