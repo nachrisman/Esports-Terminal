@@ -31,7 +31,7 @@
 				  		  	<div class='article-preview meta-article-preview'>
                 		<a class='preview-link' href='/news/<%= foundArticle._id %>'>
                   	<div class='article-preview-image'>
-                    	<img class='article-preview-image' src='<%= foundArticle.image %>'>
+                    	<img class='article-preview-image' src='<%= foundArticle.image %>' alt='<%=foundArticle.title %>'>
                   	</div>
                   	<div class='preview-headline'>
                   		<h3 class='article-title'><%= foundArticle.title.substr(0, 100) %></h3>
@@ -81,7 +81,7 @@
 			        	    <% var relatedEvent = foundEvent.games; 	   %>
 			        	    <% 	if(relatedEvent.indexOf(meta.game) > -1) { 	   %>
 			          	      <tr>
-			                    <td><img class='event-game-thumbnail' src='<%= foundEvent.image %>'></td>
+			                    <td><img class='event-game-thumbnail' src='<%= foundEvent.image %>' alt='<%= foundEvent.title %>'></td>
 			            	    	<td><a class='direct-event-link' href='/events/<%= foundEvent._id %>'><%= foundEvent.title %></a></td>
 			            	    	<td><%= foundEvent.venue + ', ' + foundEvent.city + ', ' + foundEvent.state %></td>
 			            	    	<td><%= foundEvent.date.toDateString()  %></td>

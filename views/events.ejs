@@ -41,7 +41,7 @@
 		          	<tbody>
 		          	<% currentEvents.forEach(function(currentEvent) { %>
 			            <tr>
-				          	<td><img class='event-game-thumbnail' src='<%= currentEvent.image %>'></td>
+				          	<td><img class='event-game-thumbnail' src='<%= currentEvent.image %>' alt='<%= currentEvent.title %>'></td>
 				          	<td><a class='direct-event-link' href='/events/<%= currentEvent._id %>'><%= currentEvent.title %></a></td>
 				          	<td>
 				          	<% if(!currentEvent.state) { %>
@@ -95,7 +95,7 @@
 	          	<tbody>
 	          	<% upcomingEvents.forEach(function(upcomingEvent) { %>
 		            <tr>
-				          <td><img class='event-game-thumbnail' src='<%= upcomingEvent.image %>'></td>
+				          <td><img class='event-game-thumbnail' src='<%= upcomingEvent.image %>' alt='<%= upcomingEvent.title %>'></td>
 			          	<td><a href='/events/<%= upcomingEvent._id %>'><%= upcomingEvent.title %></a></td>
 			          	<td>
 			          	<% if(!upcomingEvent.state) { %>
@@ -142,7 +142,7 @@
 			          <tbody>
 			          <% pastEvents.forEach(function(pastEvent) { %>
 	                <tr>
-			              <td><img class='event-game-thumbnail' src='<%= pastEvent.image %>'></td>
+			              <td><img class='event-game-thumbnail' src='<%= pastEvent.image %>' alt='<%= pastEvent.title %>'></td>
 			              <td><a href='/events/<%= pastEvent._id %>'><%= pastEvent.title %></a></td>
 			              <td>
 			              	<% if(!pastEvent.state) { %>

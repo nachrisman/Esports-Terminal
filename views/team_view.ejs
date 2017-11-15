@@ -2,7 +2,7 @@
 <div class='owl-container'>
 		<div class='owl-header-row' id='team-header-row'>
 			<div class='team-logo-name'>
-				<img id='team-logo' src='<%= team.logo %>'>
+				<img id='team-logo' src='<%= team.logo %>' alt='<%= team.name + "Overwatch League logo" %>'>
 				<h1><%= team.name %></h1>
 				<div class='team-info'>
 					<p><span>Lead Coach:</span><%= team.coach %></p>
@@ -15,7 +15,7 @@
 			</div>
 			<div id='owl-banner-team-view'>
 				<a href='/overwatch-league'>
-					<img class='banner-team-view' id='owl-est-banner' src='/media/branding/owl_est_logo.png'>
+					<img class='banner-team-view' id='owl-est-banner' src='/media/branding/owl_est_logo.png' alt='EST Overwatch Terminal Logo'>
 				</a>
 				<iframe id='team-video' src="<%= team.video %>" frameborder="0" allowfullscreen></iframe>
 			</div>
@@ -33,7 +33,7 @@
 					<% if(article.categories.indexOf(team.name) > -1) { %>
 						<div class='owl-article-preview owl-team-article'>
 							<a class='owl-preview-link' href='/news/<%= article._id %>'>
-								<img class='owl-article-preview-image' src='<%= article.image %>'>
+								<img class='owl-article-preview-image' src='<%= article.image %>' alt='<%= article.title %>'>
 								<div class='owl-preview-headline'>
 									<h3 class='owl-article-title'><%= article.title.substr(0, 100) %></h3>
 								</div>
@@ -56,7 +56,7 @@
 			<%  var fullName = (member.firstName + member.lastName).replace(/\s/g, '') %>
 				<div class='team-member' id='<%= fullName %>'>
 					<div class='member-image'>
-						<img id='profile-pic' src='<%= member.image %>'>
+						<img id='profile-pic' src='<%= member.image %>' alt='<%= member.name + "default profile picture" %>'>
 					</div>
 					<div class='member-info' id='<%= fullName + "Info" %>'>
 						<div id='member-info-top'>

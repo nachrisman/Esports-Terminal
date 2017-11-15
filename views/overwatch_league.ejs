@@ -1,8 +1,8 @@
-<% include ./partials/header %>
+<% include ./partials/owl_header %>
         <div class='owl-container'>
             <div class='owl-header-row'>
                 <h1 id='pacific-division-title'>Pacific Division</h1>
-                <img id='owl-est-banner' src='/media/branding/owl_est_logo.png'>
+                <img id='owl-est-banner' src='/media/branding/owl_est_logo.png' alt='EST Overwatch terminal logo'>
                 <h1 id='atlantic-division-title'>Atlantic Division</h1>
             </div>
             <div class='owl-sections'>
@@ -12,9 +12,8 @@
                         <% var teamName = team.name.replace(/\s/g, ''); %>
                             <div class='owl-team-container'>
                                 <a href='/overwatch-league/team/<%= team._id %>' id='<%= teamName + "Link" %>'>
-                                    <img class='owl-team-logo' src='<%= team.logo %>' id='<%= teamName + "Logo" %>'>
+                                    <img class='owl-team-logo' src='<%= team.logo %>' id='<%= teamName + "Logo" %>' alt='<%= team.name + "Overwatch League logo" %>'>
                                 </a>
-                                <!--<a class='direct-team-link' href='/overwatch-league/team/<%= team._id %>' id='<%= teamName + "Link" %>'>Go to <%= team.name %></a>-->
                             </div>
                         <% } %>
                     <% }); %>
@@ -28,7 +27,7 @@
 						<% articles.forEach(function(article) { %>
 			  			<div class='owl-article-preview'>
 							<a class='owl-preview-link' href='/news/<%= article._id %>'>
-								<img class='owl-article-preview-image' src='<%= article.image %>'>
+								<img class='owl-article-preview-image' src='<%= article.image %>' alt='<%= article.title %>'>
 				  				<div class='owl-preview-headline'>
 									<h3 class='owl-article-title'><%= article.title.substr(0, 100) %></h3>
 				  				</div>
@@ -45,8 +44,7 @@
                         <% var teamName = team.name.replace(/\s/g, ''); %>
                             <div class='owl-team-container'>
                                 <a href='/overwatch-league/team/<%= team._id %>' id='<%= teamName + "Link" %>'>
-                                <img class='owl-team-logo' src='<%= team.logo %>' id='<%= teamName + "Logo" %>'>
-                                <!--<a class='direct-team-link' href='/overwatch-league/team/<%= team._id %>' id='<%= teamName + "Link" %>'>Go to <%= team.name %></a>-->
+                                <img class='owl-team-logo' src='<%= team.logo %>' id='<%= teamName + "Logo" %>' alt='<%= team.name + "Overwatch League logo" %>'>
                                 </a>
                             </div>
                         <% } %>

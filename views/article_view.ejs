@@ -26,7 +26,7 @@
 								<div class='article-preview'>
 									<a class='sidebar-link' href='/news/<%= relatedArticle._id %>'>
 										<div class='article-preview-image'>
-											<img class='article-preview-image' src='<%= relatedArticle.image %>'>
+											<img class='article-preview-image' src='<%= relatedArticle.image %>' alt='<%= relatedArticle.title %>'>
 										</div>
 										<div class='preview-headline'>
 											<h3 class='article-title'><%= relatedArticle.title.substr(0, 100) %></h3>
@@ -50,7 +50,7 @@
 								<div class='article-preview'>
 									<a class='sidebar-link' href='/news/<%= relatedVideo._id %>'>
 										<div class='article-preview-image'>
-											<img class='article-preview-image' src='<%= relatedVideo.image %>'>
+											<img class='article-preview-image' src='<%= relatedVideo.image %>' alt='<%= relatedVideo.title %>'>
 										</div>
 										<div class='preview-headline'>
 											<h3 class='article-title'><%= relatedVideo.title.substr(0, 100) %></h3>
@@ -77,7 +77,7 @@
 						</div>
 						<div class='post-content'>
 							<figure>
-								<img class='article-figure' src='<%=foundArticle.image%>'>
+								<img class='article-figure' src='<%=foundArticle.image%>' alt='<%=foundArticle.title %>'>
 								<figcaption>
 									<p class='article-figure-caption'><%= foundArticle.imageCaption %> -</p>
 									<p class='article-figure-source'>Source: <%= foundArticle.imageSource %></p> 

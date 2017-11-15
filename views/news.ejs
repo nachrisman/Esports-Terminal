@@ -26,7 +26,7 @@
 						<% pastArticles.forEach(function(pastArticle) { %>
 			  			<div class='article-preview'>
 							<a class='preview-link' href='/news/<%= pastArticle._id %>'>
-								<img class='article-preview-image' src='<%= pastArticle.image %>'>
+								<img class='article-preview-image' src='<%= pastArticle.image %>' alt='<%= pastArticle.title %>'>
 				  				<div class='preview-headline'>
 									<h3 class='article-title'><%= pastArticle.title.substr(0, 100) %></h3>
 				  				</div>
@@ -50,7 +50,7 @@
 			  			<div class='article-preview'>
 							<a class='preview-link' href='/news/<%= randomArticle._id %>'>
 					  			<div class='article-preview-image'>
-									<img class='article-preview-image' src='<%= randomArticle.image %>'>
+									<img class='article-preview-image' src='<%= randomArticle.image %>' alt='<%= randomArticle.title %>'>
 					  			</div>
 					  			<div class='preview-headline'>
 									<h3 class='article-title'><%= randomArticle.title.substr(0, 100) %></h3>
@@ -75,7 +75,7 @@
 			  				<div class='article-preview'>
 								<a class='preview-link' href='/news/<%= recentVideo._id %>'>
 				  					<div class='article-preview-image'>
-										<img class='article-preview-image' src='<%= recentVideo.image %>'>
+										<img class='article-preview-image' src='<%= recentVideo.image %>' alt='<%= recentVideo.title %>'>
 				  					</div>
 				  					<div class='preview-headline'>
 										<h3 class='article-title'><%= recentVideo.title.substr(0, 100) %></h3>
@@ -109,7 +109,7 @@
 								<div class='image-preview'>
 									<figure>
 										<a href='/news/<%= article._id %>'>
-					  						<img class='article-figure' src='<%= article.image %>'>
+					  						<img class='article-figure' src='<%= article.image %>' alt='<%= article.title %>'>
 										</a>
 				  					</figure>
 								</div>

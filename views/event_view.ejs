@@ -25,7 +25,7 @@
 							<div class='article-preview'>
 								<a class='preview-link' href='/news/<%= relatedArticle._id %>'>
 									<div class='article-preview-image'>
-										<img class='article-preview-image' src='<%= relatedArticle.image %>'>
+										<img class='article-preview-image' src='<%= relatedArticle.image %>' alt='<%= relatedArticle.title %>'>
 									</div>
 									<div class='preview-headline'>
 										<h3 class='article-title'><%= relatedArticle.title.substr(0, 30) %>...</h3>
@@ -51,7 +51,7 @@
 							<div class='article-preview'>
 								<a class='preview-link' href='/news/<%= randomArticle._id %>'>
 									<div class='article-preview-image'>
-										<img class='article-preview-image' src='<%= randomArticle.image %>'>
+										<img class='article-preview-image' src='<%= randomArticle.image %>' alt='<%= randomArticle.title %>'>
 									</div>
 									<div class='preview-headline'>
 										<h3 class='article-title'><%= randomArticle.title.substr(0, 100) %></h3>
@@ -68,7 +68,7 @@
 						<header class='event-header'>
 							<h1><%= foundEvent.title %></h1>
 							<figure>
-								<img class='event-figure' src='<%= foundEvent.image %>'>
+								<img class='event-figure' src='<%= foundEvent.image %>' alt='<%= foundEvent.title %>'>
 							</figure>
 						</header>
 						<div class='event-meta-container'>
@@ -123,7 +123,7 @@
 									<tbody>
 									<% relatedEvents.forEach(function(relatedEvent) { %>
 										<tr>
-											<td><img class='event-game-thumbnail' src='<%= relatedEvent.image %>'></td>
+											<td><img class='event-game-thumbnail' src='<%= relatedEvent.image %>' alt='<%= relatedEvent.title %>'></td>
 											<td><a class='direct-event-link' href='/events/<%= relatedEvent._id %>'><%= relatedEvent.title %></a></td>
 											<td><%= relatedEvent.venue + ', ' + relatedEvent.city + ', ' + relatedEvent.state %></td>
 											<td><%= relatedEvent.date.toDateString()  %></td>

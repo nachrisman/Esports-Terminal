@@ -76,6 +76,17 @@ router.get('/info', function(req, res){
 });
 
 router.get('/overwatch-league', function(req, res){
+	var metaTags = {
+		metaTagsUrl: 'https://Test.com/',
+		metaTagsSite: '@Test',
+		metaTagsImg: 'https://url/img.png',
+		metaTagsTitle: 'Test',
+		metaTagsName: 'Test',
+		metaTagsType: 'website',
+		metaTagsDescription: "Description",
+		metaTagsRobots: 'index,follow',
+		metaTagsKeyWords: 'esports, news, articles'
+	};
 	Team.find({}, function(err, teams){
 		if(err){
 			console.log(err);
@@ -84,16 +95,25 @@ router.get('/overwatch-league', function(req, res){
 			teams.forEach(function(team){
 				teamNames.push(team.name);	
 			});
-			
-			Article.find({categories: {$in: ['Overwatch League', 'Overwatch']}}).sort({published: -1}).limit(7).exec(function(err, articles){
+			Article.find({categories: {$in: ['Overwatch League', 'Overwatch']}}).sort({published: -1}).limit(10).exec(function(err, articles){
 				if(err){
 					console.log(err);
 				} else {
-					Event.find({teams: {$in: teamNames}}, function(err, events){
+					Event.find({teams: {$in: teamNames}}).sort({date: -1}).limit(10).exec(function(err, events){
 						if(err){
 							console.log(err);
 						} else {
-							res.render('overwatch_league', {teams: teams, articles: articles, events: events});
+							metaTags.metaTagsUrl = 'https://esportsterminal.com/overwatch-league/';
+							metaTags.metaTagsSite = '@esportsterminal';
+							metaTags.metaTagsImg = 'https://i.imgur.com/2oy41V3.png';
+							metaTags.metaTagsTitle = 'EST Overwatch League News';
+							metaTags.metaTagsName = 'EST Overwatch League News';
+							metaTags.metaTagsType = 'news';
+							metaTags.metaTagsDescription = 'Overwatch League specific news, articles, and events';
+							metaTags.metaTagsRobots = 'index,follow';
+							metaTags.metaTagsKeyWords = 'esports, overwatch, overwatch league, owl, blizzard, competitive gaming';
+							
+							res.render('overwatch_league', {teams: teams, articles: articles, events: events, metaTags: metaTags});
 						}
 					});
 				}
