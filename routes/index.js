@@ -9,6 +9,7 @@ var express 	= require('express'),
 	middleware  = require('../middleware'),
 	nodemailer	= require('nodemailer'),
 	crypto		= require('crypto'),
+	Team		= require('../models/team'),
 	sgTransport = require('nodemailer-sendgrid-transport'),
 	countryList = require('country-list')(),
 	country		= require('countryjs');
@@ -48,23 +49,19 @@ router.get('/meta', middleware.isLoggedIn, function(req, res){
 	});
 });
 
-router.get('/stream', function(req, res){
-	var today = moment().startOf('day');
+// router.get('/stream', function(req, res){
+// 	var today = moment().startOf('day');
 
-	Event.find({
-		stream: true, 
-		date: {$gt: today.toDate()}}).sort({date: 1}).exec(function(err, upcomingStreams){
-		if(err){
-			console.log(err);
-		} else {
-			res.render('stream', {upcomingStreams: upcomingStreams});
-		}
-	});
-});
-
-router.get('/overwatch-league', function(req, res){
-	res.render('overwatch_league');
-});
+// 	Event.find({
+// 		stream: true, 
+// 		date: {$gt: today.toDate()}}).sort({date: 1}).exec(function(err, upcomingStreams){
+// 		if(err){
+// 			console.log(err);
+// 		} else {
+// 			res.render('stream', {upcomingStreams: upcomingStreams});
+// 		}
+// 	});
+// });
 
 router.get('/privacy-policy', function(req, res){
 	res.render('privacy_policy');
@@ -78,7 +75,61 @@ router.get('/info', function(req, res){
 	res.render('info');
 });
 
+router.get('/overwatch-league', function(req, res){
+	Team.find({}, function(err, teams){
+		if(err){
+			console.log(err);
+		} else {
+			var teamNames = [];
+			teams.forEach(function(team){
+				teamNames.push(team.name);	
+			});
+			
+			Article.find({categories: 'Overwatch League'}).sort({published: -1}).exec(function(err, articles){
+				if(err){
+					console.log(err);
+				} else {
+					Event.find({teams: {$in: teamNames}}, function(err, events){
+						if(err){
+							console.log(err)
+						} else {
+							res.render('overwatch_league', {teams: teams, articles: articles, events: events});
+						}
+					});
+				}
+			});
+		}
+	});
+});
 
+router.get('/overwatch-league/team/:id', function(req, res){
+	Team.findById(req.params.id, function(err, team){
+		if(err){
+			req.flash('error', 'Something went wrong. We\'re looking into it, but please try again.');
+			return res.redirect('/overwatch-league');
+		} else {
+			Article.find({categories: team.name}).sort({published: -1}).limit(8).exec(function(err, articles){
+				if(err){
+					req.flash('error', 'Something went wrong. We\'re looking into it, but please try again.');
+					return res.redirect('/overwatch-league');
+				} else {
+					Event.find({teams: team.name}, function(err, events){
+						if(err){
+							req.flash('error', 'Something went wrong. We\'re looking into it, but please try again.');
+							return res.redirect('/overwatch-league');
+						} else {
+							res.render('team_view', {
+								team: team,
+								articles: articles,
+								events: events
+							});
+						}
+					});
+				}
+			});
+		}
+	});
+});
 
 /*=================
 	EMAIL AUTH
@@ -125,29 +176,38 @@ router.post('/register', function(req, res){
 	});
 	
 	if(req.body.password == req.body.confirmedPassword) {
-    	var link = "http://" + req.get('host') + "/verify?id=" + token;
-		User.register(newUser, req.body.password, function(err, user){
+		User.findOne({email: req.body.email}, function(err, user){
 			if(err){
-				req.flash('error', err.message);
-				return res.redirect('/register');
-			}
-			passport.authenticate('local')(req, res, function(){
-				var email = {
-					  from: 'registration@esportsterminal.com',
-					  to: user.email,
-					  subject: 'Please Confirm Your Account',
-					  html: 'Hey, ' + user.firstName + '! <br><br><p>Thanks for creating an account with EST. Next step is to verify your email. <br><br> <a href='+ link +'>Click Here to Confirm Your Account!</a>'
-					};
-					client.sendMail(email, function(err, info){
-					    if (err){
-					      console.log(err);
-					    }
-					    else {
-					      req.flash('warning', 'Please Check Your Email to Confirm Your Account!');
-					      res.redirect('/account/meta-settings');
-					    }
+				console.log('Error registering user, err = ' + err);
+			} else if(user){
+				req.flash('error', 'A user with that email exists already.');
+				res.redirect('/register');
+			} else {
+		    	var link = "http://" + req.get('host') + "/verify?id=" + token;
+				User.register(newUser, req.body.password, function(err, user){
+					if(err){
+						req.flash('error', err.message);
+						return res.redirect('/register');
+					}
+					passport.authenticate('local')(req, res, function(){
+						var email = {
+							  from: 'registration@esportsterminal.com',
+							  to: user.email,
+							  subject: 'Please Confirm Your Account',
+							  html: 'Hey, ' + user.firstName + '! <br><br><p>Thanks for creating an account with EST. Next step is to verify your email. <br><br> <a href='+ link +'>Click Here to Confirm Your Account!</a>'
+							};
+							client.sendMail(email, function(err, info){
+							    if (err){
+							      console.log(err);
+							    }
+							    else {
+							      req.flash('warning', 'Please Check Your Email to Confirm Your Account!');
+							      res.redirect('/account/meta-settings');
+							    }
+							});
 					});
-			});
+				});
+			}
 		});
 	} else {
 		req.flash('error', 'Passwords did not match, please try registering again.');
@@ -344,16 +404,16 @@ router.get('/search/events', function(req, res){
 	});	
 });
 
-router.get('/search/streams', function(req, res){
-	Event.find({$text: {$search: req.query.search}, stream: true}).limit(30).exec(function(err, events){
-		if(err){
-			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
-			return res.redirect('/stream');
-		} else {
-			res.render('search_events', {events: events, search: req.query.search});
-		}
-	});		
-});
+// router.get('/search/streams', function(req, res){
+// 	Event.find({$text: {$search: req.query.search}, stream: true}).limit(30).exec(function(err, events){
+// 		if(err){
+// 			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
+// 			return res.redirect('/stream');
+// 		} else {
+// 			res.render('search_events', {events: events, search: req.query.search});
+// 		}
+// 	});		
+// });
 
 router.get('/search/author', function(req, res){
 	Article.find({$text: {$search: req.query.search} }).limit(30).exec(function(err, foundArticles){

@@ -60,9 +60,9 @@
 	      	  </div>
 	      	  <div class='game-select'>
 	      	  <% games.forEach(function(game) { %>
-		        <label>
+		        <label class='game-label'>
 		      	  <input type='checkbox' name='title[]' value='<%= game.title %>'>
-		      	  <img class='meta-select-thumbnail' id='game-thumbnail' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
+		      	  <img class='meta-select-thumbnail' id='<%= game.title.replace(/[&\/\\#\s,+()$~%.'":*?<>{}]/g, '') %>' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
 		        </label>
 	      	  <% }); %>
 	      	  </div>

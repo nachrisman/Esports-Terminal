@@ -175,3 +175,9 @@ hr{
 #delete-item button{
     width:100%;
 }
+
+#addTeamMember{
+    color: #fff;
+    display: block;
+    margin: 0 auto 25px auto;
+}

@@ -7,6 +7,7 @@ var passportLocalMongoose = require('passport-local-mongoose'),
 	User			      = require('./models/user'),
 	mongoose              = require('mongoose'),
 	express               = require('express'),
+	path				  = require('path'),
 	favicon				  = require('serve-favicon'),
 	app                   = express();
 
@@ -27,7 +28,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(flash());
-// app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'media', 'branding', 'favicon.ico')))
 
 //Passport Config
 app.use(require('express-session')({

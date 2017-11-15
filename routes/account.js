@@ -4,10 +4,21 @@ var express 	= require('express'),
 	Game 		= require('../models/game'),
 	middleware  = require('../middleware'),
 	country		= require('countryjs'),
+	nodemailer	= require('nodemailer'),
+	sgTransport = require('nodemailer-sendgrid-transport'),
 	countryList = require('country-list')();
 
 var states	  = country.states('US'),
 	countries = countryList.getNames();
+	
+var options = {
+  auth: {
+    api_user: process.env.SENDGRID_USERNAME,
+    api_key: process.env.SENDGRID_PASSWORD
+  }
+};
+
+var client = nodemailer.createTransport(sgTransport(options));
 
 router.get('/', middleware.isLoggedIn, function(req, res){
 	res.redirect('/account/meta-settings');
@@ -139,8 +150,23 @@ router.put('/deactivate', middleware.isLoggedIn, function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			req.flash('success', 'Account Deactivated. Hope to see you again soon!');
-			res.redirect('/news');
+			var reason = req.body.deactivationReason;
+			var comments = req.body.additionalComments;
+			var email = {
+					  from: 'accounts@esportsterminal.com',
+					  to: 'esportsterminal@gmail.com',
+					  subject: 'Account Deactivation',
+					  html: 'User: ' + req.user.email + '<br>Reason: ' + reason + '<br>Comments: ' + comments
+					};
+					client.sendMail(email, function(err, info){
+					    if (err){
+					      console.log(err);
+					    }
+					    else {
+					      req.flash('success', 'Account Deactivated. Hope to see you again soon!');
+							res.redirect('/news');
+					    }
+					});
 		}
 	});
 });
@@ -150,15 +176,30 @@ router.get('/delete-account', middleware.isLoggedIn, function(req, res){
 });
 
 router.delete('/delete-account', middleware.isLoggedIn, function(req, res){
-			User.findByIdAndRemove(req.user._id, function(err){
-				if(err){
-					req.flash('error', 'Could not delete account. Please contact us for more info.');
-					console.log(err, err.message);
-				} else {
-					req.flash('success', 'Account deleted. We\'re sorry to see you go! Hope to see you again soon!');
-					res.redirect('/news');
+	
+	User.findByIdAndRemove(req.user._id, function(err){
+		if(err){
+			req.flash('error', 'Could not delete account. Please contact us for more info.');
+			console.log(err, err.message);
+		} else {
+			var reason = req.body.deactivationReason;
+			var comments = req.body.additionalComments;
+			var email = {
+					  from: 'accounts@esportsterminal.com',
+					  to: 'esportsterminal@gmail.com',
+					  subject: 'Account Deletion',
+					  html: 'User: ' + req.user.email + '<br>Reason: ' + reason + '<br>Comments: ' + comments
+					};
+					client.sendMail(email, function(err, info){
+					    if (err){
+					      console.log(err);
+					    } else {
+					    	req.flash('success', 'Account deleted. We\'re sorry to see you go! Hope to see you again soon!');
+							res.redirect('/news');
+					    }
+					});
 				}
-			});
+	});
 });
 
 module.exports = router;

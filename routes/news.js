@@ -21,7 +21,13 @@ router.get('/', function(req, res){
 						if(err){
 							console.log(err);
 						} else {
-							res.render('news', {articles: articles, pastArticles: pastArticles, randomArticles: randomArticles});
+							Article.find({published: {$gte: lastWeek.toDate(), $lt: today.toDate()}, contentType: 'video'}).sort({published: -1}).exec(function(err, recentVideos){
+								if(err){
+									console.log(err);
+								} else {
+									res.render('news', {articles: articles, pastArticles: pastArticles, randomArticles: randomArticles, recentVideos: recentVideos});
+								}
+							});
 						}
 					});
 				}
@@ -59,23 +65,53 @@ router.get('/more-articles/:lastSeen', function(req, res){
 });
 
 router.get('/:id', function(req, res){
+	var metaTags = {
+		metaTagsUrl: 'https://Test.com/',
+		metaTagsSite: '@Test',
+		metaTagsImg: 'https://url/img.png',
+		metaTagsTitle: 'Test',
+		metaTagsName: 'Test',
+		metaTagsType: 'website',
+		metaTagsDescription: "Description",
+		metaTagsRobots: 'index,follow',
+		metaTagsKeyWords: 'esports, news, articles'
+	};
 	Article.findById(req.params.id, function(err, foundArticle){
 		if(err){
 			res.redirect('/news');
 		} else {
 			Article.find({
-				_id: {$ne: foundArticle._id}
-			}).sort({published: -1}).limit(4).exec(function(err, relatedArticles){
+				_id: {$ne: foundArticle._id},
+				categories: {$in: foundArticle.categories}
+			}).sort({published: -1}).limit(5).exec(function(err, relatedArticles){
 				if(err){
 					console.log(err);
 				} else {
-					res.render('article_view', {
-						foundArticle: foundArticle, 
-						relatedArticles: relatedArticles
+					Article.find({contentType: 'video', categories: {$in: foundArticle.categories}}).sort({published: -1}).limit(5).exec(function(err, relatedVideos){
+						if(err){
+							console.log(err);
+						} else {
+							metaTags.metaTagsUrl = 'https://esportsterminal.com/news/' + foundArticle._id;
+							metaTags.metaTagsSite = '@esportsterminal';
+							metaTags.metaTagsImg = foundArticle.image;
+							metaTags.metaTagsTitle = foundArticle.title;
+							metaTags.metaTagsName = foundArticle.title;
+							metaTags.metaTagsType = 'article';
+							metaTags.metaTagsDescription = foundArticle.title;
+							metaTags.metaTagsRobots = 'index,follow';
+							metaTags.metaTagsKeyWords = foundArticle.title;
+							
+							res.render('article_view', {
+								foundArticle: foundArticle, 
+								relatedArticles: relatedArticles,
+								relatedVideos: relatedVideos,
+								metaTags: metaTags
+							});
+						}
 					});
-				};
+				}
 			});
-		};
+		}
 	});	
 });
 
@@ -136,7 +172,12 @@ router.get('/game/:game', function(req, res){
 						if(err){
 							console.log(err);
 						} else {
-							res.render('news', {articles: articles, pastArticles: pastArticles, randomArticles: randomArticles});
+							res.render('news_game', {
+								articles: articles,
+								pastArticles: pastArticles, 
+								randomArticles: randomArticles,
+								query: req.params.game
+							});
 						}
 					});
 				}

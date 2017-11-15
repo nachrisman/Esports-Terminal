@@ -61,42 +61,53 @@
 							</div>
 						</div>
 						<div class='form-group row'>
-							<div class='col-xs-2 col-md-2'>
-								<label for='description'>Description: </label>
+								<div class='col-xs-6 col-md-6'>
+									<label for='website'>Website: </label>
+									<input class='form-control' type='text' name='team[website]' id='website' value='<%= team.website %>' required />
+								</div>
+								<div class='col-xs-6 col-md-6'>
+									<label for='coach'>Lead Coach: </label>
+									<input class='form-control' type='text' name='team[coach]' id='coach' value='<%= team.coach %>' required />
+								</div>
 							</div>
-							<div class='col-xs-10 col-md-10'>
-								<textarea class='form-control' name='team[description]' id='description' value='<%= team.description %>' required></textarea>
+							<div class='form-group row'>
+								<div class='col-xs-2 col-md-2'>
+									<label for='video'>Video Link: </label>
+								</div>
+								<div class='col-xs-10 col-md-10'>
+									<input class='form-control' type='text' name='team[video]' id='video' value='<%= team.video %>' />
+								</div>
 							</div>
-						</div>
 						<div class='clear-div'>
 							<hr>
 						</div>
+						<div id='teamMembersEdit'>
 						<% var members = team.members; %>
 						<% members.forEach(function(member){ %>
 							<div class="form-group row">
                 				<div class="col-xs-6 col-md-6">
                     				<label for="firstName">First Name: </label>
-                    				<input class="form-control" type="text" name="team[members][firstName][]" id="firstName" value='<%= member.firstName %>' required/>
+                    				<input class="form-control" type="text" name="team[members][firstName][]" id="firstName" value='<%= member.firstName %>' />
                 				</div>
 	                			<div class="col-xs-6 col-md-6">
 	                    			<label for="lastName">Last Name: </label>
-	                    			<input class="form-control" type="text" name="team[members][lastName][]" id="lastName" value='<%= member.lastName %>' required/>
+	                    			<input class="form-control" type="text" name="team[members][lastName][]" id="lastName" value='<%= member.lastName %>' />
 	                			</div>
             				</div>
             				<div class="form-group row"> 
                 				<div class="col-xs-6 col-md-6">
                     				<label for="handle">Player Handle: </label>
-                    				<input class="form-control" type="text" name="team[members][handle][]" id="handle" value='<%= member.handle %>' required />
+                    				<input class="form-control" type="text" name="team[members][handle][]" id="handle" value='<%= member.handle %>'  />
                 				</div>
                 				<div class="col-xs-6 col-md-6">
                     				<label for="role">Role: </label>
-                    				<input class="form-control" type="text" name="team[members][role][]" id="role" value='<%= member.role %>' required/>
+                    				<input class="form-control" type="text" name="team[members][role][]" id="role" value='<%= member.role %>' />
                 				</div>
             				</div> 
             				<div class="form-group row">
                 				<div class="col-xs-6 col-md-6"> 
                     				<label for="dob">Date of Birth: </label>
-                    				<input class="form-control" type="text" name="team[members][dob][]" id="dob" value='<%= member.lastName %>' required/>
+                    				<input class="form-control" type="text" name="team[members][dob][]" id="dob" value='<%= member.dob %>' />
                 				</div>
                 				<div class="col-xs-6 col-md-6">
 				                    <label for="homeCountry">Home Country: </label>
@@ -124,7 +135,7 @@
 				                    <label for="instagram">Instagram: </label>
 				                </div>
 				                <div class="col-xs-10 col-md-10">
-				                    <input class="form-control" type="text" name="team[members][socialLinks][instagram][]" id="instagram" value='<%= member.socialLinks.instagram %>' />
+				                    <input class="form-control" type="text" name="team[members][instagram][]" id="instagram" value='<%= member.instagram %>' />
 				                </div>
 				            </div>
 				            <div class="form-group row">
@@ -132,7 +143,7 @@
 				                    <label for="facebook">Facebook: </label>
 				                </div>
 				                <div class="col-xs-10 col-md-10">
-				                    <input class="form-control" type="text" name="team[members][socialLinks][facebook][]" id="facebook" value='<%= member.socialLinks.facebook %>' />
+				                    <input class="form-control" type="text" name="team[members][facebook][]" id="facebook" value='<%= member.facebook %>' />
 				                </div>
 				            </div>
 				            <div class="form-group row">
@@ -140,7 +151,7 @@
 				                    <label for="twitch">Twitch: </label>
 				                </div>
 				                <div class="col-xs-10 col-md-10">
-				                    <input class="form-control" type="text" name="team[members][socialLinks][twitch][]" id="twitch" value='<%= member.socialLinks.twitch %>' />
+				                    <input class="form-control" type="text" name="team[members][twitch][]" id="twitch" value='<%= member.twitch %>' />
 				                </div>
 				            </div>
 				            <div class="form-group row">
@@ -148,16 +159,23 @@
 				                    <label for="twitter">Twitter: </label>
 				                </div>
 				                <div class="col-xs-10 col-md-10">
-				                    <input class="form-control" type="text" name="team[members][socialLinks][twitter][]" id="twitter" value='<%= member.socialLinks.twitter %>' />
+				                    <input class="form-control" type="text" name="team[members][twitter][]" id="twitter" value='<%= member.twitter %>' />
 				                </div>
 				            </div>
 				            <hr>
 						<% }); %>
+						</div>
+						<a class='btn btn-primary btn-est' id='addTeamMember'>Add a Member</a>
 						<button class='btn btn-primary btn-est'>Update Team</button>
 					</form>
 					<form class='new-item-entry' id='delete-item' action='/admin/view-teams/<%= team._id %>?_method=DELETE' method='POST'>
 						<button class='btn btn-danger' type='submit'>Delete Team</button>
 		  			</form>
+		  			<div class='form-group row' id='moreMembers'>
+							<div class='col-xs-12 col-md-12'>
+								
+							</div>
+						</div>
 				</div>
 			</div>
 		</div>

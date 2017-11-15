@@ -14,20 +14,18 @@ router.get('/', function(req, res){
 		if(err){
 			console.log('Error');
 		} else {
-			//Query for 5 future events
 			Event.find({date: {$gt: today.toDate()}}).sort({date: 1}).limit(6).exec(function(err, upcomingEvents){
 				if(err){
 					console.log(err);
 				} else {
-					//Query for last week's events
 					Event.find({date: {$lt: today.toDate(), $gte: lastWeek.toDate()}}).sort({date: -1}).exec(function(err, pastEvents){
 						if(err){
 							console.log(err);
 						} else {
 							res.render('events', {
-						currentEvents: currentEvents,
-						upcomingEvents: upcomingEvents,
-						pastEvents: pastEvents
+								currentEvents: currentEvents,
+								upcomingEvents: upcomingEvents,
+								pastEvents: pastEvents
 							});					
 						};
 					});	
@@ -44,29 +42,35 @@ router.get('/:id', function(req, res){
 		if(err){
 			res.redirect('/events');
 		} else {
-			//Query for all articles, logic for related articles in EJS
-			Article.find({}).sort({published: -1}).limit(6).exec(function(err, relatedArticles){
+			Article.find({categories: {$in: [foundEvent.games]}}).sort({published: -1}).limit(6).exec(function(err, relatedArticles){
 				if(err){
 					console.log(err);
 				} else {
-					//Query for related upcoming events, logic for comparing event categories/games in EJS
 					Event.find({
 						_id: {$ne: foundEvent._id},
-						date: {$gt: today.toDate()}
-					}).sort({date: -1}).exec(function(err, relatedEvents){
+						date: {$gt: today.toDate()},
+						games: {$in: [foundEvent.games]}
+					}).sort({date: -1}).limit(5).exec(function(err, relatedEvents){
 						if(err){
 							console.log(err);
 						} else {
-							res.render('event_view', {
-						foundEvent: foundEvent, 
-						relatedArticles: relatedArticles,
-						relatedEvents: relatedEvents
+							Article.aggregate([{$sample: {size: 5} }], function(err, randomArticles){
+								if(err){
+									console.log(err);
+								} else {
+									res.render('event_view', {
+										foundEvent: foundEvent, 
+										relatedArticles: relatedArticles,
+										relatedEvents: relatedEvents,
+										randomArticles: randomArticles
+									});
+								}
 							});
-						};
+						}
 					});
-				};
+				}
 			});
-		};
+		}
 	});	
 });
 

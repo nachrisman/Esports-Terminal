@@ -4,7 +4,6 @@
 	      		<div class='col-xs-12 col-md-12' id='page-header'>
 	            <h1>News</h1>
 	            <form class='content-search' action='/search/articles' method='GET'>
-
 	        			<div class="input-group">
 	    			      <input type="text" class="form-control" name='search' placeholder="search articles...">
 	    			      <span class="input-group-btn">
@@ -70,21 +69,19 @@
 					</div>
 					<div class='preview'>
 						<% if(pastArticles.length == 0) { %>
-			    			<p>No Articles... whaaaat?</p>
+			    			<p>┐(´•_•`)┌ No Videos?<a href='/contact'>Let us know.</a></p>
 						<% } else { %>
-						<% pastArticles.forEach(function(pastArticle) { %>
-							<% if(pastArticle.contentType == 'video') { %>
+						<% recentVideos.forEach(function(recentVideo) { %>
 			  				<div class='article-preview'>
-								<a class='preview-link' href='/news/<%= pastArticle._id %>'>
+								<a class='preview-link' href='/news/<%= recentVideo._id %>'>
 				  					<div class='article-preview-image'>
-										<img class='article-preview-image' src='<%= pastArticle.image %>'>
+										<img class='article-preview-image' src='<%= recentVideo.image %>'>
 				  					</div>
 				  					<div class='preview-headline'>
-										<h3 class='article-title'><%= pastArticle.title.substr(0, 100) %></h3>
+										<h3 class='article-title'><%= recentVideo.title.substr(0, 100) %></h3>
 				  					</div>
 								</a>
 			  				</div>
-			  			<% } %>
 						<% }); %>
 						<% }; %>
 					</div>
@@ -97,7 +94,7 @@
 		  				<div class='content-divider-sm' id='news-feed-header'>
 							<h2>News Feed</h2>
 		  				</div>
-		  				<% var lastSeen = Date.parse(articles[articles.length - 1].published); %>
+		  				<% var lastSeen = Date.parse(articles[articles.length - 1].published).toString(); %>
 						<% articles.forEach(function(article){ %>
 						<div class='post-preview'>
 				  			<article>

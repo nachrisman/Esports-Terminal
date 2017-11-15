@@ -6,6 +6,7 @@ var eventSchema = mongoose.Schema({
 	image: String,
 	date: Date,
 	games: [{type: String}],
+	teams: [{type: String}],
 	venue: String,
 	city: String,
 	state: String,

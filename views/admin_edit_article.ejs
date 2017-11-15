@@ -35,11 +35,32 @@
 		  						<label>Categories: </label>
 		  					</div>
 		  					<div class='col-xs-10 col-md-10'>
-		  						<div class="form-check form-check-inline">
+		  						<% if(article.categories.indexOf('general') > -1){ %>
+		  							<div class="form-check form-check-inline">
 									  <label class="form-check-label">
 									    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name='article[categories][]' value='general' checked> General
 									  </label>
 									</div>
+									<% } else { %>
+									<div class="form-check form-check-inline">
+									  <label class="form-check-label">
+									    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name='article[categories][]' value='general'> General
+									  </label>
+									</div>
+									<% } %>
+									<% if(article.categories.indexOf('Overwatch League') > -1) { %>
+									<div class="form-check form-check-inline">
+									  <label class="form-check-label">
+									    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name='article[categories][]' value='Overwatch League' checked> Overwatch League
+									  </label>
+									</div>
+									<% } else { %>
+									<div class="form-check form-check-inline">
+									  <label class="form-check-label">
+									    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name='article[categories][]' value='Overwatch League' > Overwatch League
+									  </label>
+									</div>
+									<% } %>
 									<% games.forEach(function(game){ %>
 									<% if(article.categories.indexOf(game.title) > -1) { %>
 									<div class="form-check form-check-inline">
@@ -51,6 +72,28 @@
 									<div class="form-check form-check-inline">
 									  <label class="form-check-label">
 									    <input class="form-check-input" type="checkbox" name='article[categories][]' id="inlineCheckbox2" value='<%=game.title%>'><%= game.title %>
+									  </label>
+									</div>
+										<% } %>
+									<% }); %>
+		  					</div>
+		  				</div>
+		  				<div class='form-group row'>
+		  					<div class='col-xs-2 col-md-2'>
+		  						<label>Teams (OWL Only): </label>
+		  					</div>
+		  					<div class='col-xs-10 col-md-10'>
+									<% teams.forEach(function(team){ %>
+									<% if(article.categories.indexOf(team.name) > -1) { %>
+									<div class="form-check form-check-inline">
+									  <label class="form-check-label">
+									    <input class="form-check-input" type="checkbox" name='article[categories][]' id="inlineCheckbox2" value='<%=team.name%>' checked><%= team.name %>
+									  </label>
+									</div>
+									<% } else { %>
+									<div class="form-check form-check-inline">
+									  <label class="form-check-label">
+									    <input class="form-check-input" type="checkbox" name='article[categories][]' id="inlineCheckbox2" value='<%=team.name%>'><%=team.name%>
 									  </label>
 									</div>
 										<% } %>
