@@ -98,6 +98,7 @@ hr{
     color: #fff;
     padding: 10px;
     width: 30vw;
+    font-size: 2vw;
     border-radius: 25px 0 25px 0;
 }
 
@@ -668,6 +669,16 @@ hr{
     width: 10vw;
 }
 
+@media screen and (max-width: 765px){
+    .post-content .btn-est-outline{
+        font-size: 2vw;
+        width: 40vw;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .content-feed{
     display: flex;
     flex-direction: column;
@@ -723,8 +734,8 @@ hr{
 }
 
 @media screen and (max-width:765px){
-    .preview{
-        width:90vw;
+    #sidebar-container{
+        display: none;
     }
 }
 
@@ -1171,6 +1182,8 @@ hr{
     font-size: 1vw;
     margin-left: auto;
 }
+
+
 
 
 /* events */
