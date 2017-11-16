@@ -153,7 +153,7 @@ router.get('/new-article', middleware.isAdmin, function(req, res){
 									return res.redirect('/admin/view-articles')
 								} else {
 									var contentTypes = article.contentTypes;
-									var today = moment().format('MM-DD-YYYY');
+									var today = moment().format("YYYY-MM-DD");
 									res.render('admin_new_article', {
 										games: games, 
 										authors: authors,
