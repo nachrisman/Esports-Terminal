@@ -463,14 +463,15 @@ router.post('/write-for-us', function(req, res){
 		to: 'esportsterminal@gmail.com',
 		subject: 'WRITE FOR US Submission',
 		html: 'Date/Time: ' + moment().toDate() + '<br>Name: ' + req.body.firstName + ' ' + req.body.lastName + '<br>' + 
-			'Username: ' + req.body.username + '<br>Email: ' + req.body.email + '<br>Message: ' + req.body.message
+			'Username: ' + req.body.username + '<br>Email: ' + req.body.email + '<br>Social: ' + req.body.social + '<br>' +
+			'Work Samples: ' + req.body.links + '<br>' + 'Message: ' + req.body.message
 	};
 			client.sendMail(email, function(err, info){
 				    if (err){
 				      console.log(err);
 				    }
 				    else {
-				      req.flash('success', 'Thanks for your submission! We\'ll get back to you ASAP!');
+				      req.flash('success', 'Thanks for your submission! We hope to talk to you soon.');
 				      res.redirect('/news');
 				    }
 				});
