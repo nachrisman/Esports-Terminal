@@ -19,6 +19,39 @@
 			    </div>
 			</div>
 		</div>
+		<% if(currentUser.role == 'editor'){ %>
+		<div class='row view-list'>
+			<div class='col-xs-12 col-md-12'>
+				<div class='table-responsive'>
+					<table class='table'>
+					    <thead>
+					      <tr>
+					        <th>Published</th>
+					        <th>Author</th>
+					        <th>Title</th>
+						    <th>Edit/View</th>
+						  </tr>
+					    </thead>
+					    <tbody>
+					    <% articles.forEach(function(article){ %>
+					    <%     if(article.author == currentUser.fullname) { %>
+						  <tr>
+						    <td><%= article.published.toDateString() %></td>
+						    <td><%= article.author %></td>
+						    <td><%= article.title %></td>
+						    <td>
+							  <a href='/admin/edit-article/<%= article._id %>'>Edit</a> / 
+							  <a href='/news/<%= article._id %>'>View</a>
+						    </td>
+						  </tr>
+						  <% } %>
+					    <% }); %>
+					    </tbody>
+					  </table>
+				  </div>
+			</div>
+		</div>
+		<% } else { %>
 		<div class='row view-list'>
 			<div class='col-xs-12 col-md-12'>
 				<div class='table-responsive'>
@@ -48,5 +81,6 @@
 				  </div>
 			</div>
 		</div>
+		<% } %>
 	</div>
 <% include ./partials/admin_footer %>

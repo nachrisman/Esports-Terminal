@@ -17,7 +17,7 @@ middlewareObj.isActiveAccount = function(req, res, next){
 };
 
 middlewareObj.isAdmin = function(req, res, next){
-	if(req.isAuthenticated() && (req.user.role === 'admin')){
+	if(req.isAuthenticated() && (req.user.role === 'admin' || 'editor')){
 		return next();
 	}
 	req.flash('error', 'You don\'t have permission to access that.');
