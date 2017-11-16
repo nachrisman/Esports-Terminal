@@ -53,7 +53,13 @@ router.get('/more-articles/:lastSeen', function(req, res){
 						if(err){
 							console.log(err);
 						} else {
-							res.render('news', {articles: articles, pastArticles: pastArticles, randomArticles: randomArticles});
+							Article.find({published: {$gte: lastWeek.toDate(), $lt: today.toDate()}, contentType: 'video'}).sort({published: -1}).exec(function(err, recentVideos){
+								if(err){
+									console.log(err);
+								} else {
+									res.render('news', {articles: articles, pastArticles: pastArticles, randomArticles: randomArticles, recentVideos: recentVideos});
+								}
+							});
 						}
 					});
 				}
