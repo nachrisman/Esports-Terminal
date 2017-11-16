@@ -156,7 +156,6 @@ router.get('/overwatch-league/team/:id', function(req, res){
 =================*/
 var options = {
   auth: {
-    api_user: process.env.SENDGRID_USERNAME,
     api_key: process.env.SENDGRID_API_KEY
   }
 };
@@ -459,9 +458,9 @@ router.get('/write-for-us', function(req, res){
 
 router.post('/write-for-us', function(req, res){
 	var email = {
-		from: process.env.SENDGRID_USERNAME,
+		from: 'writeforus@esportsterminal.com',
 		to: 'esportsterminal@gmail.com',
-		subject: 'WRITE FOR US Submission',
+		subject: 'Write for Us - NEW SUBMISSION',
 		html: 'Date/Time: ' + moment().toDate() + '<br>Name: ' + req.body.firstName + ' ' + req.body.lastName + '<br>' + 
 			'Username: ' + req.body.username + '<br>Email: ' + req.body.email + '<br>Social: ' + req.body.social + '<br>' +
 			'Work Samples: ' + req.body.links + '<br>' + 'Message: ' + req.body.message
@@ -483,7 +482,7 @@ router.get('/contact', function(req, res){
 
 router.post('/contact', function(req, res){
 	var email = {
-		from: process.env.SENDGRID_USERNAME,
+		from: 'contact@esportsterminal.com',
 		to: 'esportsterminal@gmail.com',
 		subject: 'Contact Form Submission',
 		html: 'Date/Time: ' + moment().toDate() + '<br>Name: ' + req.body.firstName + ' ' + req.body.lastName + '<br>' + 
