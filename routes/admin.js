@@ -194,7 +194,7 @@ router.get('/new-event', middleware.isAdmin, function(req, res){
 });
 
 router.get('/view-events', middleware.isAdmin, function(req, res){
-	Event.find({}).sort({date: 1}).exec(function(err, events){
+	Event.find({}).sort({date: -1}).limit(15).exec(function(err, events){
 		if(err){
 			res.send('No Events Found');
 		} else {
@@ -233,7 +233,7 @@ router.get('/edit-event/:id', middleware.isAdmin, function(req, res){
 });
 
 router.get('/view-articles', middleware.isAdmin, function(req, res){
-	Article.find({}).sort({published: 1}).exec(function(err, articles){
+	Article.find({}).sort({published: -1}).limit(15).exec(function(err, articles){
 		if(err){
 			console.log('Errors all over the place');
 		} else {
