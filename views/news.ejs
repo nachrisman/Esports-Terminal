@@ -96,6 +96,7 @@
 		  				</div>
 		  				<% var lastSeen = Date.parse(articles[articles.length - 1].published).toString(); %>
 						<% articles.forEach(function(article){ %>
+						<% if(article.contentType != 'video') { %>
 						<div class='post-preview'>
 				  			<article>
 								<div id='header-preview'>
@@ -123,6 +124,7 @@
 						<div class='clear-div' id='post-preview-clear'>
 			    			<hr>
 						</div>
+						<% } %>
 						<% }); %>
 					</div>
 					<% if(articles.length == 25) { %>
