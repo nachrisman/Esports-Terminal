@@ -6,7 +6,6 @@
 				<h1><%= team.name %></h1>
 				<div class='team-info'>
 					<p><span>Lead Coach:</span><%= team.coach %></p>
-					<p><span>Owner:</span><%= team.owner %></p>
 					<p><span>Country:</span><%= team.country %></p>
 					<p><span>Division:</span><%= team.division %></p>
 					<p><span>Founded:</span><%= team.founded %></p>
@@ -21,32 +20,33 @@
 			</div>
 		</div>
 		<hr>
-		<div class='container'>
-			<h1>News</h1>
-		</div>
-		<div class='team-container'>
-			<div class='team-news'>
-				<% if(articles.length == 0) { %>
-					<p>No Articles for <%= team.name %></p>
-				<% } else { %>
-					<% articles.forEach(function(article) { %>
-					<% if(article.categories.indexOf(team.name) > -1) { %>
-						<div class='owl-article-preview owl-team-article'>
-							<a class='owl-preview-link' href='/news/<%= article._id %>'>
-								<img class='owl-article-preview-image' src='<%= article.image %>' alt='<%= article.title %>'>
-								<div class='owl-preview-headline'>
-									<h3 class='owl-article-title'><%= article.title.substr(0, 100) %></h3>
-								</div>
-							</a>
-						</div>
-					<% } %>
-					<% }); %>
-				<% }; %>
-			</div>
-			<div id='more-team-news'>
-				<a class='btn btn-primary btn-owl btn-team' id='more-owl-news' href='/news/game/<%= team.name %>' >More <%= team.name %></a>
-			</div>
-			<hr>
+		
+		<!--<div class='container'>-->
+		<!--	<h1>News</h1>-->
+		<!--</div>-->
+		<!--<div class='team-container'>-->
+		<!--	<div class='team-news'>-->
+		<!--		<% if(articles.length == 0) { %>-->
+		<!--			<p>No Articles for <%= team.name %></p>-->
+		<!--		<% } else { %>-->
+		<!--			<% articles.forEach(function(article) { %>-->
+		<!--			<% if(article.categories.indexOf(team.name) > -1) { %>-->
+		<!--				<div class='owl-article-preview owl-team-article'>-->
+		<!--					<a class='owl-preview-link' href='/news/<%= article._id %>'>-->
+		<!--						<img class='owl-article-preview-image' src='<%= article.image %>' alt='<%= article.title %>'>-->
+		<!--						<div class='owl-preview-headline'>-->
+		<!--							<h3 class='owl-article-title'><%= article.title.substr(0, 100) %></h3>-->
+		<!--						</div>-->
+		<!--					</a>-->
+		<!--				</div>-->
+		<!--			<% } %>-->
+		<!--			<% }); %>-->
+		<!--		<% }; %>-->
+		<!--	</div>-->
+		<!--	<div id='more-team-news'>-->
+		<!--		<a class='btn btn-primary btn-owl btn-team' id='more-owl-news' href='/news/game/<%= team.name %>' >More <%= team.name %></a>-->
+		<!--	</div>-->
+		<!--	<hr>-->
 			<div class='container'>
 				<h1>Roster</h1>
 			</div>
