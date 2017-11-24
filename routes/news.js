@@ -102,8 +102,8 @@ router.get('/:id', function(req, res){
 							metaTags.metaTagsImg = foundArticle.image;
 							metaTags.metaTagsTitle = foundArticle.title;
 							metaTags.metaTagsName = foundArticle.title;
-							metaTags.metaTagsType = 'article';
-							metaTags.metaTagsDescription = foundArticle.title;
+							metaTags.metaTagsType = foundArticle.contentType;
+							metaTags.metaTagsDescription = foundArticle.subTitle;
 							metaTags.metaTagsRobots = 'index,follow';
 							metaTags.metaTagsKeyWords = foundArticle.title;
 							

@@ -1,14 +1,14 @@
 var passportLocalMongoose = require('passport-local-mongoose'), 
 	methodOverride		  = require('method-override'),
-	LocalStrategy         = require('passport-local'),	
-	bodyParser            = require('body-parser'),
-	passport 		      = require('passport'),
+	LocalStrategy         = require('passport-local'),
+	favicon				  = require('serve-favicon'),
 	flash				  = require('connect-flash'),
 	User			      = require('./models/user'),
+	bodyParser            = require('body-parser'),
+	passport 		      = require('passport'),
 	mongoose              = require('mongoose'),
 	express               = require('express'),
 	path				  = require('path'),
-	favicon				  = require('serve-favicon'),
 	app                   = express();
 
 var adminRoutes 	= require('./routes/admin'),
@@ -22,13 +22,12 @@ mongoose.Promise = global.Promise;
 var url = process.env.DATABASEURL || 'mongodb://localhost/est';
 mongoose.connect(url, {useMongoClient: true});
 
-
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(flash());
-app.use(favicon(path.join(__dirname, 'public', 'media', 'branding', 'favicon.ico')))
+app.use(favicon(path.join(__dirname, 'public', 'media', 'branding', 'favicon.ico')));
 
 //Passport Config
 app.use(require('express-session')({
@@ -50,10 +49,10 @@ app.use(function(req, res, next){
 	next();
 });
 
+app.use('/account', accountRoutes),
+app.use('/events', eventRoutes),
 app.use('/admin', adminRoutes),
 app.use('/news', newsRoutes),
-app.use('/events', eventRoutes),
-app.use('/account', accountRoutes),
 app.use(indexRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){

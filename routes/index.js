@@ -1,22 +1,21 @@
-var express 	= require('express'),
-	router		= express.Router(),
-	Game 		= require('../models/game'),
+var	sgTransport = require('nodemailer-sendgrid-transport'),
 	Article		= require('../models/article'),
 	Event		= require('../models/event'),
-	moment 		= require('moment'),
-	passport 	= require('passport'),
+	Game 		= require('../models/game'),
 	User 	 	= require('../models/user'),
+	Team		= require('../models/team'),
+	countryList = require('country-list')(),
 	middleware  = require('../middleware'),
 	nodemailer	= require('nodemailer'),
+	country		= require('countryjs'),
+	passport 	= require('passport'),
+	express 	= require('express'),
+	moment 		= require('moment'),
 	crypto		= require('crypto'),
-	Team		= require('../models/team'),
-	sgTransport = require('nodemailer-sendgrid-transport'),
-	countryList = require('country-list')(),
-	country		= require('countryjs');
+	router		= express.Router();
 	
 var states	  = country.states('US'),
 	countries = countryList.getNames();
-
 
 router.get('/', function(req, res){
 	if(req.isAuthenticated()){
@@ -48,20 +47,6 @@ router.get('/meta', middleware.isLoggedIn, function(req, res){
 		}
 	});
 });
-
-// router.get('/stream', function(req, res){
-// 	var today = moment().startOf('day');
-
-// 	Event.find({
-// 		stream: true, 
-// 		date: {$gt: today.toDate()}}).sort({date: 1}).exec(function(err, upcomingStreams){
-// 		if(err){
-// 			console.log(err);
-// 		} else {
-// 			res.render('stream', {upcomingStreams: upcomingStreams});
-// 		}
-// 	});
-// });
 
 router.get('/privacy-policy', function(req, res){
 	res.render('privacy_policy');
@@ -106,10 +91,10 @@ router.get('/overwatch-league', function(req, res){
 							metaTags.metaTagsUrl = 'https://esportsterminal.com/overwatch-league/';
 							metaTags.metaTagsSite = '@esportsterminal';
 							metaTags.metaTagsImg = 'https://i.imgur.com/2oy41V3.png';
-							metaTags.metaTagsTitle = 'EST Overwatch League News';
-							metaTags.metaTagsName = 'EST Overwatch League News';
-							metaTags.metaTagsType = 'news';
-							metaTags.metaTagsDescription = 'Overwatch League specific news, articles, and events';
+							metaTags.metaTagsTitle = 'Overwatch League - EST';
+							metaTags.metaTagsName = 'Overwatch League - EST';
+							metaTags.metaTagsType = 'website';
+							metaTags.metaTagsDescription = 'Overwatch League news & events coverage';
 							metaTags.metaTagsRobots = 'index,follow';
 							metaTags.metaTagsKeyWords = 'esports, overwatch, overwatch league, owl, blizzard, competitive gaming';
 							
@@ -426,17 +411,6 @@ router.get('/search/events', function(req, res){
 	});	
 });
 
-// router.get('/search/streams', function(req, res){
-// 	Event.find({$text: {$search: req.query.search}, stream: true}).limit(30).exec(function(err, events){
-// 		if(err){
-// 			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
-// 			return res.redirect('/stream');
-// 		} else {
-// 			res.render('search_events', {events: events, search: req.query.search});
-// 		}
-// 	});		
-// });
-
 router.get('/search/author', function(req, res){
 	Article.find({$text: {$search: req.query.search} }).limit(30).exec(function(err, foundArticles){
 		if(err){
@@ -498,6 +472,5 @@ router.post('/contact', function(req, res){
 				    }
 				});
 });
-
 
 module.exports = router;

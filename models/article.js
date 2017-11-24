@@ -5,6 +5,7 @@ var contentTypes = ['standard', 'video'];
 
 var articleSchema = new mongoose.Schema({
 	title: String,
+	subTitle: String,
 	author: String,
 	published: {type: Date, default: Date.now},
 	image: String,

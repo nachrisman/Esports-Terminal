@@ -7,9 +7,8 @@ var express = require('express'),
 
 router.get('/', function(req, res){
 	var today = moment().startOf('day');
-	var lastWeek = moment().subtract(7, 'days')
+	var lastWeek = moment().subtract(7, 'days');
 
-	//Events happening on current date
 	Event.find({date: today.toDate()}, function(err, currentEvents){
 		if(err){
 			console.log('Error');
@@ -37,11 +36,31 @@ router.get('/', function(req, res){
 
 router.get('/:id', function(req, res){
 	var today = moment().startOf('day');
+	var metaTags = {
+		metaTagsUrl: 'https://Test.com/',
+		metaTagsSite: '@Test',
+		metaTagsImg: 'https://url/img.png',
+		metaTagsTitle: 'Test',
+		metaTagsName: 'Test',
+		metaTagsType: 'website',
+		metaTagsDescription: "Description",
+		metaTagsRobots: 'index,follow',
+		metaTagsKeyWords: 'esports, news, articles'
+	};
 
 	Event.findById(req.params.id, function(err, foundEvent){
 		if(err){
 			res.redirect('/events');
 		} else {
+			metaTags.metaTagsUrl = 'https://esportsterminal.com/events/' + foundEvent._id;
+			metaTags.metaTagsSite = '@esportsterminal';
+			metaTags.metaTagsImg = foundEvent.image;
+			metaTags.metaTagsTitle = foundEvent.title;
+			metaTags.metaTagsName = foundEvent.title;
+			metaTags.metaTagsDescription = foundEvent.title;
+			metaTags.metaTagsRobots = 'index, follow';
+			metaTags.metaTagsKeyWords = foundEvent.title;
+							
 			Article.find({categories: {$in: [foundEvent.games]}}).sort({published: -1}).limit(6).exec(function(err, relatedArticles){
 				if(err){
 					console.log(err);
@@ -62,7 +81,8 @@ router.get('/:id', function(req, res){
 										foundEvent: foundEvent, 
 										relatedArticles: relatedArticles,
 										relatedEvents: relatedEvents,
-										randomArticles: randomArticles
+										randomArticles: randomArticles,
+										metaTags: metaTags
 									});
 								}
 							});
