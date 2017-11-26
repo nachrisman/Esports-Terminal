@@ -1,10 +1,9 @@
-/* body & html */
 body, html {
     background-color: #fff;
     color: #000;
     font-size: 14pt;
     font-family: 'Poppins', sans-serif;
-}  
+}
 
 #primary-wrapper{
     display:block;
@@ -13,7 +12,13 @@ body, html {
 
 h1{
     font-family: 'Russo One', sans-serif;
-    text-align:center;
+    text-align: center;
+}
+
+@media screen and (max-width: 765px){
+    h1{
+        font-size: 5vw;
+    }
 }
 
 h2{
@@ -27,7 +32,6 @@ hr{
     width:60%;
 }
 
-/* commons */
 .content-divider-sm{
     border-bottom:3px solid red;
     width:50%;
@@ -100,6 +104,16 @@ hr{
     width: 30vw;
     font-size: 2vw;
     border-radius: 25px 0 25px 0;
+}
+
+@media screen and (max-width: 765px){
+    #page-header h1{
+        font-size: 5vw;
+    }
+    
+    .content-search .btn-est{
+        display: none;
+    }
 }
 
 /* overwatch league */
@@ -890,6 +904,11 @@ hr{
     white-space: pre-wrap;
 }
 
+@media screen and (max-width: 765px){
+    .article-body{
+        margin: 25px;
+    }
+}
 
 @media screen and (max-width: 765px){
     .meta-container .article-pub-date,
