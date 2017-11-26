@@ -7,7 +7,7 @@ router.get('/', function(req, res){
 	var today = moment().startOf('day');
 	var lastWeek = moment().subtract(7, 'days');
 
-	Article.find({}).sort({published: -1}).limit(25).exec(function(err, articles){
+	Article.find({published: {$lte: today.toDate()}}).sort({published: -1}).limit(25).exec(function(err, articles){
 		if(err){
 			console.log(err);
 		} else {
