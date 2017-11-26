@@ -110,10 +110,6 @@ hr{
     #page-header h1{
         font-size: 5vw;
     }
-    
-    .content-search .btn-est{
-        display: none;
-    }
 }
 
 /* overwatch league */
@@ -904,11 +900,11 @@ hr{
     white-space: pre-wrap;
 }
 
-@media screen and (max-width: 765px){
-    .article-body{
-        margin: 25px;
-    }
-}
+/*@media screen and (max-width: 765px){*/
+/*    .article-body{*/
+/*        margin: 25px;*/
+/*    }*/
+/*}*/
 
 @media screen and (max-width: 765px){
     .meta-container .article-pub-date,
