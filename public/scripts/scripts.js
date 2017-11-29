@@ -1,5 +1,8 @@
 /* global $ */
 $(document).ready(function(){
+	// Article View
+	$('.article-body a').attr('target', '_blank');
+
 	var teamLinkIds = [];
 	var teamLogoIds = [];
 	
@@ -16,25 +19,6 @@ $(document).ready(function(){
 		});
 		
 	});
-
-	
-	// $.each(teamLogoIds, function(key, id){
-	// 	$("#"+id).mouseenter(function(){
-	// 		$("#"+teamLinkIds[key]).slideDown();
-	// 	});
-		
-	// 	$("#"+id).mouseleave(function(){
-	// 		$("#"+teamLinkIds[key]).slideUp();
-	// 	});
-		
-	// 	$("#"+teamLinkIds[key]).mouseenter(function(){
-	// 		$("#"+teamLinkIds[key]).stop();	
-	// 	});
-		
-	// 	$("#"+teamLinkIds[key]).mouseleave(function(){
-	// 		$("#"+teamLinkIds[key]).slideUp();	
-	// 	});
-	// });
 	
 	
 	var teamMemberIds = [];

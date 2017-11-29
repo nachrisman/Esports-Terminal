@@ -6,7 +6,6 @@ var express = require('express'),
 router.get('/', function(req, res){
 	var today = moment().startOf('day');
 	var lastWeek = moment().subtract(7, 'days');
-	var one = 1;
 
 	Article.find({}).sort({published: -1}).limit(25).exec(function(err, articles){
 		if(err){
