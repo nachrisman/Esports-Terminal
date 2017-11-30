@@ -139,7 +139,7 @@ router.get('/new-article', middleware.isAdmin, function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			User.find({role: 'admin'}, function(err, authors){
+			User.find({role: {$in: ['admin', 'editor']}}, function(err, authors){
 				if(err){
 					console.log(err, err.message);
 				} else {
