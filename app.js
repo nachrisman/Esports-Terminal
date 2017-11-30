@@ -15,7 +15,8 @@ var adminRoutes 	= require('./routes/admin'),
 	newsRoutes  	= require('./routes/news'),
 	eventRoutes 	= require('./routes/events'),
 	accountRoutes 	= require('./routes/account'),
-	indexRoutes 	= require('./routes/index');
+	indexRoutes 	= require('./routes/index'),
+	sitemapRoutes	= require('./routes/sitemap');
 
 mongoose.Promise = global.Promise;
 
@@ -50,6 +51,7 @@ app.use(function(req, res, next){
 });
 
 app.use('/account', accountRoutes),
+app.use('/', sitemapRoutes)
 app.use('/events', eventRoutes),
 app.use('/admin', adminRoutes),
 app.use('/news', newsRoutes),
