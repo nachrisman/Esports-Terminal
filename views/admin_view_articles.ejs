@@ -1,24 +1,10 @@
 <% include ./partials/admin_header %>
-	<div class='container-fluid'>
-		<div class='row view-header'>
-			<div class='col-xs-12 col-md-12'>
-				<h1>Articles</h1>
-				<div class='clear-div'>
-					<hr>
-				</div>
-				<div class='form-group row'>
-			    	<div class='col-xs-4 col-md-4'>
-			    		<a class="btn btn-primary btn-est" href="/admin/new-article" role="button">Add a New Article</a>
-			    	</div>
-				  	<div class='col-xs-2 col-md-2 search-label'>
-				  		<label for='content-search'>Search: </label>
-				  	</div>
-				  	<div class='col-xs-6 col-md-6 search-field'>
-				  		<input class='form-control' type='search' placeholder='search articles' id='content-search'>
-				  	</div>
-			    </div>
+		<div class='container-fluid'>
+			<div class='page-header'>
+				<h2>Articles</h2>
+				<a class="btn btn-primary btn-est" href="/admin/new-article" role="button">Add a New Article</a>
 			</div>
-		</div>
+			<hr>
 		<% if(currentUser.role == 'editor'){ %>
 		<div class='row view-list'>
 			<div class='col-xs-12 col-md-12'>

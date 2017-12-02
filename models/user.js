@@ -1,6 +1,8 @@
 var passportLocalMongoose = require('passport-local-mongoose'), 
 	mongoose              = require('mongoose');
 
+var userRoles = ['admin', 'editor', 'user'];
+
 var userSchema = new mongoose.Schema({
 	firstName: String,
 	lastName: String,
@@ -27,7 +29,7 @@ var userSchema = new mongoose.Schema({
 	newsletter: {type: Boolean, default: true},
 	role:{
 		type: String,
-		enum: ['admin', 'editor', 'user'],
+		enum: userRoles,
 		default: 'user'
 	},
 	active: {type: Boolean, default: false},
@@ -39,6 +41,10 @@ var userSchema = new mongoose.Schema({
 
 userSchema.virtual('fullname').get(function () {
     return this.firstName + ' ' + this.lastName;
+});
+
+userSchema.virtual('roles').get(function () {
+    return userRoles;
 });
 
 userSchema.plugin(passportLocalMongoose);

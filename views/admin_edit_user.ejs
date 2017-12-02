@@ -1,135 +1,90 @@
 <% include ./partials/admin_header %>
-	<div class='container-fluid'>
-				<div class='row' id='page-header'>
-					<div class='col-xs-8 col-md-8'>
-						<h2>Edit <%= user.fullname %></h2>
-					</div>
-					<div class='col-xs-4 col-md-4'>
-						<a class='btn btn-primary btn-est' href='/admin/view-users' role='button'>Return to Users</a>
-					</div>
-				</div>
-				<div class='clear-div'>
-					<hr>
-				</div>
-				<div class='row'>
-					<div class='col-xs-12 col-md-12'>
-						<form class='new-item-entry' action='/admin/edit-user/<%= user._id %>?_method=PUT' method='POST'>
-							<div class='form-group row'>
-								<div class='col-xs-6 col-md-6'>
-									<label for='firstName'>First Name: </label>
-									<input class='form-control' type='text' name='user[firstName]' id='firstName' value='<%= user.firstName %>'>
-								</div>
-								<div class='col-xs-6 col-md-6'>
-									<label for='lastName'>Last Name: </label>
-									<input class='form-control' type='text' name='user[lastName]' id='lastName' value='<%= user.lastName %>'>
-								</div>
-							</div>
-							<div class='form-group row'>
-								<div class='col-xs-6 col-md-6'>
-									<label for='username'>Username: </label>
-									<input class='form-control' type='text' name='user[username]' id='username' value='<%= user.username %>'>
-								</div>
-								<div class='col-xs-6 col-md-6'>
-									<label for='email'>Email: </label>
-									<input class='form-control' type='email' name='user[email]' id='email' value='<%= user.email %>'>
-								</div>
-							</div>
-							<div class='form-group row'>
-								<div class='col-xs-6 col-md-6'>
-									<label for='phone'>Phone: </label>
-									<input class='form-control' type='text' name='user[phone]' id='phone' value='<%= user.phone %>'>
-								</div>
-								<div class='col-xs-6 col-md-6'>
-									<label for='gender'>Gender: </label>
-									<select class='form-control custom-select' name='user[gender]' id='gender' value='<% user.gender %>'>
-									<% if(user.gender === 'male') {          %>
-									  <option value='male' selected='selected'>Male</option>
-									  <option value='female'>Female</option>
-									  <option value='unspecified'>Prefer Not to Say</option>
-									<% } else if(user.gender === 'female') { %>
-									  <option value='male'>Male</option>
-									  <option value='female' selected='selected'>Female</option>
-									  <option value='unspecified'>Prefer Not to Say</option>
-									<% } else {                              %>
-									  <option value='male'>Male</option>
-									  <option value='female'>Female</option>
-									  <option value='unspecified' selected='selected'>Prefer Not to Say</option>
-									<% }; %>
-									</select>
-								</div>
-							</div>
-							<div class='form-group row'>
-								<div class='col-xs-6 col-md-6'>
-									<label for='street'>Street: </label>
-									<input class='form-control' type='text' name='user[location][street]' id='street' value='<%= user.location.street %>'>
-								</div>
-								<div class='col-xs-6 col-md-6'>
-									<label for='city'>City: </label>
-									<input class='form-control' type='text' name='user[location][city]' id='city' value='<%= user.location.city %>'>
-								</div>
-							</div>
-							<div class='form-group row'>
-								<div class='col-xs-6 col-md-6'>
-									<label for='state'>State: </label>
-									<select class='form-control custom-select' name='user[location][state]' id='state' value='<%= user.location.state %>'>
-									<% states.forEach(function(state) { %>
-									<%     if(state == user.location.state) { %> 
-										<option value='<%= state %>' selected><%= state %></option>
-									<% } else { %>
-										<option value='<%= state %>'><%= state %></option>
-									<% 	   }; %>
-									<% }); %>
-									</select>
-								</div>
-								<div class='col-xs-6 col-md-6'>
-									<label for='zip'>Zip Code: </label>
-									<input class='form-control' type='text' name='user[location][zip]' id='zip' value='<%= user.location.zip %>'>
-								</div>
-							</div>
-							<div class='form-group row'>
-								<div class='col-xs-6 col-md-6'>
-									<label for='country'>Country: </label>
-									<select class='form-control custom-select' name='user[location][country]' id='country' value='<%= user.location.country %>'>
-								  	<% countries.forEach(function(country) { %>
-								  	<% 	if(user.location.country == country) { %>
-								  		<option value='<%= country %>' selected><%= country %></option>
-								  	<% } else { %>
-								  		<option value='<%= country %>'><%= country %></option>
-								  	<% } %>
-								  	<% }); %>
-									</select>
-								</div>
-								<div class='col-xs-6 col-md-6'>
-									<label for='role'>Role: </label>
-									<select class='form-control custom-select' name='user[role]' id='role' value='<%= user.role %>'>
-									<% if(user.role == 'admin') { %>
-									  <option value='admin' selected>Admin</option>
-									  <option value='editor'>Editor</option>
-									  <option value='user'>Standard User</option>
-									  <% } else if(user.role == 'editor') { %>
-									  <option value='admin'>Admin</option>
-									  <option value='editor' selected>Editor</option>
-									  <option value='user'>Standard User</option>
-									  <% } else { %>
-									  <option value='admin'>Admin</option>
-									  <option value='editor'>Editor</option>
-									  <option value='user' selected>Standard User</option>
-									  <% } %>
-									</select>
-								</div>
-							</div>
-							<div class='clear-div'>
-								<hr>
-							</div>
-							<button class='btn btn-primary btn-est' type='submit'>Update User</button>
-	  					</form>
-	  					<div class='clear-div'>
-	  						<hr>
-	  					</div>
-	  					<form class='new-item-entry' action='/admin/view-user/<%= user._id %>?_method=DELETE' method='POST'>
-							<button class='btn btn-danger btn-est-danger' type='submit'>Delete User</button>
-	  					</form>
-					</div>
-				</div>
+		<div class='container-fluid'>
+			<div class='page-header'>
+				<h2>Edit '<%= user.fullname %>'</h2>
+				<a class='btn btn-primary btn-est' href='/admin/view-users' role='button'>Return to Users</a>
 			</div>
+			<hr>
+			<div class='content-form'>
+				<form class='account-form' action='/admin/edit-user/<%= user._id %>?_method=PUT' method='POST'>
+					<div class='content-form-col'>
+						<label for='first-name'>First Name:</label>
+						<input class='form-control' type='text' name='user[firstName]' id='first-name' value='<%= user.firstName %>' required />
+						<label for='last-name'>Last Name:</label>
+						<input class='form-control' type='text' name='user[lastName]' id='last-name' value='<%= user.lastName %>' required />
+						<label for='username'>Username:</label>
+						<input class='form-control' type='text' name='user[username]' id='username' value='<%= user.username %>' required />
+						<label for='email'>Email:</label>
+						<input class='form-control' type='text' name='user[email]' id='email' value='<%= user.email %>' required />
+						<label for='gender'>Gender:</label>
+						<select class='form-control custom-select' type='select' name='user[gender]' id='gender'>
+							<% if(user.gender === 'male') { %>
+								<option value='male' selected='selected'>Male</option>
+								<option value='female'>Female</option>
+								<option value='unspecified'>Prefer Not to Say</option>
+							<% } else if(user.gender === 'female') { %>
+								<option value='male'>Male</option>
+								<option value='female' selected='selected'>Female</option>
+								<option value='unspecified'>Prefer Not to Say</option>
+							<% } else { %>
+								<option value='male'>Male</option>
+								<option value='female'>Female</option>
+								<option value='unspecified' selected='selected'>Prefer Not to Say</option>
+							<% }; %>
+						</select>
+						<label for='role'>Access Level:</label>
+						<select class='form-control custom-select' type='select' name='user[role]' name='role' required>
+							<option disabled>Select an Access Level</option>
+							<% user.roles.forEach(function(role){ %>
+								<% if(user.role == role) { %>
+								<option value='<%= role %>' selected><%= role %></option>
+								<% } else { %>
+								<option value='<%= role %>'><%= role %></option>
+								<% } %>
+							<% }); %>
+						</select>
+					</div>
+					<div class='content-form-col'>
+						<label for='phone'>Phone:</label>
+						<input class='form-control' type='text' name='user[phone]' id='phone' value='<%= user.phone %>'>
+						<label for='street'>Street:</label>
+						<input class='form-control' type='text' name='user[location][street]' id='street' value='<%= user.location.street %>'>
+						<label for='city'>City:</label>
+						<input class='form-control' type='text' name='user[location][city]' id='city' value='<%= user.location.city %>'>
+						<label for='zip'>Zip:</label>	
+						<input class='form-control' type='text' name='user[location][zip]' id='zip' value='<%= user.location.zip %>'>
+						<label for='state'>State: </label>
+						<select class='form-control custom-select' name='user[location][state]' id='state' value='<%= user.location.state %>'>
+						<% states.forEach(function(state) { %>
+							<% if(state === user.location.state) { %>
+							<option value='<%= state %>' selected><%= state %></option>
+							<% } else { %>
+							<option value='<%= state %>'><%= state %></option>
+							<% } %>
+						<% }); %>
+						</select>
+						<label for='country'>Country: </label>
+						<select class='form-control custom-select' type='select' name='user[location][country]' id='country' required>
+							<% countries.forEach(function(country) { %>
+								<% 	if(user.location.country == country) { %>
+								<option value='<%= country %>' selected><%= country %></option>
+								<% } else { %>
+								<option value='<%= country %>'><%= country %></option>
+								<% } %>
+						  <% }); %>
+						</select>
+						<div class='content-form-actions'>
+							<button class='btn btn-outline-primary' type='submit' value='Save Changes'>Save Changes</button>
+							<button class='btn btn-outline-danger' onclick="location.href='/admin/view-users';" disabled>Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class='delete-item-container'>
+				<form class='delete-item' action='/admin/view-user/<%= user._id %>?_method=DELETE' method='POST'>
+					<button class='btn btn-danger' type='submit'>Delete User</button>
+				</form>
+			</div>
+			<hr>
+		</div>
 <% include ./partials/admin_footer %>

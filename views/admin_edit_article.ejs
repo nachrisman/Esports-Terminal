@@ -103,14 +103,14 @@
 						<div class='content-form-actions'>
 							<button class='btn btn-outline-primary' type='submit'>Update Article</button>
 							<button class='btn btn-outline-info' type='button' disabled>Preview Edit</button>
-							<button class='btn btn-outline-danger' onclick="location.href='/admin/view-articles';">Cancel</button>
+							<button class='btn btn-outline-danger' onclick="location.href='/admin/view-articles';" disabled>Cancel</button>
 						</div>
 					</div>
 				</form>
 				<div class='delete-item-container'>
 					<form class='delete-item' id='delete-article' action='/news/<%= article._id %>?_method=DELETE' method='POST'>
 						<button class='btn btn-danger' type='submit'>Delete Article</button>
-		  			</form>
+					</form>
 				</div>
 			</div>
 			<hr>

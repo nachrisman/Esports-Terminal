@@ -1,16 +1,10 @@
 <% include ./partials/admin_header %>
 		<div class='container-fluid'>
-				<div class='row' id='page-header'>
-					<div class='col-xs-8 col-md-8'>
-						<h2>Add a New Game</h2>
-					</div>
-					<div class='col-xs-4 col-md-4'>
-						<a class='btn btn-primary btn-est' href='/admin/view-games' role='button'>Return to Games</a>
-					</div>
+				<div class='page-header'>
+					<h2>Edit '<%= game.title %>'</h2>
+					<a class='btn btn-primary btn-est' href='/admin/view-games' role='button'>Return to Games</a>
 				</div>
-				<div class='clear-div'>
-					<hr>
-				</div>
+				<hr>
 				<div class='row'>
 					<div class='col-xs-12 col-md-12'>
 						<form class='new-item-entry' action='/admin/view-games/<%= game._id %>?_method=PUT' method='POST'>

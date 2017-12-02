@@ -40,7 +40,7 @@ body, html {
     margin: 20px;
 }
 
-/* Header/Navigation */
+/* Header/Nav */
 .navbar.navbar-light{
     display: flex;
     flex-direction: column;
@@ -49,8 +49,8 @@ body, html {
 }
 
 #nav-logo{
-    width:auto;
-    max-height:100px;
+    width: auto;
+    max-height: 75px;
 }
 
 .collapse.navbar-collapse > ul{
@@ -62,23 +62,10 @@ body, html {
     color: #000;
 }
 
-/* admin content view */
+/* Page Headers */
 .page-header{
     display: flex;
     justify-content: space-around;
-}
-
-.view-header{
-    margin: 0 auto 25px auto;
-	width:70vw;
-}
-
-.view-header{
-    text-align:center;
-}
-
-.search-label{
-    text-align:right;
 }
 
 .view-list{
@@ -90,12 +77,7 @@ body, html {
     clear:both;
 }
 
-/* dashboard */
-#quick-stats label, p{
-    display: inline-block;
-}
-
-/* Forms */
+/* General Form Styles */
 .btn-est{
     background-color: #333399;
     font-size: 1vw;
@@ -119,20 +101,15 @@ hr{
     margin-bottom: 25px;
 }
 
+.content-form label{
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 .content-form-col{
     flex-basis: 40vw;
     display: flex;
     flex-direction: column;
-}
-
-.article-form{
-    display: flex;
-    justify-content: space-around;
-}
-
-.article-form label{
-    margin-top: 5px;
-    font-weight: bold;
 }
 
 .content-form-actions{
@@ -179,6 +156,27 @@ hr{
     margin-left: auto;
 }
 
+/* User Account Creation/Edit Form */
+.account-form{
+    display: flex;
+    justify-content: center;
+}
+
+.account-form .content-form-col{
+    margin: 0 20px 0 20px;
+    flex-basis: 30vw;
+}
+
+.account-form .btn{
+    margin-top: 15px;
+}
+
+/* Article - Add/Edit Forms */
+.article-form{
+    display: flex;
+    justify-content: space-around;
+}
+
 #article-meta{
     display: flex;
     flex-wrap: wrap;
@@ -206,29 +204,8 @@ hr{
     justify-content: space-between;
 }
 
-
-
-#page-header{
-    width:60%;
-    margin:25px auto;
-}
-
-#page-header a{
-    display: block;
-    margin: 0 auto;
-}
-
-.user-account-edit{
-    margin:0 auto;
-    width: 50vw;
-}
-
-.user-account-edit button{
-    display:block;
-}
- 
- .new-item-entry{
-     margin:0 auto 50px auto;
+.new-item-entry{
+     margin: 0 auto 50px auto;
      width:50vw;
  }
 
@@ -239,54 +216,6 @@ hr{
 .view-list img{
 	height:125px;
 	width:auto;
-}
-
-.game-select{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width:100%;
-}
-
-.game-select label{
-    width:20%;
-    height:auto;
-    display:inline-block;
-}
-
-.meta-select-thumbnail{
-    width:100%;
-    height:auto;
-    margin:10px 0 10px 0;
-}
-
-.meta-select-thumbnail{
-    transition: opacity .5s ease-in-out;
-   -moz-transition: opacity .5s ease-in-out;
-   -webkit-transition: opacity .5s ease-in-out;
-}
-
-.meta-select-thumbnail:hover{
-   opacity:0.4;
-}
-
-.game-select label > input{
-    visibility:hidden;
-    position:absolute;
-}
-
-.game-select label > input + img{
-    cursor:pointer;
-    background-color:transparent;
-    border-radius: transparent;
-    border: transparent;
-}
-
-.game-select label > input:checked + img{
-    background-color:#0F0F63;
-    border-radius:10px;
-    border: 2px solid white;
 }
 
 #delete-item{
@@ -303,6 +232,3 @@ hr{
     display: block;
     margin: 0 auto 25px auto;
 }
-
-
-

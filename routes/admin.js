@@ -1,19 +1,21 @@
-var express 	= require('express'),
-	router		= express.Router(),
-	User 		= require('../models/user'),
+var Article 	= require('../models/article'),
 	Event 		= require('../models/event'),
-	Article 	= require('../models/article'),
 	Game 		= require('../models/game'),
 	Team		= require('../models/team'),
-	passport 	= require('passport'),
+	User 		= require('../models/user'),
+	countryList = require('country-list')(),
 	middleware  = require('../middleware'),
 	country		= require('countryjs'),
+	passport 	= require('passport'),
+	express 	= require('express'),
 	moment		= require('moment'),
-	countryList = require('country-list')();
+	router		= express.Router();
 
+// Geographical information
 var states	  = country.states('US'),
 	countries = countryList.getNames();
-	
+
+// Authentication page
 router.get('/login', function(req, res){
 	res.render('admin_login');
 });
@@ -26,42 +28,22 @@ router.post('/login', passport.authenticate('local',
 	}), function(req, res){
 });
 
+// Admin Dashboard with website insights/stats
 router.get('/', middleware.isAdmin, function(req, res){
-	Article.find({}, function(err, articles){
-		if(err){
-			console.log(err);
-		} else {
-			Event.find({}, function(err, events){
-				if(err){
-					console.log(err);
-				} else {
-					Game.find({}, function(err, games){
-						if(err){
-							console.log(err);
-						} else {
-							User.find({}, function(err, users){
-								if(err){
-									console.log(err);
-								} else {
-									res.render('admin', {articles: articles, events: events, games: games, users: users});
-								}
-							});
-						}
-					});
-				}
-			});
-		}
-	});
+	res.render('admin');
 });
 
+// Current user's account page with editing functionality
 router.get('/account', middleware.isAdmin, function(req, res){
 	res.render('admin_account', {states: states, countries: countries});	
 });
 
+// User Accounts CRUD
 router.get('/view-users', middleware.isAdmin, function(req, res){
-	User.find({}).sort({lastName: 1}).exec(function(err, users){
+	User.find({}).sort({lastName: 1}).limit(15).exec(function(err, users){
 		if(err){
-			res.send('No Users Found');
+			req.flash('error', err.message);
+			res.redirect('/admin');
 		} else {
 			res.render('admin_view_users', {users: users});
 		}
@@ -91,9 +73,8 @@ router.post('/new-user', middleware.isAdmin, function(req, res){
 	});
 	User.register(newUser, req.body.password, function(err, user){
 		if(err){
-			req.flash('error', 'Could not add user. Check error logs.');
-			console.log(err);
-			return res.render('admin_new_user', {states: states, countries: countries});
+			req.flash('error', err.message);
+			return res.redirect('/admin/new-user');
 		}
 		req.flash('success', 'User added successfully!');
 		res.redirect('/admin/view-users');
@@ -103,7 +84,8 @@ router.post('/new-user', middleware.isAdmin, function(req, res){
 router.get('/edit-user/:id', middleware.isAdmin, function(req, res){
 	User.findById(req.params.id, function(err, foundUser){
 		if(err){
-			console.log(err);
+			req.flash('error', err.message);
+			res.redirect('/admin/view-users');
 		} else {
 			res.render('admin_edit_user', {user: foundUser, states: states, countries: countries});
 		}
@@ -113,8 +95,8 @@ router.get('/edit-user/:id', middleware.isAdmin, function(req, res){
 router.put('/edit-user/:id', middleware.isAdmin, function(req, res){
 	User.findByIdAndUpdate(req.params.id, req.body.user, function(err, updatedUser){
 		if(err){
-			req.flash('error', 'Could not edit user. Check error logs.');
-			console.log('error');
+			req.flash('error', err.message);
+			res.redirect('/admin/view-users')
 		} else {
 			req.flash('success', 'User edited successfully!');
 			res.redirect('/admin/view-users');
@@ -125,8 +107,8 @@ router.put('/edit-user/:id', middleware.isAdmin, function(req, res){
 router.delete('/view-user/:id', middleware.isAdmin, function(req, res){
 	User.findByIdAndRemove(req.params.id, function(err){
 		if(err){
-			req.flash('error', 'Could not delete user. Check error logs.');
-			console.log(err);
+			req.flash('error', err.message);
+			res.redirect('/admin/view-users')
 		} else {
 			req.flash('success', 'User deleted successfully!');
 			res.redirect('/admin/view-users');
@@ -134,26 +116,30 @@ router.delete('/view-user/:id', middleware.isAdmin, function(req, res){
 	});
 });
 
+// Article CRUD
 router.get('/new-article', middleware.isAdmin, function(req, res){
 	Game.find({}, function(err, games){
 		if(err){
-			console.log(err);
+			req.flash('error', err.message);
+			return res.redirect('/admin/view-articles');
 		} else {
 			User.find({role: {$in: ['admin', 'editor']}}, function(err, authors){
 				if(err){
-					console.log(err, err.message);
+					req.flash('error', err.message);
+					return res.redirect('/admin/view-articles');
 				} else {
 					Article.findOne({}, function(err, article){
 						if(err){
-							console.log(err);
+							req.flash('error', err.message);
+							return res.redirect('/admin/view-articles');
 						} else {
 							Team.find({}, function(err, teams){
 								if(err){
 									req.flash('error', err.message);
-									return res.redirect('/admin/view-articles')
+									return res.redirect('/admin/view-articles');
 								} else {
 									var contentTypes = article.contentTypes;
-									var today = moment().format("YYYY-MM-DD");
+									var today = moment().local().format("YYYY-MM-DD");
 									
 									res.render('admin_new_article', {
 										games: games, 
@@ -175,15 +161,18 @@ router.get('/new-article', middleware.isAdmin, function(req, res){
 router.get('/edit-article/:id', middleware.isAdmin, function(req, res){
 	Article.findById(req.params.id, function(err, foundArticle){
 		if(err){
-			console.log(err);
+			req.flash('error', err.message);
+			return res.redirect('/admin/view-articles');
 		} else {
 			Game.find({}, function(err, games){
 				if(err){
-					console.log(err);
+					req.flash('error', err.message);
+					return res.redirect('/admin/view-articles');
 				} else {
 					User.find({role: {$in: ['admin', 'editor']}}, function(err, authors){
 						if(err){
-							console.log(err, err.message);
+							req.flash('error', err.message);
+							return res.redirect('/admin/view-articles');
 						} else {
 							Team.find({}, function(err, teams){
 								if(err){
@@ -211,15 +200,29 @@ router.get('/edit-article/:id', middleware.isAdmin, function(req, res){
 	});
 });
 
+
+// Events CRUD
+router.get('/view-events', middleware.isAdmin, function(req, res){
+	Event.find({}).sort({date: -1}).limit(15).exec(function(err, events){
+		if(err){
+			req.flash('error', err.message);
+			return res.redirect('/admin');
+		} else {
+			res.render('admin_view_events', {events: events});
+		}
+	});
+});
+
 router.get('/new-event', middleware.isAdmin, function(req, res){
 	Game.find({}, function(err, games){
 		if(err){
-			console.log(err);
+			req.flash('error', err.message);
+			return res.redirect('/admin/view-events');
 		} else {
 			Team.find({}, function(err, teams){
 				if(err){
 					req.flash('error', err.message);
-					return res.redirect('/admin/view-teams');
+					return res.redirect('/admin/view-events');
 				} else {
 					res.render('admin_new_event', {
 						games: games, 
@@ -229,16 +232,6 @@ router.get('/new-event', middleware.isAdmin, function(req, res){
 					});
 				}
 			});
-		}
-	});
-});
-
-router.get('/view-events', middleware.isAdmin, function(req, res){
-	Event.find({}).sort({date: -1}).limit(15).exec(function(err, events){
-		if(err){
-			res.send('No Events Found');
-		} else {
-			res.render('admin_view_events', {events: events});
 		}
 	});
 });

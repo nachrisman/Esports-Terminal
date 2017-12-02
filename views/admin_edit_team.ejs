@@ -1,14 +1,10 @@
 <% include ./partials/admin_header %>
         <div class='container-fluid'>
-			<div class='row' id='page-header'>
-				<div class='col-xs-8 col-md-8'>
+        		<div class='page-header'>
 					<h2>Edit '<%= team.name %>'</h2>
-				</div>
-				<div class='col-xs-4 col-md-4'>
 					<a class='btn btn-primary btn-est' href='/admin/view-teams' role='button'>Return to Teams</a>
 				</div>
-			</div>
-			<hr>
+				<hr>
 			<div class='row'>
 				<div class='col-xs-12 col-md-12'>
 					<form class='new-item-entry' action='/admin/edit-team/<%= team._id %>?_method=PUT' method='POST'>
