@@ -155,7 +155,7 @@ router.delete('/:id', function(req, res){
 			res.redirect('/admin/view-articles');
 		} else {
 			req.flash('success', 'Article deleted successfully!');
-			res.redirect('admin_view_articles');
+			res.redirect('/admin/view-articles');
 		};
 	});
 });

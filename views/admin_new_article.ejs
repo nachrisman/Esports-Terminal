@@ -1,149 +1,89 @@
 <% include ./partials/admin_header %>
-			<div class='container-fluid'>
-				<div class='row' id='page-header'>
-					<div class='col-xs-8 col-md-8'>
-						<h2>Post a New Article</h2>
-					</div>
-					<div class='col-xs-4 col-md-4'>
-						<a class='btn btn-primary btn-est' href='/admin/view-articles' role='button'>Return to Articles</a>
-					</div>
-				</div>
-				<div class='clear-div'>
-					<hr>
-				</div>
-				
-				<div class='row'>
-					<div class='col-xs-12 col-md-12'>
-						<form class='new-item-entry' action='/news' method='POST'>
-							<div class='form-group row'>
-								<div class='col-xs-4 col-md-4'>
-									<label for='author'>Author: </label>
-									<select class='form-control custom-select' name='article[author]' id='author' required>
-										<option disabled selected>Select an Author</option>
-		  						<% authors.forEach(function(author){ %>
-		  							<option value='<%= author.fullname %>'><%= author.fullname %></option>
-		  						<% }); %>
-		  						</select>
-								</div>
-								<div class='col-xs-8 col-md-8'>
-									<label for='date'>Publishing Date: </label>
-									<input class='form-control' type='date' id='date' value='<%= today %>' required>
-								</div>
-		  				</div>
-		  				<hr>
-		  				<div class='form-group row'>
-		  					<div class='col-xs-2 col-md-2'>
-		  						<label>Categories: </label>
-		  					</div>
-		  					<div class='col-xs-10 col-md-10'>
-		  						<div class="form-check form-check-inline">
-									  <label class="form-check-label">
-									    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name='article[categories][]' value='general' checked> General
-									  </label>
-									</div>
-									<div class="form-check form-check-inline">
-									  <label class="form-check-label">
-									    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name='article[categories][]' value='Overwatch League'> Overwatch League
-									  </label>
-									</div>
-									<% games.forEach(function(game){ %>
-										<div class="form-check form-check-inline">
-									  <label class="form-check-label">
-									    <input class="form-check-input" type="checkbox" name='article[categories][]' id="inlineCheckbox2" value='<%=game.title%>'><%= game.title %>
-									  </label>
-									</div>
-									<% }); %>
-		  					</div>
-		  				</div>
-		  				<div class='form-group row'>
-		  					<div class='col-xs-2 col-md-2'>
-		  						<label>Teams (OWL Only): </label>
-		  					</div>
-		  					<div class='col-xs-10 col-md-10'>
-									<% teams.forEach(function(team){ %>
-										<div class="form-check form-check-inline">
-									  <label class="form-check-label">
-									    <input class="form-check-input" type="checkbox" name='article[categories][]' id="inlineCheckbox2" value='<%=team.name%>'><%= team.name %>
-									  </label>
-									</div>
-									<% }); %>
-		  					</div>
-		  				</div>
-		  				<div class='form-group row'>
-		  					<div class='col-xs-2 col-md-2'>
-		  						<label>Article Type: </label>
-		  					</div>
-		  					<div class='col-xs-10 col-md-10'>
-		  						<% contentTypes.forEach(function(contentType){ %>
-		  						<div class="form-check form-check-inline">
-									  <label class="form-check-label">
-									    <input class="form-check-input" type="checkbox" name='article[contentType]' value='<%= contentType %>'><%= contentType %>
-									  </label>
-									</div>
-		  						<% }); %>
-		  					</div>
-		  				</div>
-		  				<hr>
-		  				<div class='form-group row'>
-		  					<div class='col-xs-2 col-md-2'>
-		  						<label for='title'>Title: </label>
-		  					</div>
-		  					<div class='col-xs-10 col-md-10'>
-		  						<input class='form-control' type='text' name='article[title]' id='title' required>
-		  					</div>
-		  				</div>
-		  				<div class='form-group row'>
-		  					<div class='col-xs-4 col-md-4'>
-		  						<label for='subTitle'>Sub Title (a few words, used for social): </label>
-		  					</div>
-		  					<div class='col-xs-8 col-md-8'>
-		  						<input class='form-control' type='text' name='article[subTitle]' id='subTitle' required>
-		  					</div>
-		  				</div>
-		  				<div class='form-group row'>
-		  					<div class='col-xs-2 col-md-2'>
-		  						<label for='body'>Article Body: </label>
-		  					</div>
-		  					<div class='col-xs-10 col-md-10'>
-		  						<textarea class='form-control' type='text' name='article[body]' id='body' rows='5' required></textarea>
-		  					</div>
-		  				</div>
-		  				<div class='form-group row'>
-		  					<div class='col-xs-2 col-md-2'>
-		  						<label for='sourceLink'>Source Link: </label>
-		  					</div>
-		  					<div class='col-xs-10 col-md-10'>
-		  						<input class='form-control' type='text' name='article[sourceLink]' id='sourceLink'>
-		  					</div>
-		  				</div>
-		  				<hr>
-		  				<div class='form-group row'>
-		  					<div class='col-xs-2 col-md-2'>
-		  						<label for='image'>Image URL: </label>
-		  					</div>
-		  					<div class='col-xs-10 col-md-10'>
-		  						<input class='form-control' type='text' name='article[image]' id='image' required>
-		  					</div>
-		  				</div>
-		  				<div class='form-group row'>
-		  					<div class='col-xs-6 col-md-6'>
-		  						<label for='imageCaption'>Image Caption: </label>
-		  						<input class='form-control' type='text' name='article[imageCaption]' id='imageCaption' required>
-		  					</div>
-		  					<div class='col-xs-6 col-md-6'>
-		  						<label for='imageSource'>Image Source: </label>
-		  						<input class='form-control' type='text' name='article[imageSource]' id='imageSource' required>
-		  					</div>
-		  				</div>
-		  				<div class='clear-div'>
-		  					<hr>
-		  				</div>
-		  				<button class='btn btn-primary btn-est'>Post Article</button>
-						</form>
-						<div class='clear-div'>
-		  					<hr>
-		  			</div>
-					</div>
-				</div>
+		<div class='container-fluid'>
+			<div class='page-header'>
+				<h2>Post a New Article</h2>
+				<a class='btn btn-primary btn-est' href='/admin/view-articles'>Return to Articles</a>
 			</div>
+			<hr>
+			<div class='content-form'>
+				<form class='article-form' method='POST'>
+					<div class='content-form-col'>
+						<div class='form-group row'>
+							<div id='article-meta'>
+								<label for='author'>Author: </label>
+								<select class='form-control custom-select' type='select' name='article[author]' id='author' required>
+									<option disabled selected>Select an Author</option>
+									<% authors.forEach(function(author){ %>
+										<option value='<%= author.fullname %>'><%= author.fullname %></option>
+									<% }); %>
+								</select>
+								<label for='date'>Date: </label>
+								<input class='form-control' type='date' id='date' value='<%= today %>' required />
+								<label>Article Type: </label>
+								<select class='form-control custom-select' type='select' name='article[contentType]' id='contentType' required>
+									<option selected disabled>Choose a Content Type</option>
+									<% contentTypes.forEach(function(contentType){ %>
+										<option value='<%= contentType %>'><%= contentType %></option>
+									<% }); %>
+								</select>
+								<label for='title'>Title: </label>
+								<input class='form-control' type='text' name='article[title]' id='title' required />
+								<label for='subTitle'>Sub Title: </label>
+								<input class='form-control' type='text' name='article[subTitle]' id='subTitle' required />
+							</div>
+						</div>
+						<div class='form-group row' id='article-category-selection'>
+							<div id='categories'>
+								<label>Categories:</label>
+								<div class="form-check form-check-inline">
+									<label class="form-check-label">
+										<input class="form-check-input" type="checkbox" id="general" name='article[categories][]' value='general' checked />General
+									</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<label class="form-check-label">
+										<input class="form-check-input" type="checkbox" id="overwatch-league" name='article[categories][]' value='Overwatch League' /> Overwatch League
+									</label>
+								</div>
+								<% games.forEach(function(game){ %>
+								<div class="form-check form-check-inline">
+									<label class="form-check-label">
+										<input class="form-check-input" type="checkbox" name='article[categories][]' value='<%=game.title%>' /><%= game.title %>
+									</label>
+								</div>
+								<% }); %>
+							</div>
+							<div id='owl-teams'>
+								<label>Teams (OWL Only): </label>
+								<% teams.forEach(function(team){ %>
+								<div class="form-check form-check-inline">
+									<label class="form-check-label">
+										<input class="form-check-input" type="checkbox" name='article[categories][]' value='<%=team.name%>' /><%= team.name %>
+									</label>
+								</div>
+								<% }); %>
+							</div>
+						</div>
+					</div>
+					<div class='content-form-col'>
+						<label for='body'>Body: </label>
+						<textarea class='form-control' type='text' name='article[body]' id='body' rows='10' required></textarea>
+						<label for='source-link'>Source Link:</label>
+						<input class='form-control' type='text' name='article[sourceLink]' id='source-link' />
+						<label for='image-link'>Image Link:</label>
+						<input class='form-control' type='text' name='article[image]' id='image-link' required />
+						<label for='image-caption'>Image Caption:</label>
+						<input class='form-control' type='text' name='article[imageCaption]' id='image-caption' required />
+						<label for='image-source'>Image Source: </label>
+						<input class='form-control' type='text' name='article[imageSource]' id='image-source' required />
+						<div class='content-form-actions'>
+							<button class='btn btn-outline-primary' type='submit' action='/news'>Post Article</button>
+							<button class='btn btn-outline-info' type='button' disabled>Preview Article</button>
+							<button class='btn btn-outline-danger' onclick="location.href='/admin/view-articles';">Cancel</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<hr>
+		</div>
 <% include ./partials/admin_footer %>

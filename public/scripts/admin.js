@@ -171,6 +171,11 @@ $(document).ready(function(){
             '<hr>'
         );
     });
+    
+    $('.delete-item').submit(function() {
+        var answer = confirm('Deleting this means it will be gone forever. Continue?');
+        return answer;
+    });
 });
 
 

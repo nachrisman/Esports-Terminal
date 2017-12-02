@@ -154,11 +154,51 @@ router.get('/new-article', middleware.isAdmin, function(req, res){
 								} else {
 									var contentTypes = article.contentTypes;
 									var today = moment().format("YYYY-MM-DD");
+									
 									res.render('admin_new_article', {
 										games: games, 
 										authors: authors,
 										contentTypes: contentTypes,
 										today: today,
+										teams: teams
+									});
+								}
+							});
+						}
+					});
+				}
+			});
+		}
+	});
+});
+
+router.get('/edit-article/:id', middleware.isAdmin, function(req, res){
+	Article.findById(req.params.id, function(err, foundArticle){
+		if(err){
+			console.log(err);
+		} else {
+			Game.find({}, function(err, games){
+				if(err){
+					console.log(err);
+				} else {
+					User.find({role: {$in: ['admin', 'editor']}}, function(err, authors){
+						if(err){
+							console.log(err, err.message);
+						} else {
+							Team.find({}, function(err, teams){
+								if(err){
+									req.flash('error', err.message);
+									return res.redirect('/admin/view-articles');
+								} else {
+									var contentTypes = foundArticle.contentTypes,
+										published = moment(foundArticle.published).format('YYYY-MM-DD');
+									
+									res.render('admin_edit_article', {
+										games: games, 
+										authors: authors, 
+										article: foundArticle,
+										contentTypes: contentTypes,
+										published: published,
 										teams: teams
 									});
 								}
@@ -242,41 +282,7 @@ router.get('/view-articles', middleware.isAdmin, function(req, res){
 	});
 });
 
-router.get('/edit-article/:id', middleware.isAdmin, function(req, res){
-	Article.findById(req.params.id, function(err, foundArticle){
-		if(err){
-			console.log(err);
-		} else {
-			Game.find({}, function(err, games){
-				if(err){
-					console.log(err);
-				} else {
-					User.find({role: 'admin'}, function(err, authors){
-						if(err){
-							console.log(err, err.message);
-						} else {
-							Team.find({}, function(err, teams){
-								if(err){
-									req.flash('error', err.message);
-									return res.redirect('/admin/view-articles');
-								} else {
-									var contentTypes = foundArticle.contentTypes;
-									res.render('admin_edit_article', {
-										games: games, 
-										authors: authors, 
-										article: foundArticle,
-										contentTypes: contentTypes,
-										teams: teams
-									});
-								}
-							});
-						}
-					});
-				}
-			});
-		}
-	});
-});
+
 
 router.get('/view-games', middleware.isAdmin, function(req, res){
 	Game.find({}).sort({title: 1}).exec(function(err, games){
@@ -510,6 +516,11 @@ router.delete('/view-teams/:id', function(req, res){
 			res.redirect('/admin/view-teams');
 		}
 	})	
+});
+
+router.post('/article-preview', function(req, res){
+	var articlePreview = req.body.article;	
+	res.render('article_preview', {articlePreview: articlePreview});
 });
 
 module.exports = router;

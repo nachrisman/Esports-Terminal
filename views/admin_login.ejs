@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang='en'>
-  <head>
-    <title>eSports Terminal - Admin</title>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href='/stylesheets/admin.css'>
-  </head>
-  <body>
-	<div class='container' id='admin-login'>
-	  <img src='/media/branding/logo_est_reg.png'>
-		<form action='/admin/login' method='POST'>
-		  <label>Username: <input type='text' name='username' placeholder='username'></label>
-		  <br>
-		  <label>Password: <input type='password' name='password' placeholder='password'></label>
-		  <button>Login</button>
-		</form>
-	</div>
-  </body>
+	<head>
+		<title>EST - ADMIN LOGIN</title>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/css/bootstrap-select.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Poppins|Russo+One" rel="stylesheet">
+		<link rel='stylesheet' href='/stylesheets/admin.css'>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+		<script src='/scripts/admin.js'></script>
+  	</head>
+  	<body>
+		<div class='container-fluid' id='admin-login'>
+			<div id='login-logo'>
+				<img src='/media/branding/logo_est_reg.png' />
+			</div>
+			<div id='credential-entry'>
+				<form action='/admin/login' method='POST'>
+				<div class='form-group row'>
+					<div class='col-xs-12 col-md-12' id='credential-entry'>
+						<label for='username'>Username: </label>
+						<input class='form-control' type='text' name='username' id='username' placeholder='username' />
+						<label for='password'>Password: </label>
+						<input class='form-control' type='password' name='password' id='password' placeholder='password' />
+					</div>
+				</div>
+			  	<button class='btn btn-outline-info'>Login</button>
+			</form>
+			</div>
+		</div>
+  	</body>
 </html>

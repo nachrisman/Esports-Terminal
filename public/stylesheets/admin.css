@@ -7,21 +7,43 @@ body, html {
 }
 
 /* login page */
-#admin-login img{
-	width:250px;
-	height:auto;
-	display:block;
-	margin: 25px auto;
+#admin-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#admin-login label, input, button{
-	display:block;
-	text-align:center;
-	margin:5px auto;
+#login-logo{
+    flex-basis: 20vw;
+}
+
+#login-logo img{
+    width:100%;
+    height: auto;
+}
+
+#credential-entry{
+    text-align: center;
+    flex-shrink: 2;
+}
+
+#credential-entry label{
+    padding: 10px;
+}
+
+#credential-entry .btn{
+    display: block;
+    margin: 0 auto;
+}
+
+#login-logo, #credential-entry{
+    margin: 20px;
 }
 
 /* Header/Navigation */
 .navbar.navbar-light{
+    display: flex;
+    flex-direction: column;
     border-bottom: 1px solid #000;
     margin-bottom:25px;
 }
@@ -41,6 +63,11 @@ body, html {
 }
 
 /* admin content view */
+.page-header{
+    display: flex;
+    justify-content: space-around;
+}
+
 .view-header{
     margin: 0 auto 25px auto;
 	width:70vw;
@@ -83,8 +110,103 @@ body, html {
 hr{
     display:block;
     border-color:rgba(0, 0, 0, 0.5);
-    width:60%;
+    width:95vw;
 }
+
+.content-form{
+    width: 90vw;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.content-form-col{
+    flex-basis: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-form{
+    display: flex;
+    justify-content: space-around;
+}
+
+.article-form label{
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.content-form-actions{
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+.content-form-actions .btn{
+    width: 10vw;
+    height: 5vh;
+    font-size: 1vw;
+}
+
+.content-form-actions .btn-outline-primary{
+    color: #333399;
+    border-color: #333399;
+}
+
+.content-form-actions .btn-outline-primary:hover{
+    color: #fff;
+    background-color: #333399;
+}
+
+.content-form-actions .btn-outline-info{
+    color: blue;
+    border-color: blue;
+}
+
+.content-form-actions .btn-outline-info:hover{
+    color: #fff;
+    background-color: blue;
+}
+
+.delete-item-container form{
+    width: 90vw;
+}
+
+.delete-item-container .btn{
+    display: block;
+    margin-left: auto;
+}
+
+#article-meta{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+#article-category-selection{
+    display: flex;
+    justify-content: space-around;
+}
+
+#article-category-selection .form-check-label{
+    font-weight: 400;
+}
+
+#categories{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#owl-teams{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 
 #page-header{
     width:60%;
@@ -181,3 +303,6 @@ hr{
     display: block;
     margin: 0 auto 25px auto;
 }
+
+
+
