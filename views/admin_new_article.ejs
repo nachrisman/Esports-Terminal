@@ -6,7 +6,7 @@
 			</div>
 			<hr>
 			<div class='content-form'>
-				<form class='article-form' method='POST'>
+				<form class='article-form' action='/news' method='POST'>
 					<div class='content-form-col'>
 						<div class='form-group row'>
 							<div id='article-meta'>
@@ -77,7 +77,7 @@
 						<label for='image-source'>Image Source: </label>
 						<input class='form-control' type='text' name='article[imageSource]' id='image-source' required />
 						<div class='content-form-actions'>
-							<button class='btn btn-outline-primary' type='submit' action='/news'>Post Article</button>
+							<button class='btn btn-outline-primary' type='submit'>Post Article</button>
 							<button class='btn btn-outline-info' type='button' disabled>Preview Article</button>
 							<button class='btn btn-outline-danger' onclick="location.href='/admin/view-articles';">Cancel</button>
 						</div>

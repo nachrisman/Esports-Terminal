@@ -1,7 +1,8 @@
 /* global $ */
 
 $(document).ready(function(){
-    $("#numOfMembers").change(function () {
+    // Functionality to add/remove members to a team
+    $("#numOfMembers").change(function () { // When creating a new team, number of member inputs populate based on select value
     var count = $(this).val();
     for (var i = 0; i < count; i++) {
         $('#memberInputs').append(
@@ -40,7 +41,7 @@ $(document).ready(function(){
     }
     });
     
-    $("#addTeamMember").click(function () {
+    $("#addTeamMember").click(function () { // For editing an existing team, adding more members - one member per click
         $('#teamMembersEdit').append(
             '<div class="content-form-col">' +
                 '<label for="firstName">First Name:</label>' +
@@ -76,10 +77,9 @@ $(document).ready(function(){
         );
     });
     
+    //Confirmation alert for deleting any form of content
     $('.delete-item').submit(function() {
         var answer = confirm('Deleting this means it will be gone forever. Continue?');
         return answer;
     });
 });
-
-
