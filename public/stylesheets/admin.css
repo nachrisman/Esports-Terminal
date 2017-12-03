@@ -73,6 +73,11 @@ body, html {
     width:80vw;
 }
 
+.view-list img{
+	height:125px;
+	width:auto;
+}
+
 .clear-div{
     clear:both;
 }
@@ -172,7 +177,7 @@ hr{
     margin-top: 15px;
 }
 
-/* Article - Add/Edit Forms */
+/* Article Forms */
 .article-form{
     display: flex;
     justify-content: space-around;
@@ -205,7 +210,7 @@ hr{
     justify-content: space-between;
 }
 
-/* New Game Form */
+/* Game Forms */
 #game-form-actions{
     margin-top: 25px;
 }
@@ -214,40 +219,42 @@ hr{
     margin-top: 50px;
 }
 
-/* Team Form */
-#team-entry .article-form{
+/* Team Forms */
+#team-entry{
     flex-wrap: wrap;
 }
 
+#team-member-input{
+    flex-basis: 50vw;
+}
+
 #memberInputs{
-    width: 40vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#memberInputs .content-form-col{
+    flex-basis: 25vw;
 }
 
 #team-form-actions{
     margin-top: 25px;
+    justify-content: center;
 }
 
-.new-item-entry{
-     margin: 0 auto 50px auto;
-     width:50vw;
- }
-
-.new-item-entry button{
-    display:block;
+#team-form-actions .btn{
+    margin: 0 25px 0 25px;
 }
 
-.view-list img{
-	height:125px;
-	width:auto;
+#teamMembersEdit{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-#delete-item{
-    margin: 0 auto 25px auto;
-    width:50%;
-}
-
-#delete-item button{
-    width:100%;
+#teamMembersEdit .content-form-col{
+    flex-basis: 25vw;
 }
 
 #addTeamMember{
