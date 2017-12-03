@@ -1,64 +1,57 @@
 <% include ./partials/admin_header %>
 		<div class='container-fluid'>
-				<div class='page-header'>
-					<h2>Edit '<%= game.title %>'</h2>
-					<a class='btn btn-primary btn-est' href='/admin/view-games' role='button'>Return to Games</a>
-				</div>
-				<hr>
-				<div class='row'>
-					<div class='col-xs-12 col-md-12'>
-						<form class='new-item-entry' action='/admin/view-games/<%= game._id %>?_method=PUT' method='POST'>
-							<div class='form-group row'>
-								<div class='col-xs-6 col-md-6'>
-									<label for='title'>Title: </label>
-									<input class='form-control' type='text' name='game[title]' id='title' value='<%= game.title %>'>
-								</div>
-								<div class='col-xs-6 col-md-6'>
-									<label for='abbreviation'>Abbreviation (SFV, LoL, etc): </label>
-									<input class='form-control' type='text' name='game[abbreviation]' id='abbreviation' value='<%= game.abbreviation %>'>
-								</div>
-							</div>
-							<div class='form-group row'>
-								<div class='col-xs-6 col-md-6'>
-									<label for='platform'>Platform: </label>
-									<input class='form-control' type='text' name='game[platform]' id='platform' value='<%= game.platform %>'>
-								</div>
-								<div class='col-xs-6 col-md-6'>
-									<label for='genre'>Genre: </label>
-									<select class='form-control custom-select' type='select' name='game[genre]' id='genre'>
-								  	<% genres.forEach(function(genre){ %>
-								  	<%     if(game.genre == genre) { %>
-								  	  	<option value='<%= genre %>' selected><%= genre %></option>
-								  	<% } else { %>
-								  		<option value='<%= genre %>'><%= genre %></option>
-								  	<% } %>
-								  	<% }); %> 
-								  	</select>
-								</div>
-							</div>
-							<div class='form-group row'>
-								<div class='col-xs-6 col-md-6'>
-									<label for='logopng'>PNG Logo Link: </label>
-									<input class='form-control' type='text' name='game[logopng]' id='logopng' value='<%= game.logopng %>'>
-								</div>
-								<div class='col-xs-6 col-md-6'>
-									<label for='logojpg'>JPG Logo Link: </label>
-									<input class='form-control' type='text' name='game[logojpg]' id='logojpg' value='<%= game.logojpg %>'>
-								</div>
-							</div>
-							<div class='clear-div'>
-								<hr>
-							</div>
-							<button class='btn btn-primary btn-est' type='submit'>Update Game</button>
-						</form>
-						<div class='clear-div'>
-							<hr>
-						</div>
-						<form class='new-item-entry' action='/admin/view-games/<%= game._id %>?_method=DELETE' method='POST'>
-							<button class='btn btn-danger btn-est-danger' type='submit'>DELETE GAME</button>
-					  	</form>
+			<div class='page-header'>
+				<h2>Edit '<%= game.title %>'</h2>
+				<a class='btn btn-primary btn-est' href='/admin/view-games' role='button'>Return to Games</a>
+			</div>
+			<hr>
+			<div class='content-form'>
+				<form class='article-form' action='/admin/view-games/<%= game._id %>?_method=PUT' method='POST'>
+					<div class='content-form-col'>
+						<label for='title'>Title:</label>
+						<input class='form-control' type='text' name='game[title]' id='title' value='<%= game.title %>' required />
+						<label for='abbreviation'>Abbreviation (SFV, LoL, etc):</label>
+						<input class='form-control' type='text' name='game[abbreviation]' value='<%= game.abbreviation %>' id='abbreviation' />
+						<label for='platform'>Platform:</label>
+						<select class='form-control custom-select' type='select' name='game[platform]' id='platform' required>
+							<option disabled selected>Select a Platform</option>
+							<% platforms.forEach(function(platform){ %>
+							<% if(game.platform.indexOf(platform) > -1) { %>
+								<option value='<%= platform %>' selected><%= platform %></option>
+								<% } else { %>
+								<option value='<%= platform %>'><%= platform %></option>
+								<% } %>
+							<% }); %>
+						</select>
 					</div>
+					<div class='content-form-col'>
+						<label for='genre'>Genre: </label>
+						<select class='form-control custom-select' type='select' name='game[genre]' id='genre' required>
+							<option selected disabled>Select a Genre</option>
+							<% genres.forEach(function(genre){ %>
+								<% if(game.genre.indexOf(genre) > -1) { %>
+								<option value='<%= genre %>' selected><%= genre %></option>
+								<% } else { %>
+								<option value='<%= genre %>'><%= genre %></option>
+								<% } %>
+							<% }); %> 
+						</select>
+						<label for='game-jpg'>JPG Image:</label>
+						<input class='form-control' type='text' name='game[logojpg]' id='game-jpg' value='<%= game.logojpg %>' >
+						<label for='game-png'>PNG Image:</label>
+						<input class='form-control' type='text' name='game[logopng]' id='game-png' value='<%= game.logopng %>' >
+						<div class='content-form-actions' id='game-form-actions'>
+							<button class='btn btn-outline-primary' type='submit'>Update Game</button>
+							<button class='btn btn-outline-danger' onclick="location.href='/admin/view-games';" disabled>Cancel</button>
+						</div>
+					</div>
+				</form>
+				<div class='delete-item-container' id='delete-game-action'>
+					<form class='delete-item' action='/admin/view-games/<%= game._id %>?_method=DELETE' method='POST'>
+						<button class='btn btn-danger' type='submit'>Delete Game</button>
+					</form>
 				</div>
 			</div>
-	  
+			<hr>
+		</div>
 <% include ./partials/admin_footer %>

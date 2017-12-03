@@ -5,6 +5,54 @@
 					<a class='btn btn-primary btn-est' href='/admin/view-teams' role='button'>Return to Teams</a>
 				</div>
 				<hr>
+				<!--<div class='content-form'>-->
+				<!--	<form class='article-form' id='team-entry' action='/admin/edit-team/<%= team._id %>?_method=PUT' method='POST'>-->
+				<!--		<div class='content-form-col'>-->
+				<!--			<label for='name'>Name:</label>-->
+				<!--			<input class='form-control' type='text' name='team[name]' id='name' value='<%= team.name %>' required />-->
+				<!--			<label for='logo'>Logo URL: </label>-->
+				<!--			<input class='form-control' type='text' name='team[logo]' id='logo' value=value='<%= team.logo %>' required />-->
+				<!--			<label for='video'>Video:</label>-->
+				<!--			<input class='form-control' type='text' name='team[video]' id='video' value='<%= team.video %>' />-->
+				<!--			<label for='game'>Game: </label>-->
+				<!--			<select class='form-control custom-select' type='select' name='team[game]' id='game' required>-->
+				<!--			    <option selected disabled>Select a Game</option>-->
+				<!--			    <% games.forEach(function(game){ %>-->
+				<!--			    <%  if(team.game == game) { %>-->
+				<!--			        <option value='<%= game.title %>' selected><%= game.title %></option>-->
+				<!--			        <% } else { %>-->
+				<!--			        <option value='<%= team.game %>'><%= team.game %></option>-->
+				<!--			        <% } %>-->
+				<!--			    <% }); %>-->
+				<!--			</select>-->
+				<!--			<label for='country'>Country:</label>-->
+				<!--			<select class='form-control custom-select' type='select' name='team[country]' id='country' required>-->
+				<!--			    <option disabled selected>Select a Country</option>-->
+				<!--			    <% countries.forEach(function(country){ %>-->
+				<!--			    <% if(team.country == country) { %>-->
+				<!--			       <option value='<%= country %>' selected><%= country %></option>-->
+				<!--			       <% } else { %>-->
+				<!--			       <option value='<%= country %>'><%= country %></option>-->
+				<!--			       <% } %>-->
+				<!--			    <% }); %>-->
+				<!--			</select>-->
+				<!--		</div>-->
+				<!--		<div class='content-form-col'>-->
+				<!--			<label for='founded'>Date Founded:</label>-->
+				<!--			<input class='form-control' type='text' name='team[founded]' id='founded' value='<%= team.founded %>' />-->
+				<!--			<label for='website'>Website:</label>-->
+				<!--			<input class='form-control' type='text' name='team[website]' id='website' value='<%= team.website %>' />-->
+				<!--			<label for='coach'>Head Coach:</label>-->
+				<!--			<input class='form-control' type='text' name='team[coach]' id='coach' value='<%= team.coach %>' required />-->
+				<!--			<label for='division'>Division:</label>-->
+				<!--			<input class='form-control' type='text' name='team[division]' id='division' value='<%= team.division %>' />-->
+				<!--			<div class='content-form-actions' id='team-form-actions'>-->
+				<!--				<button class='btn btn-outline-primary' type='submit'>Add Team</button>-->
+				<!--				<button class='btn btn-outline-danger' onclick="location.href='/admin/view-articles';">Cancel</button>-->
+				<!--			</div>-->
+				<!--		</div>-->
+				<!--	</form>-->
+				<!--</div>-->
 			<div class='row'>
 				<div class='col-xs-12 col-md-12'>
 					<form class='new-item-entry' action='/admin/edit-team/<%= team._id %>?_method=PUT' method='POST'>

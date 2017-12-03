@@ -90,9 +90,10 @@ body, html {
 }
 
 hr{
-    display:block;
-    border-color:rgba(0, 0, 0, 0.5);
-    width:95vw;
+    display: block;
+    border-color: #000;
+    border-color: rgba(0, 0, 0, 0.5);
+    width: 95vw;
 }
 
 .content-form{
@@ -202,6 +203,28 @@ hr{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+/* New Game Form */
+#game-form-actions{
+    margin-top: 25px;
+}
+
+#delete-game-action{
+    margin-top: 50px;
+}
+
+/* Team Form */
+#team-entry .article-form{
+    flex-wrap: wrap;
+}
+
+#memberInputs{
+    width: 40vw;
+}
+
+#team-form-actions{
+    margin-top: 25px;
 }
 
 .new-item-entry{

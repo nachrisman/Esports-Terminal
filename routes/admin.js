@@ -292,8 +292,9 @@ router.get('/new-game', middleware.isAdmin, function(req, res){
 		if(err){
 			console.log(err);
 		} else {
-			var genres = game.genres;
-			res.render('admin_new_game', {genres: genres});
+			var genres = game.genres,
+				platforms = game.platforms;
+			res.render('admin_new_game', {genres: genres, platforms: platforms});
 		}	
 	});
 });
@@ -314,8 +315,9 @@ router.get('/edit-game/:id', middleware.isAdmin, function(req, res){
 		if(err){
 			res.redirect('/admin/view-games');
 		} else {
-			var genres = foundGame.genres;
-			res.render('admin_edit_game', {game: foundGame, genres: genres});
+			var genres = foundGame.genres,
+				platforms = foundGame.platforms;
+			res.render('admin_edit_game', {game: foundGame, genres: genres, platforms: platforms});
 		}
 	});
 });

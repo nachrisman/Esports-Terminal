@@ -82,8 +82,7 @@ $(document).ready(function(){
                 '<div class="col-xs-10 col-md-10">' +
                     '<input class="form-control" type="text" name="team[members][twitter][]" id="twitter" />' +
                 '</div>' +
-            '</div>' +
-            '<hr>'
+            '</div>'
         );
     }
     });
@@ -167,8 +166,7 @@ $(document).ready(function(){
                 '<div class="col-xs-10 col-md-10">' +
                     '<input class="form-control" type="text" name="team[members][twitter][]" id="twitter" />' +
                 '</div>' +
-            '</div>' +
-            '<hr>'
+            '</div>'
         );
     });
     
