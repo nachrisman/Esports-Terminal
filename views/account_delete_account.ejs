@@ -1,68 +1,50 @@
-<% include ./partials/header %>
-		<div class='container-fluid' id='primary-wrapper'>
-			<div class='row'>
-				<div class='col-xs-2 col-md-2'>
-					<div class='account-nav'>
+<% include ./partials/account_header %>
+		<div class='container-fluid'>
+			<div class='account-settings'>
+				<div class='acct-settings-col acct-nav'>
+					<div class='acct-nav-header'>
 						<h3>My Account</h3>
-						<ul>
-							<li><a href='/account/meta-settings'>META Settings</a></li>
-							<li><a href='/account/info'>Account Information</a></li>
-							<li><a href='/account/security'>Security & Other</a></li>
-							<li><a href='/logout'>Log Out</a></li>
-						</ul>
+					</div>
+					<div id='acct-nav-links'>
+						<a class='acct-nav-item' href='/account/meta-settings'>META Settings</a>
+						<a class='acct-nav-item' href='/account/info'>My Info</a>
+						<a class='acct-nav-item' href='/account/security'>Security & Other</a>
+						<a class='acct-nav-item' href='/logout'>Log Out</a>
 					</div>
 				</div>
-				<div class='col-xs-10 col-md-10'>
-					<div class='account-content'>
+				<div class='acct-settings-col'>
+					<div class='acct-settings-header'>
 						<h1>Delete Account</h1>
-						<p>Are you sure you want to delete your account? We're sorry to see you go.</p>
-						<p>Please tell us why you're leaving.</p>
-						<form class='delete-account' action='/account/delete-account?_method=DELETE' method='POST'>
-							<div class='form-group row'>
-								<div class='col-xs-3 col-md-3'>
-									<label for='deletionReason'>Why are you deleting your account?</label>
-								</div>
-								<div class='col-xs-9 col-md-9'>
-									<select class='form-control custom-select' type='select' id='deletionReason'>
-										<option selected disabled>Select a Reason</option>
-										<option>I am receiving too many emails</option>
-										<option>I just need a break</option>
-										<option>The content was not relevant</option>
-										<option>The site is too hard to use</option>
-										<option>I don't use the site anymore</option>
-										<option>Other</option>
-									</select>
-								</div>
-							</div>
-							<div class='form-group row'>
-								<div class='col-xs-3 col-md-3'>
-									<label for='additionalComments'>Any additional comments?</label>
-								</div>
-								<div class='col-xs-9 col-md-9'>
-									<textarea class='form-control' rows='5' id='additionalComments'></textarea>
-								</div>
-							</div>
-							<p>You must enter your password to delete your account.</p>
-							<div class='form-group row'>
-								<div class='col-xs-3 col-md-3'>
-									<label for='password'>Password: </label>
-								</div>
-								<div class='col-xs-9 col-md-9'>
-									<input class='form-control' type='password' name='password' id='password' required>
-								</div>
-							</div>
-							<div class='clear-div'>
-								<hr>
-							</div>
-							<p class='text-danger'>WARNING! Your account will be PERMANENTLY DELETED!</p>
-							<p class='text-danger'>Only click the button below if you are absolutely sure you want to delete your account.</p>
-							<p class='text-danger'>This cannot be undone.</p>
-							<div class='clear-div'>
-								<hr>
-							</div>
-							<button class='btn btn-danger btn-est account-form-btn' type='submit'>Delete My Account</button>
-						</form>
+						<p>That serious, huh? Ok, then.</p>
 					</div>
+					<form class='acct-update-form' action='/account/delete-account?_method=DELETE' method='POST'>
+						<div class='acct-settings-header'>
+							<p>Please provide us some feedback, if you're feeling up to it.</p>
+						</div>
+						<div id='acct-deletion-body'>
+							<label for='deletionReason'>Why are you deactivating?</label>
+							<select class='form-control custom-select' type='select' name='deletionReason' id='deletionReason' required>
+								<option selected disabled>Select a Reason</option>
+								<option value='The content was not relevant'>The content was not relevant</option>
+								<option value='The site is too hard to use'>The site is too hard to use</option>
+								<option value="I don't use the site anymore">I don't use the site anymore</option>
+								<option value='Other'>Other</option>
+							</select>
+							<label for='additionalComments'>Any additional comments?</label>
+							<textarea class='form-control' rows='5' name='additionalComments' id='additionalComments' placeholder='suggestions, comments, etc.'></textarea>
+							<label for='password'>Password:</label>
+							<input class='form-control' type='password' name='password' id='password' placeholder='current password' required />
+							<div class='acct-action-warning'>
+								<p class='text-danger'>WARNING! Your account will be PERMANENTLY DELETED!</p>
+								<p class='text-danger'>Only click the button below if you are absolutely sure you want to delete your account.</p>
+								<p class='text-danger'>This cannot be undone.</p>
+							</div>
+							<div class='acct-settings-actions' id='acct-deletion-actions'>
+								<button class='btn btn-secondary acct-btn' type='submit'>Delete My Account</button>
+								<a href='/account/deactivate'>Deactivate my account</a>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

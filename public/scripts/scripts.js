@@ -82,6 +82,23 @@ $(document).ready(function(){
 		});
 		
 	});
+	
+	
+	// ACCOUNT SETTINGS VIEW //
+	var $email_true = $("#email-true");
+	var $email_false = $("#email-false");
+	
+	$email_true.change(function(){
+		if(this.checked){
+			$email_false.prop("checked", false);
+		}	
+	});
+	
+	$email_false.change(function(){
+		if(this.checked){
+			$email_true.prop("checked", false);
+		}
+	});
 });
 
 function insertTwitchFeed(channel) {

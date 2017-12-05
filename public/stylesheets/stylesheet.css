@@ -1,8 +1,6 @@
 body, html {
-    background-color: #fff;
-    color: #000;
-    font-size: 14pt;
     font-family: 'Poppins', sans-serif;
+    font-size: 14pt;
 }
 
 #primary-wrapper{
@@ -622,25 +620,38 @@ hr{
     margin-right:25px;
 }
 
-/* login */
-#login-page-auth{
-    margin-top:50px;
-    margin: 0 auto;
-    width:30vw;
-    text-align:center;
+/* Login Page */
+#login-page-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-#login-page-auth label{
-    margin-top:25px;
+#login-credentials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#login-container img{
-    display:block;
+#login-credentials label{
+    font-weight: bold;
+    margin-top: 15px;
 }
 
-#login-container img{
-    margin: 0 auto;
-    width:100%;
+.login-actions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-actions .btn{
+    width: 100%;
+}
+
+.login-actions a{
+    margin: 10px;
+    color: #333399;
 }
 
 /* write for us */
@@ -1041,149 +1052,6 @@ hr{
     justify-content: flex-end;
 }
 
-
-
-
-
-/* account */
-.account-info p{
-    text-align:left;
-}
-
-.account-settings-btn{
-    margin:30px;
-}
-
-.account-nav{
-    
-    height:80vh;
-    border-right:2px solid red;
-    border-radius: 25px;
-}
-
-.account-nav ul{
-    list-style: none;
-}
-
-.account-nav a{
-    color:#000;
-}
-
-.account-nav li{
-    margin-bottom:10px;
-}
-
-/* meta settings */
-.meta-settings{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    height: 70vh;
-}
-.meta-selection-row{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    flex-basis: 25vw;
-}
-
-.meta-selection-title{
-    text-align: center;
-    background-color: #333399;
-    color: #fff;
-    font-size: 1.5vw;
-    padding: 5px;
-    border-radius: 25px 0 25px 0;
-    width: 100%;
-}
-
-.sub-meta-check-row{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.btn-est-sub-meta{
-    color: #fff;
-    background-color: red;
-    border: none;
-}
-
-.btn-est-sub-meta input{
-    margin-right: 15px;
-}
-
-/* account security & general */
-.account-email-settings{
-    margin:25px auto;
-    width:50vw;
-}
-
-.account-email-settings input{
-    margin-right:10px;
-}
-
-#newsletter-true{
-    width:20vw;
-    float:left;
-}
-
-#newsletter-false{
-    width:20vw;
-    float:right;
-}
-
-#stream-true{
-    width:20vw;
-    float:left;
-}
-
-#stream-false{
-    width:20vw;
-    float:right;
-}
-
-#security-settings{
-    margin-top:50px;
-}
-
-/* account info */
-.user-account-edit{
-    width:50vw;
-    margin:0 auto;
-}
-
-.account-form-btn{
-    border-radius: 5px;
-    display:block;
-    margin:25px auto;
-}
-
- /* account reset password */
-.reset-password{
-    width:50vw;
-    margin: 0 auto;
-}
-
- /* account delete */
-.delete-account{
-    margin: 0 auto;
-    width:50vw;
-}
- 
- /* deactivate account */
- .deactivate-account{
-     margin: 0 auto;
-     width:50vw;
-}
- 
- #account-deletion-link{
-     display:block;
-     text-align:right;
- }
-
 /* meta - complete */
 #meta-welcome{
     margin-bottom:50px;
@@ -1510,4 +1378,410 @@ footer .btn{
 #copyright{
     display: flex;
     justify-content: center;
+}
+
+
+
+
+
+
+/*=====================
+    NEW CSS REFACTOR
+======================*/
+
+/* User Account View */
+.acct-update-form label{
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.account-settings{
+    min-height: 80vh;
+    min-width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+.account-settings > div{
+    margin: 30px;
+}
+
+.acct-settings-col{
+    border-left: 1px solid #6E6E84;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.acct-settings-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+}
+
+.acct-settings-header p{
+    color: #6E6E84;
+}
+
+.acct-nav{
+    border-left: none;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.acct-nav-header{
+    width: 100%;
+    font-family: 'Russo One', sans-serif;
+    color: #6E6E84;
+}
+
+#acct-nav-links{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.acct-nav-item{
+    text-align: right;
+    padding: 5px 8px 5px 5px;
+    border-bottom: 1px solid #6E6E84;
+    border-right: 1px solid #6E6E84;
+    color: #6E6E84;
+}
+
+.acct-nav-item:hover{
+    text-decoration: none;
+    color: #333399;
+}
+
+.acct-update-form{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+
+.form-check-label{
+    margin: 0 10px 0 10px;
+}
+
+.acct-btn{
+    padding: 5px 10px 5px 10px;
+    margin-top: 10px;
+    color: #333399;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 1vw;
+}
+
+.acct-btn:hover{
+    background-color: #333399;
+    color: #fff;
+}
+
+.acct-settings-actions{
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.acct-settings-actions a{
+    color: #333399;
+}
+
+#email-settings{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#email-settings-description p{
+    color: #6E6E84;
+}
+
+#email-settings-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#email-settings-body label{
+    font-weight: normal;
+}
+
+#sec-settings{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#sec-settings-actions a{
+    color: #333399;
+    margin: 25px;
+}
+
+#acct-deactivation-actions{
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.acct-action-warning{
+    border-top: 1px solid #6E6E84;
+    border-bottom: 1px solid #6E6E84;
+    padding: 25px 10px 10px 10px;
+    margin-top: 15px;
+}
+
+#acct-deletion-actions{
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.acct-meta-game{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #6E6E84;
+    margin: 5px;
+}
+
+.acct-meta-game-option label{
+    font-weight: normal;
+    border-left: 1px solid #6E6E84;
+}
+
+
+
+/*============================
+    RESPONSIVE/MEDIA QUERIES
+=============================*/
+
+/* Portrait Mode Phones */
+@media only screen
+and (max-width: 414px) {
+    /* Login Page */
+    #login-logo-top, #login-logo-bottom{
+        display: none;
+    }
+    
+    #login-credentials{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #login-credentials label{
+        font-weight: bold;
+        margin-top: 15px;
+    }
+    
+    .login-actions{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .login-actions .btn{
+        flex-basis: 5vh;
+        margin-top: 25px;
+        font-size: 4vw;
+    }
+    
+    /* Account Views */
+    .account-settings{
+        flex-direction: column;
+    }
+    
+    .acct-settings-header{
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+    }
+    
+    .acct-settings-header p{
+        text-align: left;
+    }
+    
+    .acct-settings-col{
+        border-left: none;
+        padding-left: 25px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .acct-update-form{
+        width: 100%;
+    }
+    
+    .acct-settings-actions{
+        margin-top: 15px;
+        justify-content: center;
+    }
+    
+    .acct-btn{
+        flex-basis: 40vw;
+        height: 5vh;
+        margin-top: 0;
+        font-size: 4vw;
+    }
+    
+    .acct-meta-game{
+        width: 100%;
+        flex-direction: column;
+        border-bottom: 1px solid #6E6E84;
+        margin: 5px;
+    }
+    
+    .acct-meta-game-option{
+        width: 100%;
+        display: flex;
+    }
+    
+    .acct-meta-game-option label{
+        border-left: none;
+    }
+    
+    #acct-deactivation-actions, #acct-deletion-actions{
+        height: 10vh;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #acct-deactivation-actions a, #acct-deletion-actions a{
+        margin-top: 15px;
+        text-align: center;
+    }
+    
+    #acct-deactivation-actions .acct-btn, #acct-deletion-actions .acct-btn{
+        flex-basis: 2vh;
+    }
+    
+    #email-settings-description h3{
+        font-size: 6vw;
+    }
+    
+    #email-actions{
+        height: 8vh;
+        border-bottom: 1px solid #6E6E84;
+    }
+    
+    #sec-settings{
+        margin-top: 25px;
+    }
+    
+    #sec-settings-actions{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen
+and (min-width: 415px)
+and (max-width: 740px) {
+    /* Login Page */
+    #login-logo-top, #login-logo-bottom{
+        display: none;
+    }
+    
+    #login-credentials{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .login-actions{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .login-actions .btn{
+        flex-basis: 5vh;
+        margin-top: 25px;
+        font-size: 3vw;
+    }
+    
+    /* Account Views */
+    .acct-settings-header{
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+    }
+    
+    .acct-settings-header p{
+        text-align: left;
+    }
+    
+    .acct-settings-col{
+        border-left: none;
+        padding-left: 25px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .acct-update-form{
+        width: 100%;
+    }
+    
+    .acct-settings-actions{
+        margin-top: 15px;
+        justify-content: center;
+    }
+    
+    .acct-btn{
+        flex-basis: 20vw;
+        margin-top: 0;
+        font-size: 3vw;
+    }
+    
+    .acct-meta-game{
+        width: 100%;
+        flex-direction: column;
+        border-bottom: 1px solid #6E6E84;
+        margin: 5px;
+    }
+    
+    .acct-meta-game-option{
+        width: 100%;
+        display: flex;
+    }
+    
+    .acct-meta-game-option label{
+        border-left: none;
+    }
+    
+    #acct-deactivation-actions, #acct-deletion-actions{
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #acct-deactivation-actions a, #acct-deletion-actions a{
+        margin-top: 15px;
+        text-align: center;
+    }
+    
+    #acct-deactivation-actions .acct-btn, #acct-deletion-actions .acct-btn{
+        flex-basis: 2vh;
+    }
+    
+    #email-settings-description h3{
+        font-size: 6vw;
+    }
+    
+    #sec-settings{
+        margin-top: 25px;
+    }
+    
+    #sec-settings-actions{
+        display: flex;
+        flex-direction: column;
+    }
 }

@@ -1,80 +1,63 @@
-<% include ./partials/header %>
-		<div class='container-fluid' id='primary-wrapper'>
-			<div class='row'>
-				<div class='col-xs-2 col-md-2'>
-					<div class='account-nav'>
+<% include ./partials/account_header %>
+		<div class='container-fluid'>
+			<div class='account-settings'>
+				<div class='acct-settings-col acct-nav'>
+					<div class='acct-nav-header'>
 						<h3>My Account</h3>
-						<ul>
-							<li><a href='/account/meta-settings'>META Settings</a></li>
-							<li><a href='/account/info'>Account Information</a></li>
-							<li><a href='/account/security'>Security & Other</a></li>
-							<li><a href='/logout'>Log Out</a></li>
-						</ul>
+					</div>
+					<div id='acct-nav-links'>
+						<a class='acct-nav-item' href='/account/meta-settings'>META Settings</a>
+						<a class='acct-nav-item' href='/account/info'>My Info</a>
+						<a class='acct-nav-item' href='/account/security'>Security & Other</a>
+						<a class='acct-nav-item' href='/logout'>Log Out</a>
 					</div>
 				</div>
-				<div class='col-xs-10 col-md-10'>
-					<div class='account-content'>
+				<div class='acct-settings-col'>
+					<div class='acct-settings-header'>
 						<h1>Security & Other Settings</h1>
 						<p>Change your password, email settings, etc.</p>
-						<form action='/account/security?_method=PUT' method='POST'>  
-							<h3>Email Settings</h3>
-							<p>Receive updates on your META, site changes, and other information from EST. We do not use your email for any other purpose.</p>
-							<% if(currentUser.newsletter) { %>
-							<div class="form-check form-check-inline account-email-settings">
-								<label class="btn btn-primary btn-est" id='newsletter-true'>
-									<input type="checkbox" name='news' value='true' autocomplete="off" checked> I want email updates
-								</label>
-								<label class="btn btn-danger btn-est-danger" id='newsletter-false'>
-									<input type="checkbox" name='news' value='false' autocomplete="off"> I don't want email updates
-								</label>
-							</div>
-							<% } else { %>
-							<div class="form-check form-check-inline account-email-settings">
-								<label class="btn btn-primary btn-est" id='newsletter-true'>
-									<input type="checkbox" name='news' value='true' autocomplete="off"> I want email updates
-								</label>
-								<label class="btn btn-danger btn-est-danger" id='newsletter-false'>
-									<input type="checkbox" name='news' value='false' autocomplete="off" checked> I don't want email updates
-								</label>
-							</div>
-							<% } %>
-							<div class='clear-div'>
-							  <hr>
-							</div>
-							<h3>Stream Settings</h3>
-							<p>Receive general streaming updates such as important upcoming streams, changes to the schedule, etc.</p>
-							<% if(currentUser.stream) { %>
-								<div class="form-check form-check-inline account-email-settings" >
-									<label class="btn btn-primary btn-est" id='stream-true'>
-										<input type="checkbox" name='stream' value='true' autocomplete="off" checked> I want stream updates
-									</label>
-									<label class="btn btn-danger btn-est-danger" id='stream-false'>
-										<input type="checkbox" name='stream' value='false' autocomplete="off"> I don't want stream updates
-									</label>
+					</div>
+					<div class='acct-settings-main'>
+						<form class='acct-update-form' action='/account/security?_method=PUT' method='POST'>
+							<div id='email-settings'>
+								<div class='acct-settings-header' id='email-settings-description'>
+									<h3>Email</h3>
+									<p>You'll get updates on your META &amp; other updates EST think's you'll enjoy!</p>
 								</div>
-							<% } else { %>
-							<div class="form-check form-check-inline account-email-settings">
-								<label class="btn btn-primary btn-est" id='stream-true'>
-									<input type="checkbox" name='stream' value='true' autocomplete="off"> I want stream updates
-								</label>
-								<label class="btn btn-danger btn-est-danger" id='stream-false'>
-									<input type="checkbox" name='stream' value='false' autocomplete="off" checked> I don't want stream updates
-								</label>
+								<div id='email-settings-body'>
+									<div class="form-check form-check-inline" id='acct-email-actions'>
+										<% if(currentUser.newsletter) { %>
+											<label class="form-check-label">
+												<input class="form-check-input" type="checkbox" name='email' id='email-true' value='true' autocomplete="off" checked> Keep Me Updated
+											</label>
+											<label class="form-check-label">
+												<input class="form-check-input" type="checkbox" name='email' id='email-false' value='false' autocomplete="off"> Don't Keep Me Updated
+											</label>
+										<% } else { %>
+											<label class="form-check-label">
+												<input class="form-check-input" type="checkbox" name='email' id='email-true' value='true' autocomplete="off"> Keep Me Updated
+											</label>
+											<label class="form-check-label">
+												<input class="form-check-input" type="checkbox" name='email' id='email-false' value='false' autocomplete="off" checked> Don't Keep Me Updated
+											</label>
+										<% } %>
+									</div>
+								</div>
 							</div>
-							<% } %>
-							<div class='clear-div'>
-								<hr>
+							<div class='acct-settings-actions' id='email-actions'>
+								<button class='btn btn-secondary acct-btn' type='submit'>Update</button>
 							</div>
-							<button class='btn btn-success btn-est account-form-btn' type='submit'>Save Changes</button>
+							<div id='sec-settings'>
+								<div class='acct-settings-header' id='sec-settings-description'>
+									<h3>Security Settings</h3>
+									<p>Change your password or deactivate your account here.</p>
+								</div>
+								<div id='sec-settings-actions'>
+									<a href='/account/change-password'>Change Password</a>
+									<a href='/account/deactivate'>Deactivate Account</a>
+								</div>
+							</div>
 						</form>
-						<div class='account-info' id='security-settings'>
-							<h3>Security Settings</h3>
-							<p>Change your password or deactivate your account here.</p>
-							<ul>
-								<li><a href='/account/change-password'>Change Password</a></li>
-								<li><a href='/account/deactivate'>Deactivate Account</a></li>
-							</ul>
-						</div>
 					</div>
 				</div>
 			</div>

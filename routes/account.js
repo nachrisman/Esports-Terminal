@@ -109,7 +109,7 @@ router.get('/security', middleware.isLoggedIn, function(req, res){
 });
 
 router.put('/security', middleware.isLoggedIn, function(req, res){
-	User.findByIdAndUpdate(req.user._id, {$set: {newsletter: req.body.news, stream: req.body.stream} }, function(err, updatesUser){
+	User.findByIdAndUpdate(req.user._id, {$set: {newsletter: req.body.email} }, function(err, updatesUser){
 		if(err){
 			console.log(err);
 			res.redirect('/account/security');
