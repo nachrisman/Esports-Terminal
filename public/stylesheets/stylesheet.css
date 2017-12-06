@@ -1388,6 +1388,87 @@ footer .btn{
 /*=====================
     NEW CSS REFACTOR
 ======================*/
+/* Account Registration */
+#registration-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.registration{
+    width: 55vw;
+    margin: 0 auto 25px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.registration-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 25px 25px 0 0;
+}
+
+#registration-header{
+    border-bottom: 1px solid #6E6E84;
+}
+
+.registration p{
+    color: #6E6E84;
+    text-align: left;
+}
+
+.registration a{
+    color: #333399;
+}
+
+.registration h1{
+    text-align: left;
+}
+
+#registration-form{
+    width: 100%;
+}
+
+#user-acct-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #6E6E84;
+}
+
+.registration-form-section{
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+}
+
+#registration-meta{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #6E6E84;
+}
+
+.registration-meta-game-label > img{
+    padding: 10px;
+}
+
+.registration-meta-game-logo{
+    max-width: 150px;
+}
+
+#registration-actions{
+    flex-direction: row;
+    justify-content: center;
+}
+
+#registration-actions .btn{
+    width: 30vw;
+    font-size: 1.5vw;
+}
 
 /* User Account View */
 .acct-update-form label{
@@ -1554,6 +1635,57 @@ footer .btn{
     border-left: 1px solid #6E6E84;
 }
 
+/* Footer */
+#footer-wrapper{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+
+.footer-col{
+    flex-basis: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+#footer-logo-col{
+    flex-basis: 5vw;
+}
+
+#footer-logo{
+    max-width: 125px;
+    max-height: 125px;
+}
+
+#footer-nav-col{
+    flex-basis: 50vw;
+    align-items: center;
+}
+
+.footer-col-nav{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-nav-section{
+    display: flex;
+    flex-direction: column;
+}
+
+#footer-social-col{
+    flex-basis: 10vw;
+}
+
+#footer-social-links{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
 
 
 /*============================
@@ -1563,6 +1695,51 @@ footer .btn{
 /* Portrait Mode Phones */
 @media only screen
 and (max-width: 414px) {
+    /* Account Registration */
+    #registration-wrapper{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .registration{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    #registration-header{
+        border-bottom: none;
+    }
+    
+    #user-acct-info{
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .registration-form-section{
+        width: 100%;
+        flex-basis: 48%;
+    }
+    
+    #registration-meta{
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .registration-meta-game-logo{
+        max-width: 125px;
+    }
+    
+    #registration-actions{
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+    
+    #registration-actions .btn{
+        width: 35vw;
+        font-size: 3vw;
+    }
+    
     /* Login Page */
     #login-logo-top, #login-logo-bottom{
         display: none;
@@ -1679,11 +1856,106 @@ and (max-width: 414px) {
         display: flex;
         flex-direction: column;
     }
+    
+    /* Footer */
+    .footer-flex{
+        margin: 0 auto;
+        width: 90vw;
+        height: 10vh;
+        justify-content: center;
+    }
+    
+    .footer-flex-col{
+        flex-basis: 100%;
+        flex-direction: column;
+    }
+    
+    .footer-nav{
+        background-color: yellow;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        flex-basis: 100%;
+    }
+    
+    .footer-nav-item{
+        padding: 10px;
+    }
+    
+    .footer-nav-col{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    #footer-logo-col{
+        display: none;
+    }
+    
+    #footer-social-col{
+        display: none;
+    }
+    
+    /* Footer */
+    #footer-logo-col{
+        display: none;
+    }
+    
+    #footer-nav-col{
+        flex-basis: 90vw;
+    }
+
+    #footer-social-col{
+        display: none;
+    }
 }
 
 @media only screen
 and (min-width: 415px)
 and (max-width: 740px) {
+    /* Account Registration */
+    #registration-wrapper{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .registration{
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    #registration-header{
+        border-bottom: none;
+    }
+    
+    #user-acct-info{
+        justify-content: space-around;
+    }
+    
+    .registration-form-section{
+        flex-basis: 48%;
+    }
+    
+    #registration-meta{
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .registration-meta-game-logo{
+        max-width: 125px;
+    }
+    
+    #registration-actions{
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+    
+    #registration-actions .btn{
+        width: 35vw;
+        font-size: 3vw;
+    }
+    
     /* Login Page */
     #login-logo-top, #login-logo-bottom{
         display: none;

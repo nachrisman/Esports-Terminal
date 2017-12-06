@@ -174,10 +174,13 @@ router.post('/register', function(req, res){
 		location: {country: req.body.country},
 		validationToken: {token: token, expiration: moment()}
 	});
-
-	metaGames.forEach(function(metaGame){
-		newUser.meta.push({ game: metaGame, events: true, news: true});
-	});
+	
+	if(metaGames){
+		metaGames.forEach(function(metaGame){
+			newUser.meta.push({ game: metaGame, events: true, news: true});
+		});
+	}
+	
 	
 	if(req.body.password == req.body.confirmedPassword) {
 		User.findOne({email: req.body.email}, function(err, user){

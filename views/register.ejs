@@ -1,82 +1,57 @@
 <% include ./partials/header %>
-	  <div class='container-fluid' id='primary-wrapper'>
-	    <div class='row'>
-	      <div class='col-xs-12 col-md-12'>
-	        <h1>Awesome! You've decided to setup your own META. Lets get started!</h1>
-	      </div>
-	    </div>
-	    <div class='row'>
-	      <div class='col-xs-3 col-md-3'>
-	        <img class='registration-guide' id='step-1' src='/media/branding/register_guide_1.png'>
-	        <h2>Enter some basic info about yourself.</h2>
-	      </div>
-	      <div class='col-xs-6 col-md-6' id='registration-form-container'>
-	        <form class='new-user-entry' action='/register' method='POST'>
-	        	<div class='form-group row'>
-	        		<div class='col-xs-6 col-md-6'>
-	        			<label for='firstName'>First Name: </label>
-	        			<input class='form-control' type='text' name='firstName' id='firstName' required>
-	        		</div>
-	        		<div class='col-xs-6 col-md-6'>
-	        			<label for='lastName'>Last Name: </label>
-	        			<input class='form-control' type='text' name='lastName' id='lastName' required>
-	        		</div>
-	        	</div>
-	        	<div class='form-group row'>
-	        		<div class='col-xs-6 col-md-6'>
-	        			<label for='email'>Email: </label>
-	        			<input class='form-control' type='email' name='email' id='email' required>
-	        		</div>
-	        		<div class='col-xs-6 col-md-6'>
-	        			<label for='username'>Username: </label>
-	        			<input class='form-control' type='text' name='username' id='username' required>
-	        		</div>
-	        	</div>
-	        	<div class='form-group row'>
-	        		<div class='col-xs-6 col-md-6'>
-	        			<label for='password'>Password: </label>
-	        			<input class='form-control' type='password' name='password' id='password' required>
-	        		</div>
-	        		<div class='col-xs-6 col-md-6'>
-	        			<label for='confirmedPassword'>Confirm Password: </label>
-	        			<input class='form-control' type='password' name='confirmedPassword' id='confirmedPassword' required>
-	        		</div>
-	        	</div>
-	        	<div class='form-group row'>
-	        		<div class='col-xs-2 col-md-2'>
-	        			<label for='country'>Country: </label>
-	        		</div>
-	        		<div class='col-xs-10 col-md-10'>
-	        			<select class='form-control custom-select' type='select' name='country' id='country' required>
-	        				<option selected disabled>Select a Country</option>
-	        				<% countries.forEach(function(country) { %>
-						  		<option value='<%= country %>'><%= country %></option>
-							<% }); %>
-	        			</select>
-	        		</div>
-	        	</div>
-	      	  <div class='clear-div'>
-	      	  	<hr>
-	      	  </div>
-	      	  <div class='game-select'>
-	      	  <% games.forEach(function(game) { %>
-		        <label class='game-label'>
-		      	  <input type='checkbox' name='title[]' value='<%= game.title %>'>
-		      	  <img class='meta-select-thumbnail' id='<%= game.title.replace(/[&\/\\#\s,+()$~%.'":*?<>{}]/g, '') %>' src='<%= game.logopng %>' alt='<%= game.title + ' Logo' %>'>
-		        </label>
-	      	  <% }); %>
-	      	  </div>
-	      	  <div class='clear-div'>
-	      	  	<hr>
-      			<h2>All Done? Click and Finish the job.</h2>
-      		  </div>
-	      	  <button class='btn btn-primary btn-est account-form-btn' type='submit'>Create My Account</button>
-	        </form>
-	      </div>
-	      <div class='col-xs-3 col-md-3'>
-	        <img class='registration-guide' id='step-2' src='/media/branding/register_guide_2.png'>
-	        <h2 id='step-2-text'>Just click on the games you want to follow. We'll customize it even more in a minute. </h2>
-	      </div>
-	    </div>
-	  </div>
+		<div class='container-fluid' id='registration-wrapper'>
+			<div class='registration'>
+				<div class='registration-flex' id='registration-header'>
+					<h1>Hey there, good lookin'!</h1>
+					<p>Creating an account is easy. First, tell us who you are, then tell us what you want.</p>
+				</div>
+				<div class='registration-flex' id='registration-container'>
+					<form class='acct-update-form' id='registration-form' action='/register' method='POST'>
+						<div id='user-acct-info'>
+							<div class='registration-form-section'>
+								<label for='firstName'>First Name:</label>
+								<input class='form-control' type='text' name='firstName' id='firstName' required />
+								<label for='lastName'>Last Name:</label>
+								<input class='form-control' type='text' name='lastName' id='lastName' required />
+								<label for='email'>Email:</label>
+								<input class='form-control' type='email' name='email' id='email' required />
+								<label for='username'>Username:</label>
+								<input class='form-control' type='text' name='username' id='username' required />
+							</div>
+							<div class='registration-form-section'>
+								<label for='password'>Password:</label>
+								<input class='form-control' type='password' name='password' id='password' required />
+								<label for='confirmedPassword'>Confirm Password:</label>
+								<input class='form-control' type='password' name='confirmedPassword' id='confirmedPassword' required />
+								<label for='country'>Country:</label>
+								<select class='form-control custom-select' type='select' name='country' id='country' required>
+									<option selected disabled>Select a Country</option>
+									<% countries.forEach(function(country) { %>
+										<option value='<%= country %>'><%= country %></option>
+									<% }); %>
+								</select>
+							</div>
+						</div>
+						<div class='registration-flex'>
+							<h1>Now, choose the games you enjoy.</h1>
+							<p>Seriously, that's it. Whatever games you choose will be a part of your custom home page.</p>
+							<a href='/info' target='_blank'>Why aren't there more games?</a>
+						</div>
+						<div class='registration-flex' id='registration-meta'>
+							<% games.forEach(function(game) { %>
+								<div class='registration-meta-game-select'>
+									<label class='registration-meta-game-label'>
+										<img class='registration-meta-game-logo' src='<%= game.logopng %>' />
+										<input class='meta-game-check' type='checkbox' name='title[]' value='<%= game.title %>'>
+									</label>
+								</div>
+							 <% }); %>
+						</div>
+						<div class='registration-flex' id='registration-actions'>
+							<button class='btn btn-secondary acct-btn' type='submit'>Create My Account</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 <% include ./partials/footer %>
