@@ -620,40 +620,6 @@ hr{
     margin-right:25px;
 }
 
-/* Login Page */
-#login-page-flex{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-#login-credentials{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#login-credentials label{
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-.login-actions{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-actions .btn{
-    width: 100%;
-}
-
-.login-actions a{
-    margin: 10px;
-    color: #333399;
-}
-
 /* write for us */
 #write-for-us{
     text-align: center;
@@ -886,8 +852,6 @@ hr{
     margin: 0 auto;
     display: block;
 }
-
-
 
 .meta-container p {
     display:inline-block;
@@ -1172,135 +1136,6 @@ hr{
     margin:0 auto 20px auto;
 }
 
-/* stream */
-.stream-view{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-
-/* register */
-#registration-form-container{
-    border-right:2px solid red;
-    border-left:2px solid red;
-    border-radius:25px;
-    margin:0 auto 50px auto;
-}
-
-.new-user-entry{
-    margin: 25px auto;
-    width:40vw;
-}
-
-.new-user-entry label{
-    margin-top:5px;
-}
-
-.new-user-entry #country{
-    margin-top:15px;
-}
-
-.new-user-entry label, input, select{
-    display:inline-block;
-    vertical-align: baseline;
-}
-
-.game-select{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width:100%;
-}
-
-.game-select label{
-    width:33%;
-    height:auto;
-    display:inline-block;
-}
-
-.meta-select-thumbnail{
-    width:100%;
-    height:auto;
-    margin:10px 0 10px 0;
-    opacity: 1;
-}
-
-.game-select label > input{
-    visibility:hidden;
-    position:absolute;
-}
-
-.game-select label > input + img{
-    cursor:pointer;
-    background-color:transparent;
-    border-radius: transparent;
-    border: transparent;
-}
-
-.game-select label > input:checked + img{
-    background-color:rgba(114, 114, 192, 1);
-    border-radius:10px;
-    border: 2px solid black;
-}
-
-.registration-guide{
-        display:block;
-        max-width:20vw;
-        height:auto;
-}
-
-@media screen and (max-device-width: 765px){
-    .registration-guide{
-        display: none;
-    }
-    
-    #step-2-text{
-        display:none;
-    }
-}
-
-#step-2{
-    margin-top:400px;
-}
-
-.section-divider{
-    border-top:2px solid rgb(0, 0, 0);
-    border-top:2px solid rgba(0, 0, 0, 0.5);
-}
-
-
-/* info - complete */
-#info-content img{
-    width:60%;
-}
-#info-content p{
-    text-align:left;
-}
-
-#info-content a{
-    color:#000;
-    text-decoration: underline;
-}
-
-#info-content a:hover{
-    color:rgba(0, 0, 0, 0.7);
-    text-decoration: underline;
-}
-
-#info-ad-space{
-    text-align:center;
-    width:100%;
-}
-
-#account-steps{
-    display:block;
-    margin: 0 auto;
-    width: auto;
-    max-height: 50%;
-}
-
 /* privacy policy */
 #privacy-policy-content * {
     text-align:left;
@@ -1311,83 +1146,46 @@ hr{
     text-align:left;
 }
 
-/* footer */
-footer{
-    margin: 0 auto;
-    padding-top: 15px;
-    border-top: 2px solid rgb(0, 0, 0);
-    border-top: 2px solid rgba(0, 0, 0, 0.5);
-    font-weight:normal;
-    font-size:10pt;
-}
-
-footer a{
-    color: #000;
-}
-
-footer p{
-    max-width:100%;
-}
-
-#footer-logo{
-    display: flex;
-    justify-content: center;
-}
-
-#footer-logo img{
-    max-height:100px;
-    width:auto;
-}
-
-.footer-nav{
-    height:75px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: space-around;
-    flex-basis: 20px;
-}
-
-.social-btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items:flex-start;
-    
-}
-
-@media screen and (max-width: 765px){
-    .social-btn{
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    footer .btn{
-        width:100vw;
-    }
-}
-
-footer .btn{
-    margin:5px;
-    flex-grow: 1;
-    background-color:#333399;
-    color:#fff;
-}
-
-#copyright{
-    display: flex;
-    justify-content: center;
-}
-
-
-
 
 
 
 /*=====================
     NEW CSS REFACTOR
 ======================*/
+/* Login Page */
+#login-page-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#login-credentials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login-credentials label{
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.login-actions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-actions .btn{
+    width: 100%;
+}
+
+.login-actions a{
+    margin: 10px;
+    color: #333399;
+}
+
 /* Site Info/FAQ */
 #site-info-container{
     display: flex;
@@ -1746,6 +1544,18 @@ footer .btn{
 }
 
 /* Footer */
+footer{
+    padding-top: 15px;
+    border-top: 2px solid rgb(0, 0, 0);
+    border-top: 2px solid rgba(0, 0, 0, 0.5);
+    font-weight:normal;
+    font-size:10pt;
+}
+
+footer a{
+    color: #000;
+}
+
 #footer-wrapper{
     display: flex;
     justify-content: center;
