@@ -66,22 +66,6 @@ $(document).ready(function(){
             }
         }); 
     });
-    
-    var gameSelectIds = [];
-    
-    $(".game-select").find(".meta-select-thumbnail").each(function(){ gameSelectIds.push(this.id); });
-    console.log(gameSelectIds);
-    
-    $.each(gameSelectIds, function(key, id){
-		$("#"+id).mouseenter(function(){
-			$(this).animate({'opacity':'0.5'},500);
-		});
-		
-		$("#"+id).mouseleave(function(){
-			$(this).animate({'opacity':'1'},500);
-		});
-		
-	});
 	
 	
 	// ACCOUNT SETTINGS VIEW //

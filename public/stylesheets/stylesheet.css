@@ -1388,6 +1388,116 @@ footer .btn{
 /*=====================
     NEW CSS REFACTOR
 ======================*/
+/* Site Info/FAQ */
+#site-info-container{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.content-flex{
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mobile-advert-responsive{
+        display: none;
+    }
+
+.advert-sidebar-flex{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.section-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.section-header p{
+    color: #6E6E84;
+}
+
+.site-info-section{
+    margin-bottom: 25px;
+}
+
+.site-info-section a{
+    color: #333399;
+}
+
+.site-info-section p{
+    text-align: left;
+}
+
+#site-info-mobile-banner-top{
+    display: none;
+}
+
+/* Contact Page */
+#contact-container{
+    width: 60vw;
+    margin: 0 auto 25px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+#contact-flex{
+    width: 30vw;
+}
+
+#contact-form{
+    width: 100%;
+}
+
+#contact-actions{
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+#contact-actions .btn{
+    width: 20vw;
+    font-size: 1.5vw;
+}
+
+#contact-page-sidebar{
+    margin-top: 25px;
+    flex-basis: 80%;
+    justify-content: flex-start;
+    height: 90vh;
+}
+
+#contact-page-info{
+    width: 100%;
+    padding-top: 25px;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: center;
+}
+
+#contact-page-info p{
+    text-align: left;
+}
+
+#contact-page-social{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    text-align: center;
+}
+
 /* Account Registration */
 #registration-wrapper{
     display: flex;
@@ -1686,6 +1796,11 @@ footer .btn{
     align-content: space-around;
 }
 
+#contact-mobile-banner-top, #contact-mobile-banner-bottom,
+#contact-mobile-leaderboard-top{
+    display: none;
+}
+
 
 
 /*============================
@@ -1695,6 +1810,112 @@ footer .btn{
 /* Portrait Mode Phones */
 @media only screen
 and (max-width: 414px) {
+    /* Site Info/FAQ */
+    #site-info-container{
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: flex-start;
+    }
+    
+    #site-info-mobile-banner-top{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .advert-sidebar-flex{
+        display: none;
+    }
+    
+    .content-flex{
+        width: 100%;
+        align-items: flex-start;
+    }
+    
+    .mobile-advert-responsive{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .section-header p{
+        text-align: left;
+    }
+    
+    .site-info-section{
+        margin-bottom: 25px;
+    }
+    
+    .site-info-section a{
+        color: #333399;
+    }
+    
+    .site-info-section p{
+        text-align: left;
+    }
+
+    /* Contact Page */
+    #contact-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    #contact-mobile-banner-top, #contact-mobile-banner-bottom{
+        display: block;
+    }
+    
+    #contact-mobile-banner-bottom{
+        margin-top: 25px;
+    }
+    
+    #contact-container .content-flex{
+        width: 100%;
+    }
+    
+    #contact-container .section-header{
+        margin-top: 25px;
+    }
+    
+    #contact-container .section-header p{
+        text-align: left;
+    }
+    
+    #contact-flex{
+        width: 100%;
+    }
+    
+    #contact-actions{
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #contact-actions .btn{
+        width: 30vw;
+        font-size: 4vw;
+    }
+    
+    #contact-sidebar-lg-rectangle{
+        display: none;
+    }
+    
+    #contact-page-sidebar{
+        margin-top: 15px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    #contact-page-info{
+        width: 100%;
+        padding-top: 25px;
+        align-items: center;
+    }
+    
     /* Account Registration */
     #registration-wrapper{
         display: flex;
@@ -1913,6 +2134,114 @@ and (max-width: 414px) {
 @media only screen
 and (min-width: 415px)
 and (max-width: 740px) {
+    /* Site Info/FAQ */
+    #site-info-container{
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: flex-start;
+    }
+    
+    #site-info-mobile-banner-top{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .advert-sidebar-flex{
+        display: none;
+    }
+    
+    .content-flex{
+        width: 100%;
+        align-items: flex-start;
+    }
+    
+    .mobile-advert-responsive{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .section-header p{
+        text-align: left;
+    }
+    
+    .site-info-section{
+        margin-bottom: 25px;
+    }
+    
+    .site-info-section a{
+        color: #333399;
+    }
+    
+    .site-info-section p{
+        text-align: left;
+    }
+    
+    /* Contact Page */
+    #contact-container{
+        width: 95%;
+        height: 100%;
+        margin-bottom: 125px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    #contact-mobile-banner-top, #contact-mobile-banner-bottom{
+        display: inline-block;
+    }
+    
+    #contact-mobile-banner-bottom{
+        margin-top: 20px;
+    }
+    
+    #contact-container .content-flex{
+        width: 100%;
+    }
+    
+    #contact-container .section-header{
+        margin-top: 25px;
+    }
+    
+    #contact-container .section-header p{
+        text-align: left;
+    }
+    
+    #contact-flex{
+        width: 100%;
+    }
+    
+    #contact-actions{
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #contact-actions .btn{
+        width: 30vw;
+        font-size: 4vw;
+    }
+    
+    #contact-sidebar-lg-rectangle{
+        display: none;
+    }
+    
+    #contact-page-sidebar{
+        margin-top: 15px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    #contact-page-info{
+        width: 100%;
+        padding-top: 25px;
+        align-items: center;
+    }
+    
     /* Account Registration */
     #registration-wrapper{
         display: flex;
