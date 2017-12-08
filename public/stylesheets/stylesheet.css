@@ -1152,6 +1152,60 @@ hr{
 /*=====================
     NEW CSS REFACTOR
 ======================*/
+/* Write For Us */
+#write-wrapper{
+    margin: 0 auto 25px auto;
+}
+
+#write-submission-header p{
+    text-align: left;
+}
+
+#write-submission-games{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#write-submission-logo{
+    width: 200px;
+    height: auto;
+}
+
+#write-submission-form{
+    margin: 0 auto;
+}
+
+.write-submission-section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.write-submission-section p{
+    color: #6E6E84;
+}
+
+#write-submission-social, #write-submission-previous-work{
+    padding-top: 25px;
+}
+
+#write-submission-previous-work input{
+    margin: 10px 0 10px 0;
+}
+
+#write-submission-actions{
+    display: flex;
+    justify-content: center;
+}
+
+#write-submission-actions .btn{
+    margin-top: 25px;
+    width: 20vw;
+    font-size: 1.5vw;
+}
+
 /* Login Page */
 #login-page-flex{
     display: flex;
@@ -1620,6 +1674,20 @@ footer a{
 /* Portrait Mode Phones */
 @media only screen
 and (max-width: 414px) {
+    /* Write For Us */
+    #write-submission-header h1{
+        text-align: left;
+    }
+    
+    #write-submission-games{
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+    
+    #write-submission-actions .btn{
+        font-size: 3vw;
+    }
+    
     /* Site Info/FAQ */
     #site-info-container{
         flex-direction: column;
@@ -1944,6 +2012,11 @@ and (max-width: 414px) {
 @media only screen
 and (min-width: 415px)
 and (max-width: 740px) {
+    /* Write For Us */
+    #write-submission-actions .btn{
+        font-size: 3vw;
+    }
+    
     /* Site Info/FAQ */
     #site-info-container{
         flex-direction: column;
