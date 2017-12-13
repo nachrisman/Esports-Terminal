@@ -893,7 +893,6 @@ hr{
 }
 
 .article-view-feed{
-    background-color: red;
     width: 65vw;
     margin: 0 auto;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
