@@ -83,6 +83,19 @@ $(document).ready(function(){
 			$email_true.prop("checked", false);
 		}
 	});
+	
+	// NEWS - MAIN //
+	var sidebarArticleHeadlines = [];
+	var sidebarArticleImages = [];
+	
+	$("#news-sidebar-content").find("img").each(function(){ sidebarArticleImages.push(this.id.substr(20, 30)); });
+	$("#news-sidebar-content").find(".preview-headline").each(function(){ sidebarArticleHeadlines.push(this.id.substr(20, 30)); });
+	
+	$.each(sidebarArticleImages, function(key, id){
+		$("#"+id).mouseenter(function(){
+			$(this).fadeTo("slow", 0.5);
+		});
+	});
 });
 
 function insertTwitchFeed(channel) {

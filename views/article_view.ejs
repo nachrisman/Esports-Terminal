@@ -1,98 +1,131 @@
 <% include ./partials/article_header %>
-		<div class='container-fluid' id='primary-wrapper'>
-			<div class='row'>
-				<div class='col-xs-12 col-md-12' id='page-header'>
-					<h1>News</h1>
-					<form class='content-search' action='/search/articles' method='GET'>
-						<p>Search Articles</p>
-						<div class="input-group">
-							<input type="text" class="form-control" name='search' placeholder="looking for something...">
-							<span class="input-group-btn">
-								<button class='btn btn-primary btn-est' type='submit'>Search</button>
-							</span>
-						</div>
-					</form>
+		<div class='container-fluid'>
+			<div class='article-view-flex' id='article-view-main-container'>
+				<div class='section-header' id='article-view-header'>
+					<div id='article-view-header-ad'>
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- Billboard Main -->
+						<ins class="adsbygoogle"
+						     style="display:inline-block;width:970px;height:250px"
+						     data-ad-client="ca-pub-9897193498933044"
+						     data-ad-slot="7876616131"></ins>
+						<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</div>
+					<div id='article-view-header-ad-mobile'>
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- EST - Large Mobile Banner -->
+						<ins class="adsbygoogle"
+						     style="display:inline-block;width:320px;height:100px"
+						     data-ad-client="ca-pub-9897193498933044"
+						     data-ad-slot="3672641657"></ins>
+						<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</div>
 				</div>
 				<hr>
-			</div>
-			<div class='row'>
-				<div class='col-xs-4 col-md-4' id='sidebar-container'>
-					<div class='content-divider-sm'>
-						<h2>Related</h2>
-					</div>
-					<div class='preview'>
-						<% relatedArticles.forEach(function(relatedArticle) { %>
-						<%     if(relatedArticle.contentType == 'standard') { %>
-								<div class='article-preview'>
-									<a class='sidebar-link' href='/news/<%= relatedArticle._id %>'>
-										<div class='article-preview-image'>
-											<img class='article-preview-image' src='<%= relatedArticle.image %>' alt='<%= relatedArticle.title %>'>
-										</div>
-										<div class='preview-headline'>
-											<h3 class='article-title'><%= relatedArticle.title.substr(0, 100) %></h3>
-										</div>
-									</a>
-								</div>
-						<% } %>
-						<% }); %>
-					</div>
-					<div class='clear-div'>
-						<hr>
-					</div>
-					<div class='content-divider-sm'>
-						<h2>Related Videos</h2>
-					</div>
-					<div class='preview'>
-						<% if(relatedVideos.length < 1) { %>
-						<p>┐(´•_•`)┌ No Related Videos. What to do... </p>
-						<% } else { %>
-						<% relatedVideos.forEach(function(relatedVideo) { %>
-								<div class='article-preview'>
-									<a class='sidebar-link' href='/news/<%= relatedVideo._id %>'>
-										<div class='article-preview-image'>
-											<img class='article-preview-image' src='<%= relatedVideo.image %>' alt='<%= relatedVideo.title %>'>
-										</div>
-										<div class='preview-headline'>
-											<h3 class='article-title'><%= relatedVideo.title.substr(0, 100) %></h3>
-										</div>
-									</a>
-								</div>
-						<% }); %>
-						<% } %>
-					</div>
-					<div class='clear-div'>
-						<hr>
-					</div>
-				</div>
-				<div class='col-xs-8 col-md-8' id='post-wrapper'>
-					<article>
-						<header>
-							<h1><%=foundArticle.title%></h1>
-						</header>
-						<div class='meta-container'>
-							<p class='article-author-label'>Author: </p>
-							<a class='article-author-link' href='/search/author?search=<%= foundArticle.author %>'><%=foundArticle.author%></a>
-							<p class='article-pub-date'>Published: <%= foundArticle.published.toDateString() %></p>
-							<p class='article-categories-list'>Categories: <% foundArticle.categories.forEach(function(category){ %> <%= category + ', ' %> <% }); %></p>
+				<div class='article-view-feed'>
+					<div id='article-view-feed-sidebar'>
+						<div class='section-header' id='article-view-sidebar-header'>
+							<h1 id='article-view-sidebar-title'>Related</h1>
+							<p>You'll like these</p>
 						</div>
-						<div class='post-content'>
-							<figure>
-								<img class='article-figure' src='<%=foundArticle.image%>' alt='<%=foundArticle.title %>'>
-								<figcaption>
-									<p class='article-figure-caption'><%= foundArticle.imageCaption %> -</p>
-									<p class='article-figure-source'>Source: <%= foundArticle.imageSource %></p> 
-								</figcaption>
-							</figure>
-							<div class='article-body'><span><%- foundArticle.body %></span></div>
-							<% if(!foundArticle.sourceLink) { %>
-								
+						<div id='article-view-sidebar-content'>
+							<% if(relatedArticles.length == 0) { %>
+							<p>┐(´•_•`)┌ No Related Videos.</p>
 							<% } else { %>
-								<p class='article-body'>Source: <a class='source-link' target='_blank' href='<%= foundArticle.sourceLink %>'>Click here</a></p>
-							<% } %>
-							<a class='btn btn-outline-primary btn-est-outline' href='/news'>Return to News</a>
+							<% relatedArticles.forEach(function(relatedArticle) { %>
+							<div class='article-preview' id='<%= relatedArticle._id %>'>
+								<a class='preview-link' href='/news/<%= relatedArticle._id %>'>
+									<img class='article-preview-image' id='<%= relatedArticle._id + "-image" %>' src='<%= relatedArticle.image %>' alt='<%= relatedArticle.title %>'>
+									<div class='preview-headline' id='<%= relatedArticle._id + "-headline" %>'>
+										<h3 class='article-title'><%= relatedArticle.title.substr(0, 100) %></h3>
+									</div>
+								</a>
+							</div>
+							<% }); %>
+							<% }; %>
 						</div>
-					</article>
+						<div id='article-view-sidebar-ad'>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- EST - Large Skyscraper Sidebar -->
+							<ins class="adsbygoogle"
+							     style="display:inline-block;width:300px;height:600px"
+							     data-ad-client="ca-pub-9897193498933044"
+							     data-ad-slot="2454928756"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</div>
+					</div>
+					<div id='article-view-feed-main'>
+						<div id='article-view-container'>
+							<article>
+								<header>
+									<h1 class='article-view-title'><%= foundArticle.title %></h1>
+								</header>
+								<div class='article-meta-container'>
+									<p class='article-author-label'>Author: <a class='article-author-link' href='/search/author?search=<%= foundArticle.author %>'><%=foundArticle.author%></a></p>
+									<p class='article-pub-date'>Published: <%= foundArticle.published.toDateString() %></p>
+								</div>
+								<div class='post-content'>
+									<figure>
+										<img class='article-figure' src='<%=foundArticle.image%>' alt='<%=foundArticle.title %>'>
+										<figcaption class='article-figure-caption'>
+											<p><%= foundArticle.imageCaption %> via <%= foundArticle.imageSource %></p>
+										</figcaption>
+									</figure>
+									<div class='article-body'><%- foundArticle.body %></div>
+									<% if(!foundArticle.sourceLink) { %>
+										
+									<% } else { %>
+									<div class='article-source'>
+										<p>Source: <a target='_blank' href='<%= foundArticle.sourceLink %>'>Click here</a></p>
+									</div>
+									<% } %>
+									<div id='article-view-btn'>
+										<a class='btn btn-outline-secondary acct-btn' href='/news'>Return to News</a>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+					<div id='article-view-article-ad-mobile'>
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- EST - Mobile Medium Rectangle -->
+						<ins class="adsbygoogle"
+						     style="display:inline-block;width:300px;height:250px"
+						     data-ad-client="ca-pub-9897193498933044"
+						     data-ad-slot="7475197430"></ins>
+						<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</div>
+					<div id='article-view-feed-sidebar-mobile'>
+						<div class='section-header' id='article-view-sidebar-header'>
+							<h1 id='article-view-sidebar-title'>Related</h1>
+							<p>You'll like these</p>
+						</div>
+						<div id='article-view-sidebar-content'>
+							<% if(relatedArticles.length == 0) { %>
+							<p>┐(´•_•`)┌ No Related Videos.</p>
+							<% } else { %>
+							<% relatedArticles.forEach(function(relatedArticle) { %>
+							<div class='article-preview' id='<%= relatedArticle._id %>'>
+								<a class='preview-link' href='/news/<%= relatedArticle._id %>'>
+									<img class='article-preview-image' id='<%= relatedArticle._id + "-image" %>' src='<%= relatedArticle.image %>' alt='<%= relatedArticle.title %>'>
+									<div class='preview-headline' id='<%= relatedArticle._id + "-headline" %>'>
+										<h3 class='article-title'><%= relatedArticle.title.substr(0, 100) %></h3>
+									</div>
+								</a>
+							</div>
+							<% }); %>
+							<% }; %>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</div>		
 <% include ./partials/footer %>

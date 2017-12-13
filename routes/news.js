@@ -6,32 +6,38 @@ var express = require('express'),
 router.get('/', function(req, res){
 	var today = moment().startOf('day');
 	var lastWeek = moment().subtract(7, 'days');
-
-	Article.find({}).sort({published: -1}).limit(25).exec(function(err, articles){
+	
+	Article.find({}).sort({published: -1}).limit(3).exec(function(err, mostRecentArticles){
 		if(err){
 			console.log(err);
 		} else {
-			Article.find({
-				published: {$gte: lastWeek.toDate(), $lt: today.toDate()}
-			}).sort({published: -1}).limit(5).exec(function(err, pastArticles){
+			var lastPublished = mostRecentArticles[mostRecentArticles.length - 1].published;
+			
+			Article.find({published: {$lt: lastPublished}}).sort({published: -1}).limit(22).exec(function(err, articles){
 				if(err){
 					console.log(err);
 				} else {
-					Article.aggregate([{$sample: {size: 5} }], function(err, randomArticles){
+					Article.find({
+						published: {$gte: lastWeek.toDate(), $lt: today.toDate()}
+					}).sort({published: -1}).limit(5).exec(function(err, lastWeeksArticles){
 						if(err){
 							console.log(err);
 						} else {
-							Article.find({published: {$gte: lastWeek.toDate(), $lt: today.toDate()}, contentType: 'video'}).sort({published: -1}).exec(function(err, recentVideos){
+							Article.aggregate([{$sample: {size: 5} }], function(err, randomArticles){
 								if(err){
 									console.log(err);
 								} else {
-									res.render('news', {articles: articles, pastArticles: pastArticles, randomArticles: randomArticles, recentVideos: recentVideos});
+									res.render('news', {
+										mostRecentArticles: mostRecentArticles, 
+										articles: articles, 
+										randomArticles: randomArticles, 
+										lastWeeksArticles: lastWeeksArticles});
 								}
 							});
 						}
 					});
 				}
-			});	
+			});
 		}
 	});
 });
@@ -86,9 +92,10 @@ router.get('/:id', function(req, res){
 		if(err){
 			res.redirect('/news');
 		} else {
+			var relatedCategories = foundArticle.categories.remove('general');
 			Article.find({
 				_id: {$ne: foundArticle._id},
-				categories: {$in: foundArticle.categories}
+				categories: {$in: relatedCategories}
 			}).sort({published: -1}).limit(5).exec(function(err, relatedArticles){
 				if(err){
 					console.log(err);

@@ -1,139 +1,163 @@
 <% include ./partials/header %>
-		<div class='container-fluid' id='primary-wrapper' >
-			<div class='row'>
-				<div class='col-xs-12 col-md-12' id='page-header'>
-					<h1>News</h1>
-					<form class='content-search' action='/search/articles' method='GET'>
-						<p>Search Articles</p>
-						<div class="input-group">
-							<input type="text" class="form-control" name='search' placeholder="search articles...">
-							<span class="input-group-btn">
-								<button class='btn btn-primary btn-est' type='submit'>Search</button>
-							</span>
+			<div class='container-fluid'>
+				<div class='news-flex' id='news-main-container'>
+					<div class='section-header' id='news-header'>
+						<div id='news-header-ad'>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- Billboard Main -->
+							<ins class="adsbygoogle"
+							     style="display:inline-block;width:970px;height:250px"
+							     data-ad-client="ca-pub-9897193498933044"
+							     data-ad-slot="7876616131"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
 						</div>
-					</form>
-			  	</div>
-			  	<hr>
-			</div>
-			<div class='row'>
-				<div class='col-xs-4 col-md-4' id='sidebar-container'>
-					<div class='content-divider-sm'>
-						<h2>Missed It?</h2>
+						<div id='news-header-ad-mobile'>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- EST - Large Mobile Banner -->
+							<ins class="adsbygoogle"
+							     style="display:inline-block;width:320px;height:100px"
+							     data-ad-client="ca-pub-9897193498933044"
+							     data-ad-slot="3672641657"></ins>
+							<script>
+								(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</div>
 					</div>
-					<div class='preview'>
-						<% if(pastArticles.length == 0) { %>
+					<hr>
+					<div id='news-most-recent'>
+						<% if(mostRecentArticles.length == 0) { %>
 						<p>No Articles.. whaaaaat?</p>
 						<% } else { %>
-						<% pastArticles.forEach(function(pastArticle) { %>
-						<div class='article-preview'>
-							<a class='preview-link' href='/news/<%= pastArticle._id %>'>
-								<img class='article-preview-image' src='<%= pastArticle.image %>' alt='<%= pastArticle.title %>'>
-								<div class='preview-headline'>
-									<h3 class='article-title'><%= pastArticle.title.substr(0, 100) %></h3>
+						<% mostRecentArticles.forEach(function(article) { %>
+						<div class='article-preview' id='<%= article._id %>'>
+							<a class='preview-link' href='/news/<%= article._id %>'>
+								<img class='article-preview-image' id='<%= article._id + "-image" %>' src='<%= article.image %>' alt='<%= article.title %>'>
+								<div class='preview-headline' id='<%= article._id + "-headline" %>'>
+									<p class='article-title'><%= article.title.substr(0, 100) %></p>
 								</div>
 							</a>
 						</div>
-					<% }); %>
-					<% }; %>
-					</div>
-					<div class='clear-div'>
-						<hr>
-					</div>
-					<div class='content-divider-sm'>
-						<h2>Random Picks</h2>
-					</div>
-					<div class='preview'>
-					<% if(randomArticles.length == 0) { %>
-						<p>No articles... whaaat?</p>
-					<% } else { %>
-					<% randomArticles.forEach(function(randomArticle) { %>
-						<% if(randomArticle.contentType != 'video') { %>
-						<div class='article-preview'>
-							<a class='preview-link' href='/news/<%= randomArticle._id %>'>
-								<div class='article-preview-image'>
-									<img class='article-preview-image' src='<%= randomArticle.image %>' alt='<%= randomArticle.title %>'>
-								</div>
-								<div class='preview-headline'>
-									<h3 class='article-title'><%= randomArticle.title.substr(0, 100) %></h3>
-								</div>
-							</a>
-						</div>
-					<% } %>
-					<% }); %>
-					<% }; %>
-					</div>
-					<div class='clear-div'>
-						<hr>
-					</div>
-					<div class='content-divider-sm'>
-						<h2>Popular Videos</h2>
-					</div>
-					<div class='preview'>
-						<% if(pastArticles.length == 0) { %>
-							<p>┐(´•_•`)┌ No Videos?<a href='/contact'>Let us know.</a></p>
-						<% } else { %>
-						<% recentVideos.forEach(function(recentVideo) { %>
-							<div class='article-preview'>
-								<a class='preview-link' href='/news/<%= recentVideo._id %>'>
-									<div class='article-preview-image'>
-										<img class='article-preview-image' src='<%= recentVideo.image %>' alt='<%= recentVideo.title %>'>
-									</div>
-									<div class='preview-headline'>
-										<h3 class='article-title'><%= recentVideo.title.substr(0, 100) %></h3>
-									</div>
-								</a>
-							</div>
 						<% }); %>
 						<% }; %>
 					</div>
-					<div class='clear-div'>
-						<hr>
-					</div>
-				</div>
-				<div class='col-xs-8 col-md-8' id='post-wrapper' >
-					<div class='content-feed'>
-						<div class='content-divider-sm' id='news-feed-header'>
-							<h2>News Feed</h2>
+					<hr>
+					<div class='news-feed'>
+						<div id='news-feed-sidebar'>
+							<div class='section-header' id='news-sidebar-header'>
+								<h1 id='news-sidebar-title'>Last Week</h1>
+								<p>ICYMI</p>
+							</div>
+							<div id='news-sidebar-content'>
+								<% if(lastWeeksArticles.length == 0) { %>
+								<div class='no-news-message'>
+									<p class='no-news-message'>No Articles.. whaaaaat?</p>
+								</div>
+								<% } else { %>
+								<% lastWeeksArticles.forEach(function(article) { %>
+								<div class='article-preview' id='<%= article._id %>'>
+									<a class='preview-link' href='/news/<%= article._id %>'>
+										<img class='article-preview-image' id='<%= article._id + "-image" %>' src='<%= article.image %>' alt='<%= article.title %>'>
+										<div class='preview-headline' id='<%= article._id + "-headline" %>'>
+											<h3 class='article-title'><%= article.title.substr(0, 100) %></h3>
+										</div>
+									</a>
+								</div>
+								<% }); %>
+								<% }; %>
+							</div>
+							<div id='news-sidebar-ad'>
+								<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+								<!-- EST - Large Rectangle Sidebar -->
+								<ins class="adsbygoogle"
+								     style="display:inline-block;width:336px;height:280px"
+								     data-ad-client="ca-pub-9897193498933044"
+								     data-ad-slot="6101571867"></ins>
+								<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+								</script>
+							</div>
+							<div id='news-sidebar-ad-mobile'>
+								<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+								<!-- EST - Mobile Medium Rectangle -->
+								<ins class="adsbygoogle"
+								     style="display:inline-block;width:300px;height:250px"
+								     data-ad-client="ca-pub-9897193498933044"
+								     data-ad-slot="7475197430"></ins>
+								<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+								</script>
+							</div>
+							<div class='section-header' id='news-sidebar-header-random'>
+								<h1 id='news-sidebar-title'>Random</h1>
+								<p>An Article Lootbox</p>
+							</div>
+							<div id='news-sidebar-content-random'>
+								<% if(randomArticles.length == 0) { %>
+								<p>No Articles.. whaaaaat?</p>
+								<% } else { %>
+								<% randomArticles.forEach(function(randomArticle) { %>
+								<div class='article-preview' id='<%= randomArticle._id %>'>
+									<a class='preview-link' href='/news/<%= randomArticle._id %>'>
+										<img class='article-preview-image' id='<%= randomArticle._id + "-image" %>' src='<%= randomArticle.image %>' alt='<%= randomArticle.title %>'>
+										<div class='preview-headline' id='<%= randomArticle._id + "-headline" %>'>
+											<h3 class='article-title'><%= randomArticle.title.substr(0, 100) %></h3>
+										</div>
+									</a>
+								</div>
+								<% }); %>
+								<% }; %>
+							</div>
+							<div id='news-sidebar-ad'>
+								<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+								<!-- EST - Large Skyscraper Sidebar -->
+								<ins class="adsbygoogle"
+								     style="display:inline-block;width:300px;height:600px"
+								     data-ad-client="ca-pub-9897193498933044"
+								     data-ad-slot="2454928756"></ins>
+								<script>
+									(adsbygoogle = window.adsbygoogle || []).push({});
+								</script>
+							</div>
 						</div>
-						<% var lastSeen = Date.parse(articles[articles.length - 1].published).toString(); %>
-						<% articles.forEach(function(article){ %>
-						<% if(article.contentType != 'video') { %>
-						<div class='post-preview'>
-							<article>
-								<div id='header-preview'>
-									<header>
-										<h1 class='article-header'><a href='/news/<%= article._id %>' ><%= article.title %></a></h1>
-										<a class='article-author-link' href='/search/author?search=<%= article.author %>'><%= article.author %></a>
-										<p class='article-pub-date'>-<%= article.published.toDateString() %></p>
-									</header>
-								</div>
-								<% if(article.contentType != 'video'){ %>
-								<div class='image-preview'>
-									<figure>
-										<a href='/news/<%= article._id %>'>
-											<img class='article-figure' src='<%= article.image %>' alt='<%= article.title %>'>
-										</a>
-									</figure>
-								</div>
-								<% } %>
-								<div class='post-content' id='content-preview'>
-									<div class='article-body-preview'><%- article.body.substr(0, 300) %>...</div>
-									<a class='btn btn-outline-primary btn-est-outline' href='/news/<%= article._id %>'>Read More</a>
-								</div>
-							</article>
-						</div>
-						<div class='clear-div' id='post-preview-clear'>
+						<div id='news-feed-main'>
+							<% var lastSeen = Date.parse(articles[articles.length - 1].published).toString(); %>
+							<% articles.forEach(function(article){ %>
+							<% if(article.contentType != 'video') { %>
+							<div class='post-preview'>
+								<article>
+									<div id='header-preview'>
+										<header>
+											<h1 class='article-header'><a href='/news/<%= article._id %>' ><%= article.title %></a></h1>
+											<a class='article-author-link' href='/search/author?search=<%= article.author %>'><%= article.author %></a>
+											<p class='article-pub-date'> - <%= article.published.toDateString() %></p>
+										</header>
+									</div>
+									<% if(article.contentType != 'video'){ %>
+									<div class='image-preview'>
+										<figure>
+											<a href='/news/<%= article._id %>'>
+												<img class='article-figure' src='<%= article.image %>' alt='<%= article.title %>'>
+											</a>
+										</figure>
+									</div>
+									<% } %>
+									<div class='post-content' id='content-preview'>
+										<div class='article-body-preview'><%- article.body.substr(0, 150) %>...</div>
+									</div>
+								</article>
+							</div>
 							<hr>
+							<% } %>
+							<% }); %>	
 						</div>
-						<% } %>
-						<% }); %>
 					</div>
-					<% if(articles.length == 25) { %>
+					<% if(articles.length == 22) { %>
 					<div class='article-query-container'>
-						<a class='btn btn-outline-primary btn-est-outline' id='article-query' href='/news/more-articles/<%= lastSeen %>'>More Articles</a>
+						<a class='btn btn-outline-secondary acct-btn' href='/news/more-articles/<%= lastSeen %>'>More Articles</a>
 					</div>
 					<% } %>
 				</div>
 			</div>
-		</div>
 <% include ./partials/footer %>
