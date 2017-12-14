@@ -1294,6 +1294,72 @@ hr{
     width: 40vw;
 }
 
+/* User META */
+.meta-flex{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#meta-header{
+    width: 65vw;
+    border-bottom: 1px solid #6E6E84;
+    margin-bottom: 25px;
+}
+
+.meta-option-flex{
+    width: 65vw;
+}
+
+.meta-option-header{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333399;
+    border-radius: 15px;
+    padding:15px;
+    margin:15px 0 15px 0;
+}
+
+.meta-option-title{
+    color: #fff;
+}
+
+.fa-arrow-circle-o-down{
+    margin-left: 25px;
+    color: #fff;
+    font-size: 3vw;
+}
+
+.meta-news-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.meta-news-container .article-preview{
+    flex-basis: 30vw;
+    height: 30vh;
+    flex-grow: 1;
+}
+
+.meta-news-container .article-preview:first-child{
+    flex-basis: 100%;
+    flex-grow: 0;
+}
+
 /* Write For Us */
 #write-wrapper{
     margin: 0 auto 25px auto;
@@ -2157,6 +2223,85 @@ and (max-width: 414px) {
     .article-author-link:hover{
         color: #333399;
     }
+    
+    /* User META */
+    .meta-flex{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+    
+    #meta-header{
+        width: 65vw;
+        border-bottom: 1px solid #6E6E84;
+        margin-bottom: 25px;
+    }
+    
+    .meta-option-flex{
+        width: 90vw;
+    }
+    
+    .meta-option-header{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333399;
+        border-radius: 15px;
+        padding: 15px;
+        margin: 5px 0 5px 0;
+    }
+    
+    .meta-option-title{
+        color: #fff;
+        font-size: 4vw;
+        text-align: left;
+    }
+    
+    .fa-arrow-circle-o-down{
+        margin-left: 25px;
+        color: #fff;
+        font-size: 5vw;
+    }
+    
+    .meta-news-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+    
+    .meta-news-container .article-preview{
+        flex-basis: 100%;
+        height: 30vh;
+        flex-grow: 0;
+    }
+    
+    .meta-news-container .article-preview:first-child{
+        flex-basis: 100%;
+        flex-grow: 0;
+    }
+    
+    .meta-news-container > .article-preview > .preview-link > .preview-headline{
+        opacity: 1;
+        padding: 0;
+        background-color: transparent;
+    }
+    
+    .meta-news-container > .article-preview > .preview-link > .preview-headline > .article-title{
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
 
     /* Write For Us */
     #write-submission-header h1{
@@ -2847,6 +2992,85 @@ and (max-width: 740px) {
     
     .article-author-link:hover{
         color: #333399;
+    }
+    
+    /* User META */
+    .meta-flex{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+    
+    #meta-header{
+        width: 65vw;
+        border-bottom: 1px solid #6E6E84;
+        margin-bottom: 25px;
+    }
+    
+    .meta-option-flex{
+        width: 90vw;
+    }
+    
+    .meta-option-header{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333399;
+        border-radius: 15px;
+        padding: 15px;
+        margin: 5px 0 5px 0;
+    }
+    
+    .meta-option-title{
+        color: #fff;
+        font-size: 4vw;
+        text-align: left;
+    }
+    
+    .fa-arrow-circle-o-down{
+        margin-left: 25px;
+        color: #fff;
+        font-size: 5vw;
+    }
+    
+    .meta-news-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+    
+    .meta-news-container .article-preview{
+        flex-basis: 43vw;
+        height: 50vh;
+        flex-grow: 0;
+    }
+    
+    .meta-news-container .article-preview:first-child{
+        flex-basis: 43vw;
+        flex-grow: 0;
+    }
+    
+    .meta-news-container > .article-preview > .preview-link > .preview-headline{
+        opacity: 1;
+        padding: 0;
+        background-color: transparent;
+    }
+    
+    .meta-news-container > .article-preview > .preview-link > .preview-headline > .article-title{
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
     }
     
     /* Write For Us */

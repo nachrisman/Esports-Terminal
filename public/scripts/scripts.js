@@ -96,6 +96,27 @@ $(document).ready(function(){
 			$(this).fadeTo("slow", 0.5);
 		});
 	});
+	
+	// USER META //
+	var userMetaGames = [];
+	var userMetaContainers = [];
+	
+	$(".meta-flex").find(".meta-news-container").each(function(){ userMetaGames.push(this.id); });
+	$(".meta-flex").find(".meta-option-flex").each(function(){ userMetaContainers.push(this.id); });
+	
+	$.each(userMetaGames, function(key, id){
+		$("#"+id).hide();
+	});
+	
+	$.each(userMetaContainers, function(key, id){
+		var header = $("#"+id).find(".meta-option-header");
+		
+		header.click(function(){
+			$("#"+userMetaContainers[key]).children(".meta-news-container").toggle(500);	
+		});
+		
+	});
+
 });
 
 function insertTwitchFeed(channel) {

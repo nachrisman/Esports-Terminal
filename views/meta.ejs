@@ -1,112 +1,38 @@
 <% include ./partials/header %>
-			<div class='container-fluid' id='primary-wrapper'>
-				<div class='row'>
-				  <div class='col-xs-12 col-md-12' id='meta-welcome'>
-				    <h1><%= currentUser.username.charAt(0).toUpperCase() + currentUser.username.slice(1) %>'s META</h1>
-				  	<div class='clear-div'>
-				  		<hr>
-				  	</div>
-				  </div>
-				</div>
-				<div class='row'>
-				  <div class='col-xs-12 col-md-12'>
-					  <div class='content-divider-lg'>
-					    <h1>News</h1>
-					  </div>
-				  </div>
-				</div>
-				<% if(currentUser.active) { %>
-				<% var userMeta = currentUser.meta; %>
-				<% userMeta.forEach(function(meta) { %>
-				<% 	if(meta.news == true) { %>
-				<div class='row meta-section'>
-					<div class='col-xs-12 col-md-12'>
-						<div class='user-meta-sub-header'>
-						  <h2><%= meta.game %></h2>
-						</div>
-					  <div class='preview' id='meta-news-preview'>
-				    <% articles.forEach(function(foundArticle) { %>
-				    <% 		var categories = foundArticle.categories; %>
-				    <% 		if(categories.indexOf(meta.game) > -1) { %>
-				  		  	<div class='article-preview meta-article-preview'>
-                		<a class='preview-link' href='/news/<%= foundArticle._id %>'>
-                  	<div class='article-preview-image'>
-                    	<img class='article-preview-image' src='<%= foundArticle.image %>' alt='<%=foundArticle.title %>'>
-                  	</div>
-                  	<div class='preview-headline'>
-                  		<h3 class='article-title'><%= foundArticle.title.substr(0, 100) %></h3>
-                  	</div>
-                	</a>
-              	</div>
-				  	<% } %>
-				  	<% }); %>
-				  	</div>
-				  </div>
-				  <a class='btn btn-outline-primary btn-est-outline' href='/news/game/<%= meta.game %>' >More <%= meta.game %></a>
-				</div>
-				<% } %>
-				<% }); %>
-				<div class='clear-div'>
-				  <hr>
-				</div>
-				<div class='row'>
-					<div class='col-xs-12 col-md-12'>
-			    	<div class='content-divider-lg'>
-			    		<h1>Events</h1>
-			    	</div>
+			<div class='container-fluid'>
+				<div class='meta-flex'>
+					<div class='section-header' id='meta-header'>
+						<h1>Hey, <%= currentUser.username %></h1>
+						<p>Check out what we've got for you today</p>
 					</div>
+					<% if(currentUser.active) { %>
+						<% var meta = currentUser.meta %>
+						<% meta.forEach(function(metaOption) { %>
+							<% if(metaOption.news == true) { %>
+								<div class='meta-option-flex' id="<%= metaOption.game.replace(/[\. ,:-]+/g, '') + '-container' %>">
+									<div class='meta-option-header'>
+										<h1 class='meta-option-title'><%= metaOption.game %></h1>
+										<i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+									</div>
+									<div class='meta-news-container' id="<%= metaOption.game.replace(/[\. ,:-]+/g, '') %>">
+									<% articles.forEach(function(foundArticle) { %>
+										<% var categories = foundArticle.categories; %>
+										<% if(categories.indexOf(metaOption.game) > -1) { %>
+											<div class='article-preview' id='<%= foundArticle._id %>'>
+												<a class='preview-link' href='/news/<%= foundArticle._id %>'>
+													<img class='article-preview-image' id='<%= foundArticle._id + "-image" %>' src='<%= foundArticle.image %>' alt='<%= foundArticle.title %>'>
+													<div class='preview-headline' id='<%= foundArticle._id + "-headline" %>'>
+														<p class='article-title'><%= foundArticle.title.substr(0, 100) %></p>
+													</div>
+												</a>
+											</div>
+										<% } %>
+									<% }); %>
+									</div>
+								</div>
+							<% } %>
+						<% }); %>
+					<% } %>
 				</div>
-				<% userMeta.forEach(function(meta) { %>
-				<% 	if(meta.events == true) { %>
-				<div class='row'>
-					<div class='col-xs-12 col-md-12'>
-						<div class='user-meta-sub-header'>
-							<h2><%= meta.game %></h2>
-						</div>
-						<div class='row view-list meta-section'>
-							<div class='col-xs-12 col-md-12'>
-								<div class='table-responsive event-list'>
-									<table class='table'>
-			        	    <thead>
-			        	      <tr>
-						            <th>Game/Event</th>
-						            <th>Event Page</th>
-						            <th>Location</th>
-						            <th>Date/Time</th>
-						            <th>EST Stream</th>
-			        	      </tr>
-			        	    </thead>
-			        	    <tbody>
-			        	    <% foundEvents.forEach(function(foundEvent) {  %>
-			        	    <% var relatedEvent = foundEvent.games; 	   %>
-			        	    <% 	if(relatedEvent.indexOf(meta.game) > -1) { 	   %>
-			          	      <tr>
-			                    <td><img class='event-game-thumbnail' src='<%= foundEvent.image %>' alt='<%= foundEvent.title %>'></td>
-			            	    	<td><a class='direct-event-link' href='/events/<%= foundEvent._id %>'><%= foundEvent.title %></a></td>
-			            	    	<td><%= foundEvent.venue + ', ' + foundEvent.city + ', ' + foundEvent.state %></td>
-			            	    	<td><%= foundEvent.date.toDateString()  %></td>
-			            	    	<td>
-			            	    		<% if(foundEvent.stream === true) { %>
-			                				<%= 'Yes'   %>
-			                	  	<% } else { %>
-			                		  	<%= 'No' %>
-			                	  	<% }; %>
-			            	    	</td>
-			          	      </tr>
-			          	  <% } %>
-			          	  <% }); %>
-			        	    </tbody>
-			            </table>
-			          </div>
-			        </div>
-			      </div>
-					</div>
-				</div>
-				<% } %>
-				<% }); %>
-				<% } else { %>
-				<p class='text-danger'>In order to view your META, you must activate your account by following the verification link in your email.</p>
-  		  <a href='/resend-email-verification?uid=<%= currentUser._id %>'><p>Resend Verification Email</p></a>
-  		  <% } %>
 			</div>
 <% include ./partials/footer %>
