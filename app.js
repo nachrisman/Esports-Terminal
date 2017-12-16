@@ -1,12 +1,14 @@
 var passportLocalMongoose = require('passport-local-mongoose'), 
 	methodOverride		  = require('method-override'),
 	LocalStrategy         = require('passport-local'),
+	map		 			  = require('express-sitemap'),
 	favicon				  = require('serve-favicon'),
 	flash				  = require('connect-flash'),
 	User			      = require('./models/user'),
 	bodyParser            = require('body-parser'),
 	passport 		      = require('passport'),
 	mongoose              = require('mongoose'),
+	moment				  = require('moment'),
 	express               = require('express'),
 	path				  = require('path'),
 	app                   = express();
@@ -54,6 +56,24 @@ app.use('/events', eventRoutes),
 app.use('/admin', adminRoutes),
 app.use('/news', newsRoutes),
 app.use(indexRoutes);
+
+// var sitemap = map({
+//   sitemap: 'sitemap.xml', // path for .XMLtoFile
+//   route: {
+//     'ALL': {
+//       lastmod: moment(),
+//       changefreq: 'always',
+//       priority: 1.0,
+//     }
+//   },
+// });
+
+// console.log(sitemap.generate(app));
+// sitemap.XMLtoFile();
+
+// app.get('/sitemap.xml', function(req, res){
+// 	sitemap.XMLtoWeb();	
+// });
 
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log('EST Server Started...');

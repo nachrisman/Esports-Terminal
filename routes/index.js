@@ -167,7 +167,7 @@ router.post('/register', function(req, res){
 	var token = buf.toString('hex');
 	var metaGames = req.body.title;
 	var newUser = new User({
-		username: req.body.username,
+		username: req.body.username.toLowerCase(),
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
 		email: req.body.email,
@@ -277,7 +277,7 @@ router.get('/login', function(req, res){
 	res.render('login');
 });
 
-router.post('/login', passport.authenticate('local', 
+router.post('/login', middleware.usernameToLowerCase, passport.authenticate('local', 
 	{
 		successRedirect: '/meta',
 		failureRedirect: '/login',
@@ -475,5 +475,6 @@ router.post('/contact', function(req, res){
 				    }
 				});
 });
+
 
 module.exports = router;
