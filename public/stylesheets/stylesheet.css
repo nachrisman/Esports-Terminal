@@ -620,146 +620,6 @@ hr{
     margin-right:25px;
 }
 
-/* write for us */
-#write-for-us{
-    text-align: center;
-}
-.info-tip-submit{
-    margin: 25px 0 25px 0;
-}
-.info-tip-submit .btn{
-    display: block;
-    margin: 0 auto;
-}
-
-#content-needed{
-    list-style: none;
-    border-left: 2px solid red;
-    border-right: 2px solid red;
-    border-radius: 25px;
-}
-
-#compensation{
-    color: green;
-}
-
-/* search */
-.content-search{
-    width: 30vw;
-}
-
-.content-search .btn{
-    width: 8vw;
-}
-
-.search-header{
-    width: 90vw;
-    text-align:left;
-    margin-bottom: 25px;
-}
-
-.search-header form{
-    text-align: center;
-    margin: 0 auto 25px auto;
-}
-
-.search-results{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.search-results article{
-    display: flex;
-    flex-direction: row;
-}
-
-.search-results .search-result-body{
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
-    margin: 0;
-}
-
-.search-results .article-figure{
-    max-width: 25vw;
-}
-
-.event-search-results{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-basis: 10vh;
-}
-
-.event-search-result-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: space-between;
-    align-items: center;
-}
-
-.event-search-result-container > div{
-    flex-basis: 25vw;
-}
-
-.event-search-result-image img{
-    width: 25vw;
-}
-
-.event-search-result-meta-info{
-    text-align: center;
-}
-
-.event-search-result-btn{
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* meta - complete */
-#meta-welcome{
-    margin-bottom:50px;
-}
-
-.user-meta-sub-header{
-    margin-bottom:20px;
-    text-align:left;
-    border-bottom: 3px solid red;
-}
-
-.user-meta-sub-header{
-    display: inline-block;
-}
-
-.meta-section{
-    margin-bottom: 50px;
-}
-
-#meta-section{
-    margin-top:10px;
-}
-
-#meta-news-preview{
-    justify-content: center;
-    width: 100%;
-}
-
-#meta-news-preview .article-preview{
-    margin: 5px;
-    flex-basis: 25vw;
-}
-
-#meta-news-preview .article-preview:nth-child(4){
-    flex-basis:40vw;
-}
-
-.meta-section .btn-est-outline{
-    display: block;
-    font-size: 1vw;
-    margin-left: auto;
-}
-
 /* events */
 .event-list{
     margin: 0 auto;
@@ -863,6 +723,62 @@ hr{
 
 .section-header p{
     color: #6E6E84;
+}
+
+/* Privacy Policy / Terms & Conditions */
+.policies-flex{
+    width: 65vw;
+    margin: 0 auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.policies-flex p{
+    text-align: left;
+}
+
+.policies-flex h1{
+    text-align: left;
+}
+
+/* Forgot Password */
+.forgot-pw-flex{
+    margin: 0 auto 25px auto;
+    width: 65vw;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+}
+
+#forgot-pw{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+
+#forgot-pw > input{
+    flex-basis: 40%;
+    margin: 0 10px 0 10px;
+}
+
+#forgot-pw .btn{
+    margin: 5px;
 }
 
 /* Search Results */
@@ -1946,6 +1862,17 @@ footer a{
     display: none;
 }
 
+#footer-policies{
+    width: 50%;
+    margin: 0 auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
 
 /*============================
@@ -1955,6 +1882,66 @@ footer a{
 /* Portrait Mode Phones */
 @media only screen
 and (max-width: 414px) {
+    /* Privacy Policy == Terms & Conditions */
+    .policies-flex{
+        width: 95vw;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+    
+    .policies-flex p{
+        text-align: left;
+    }
+    
+    .policies-flex h1{
+        text-align: left;
+    }
+
+    /* Forgot Password */
+    .forgot-pw-flex{
+        margin: 0 auto 25px auto;
+        width: 95vw;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #forgot-pw{
+        width: 100%;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: flex-start;
+        align-items: center;
+    }
+    
+    #forgot-pw > input{
+        width: 90%;
+        margin: 0;
+    }
+    
+    #forgot-pw .btn{
+        flex-basis: 8vh;
+        width: 80%;
+        margin: 15px auto;
+    }
+
     /* Search Results */
     .search-query-flex{
         display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
@@ -2810,11 +2797,84 @@ and (max-width: 414px) {
     #footer-social-col{
         display: none;
     }
+    
+    #footer-policies{
+        width: 100%;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
 }
 
 @media only screen
 and (min-width: 415px)
 and (max-width: 740px) {
+    /* Privacy Policy == Terms & Conditions */
+    .policies-flex{
+        width: 95vw;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+    
+    .policies-flex p{
+        text-align: left;
+    }
+    
+    .policies-flex h1{
+        text-align: left;
+    }
+    
+    /* Forgot Password */
+    .forgot-pw-flex{
+        margin: 0 auto 25px auto;
+        width: 95vw;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #forgot-pw{
+        width: 100%;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: flex-start;
+        align-items: center;
+    }
+    
+    #forgot-pw > input{
+        width: 90%;
+        margin: 0;
+    }
+    
+    #forgot-pw .btn{
+        flex-basis: 10vh;
+        width: 80%;
+        margin: 15px auto;
+    }
+    
     /* Search Results */
     .search-query-flex{
         display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
@@ -3594,5 +3654,19 @@ and (max-width: 740px) {
     #sec-settings-actions{
         display: flex;
         flex-direction: column;
+    }
+    
+    /* Footer */
+    #footer-policies{
+        width: 100%;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }

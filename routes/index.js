@@ -231,8 +231,22 @@ router.get('/verify',function(req,res){
 		        	if(err){
 		        		console.log(err);
 		        	} else {
-		        	req.flash('success', 'Your Account Has Been Verified!');
-		        	res.redirect('/account/meta-settings');
+		        		var email = {
+								from: 'registration@esportsterminal.com',
+								fromname: 'EST Account Creation',
+								to: "esportsterminal@gmail.com",
+								subject: "NEW ACCOUNT CREATED",
+								html: "This is an automatic notification to inform you that a new account has been created on Esports Terminal!"
+								};
+							client.sendMail(email, function(err, info){
+								if(err){
+									console.log("Error sending email to notify of account creation: " + err.message);
+									return res.redirect("/news");
+								} else {
+									req.flash('success', 'Your Account Has Been Verified!');
+		        					res.redirect('/account/meta-settings');
+								}
+							});
 		        	}
 		        });
 		    } else {

@@ -75,6 +75,10 @@ app.use(indexRoutes);
 // 	sitemap.XMLtoWeb();	
 // });
 
+// app.get("*", function(req, res){
+// 	res.status(404).send("404 - Nothing Here!");	
+// });
+
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log('EST Server Started...');
 });
