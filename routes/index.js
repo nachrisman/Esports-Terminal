@@ -393,9 +393,9 @@ router.put('/forgot-password/change/:id', function(req, res){
 ===================*/
 
 router.get('/search/articles', function(req, res){
-	Article.find({$text: {$search: req.query.search} }).limit(30).exec(function(err, foundArticles){
+	Article.find({$text: {$search: req.query.search} }).limit(25).exec(function(err, foundArticles){
 		if(err){
-			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
+			req.flash('error', err.message + 'Search could not be completed. Please try again. If the issue persists, please contact us.');
 			return res.redirect('/news');
 		} else {
 			res.render('search_articles', {foundArticles: foundArticles, search: req.query.search});
@@ -406,7 +406,7 @@ router.get('/search/articles', function(req, res){
 router.get('/search/events', function(req, res){
 	Event.find({$text: {$search: req.query.search} }).limit(30).exec(function(err, events){
 		if(err){
-			req.flash('error', 'Search could not be completed. Please try again. If the issue persists, please contact us.');
+			req.flash('error', err.message + 'Search could not be completed. Please try again. If the issue persists, please contact us.');
 			return res.redirect('/events');
 		} else {
 			res.render('search_events', {events: events, search: req.query.search});

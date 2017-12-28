@@ -865,6 +865,90 @@ hr{
     color: #6E6E84;
 }
 
+/* Search Results */
+.search-query-flex{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.search-form-container{
+    width: 100%;
+}
+
+#search-again{
+    width: 65vw;
+    margin: 0 auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#search-again-input{
+    flex-basis: 50%;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#search-again p{
+    margin: 5px 10px 5px 5px;
+}
+
+#search-again-btn{
+    margin: 5px;
+}
+
+#search-query-header{
+    width: 65vw;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#search-query-header-text{
+    margin: 25px auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+}
+
+.search-query-results{
+    width: 40vw;
+    margin: 0 auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /* Article View */
 .article-view-flex{
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
@@ -1126,7 +1210,7 @@ hr{
     align-items: center;
 }
 
-#news-sidebar-title{
+#title{
     font-size: 130%;
 }
 
@@ -1871,6 +1955,96 @@ footer a{
 /* Portrait Mode Phones */
 @media only screen
 and (max-width: 414px) {
+    /* Search Results */
+    .search-query-flex{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+    
+    .search-form-container{
+        width: 100%;
+    }
+    
+    #search-again{
+        width: 100%;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    #search-again-input{
+        flex-basis: 80%;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 10px;
+    }
+    
+    #search-again-input > input::placeholder{
+        color: #fff;
+    }
+    
+    #search-again p{
+        margin: 0 0 5px 0;
+    }
+    
+    #search-again-btn{
+        margin: 5px;
+        flex-basis: 20%;
+    }
+    
+    #search-query-header{
+        width: 95vw;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    #search-query-header-text{
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: flex-start;
+    }
+    
+    .search-query-results{
+        width: 95vw;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     /* Article View */
     .article-view-flex{
         display: flex;
@@ -2641,6 +2815,98 @@ and (max-width: 414px) {
 @media only screen
 and (min-width: 415px)
 and (max-width: 740px) {
+    /* Search Results */
+    .search-query-flex{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+    
+    .search-form-container{
+        width: 100%;
+    }
+    
+    #search-again{
+        width: 100%;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    #search-again-input{
+        flex-basis: 80%;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-bottom: 10px;
+    }
+    
+    #search-again-input > input::placeholder{
+        color: #fff;
+    }
+    
+    #search-again p{
+        margin: 0 0 5px 0;
+    }
+    
+    #search-again-btn{
+        margin: 5px;
+        flex-basis: 20%;
+    }
+    
+    #search-query-header{
+        width: 95vw;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    #search-query-header-text{
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: flex-start;
+    }
+    
+    .search-query-results{
+        width: 95vw;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+    
     /* Article View */
     .article-view-flex{
         display: flex;
