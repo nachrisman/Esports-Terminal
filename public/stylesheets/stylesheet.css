@@ -2160,8 +2160,8 @@ and (max-width: 414px) {
         display: block;
         margin: 0 auto;
         text-align: center;
-        width: 380px;
-        height: 226px;
+        width: 350px;
+        height: 208px;
     }
     
     #article-view-btn{
