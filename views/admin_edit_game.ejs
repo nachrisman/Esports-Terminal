@@ -10,7 +10,7 @@
 					<div class='content-form-col'>
 						<label for='title'>Title:</label>
 						<input class='form-control' type='text' name='game[title]' id='title' value='<%= game.title %>' required />
-						<label for='abbreviation'>Abbreviation (SFV, LoL, etc):</label>
+						<label for='abbreviation'>Abbreviation (SFV, MVCI, etc):</label>
 						<input class='form-control' type='text' name='game[abbreviation]' value='<%= game.abbreviation %>' id='abbreviation' />
 						<label for='platform'>Platform:</label>
 						<select class='form-control custom-select' type='select' name='game[platform]' id='platform' required>
@@ -23,6 +23,8 @@
 								<% } %>
 							<% }); %>
 						</select>
+						<label for="franchise">Franchise (street-fighter, marvel-vs-capcom, etc.):</label>
+						<input class="form-control" type="text" name="game[franchise]" id="franchise" value="<%= game.franchise %>" required />
 					</div>
 					<div class='content-form-col'>
 						<label for='genre'>Genre: </label>
