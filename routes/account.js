@@ -66,14 +66,19 @@ router.get("/settings", middleware.isLoggedIn, function(req, res){
 
 router.put("/settings", middleware.isLoggedIn, function(req, res){
 	var userGames = req.user.games,
+		newGames = [];
+	
+	if(req.body.games){
 		newGames = req.body.games;
-
-	newGames.forEach(function(game){
-		if(userGames.indexOf(game) > -1){
-		} else {
-			newGames.push(game);
-		}
-	});
+		
+		newGames.forEach(function(game){
+			if(userGames.indexOf(game) > -1){
+			} else {
+				newGames.push(game);
+			}
+		});
+	}
+	
 	
 	User.findByIdAndUpdate(req.user._id, {$set: {games: newGames}}, function(err, updatedUser){
 		if(err){
@@ -354,7 +359,7 @@ router.get("/login", function(req, res){
 router.post("/login", middleware.usernameToLowerCase, passport.authenticate("local", 
 	{
 		successRedirect: "/news",
-		failureRedirect: "/login",
+		failureRedirect: "/account/login",
 		failureFlash: {type: "error", message: "Invalid username or password."}
 	}), function(req, res){
 });
