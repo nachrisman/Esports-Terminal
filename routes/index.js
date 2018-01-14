@@ -16,9 +16,7 @@ var client = nodemailer.createTransport(sgTransport(options));
 	GENERAL ROUTES
 ======================*/
 router.get("/", function(req, res){
-	if(req.isAuthenticated()){
-		res.redirect("/news");
-	}
+	res.redirect("/news");
 });
 
 router.get("/privacy-policy", function(req, res){
