@@ -702,6 +702,10 @@ hr{
     justify-content: center;
 }
 
+#news-sidebar-content-random{
+    margin-top: 25px;
+}
+
 #news-sidebar-ad{
     margin: 25px 0 25px 0;
 }
