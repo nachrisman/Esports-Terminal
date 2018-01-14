@@ -9,13 +9,7 @@
 	  		gtag('js', new Date());
 	  		gtag('config', 'UA-107294858-1');
 		</script>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<script>
-	  		(adsbygoogle = window.adsbygoogle || []).push({
-			google_ad_client: "ca-pub-9897193498933044",
-			enable_page_level_ads: true
-	  		});
-		</script>
+		
 		<title>Esports Terminal</title>
 		<meta charset='utf-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -44,6 +38,7 @@
 		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 		<link href="https://fonts.googleapis.com/css?family=Poppins|Russo+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Ceviche+One" rel="stylesheet">
 		<link rel='stylesheet' href='/stylesheets/stylesheet.css'>
 		
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -53,7 +48,7 @@
 		<script src='/scripts/scripts.js'></script>
   	</head>
   	<body>
-		<nav class="navbar navbar-light bg-light navbar-expand-sm">
+		<nav class="navbar navbar-light navbar-expand-sm navbar-custom">
 			<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav-links" aria-expanded="false">
 				<span class="sr-only">Toggle navigation</span>&#x2630;
 			</button>
@@ -61,12 +56,24 @@
 				<img src="/media/branding/logo_est_reg.png" id="nav-logo">
 			</a>
 			<div class="collapse navbar-collapse" id="main-nav-links">
-				<ul class="nav navbar-nav">
+				<ul class="nav navbar-nav est-nav">
 					<li class="nav-item">
-						<a href="/news" class="nav-link">News</a>
+						<a href="/news" class="nav-link">Home</a>
 					</li>
-					<li class='nav-item'>
-						<a href='/overwatch-league' class='nav-link'>Overwatch League</a>
+					<li class="nav-item">
+						<a href="/street-fighter" class="nav-link">Street Fighter</a>
+					</li>
+					<li class="nav-item">
+						<a href="/marvel-vs-capcom" class="nav-link">Marvel vs. Capcom</a>
+					</li>
+					<li class="nav-item">
+						<a href="/tekken" class="nav-link">Tekken</a>
+					</li>
+					<li class="nav-item">
+						<a href="/soulcalibur" class="nav-link">Soulcalibur</a>
+					</li>
+					<li class="nav-item">
+						<a href="/arms" class="nav-link">ARMS</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav ml-auto">
@@ -87,22 +94,22 @@
 					</li>
 					<% if(!currentUser) { %>
 					<li class="nav-item">
-						<a class="nav-link" href='/login'>Log In</a>
+						<a class="nav-link" href='/account/login'>Log In</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href='/register'>Create an Account</a>
+						<a class="nav-link" href='/account/register'>Create an Account</a>
 					</li>
 					<% } else { %>
 					<li class="nav-item">
-						<a class="nav-link" href='/meta'>My META</a>
+						<a class="nav-link" href='/account/settings'>My Account</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href='/account'>My Account</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href='/logout'>Logout</a>
+						<a class="nav-link" href='/account/logout'>Logout</a>
 					</li>
 					<% }; %>
+					<li class="nav-item">
+						<a class="nav-link" href="/donate">Donate</a>
+					</li>
 				</ul>
 			</div>
 		</nav>

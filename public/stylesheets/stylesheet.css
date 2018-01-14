@@ -1,51 +1,39 @@
+/*===============================
+    GENERAL/OVERALL PROPERTIES
+=================================*/
 body, html {
     font-family: 'Poppins', sans-serif;
     font-size: 14pt;
 }
 
-#primary-wrapper{
-    display:block;
-    width:95vw;
-}
-
-h1{
+h1, h2{
     font-family: 'Russo One', sans-serif;
     text-align: center;
 }
 
-@media screen and (max-width: 765px){
-    h1{
-        font-size: 5vw;
-    }
-}
-
-h2{
-    font-family: 'Russo One', sans-serif;
-    text-align:center;
-}
-
 hr{
-    display:block;
-    border-color:rgba(0, 0, 0, 0.5);
-    width:60%;
+    display: block;
+    border-color: #000;
+    border-color: rgba(0, 0, 0, 0.5);
+    width: 60%;
 }
 
 .content-divider-sm{
-    border-bottom:3px solid red;
-    width:50%;
-    margin:0 auto 20px auto;
+    border-bottom: 3px solid red;
+    width: 50%;
+    margin: 0 auto 20px auto;
 }
 
 .content-divider-md{
-    border-bottom:3px solid red;
-    width:25%;
-    margin:0 auto 20px auto;
+    border-bottom: 3px solid red;
+    width: 25%;
+    margin: 0 auto 20px auto;
 }
 
 .content-divider-lg{
-    border-bottom:3px solid red;
-    width:20%;
-    margin:0 auto 20px auto;
+    border-bottom: 3px solid red;
+    width: 20%;
+    margin: 0 auto 20px auto;
 }
 
 .no-content-msg{
@@ -81,509 +69,11 @@ hr{
     color: #fff;
 }
 
-.source-link{
-    text-align:left;
-}
-
-.source-link:hover{
-    text-decoration: underline;
-}
-
-#page-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#page-header h1{
-    background-color: #333399;
-    color: #fff;
-    padding: 10px;
-    width: 30vw;
-    font-size: 2vw;
-    border-radius: 25px 0 25px 0;
-}
-
-@media screen and (max-width: 765px){
-    #page-header h1{
-        font-size: 5vw;
-    }
-}
-
-/* overwatch league */
-.owl-container{
-    margin: -25px 0 0 0;
-    display: flex;
-    flex-direction: column;
-    background: #ffffff; /* Old browsers */
-    background: -webkit-linear-gradient(#ffffff 0%, #cae2f9 71%, #f9e2b8 99%);
-    background: -moz-linear-gradient(#ffffff 0%, #cae2f9 71%, #f9e2b8 99%);
-    background: -o-linear-gradient(#ffffff 0%, #cae2f9 71%, #f9e2b8 99%);
-    background: linear-gradient(#ffffff 0%, #cae2f9 71%, #f9e2b8 99%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f9e2b8',GradientType=0 );
-}
-
-.owl-header-row{
-    display: flex;
-    padding-left: 12.5vw;
-    padding-right: 12.5vw;
-    margin-bottom: 50px;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#pacific-division-title, #atlantic-division-title{
-    flex-basis: 25vw;
-}
-
-@media screen and (max-width: 760px){
-    #pacific-division-title, #atlantic-division-title{
-    display: none;
-    }
-}
-
-#owl-est-banner{
-    flex-basis: 40vw;
-    max-width: 80%;
-}
-
-.owl-sections{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 25px;
-}
-
-.owl-left-column, .owl-right-column{
-    flex-basis: 25vw;
-}
-
-.owl-center-column{
-    flex-basis: 40vw;
-    padding: 10px 25px 10px 25px;
-    border-left: 5px solid #F99E1A;
-    border-right: 5px solid #F99E1A;
-    border-radius: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.owl-left-column, .owl-right-column{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.owl-team-container{
-    width: 12vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.owl-team-logo{
-    width: 100%;
-    opacity: 1;
-}
-
-.direct-team-link{
-    border: 3px solid rgba(252, 205, 136, 1);
-    border-radius: 25px 0 25px 0;
-    padding: 8px;
-    color: #000;
-    font-size: 1vw;
-    background-color: #F99E1A;
-    display: none;
-    text-align: center;
-}
-
-.direct-team-link:hover{
-    text-decoration: none;
-    color: #000;
-}
-
-.owl-content-preview {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 40vw;
-}
-
-.owl-article-preview {
-    position: relative;
-    text-decoration: none;
-    flex-basis: 14vw;
-    flex-grow: 1;
-    flex-shrink: 0;
-}
-
-.owl-article-preview-image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    -webkit-transition: opacity .5s ease-in-out;
-    -moz-transition: opacity .5s ease-in-out;
-    -o-transition: opacity .5s ease-in-out;
-    transition: opacity .5s ease-in-out;
-}
-
-.owl-article-preview-image:hover{
-    opacity: 0.5;
-}
-
-.owl-preview-headline{
-    position:absolute;
-    bottom: 0;
-    padding: 15px;
-    opacity: 0;
-    background-color: rgb(252, 218, 151);
-    background-color: rgba(252, 218, 151, 0.7);
-    width: 100%;
-    height: 100%;
-    -webkit-transition: opacity .9s ease-in-out, height .3s ease-in-out;;
-    -moz-transition: opacity .9s ease-in-out, height .3s ease-in-out;
-    -o-transition: opacity .9s ease-in-out, height .3s ease-in-out;
-    transition: opacity .9s ease-in-out, height .3s ease-in-out;
-}
-
-.owl-preview-headline:hover{
-    opacity: 1;
-    height:100%;
-}
-
-.owl-article-title{
-    font-size: 1.2vw;
-    color: #000;
-}
-
-
-
-.owl-footer-row{
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 25px;
-    opacity:0;
-    
-}
-
-.table-owl-schedule{
-    border-collapse: collapse;
-    text-align: center;
-    border-top: 5px solid #F99E1A;
-    border-radius: 0 0 25px 0;
-}
-
-.table-owl-schedule th{
-    background-color: rgba(23, 75, 151, 1);
-    color: #fff;
-    border: none;
-}
-
-.table-owl-schedule th:last-child{
-    border-radius: 0 0 25px 0;
-    border: none;
-}
-
-.table-owl-schedule th:nth-child(2){
-    border: none;
-}
-
-.table-owl-schedule th:nth-child(1){
-    border: none;
-}
-
-.table-owl-schedule td{
-    border: none;
-}
-
-.btn-owl{
-    width: 15vw;
-    font-size: 1vw;
-    border-radius: 25px 0 25px 0;
-    border: 3px solid rgba(252, 205, 136, 1);
-    color: #fff;
-    background: -moz-linear-gradient(45deg, rgba(23,75,151,0.66) 0%, rgba(23,75,151,1) 30%, rgba(23,75,151,1) 70%, rgba(23,75,151,0.66) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(45deg, rgba(23,75,151,0.66) 0%,rgba(23,75,151,1) 30%,rgba(23,75,151,1) 70%,rgba(23,75,151,0.66) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(45deg, rgba(23,75,151,0.66) 0%,rgba(23,75,151,1) 30%,rgba(23,75,151,1) 70%,rgba(23,75,151,0.66) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8174b97', endColorstr='#a8174b97',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    -webkit-transition: background-color .7s ease-in-out;
-    -moz-transition: background-color .7s ease-in-out;
-    -o-transition: background-color .7s ease-in-out;
-    transition: background-color .7s ease-in-out;
-}
-
-.btn-owl:hover{
-    border: 3px solid rgba(252, 205, 136, 1);
-}
-
-@media screen and (max-width: 760px){
-    #owl-overall-schedule .btn{
-        width: 30vw;
-        font-size: 2vw;
-    }
-}
-
-
-#more-owl-news{
-    margin-top: 25px;
-    width: 30vw;
-}
-
-.owl-video-content{
-    margin-top: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.owl-video-content iframe{
-    width: 854px;
-    height: 480px;
-}
-
-@media screen and (max-width: 900px){
-    .owl-video-content iframe{
-        width: 427px;
-        height: 240px;
-    }
-}
-
-/* team view */
-#team-header-row{
-    padding-left: 0;
-    padding-right: 0;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-
-.team-logo-name{
-    width: 40vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-@media screen and (max-width: 760px){
-    #team-header-row{
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-#team-logo{
-    width: 20vw;
-}
-
-.team-info{
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 20vw;
-}
-
-.team-info p{
-    text-align: left;
-    flex-basis: 15vw;
-}
-
-.team-info a{
-    width: 100%;
-}
-
-.team-info span{
-    margin-right: 15px;
-    font-weight: bold;
-}
-
-@media screen and (max-width: 760px){
-    .team-info{
-        width: 80vw;
-    }
-    
-    .team-info p{
-        flex-basis: 100%;
-    }
-    
-    .team-info a{
-        width: 100%;
-    }
-    
-    .team-info p:last-child{
-        margin:0  auto;
-    }
-}
-
-#owl-banner-team-view{
-    flex-basis: 60vw;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
-}
-
-.banner-team-view{
-    display: block;
-    margin: 0 auto;
-}
-
-#team-video{
-    width: 720px;
-    height: 405px;
-}
-
-@media screen and (max-width: 900px){
-    #team-video{
-        width: 427px;
-        height: 240px;
-    }
-}
-
-.team-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.team-news{
-    padding: 30px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
-}
-
-.owl-team-article{
-    flex-basis: 17vw;
-    margin: 5px;
-}
-
-.owl-team-article:last-child{
-    flex-basis: 20vw;
-}
-
-#more-team-news{
-    flex-basis: 50vw;
-    display: flex;
-    justify-content: center;
-}
-
-@media screen and (max-width: 760px){
-    #more-team-news .btn{
-        width: 80vw;
-        font-size: 2vw;
-    }
-}
-
-.team-roster{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 50px;
-}
-
-.team-member{
-    flex-basis: 30vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 1;
-}
-
-.member-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    display: none;
-}
-
-.member-info p{
-    text-align: left;
-}
-
-.member-info h4{
-    text-align: center;
-}
-
-.member-info span{
-    margin-right: 10px;
-}
-
-.member-image{
-    max-width: 10vw;
-    opacity: 1;
-}
-
-#profile-pic{
-    width: 100%;
-    border: 4px solid #F99E1A;
-    border-radius: 50%;
-    transition: transform 1s ease-in-out;
-}
-
-@media screen and (max-width: 760px){
-    .team-member{
-        flex-basis: 50vw;
-    }
-    
-    .member-image{
-        max-width: 20vw;
-    }
-}
-
-#member-info-top{
-    display: flex;
-    justify-content: space-around;
-    align-content: space-between;
-    align-items: flex-start;
-}
-
-#member-social{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#member-bio{
-    margin-left: 10px;
-}
-
-
-#owl-team-schedule{
-    flex-grow: 10;
-    flex-basis: 80vw;
-    opacity:1;
-}
-
-@media screen and (max-width: 760px){
-    #owl-team-schedule .btn{
-        width: 30vw;
-        font-size: 2vw;
-    }
-}
-
-#return-to-owl-main{
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-
 /* navigation */
-.navbar.navbar-light{
-    border-bottom: 1px solid #000;
+.navbar-custom {
+    background-color: #fff;
     margin-bottom:25px;
+    border-bottom: 1px solid black;
 }
 
 .navbar-nav > .nav-item > .nav-link {
@@ -620,83 +110,9 @@ hr{
     margin-right:25px;
 }
 
-/* events */
-.event-list{
-    margin: 0 auto;
-    width:80vw;
+.est-nav > .active > a{
+    color: #333399 !important;
 }
-
-.event-game-thumbnail{
-    height:50px;
-    width:auto;
-}
-
-#event-contact{
-    text-align:center;
-}
-
-#event-contact a{
-    color: #000;
-    text-decoration: underline;
-}
-
-#event-contact a:hover{
-    color: #000;
-    color: rgba(0, 0, 0, 0.7);
-    text-decoration: underline;
-}
-
-/* event view */ 
-.event-figure{
-    max-width:100%;
-    max-height:400px;
-    margin:0 auto;
-    display:block;
-}
-
-.event-meta-container, .event-header{
-    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
-}
-
-.event-meta-container{
-    padding-top:25px;
-}
-
-.event-meta-container h3, p{
-    display:block;
-    text-align:center;
-}
-
-.event-meta-container h3{
-    text-decoration: underline;
-}
-
-.event-header figure{
-    margin-bottom:25px;
-}
-
-#event-description{
-    margin:25px auto;
-}
-
-#related-events{
-    padding-top:50px;
-    border-top: 2px solid rgba(0, 0, 0, 0.5);
-}
-
-#related-articles .header-image{
-    width:90%;
-}
-
-#related-articles{
-    border-bottom:3px solid red;
-    width:50%;
-    margin:0 auto 20px auto;
-}
-
-
-
-
 
 /*=====================
     NEW CSS REFACTOR
@@ -714,6 +130,128 @@ hr{
 
 .section-header p{
     color: #6E6E84;
+}
+
+.page-indicator-container{
+    justify-content: center;
+    align-items: center;
+}
+
+.page-indicator-container > p{
+    cursor: default;
+}
+
+.page-indicator{
+    font-family: 'Ceviche One', cursive;
+    color: #333399;
+    cursor: default;
+    font-size: 42pt;
+}
+
+.franchise-name{
+    font-size: 42pt;
+}
+
+.page-indicator-mobile-container{
+    display: none;
+}
+
+.no-news{
+    color: #6E6E84;
+}
+
+.no-news > a{
+    color: #333399;
+}
+
+.no-content-message{
+    width: 65vw;
+    margin: 25px auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-content-message > img{
+    margin-bottom: 25px;
+}
+
+.no-content-message > p > a{
+    color: #333399;
+}
+
+/* Donation */
+.donation-flex{
+    width: 65vw;
+    margin: 0 auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.donation-info-section{
+    margin: 0 auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+#paypal-donate{
+    margin: 0 auto 25px auto;
+}
+
+#paypal-donate-mobile{
+    display: none;
+}
+
+#donate-thank-you{
+    width: 50vw;
+}
+
+#donate-success-flex{
+    width: 50vw;
+}
+
+#donate-success-message{
+    width: 50vw;
+    margin-bottom: 25px;
+}
+
+/* Game-Specific Pages */
+.game-page-banner-container{
+    width: 40vw;
+    margin: 0 auto 10px auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    justify-content: center;
+}
+
+.game-page-banner{
+    width: 20vw;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.mid-page-banner{
+    margin: 25px auto;
 }
 
 /* Privacy Policy / Terms & Conditions */
@@ -763,12 +301,28 @@ hr{
     align-items: center;
 }
 
+#forgot-pw-change{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
 #forgot-pw > input{
     flex-basis: 40%;
     margin: 0 10px 0 10px;
 }
 
-#forgot-pw .btn{
+#forgot-pw-change > input{
+    margin: 10px 0 10px 0;
+}
+
+#forgot-pw .btn, #forgot-pw-change .btn{
     margin: 5px;
 }
 
@@ -1214,7 +768,7 @@ hr{
 }
 
 #news-most-recent .article-preview{
-    height: 30vh;
+    height: 35vh;
     flex-basis: 25vw;
 }
 
@@ -1785,6 +1339,24 @@ hr{
     border-left: 1px solid #6E6E84;
 }
 
+#franchise-settings-body{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+#franchise-settings-body > label{
+    font-weight: normal;
+}
+
+.franchise-label{
+    font-family: 'Russo One';
+}
+
 /* Footer */
 footer{
     padding-top: 15px;
@@ -1873,6 +1445,101 @@ footer a{
 /* Portrait Mode Phones */
 @media only screen
 and (max-width: 414px) {
+    .page-indicator-container{
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .page-indicator-container > p{
+        cursor: default;
+    }
+    
+    .page-indicator{
+        font-family: 'Ceviche One', cursive;
+        color: #333399;
+        cursor: default;
+        font-size: 24pt;
+    }
+    
+    .page-indicator-mobile-container{
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* Donation */
+    .donation-flex{
+        width: 90vw;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    
+    .donation-info-section{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    #paypal-donate{
+        display: none;
+    }
+    
+    #paypal-donate-mobile{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        margin: 0 auto 25px auto;
+    }
+    
+    #donate-thank-you{
+        width: 90vw;
+    }
+    
+    #donate-success-flex{
+        width: 90vw;
+    }
+    
+    #donate-success-message{
+        width: 90vw;
+        margin-bottom: 25px;
+    }
+
+    /* Game-Specific Pages */
+    .game-page-banner-container{
+        width: 40vw;
+        margin: 0 auto 50px auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        
+    }
+    
+    .game-page-banner{
+        width: 100%;
+        height: 100%;
+    }
+    
     /* Privacy Policy == Terms & Conditions */
     .policies-flex{
         width: 95vw;
@@ -1922,9 +1589,24 @@ and (max-width: 414px) {
         align-items: center;
     }
     
+    #forgot-pw-change{
+        width: 85vw;
+    }
+    
+    #forgot-pw-change-header{
+        width: 90vw;
+        margin: 0 auto;
+    }
+    
     #forgot-pw > input{
         width: 90%;
         margin: 0;
+    }
+    
+    #forgot-pw-change > .btn{
+        margin: 5px auto;
+        flex-basis: 8vh;
+        width: 100%;
     }
     
     #forgot-pw .btn{
@@ -2219,12 +1901,7 @@ and (max-width: 414px) {
     }
     
     #news-feed-sidebar{
-        flex-basis: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+        display: none;
     }
     
     #news-sidebar-title{
@@ -2806,6 +2483,66 @@ and (max-width: 414px) {
 @media only screen
 and (min-width: 415px)
 and (max-width: 740px) {
+    /* Donation */
+    .donation-flex{
+        width: 90vw;
+        margin: 0 auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    
+    .donation-info-section{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    #paypal-donate{
+        display: none;
+    }
+    
+    #paypal-donate-mobile{
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        margin: 0 auto 25px auto;
+    }
+    
+    /* Game-Specific Pages */
+    .game-page-banner-container{
+        width: 40vw;
+        margin: 0 auto 50px auto;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+    }
+    
+    .game-page-banner{
+        width: 100%;
+        height: 100%;
+    }
+    
+    #mvc-logo{
+        width: 30vw;
+        margin: 0 auto;
+    }
+    
     /* Privacy Policy == Terms & Conditions */
     .policies-flex{
         width: 95vw;
@@ -2855,9 +2592,19 @@ and (max-width: 740px) {
         align-items: center;
     }
     
+    #forgot-pw-change{
+        margin: 0 auto;
+        width: 80vw;
+    }
+    
     #forgot-pw > input{
         width: 90%;
         margin: 0;
+    }
+    
+    #forgot-pw-change .btn{
+        width: 100%;
+        flex-basis: 12vh;
     }
     
     #forgot-pw .btn{
@@ -3152,12 +2899,7 @@ and (max-width: 740px) {
     }
     
     #news-feed-sidebar{
-        flex-basis: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+        display: none;
     }
     
     #news-sidebar-title{

@@ -71,22 +71,6 @@
 								</div>
 								<% }); %>
 							</div>
-							<div id='owl-teams'>
-								<label>Teams (OWL Only): </label>
-								<% teams.forEach(function(team){ %>
-								<div class="form-check form-check-inline">
-									<% if(article.categories.indexOf(team.name) > -1) { %>
-										<label class="form-check-label">
-											<input class="form-check-input" type="checkbox" name='article[categories][]' value='<%=team.name%>' checked /><%= team.name %>
-										</label>
-									<% } else { %>
-										<label class="form-check-label">
-											<input class="form-check-input" type="checkbox" name='article[categories][]' value='<%=team.name%>' /><%= team.name %>
-										</label>
-									<% } %>
-								</div>
-								<% }); %>
-							</div>
 						</div>
 					</div>
 					<div class='content-form-col'>

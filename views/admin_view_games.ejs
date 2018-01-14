@@ -1,41 +1,37 @@
 <% include ./partials/admin_header %>
-	  <div class='container-fluid'>
-	  			<div class='page-header'>
-					<h2>Games</h2>
-					<a class="btn btn-primary btn-est" href="/admin/new-game" role="button">Add a New Game</a>
-				</div>
-				<hr>
-	    <div class='row view-list'>
-			<div class='col-xs-12 col-md-12'>
-				<div class='table-responsive'>
-					<table class='table'>
-					  <thead>
-				  	    <tr>
-				  	      <th>Logo</th>
-					      <th>Title</th>
-					      <th>Abbreviation</th>
-					      <th>Platform(s)</th>
-					      <th>Genre(s)</th>
-					      <th>Edit</th>
-				  	    </tr>
-					  </thead>
-					  <tbody>
-					  <% games.forEach(function(game){ %>
-					    <tr>
-					      <td><img src='<%= game.logopng %>'></td>
-					      <td><%= game.title %></td>
-					      <td><%= game.abbreviation %></td>
-					      <td><%= game.platform %></td>
-					      <td><%= game.genre %></td>
-					      <td>
-					        <a href='/admin/edit-game/<%= game._id %>'>Edit</a>
-					      </td>
-					    </tr>
-					  <% }); %>
-					  </tbody>
-				    </table>
+		<div class="container-fluid">
+			<div class="page-header">
+				<h2>Games</h2>
+				<a class="btn btn-primary btn-est" href="/admin/new-game" role="button">Add a New Game</a>
+			</div>
+			<hr>
+			<div class="row view-list">
+				<div class="col-xs-12 col-md-12">
+					<div class="table-responsive">
+						<table class="table">
+					  		<thead>
+								<tr>
+									<th>Title</th>
+								  	<th>Abbreviation</th>
+								  	<th>Platform(s)</th>
+								  	<th>Genre(s)</th>
+								  	<th>Edit</th>
+								</tr>
+					  		</thead>
+					  		<tbody>
+					  		<% games.forEach(function(game){ %>
+								<tr>
+							  		<td><%= game.title %></td>
+							  		<td><%= game.abbreviation %></td>
+							  		<td><%= game.platform %></td>
+							  		<td><%= game.genre %></td>
+							  		<td><a href="/admin/edit-game/<%= game._id %>">Edit</a></td>
+								</tr>
+					  		<% }); %>
+					  		</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
-	  </div>
+	  	</div>
 <% include ./partials/admin_footer %>

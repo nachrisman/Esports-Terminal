@@ -1,0 +1,97 @@
+<% include ./partials/owl_header %>
+        <div class='owl-container'>
+            <div class='owl-header-row'>
+                <h1 id='pacific-division-title'>Pacific Division</h1>
+                <img id='owl-est-banner' src='/media/branding/owl_est_logo.png' alt='EST Overwatch terminal logo'>
+                <h1 id='atlantic-division-title'>Atlantic Division</h1>
+            </div>
+            <div class='owl-sections'>
+                <div class='owl-left-column division'>
+                    <% teams.forEach(function(team){ %>
+                        <% if(team.division == 'Pacific') { %>
+                        <% var teamName = team.name.replace(/\s/g, ''); %>
+                            <div class='owl-team-container'>
+                                <a href='/overwatch-league/team/<%= team._id %>' id='<%= teamName + "Link" %>'>
+                                    <img class='owl-team-logo' src='<%= team.logo %>' id='<%= teamName + "Logo" %>' alt='<%= team.name + "Overwatch League logo" %>'>
+                                </a>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+                <div class='owl-center-column'>
+                    <h1>News</h1>
+                    <div class='owl-content-preview'>
+					<% if(articles.length == 0) { %>
+			  			<p>There are no Overwatch League related articles. Sorry!</p>
+					<% } else { %>
+						<% articles.forEach(function(article) { %>
+			  			<div class='owl-article-preview'>
+							<a class='owl-preview-link' href='/news/<%= article._id %>'>
+								<img class='owl-article-preview-image' src='<%= article.image %>' alt='<%= article.title %>'>
+				  				<div class='owl-preview-headline'>
+									<h3 class='owl-article-title'><%= article.title.substr(0, 100) %></h3>
+				  				</div>
+							</a>
+			  			</div>
+					<% }); %>
+					<% }; %>
+					</div>
+					<a class='btn btn-primary btn-owl' id='more-owl-news' href='/news/game/Overwatch League'>More Overwatch League</a>
+                </div>
+                <div class='owl-right-column division'>
+                    <% teams.forEach(function(team){ %>
+                        <% if(team.division == 'Atlantic') { %>
+                        <% var teamName = team.name.replace(/\s/g, ''); %>
+                            <div class='owl-team-container'>
+                                <a href='/overwatch-league/team/<%= team._id %>' id='<%= teamName + "Link" %>'>
+                                <img class='owl-team-logo' src='<%= team.logo %>' id='<%= teamName + "Logo" %>' alt='<%= team.name + "Overwatch League logo" %>'>
+                                </a>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+            <hr>
+            <div class='owl-footer-row'>
+                <div class='owl-footer-title'>
+                    <h1>Schedule</h1>
+                </div>
+                <% if(events.length > 0) { %>
+                <div class='owl-event-schedule' id='owl-overall-schedule'>
+                    <div class='row view-list'>
+				  <div class='col-xs-12 col-md-12'>
+					  <div class='table-responsive event-list table-owl-schedule'>
+							<table class='table'>
+		          	            <thead>
+		          	                <tr>
+    						            <th>Event Page</th>
+    						            <th>Location</th>
+    						            <th>Date/Time</th>
+    						        </tr>
+		          	            </thead>
+		          	            <tbody>
+		          	            <% events.forEach(function(event) { %>
+			                        <tr>
+            				          	<td><a class='direct-event-link btn btn-primary btn-owl' href='/events/<%= event._id %>'><%= event.title %></a></td>
+            				          	<td>
+            				          	<% if(!event.state) { %>
+            				          		<%= event.venue + ', ' + event.city + ', ' + event.country %>
+            				          	<% } else { %>
+            				            	<%= event.venue + ', ' + event.city + ', ' + event.state %>
+            				            <% } %>
+            				          	</td>
+            				          	<td><%= event.date.toDateString() %></td>
+			                         </tr>
+		                        <% }); %>
+		          	            </tbody>
+	      			        </table>
+	      		       </div>
+	      	        </div>
+	              </div>
+                </div>
+                <% } else { %>
+                <p>There are no Overwatch League events coming up!</p>
+                <% } %>
+            </div>
+        </div>
+<% include ./partials/footer %>

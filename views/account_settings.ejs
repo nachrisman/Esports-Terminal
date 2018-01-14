@@ -1,0 +1,50 @@
+<% include ./partials/account_header %>
+		<div class='container-fluid'>
+			<div class='account-settings'>
+				<div class='acct-settings-col acct-nav'>
+					<div class='acct-nav-header'>
+						<h3>My Account</h3>
+					</div>
+					<div id='acct-nav-links'>
+						<a class='acct-nav-item' href='/account/info'>My Info</a>
+						<a class='acct-nav-item' href='/account/settings'>Settings</a>
+						<a class='acct-nav-item' href='/account/security'>Security & Other</a>
+						<a class="acct-nav-item" href="/donate">Donate</a>
+						<a class='acct-nav-item' href='/account/logout'>Log Out</a>
+					</div>
+				</div>
+				<div class='acct-settings-col'>
+					<div class='acct-settings-header'>
+						<h1>Account Settings</h1>
+						<p>Make your news feed cater to you!</p>
+					</div>
+					<div class='acct-settings-main'>
+						<form class='acct-update-form' action='/account/settings?_method=PUT' method='POST'>
+						    <div id="franchise-settings">
+						        <div class="acct-settings-header">
+						            <h3>News Filters</h3>
+						            <p>If you want your home page to only have news for certain games, change that here.</p>
+						        </div>
+						        <div class="form-check form-check-inline" id="franchise-settings-body">
+						            <% franchises.forEach(function(franchise){ %>
+						                <% if(currentUser.games.indexOf(franchise) > -1){ %>
+						                    <label class="form-check-label franchise-label">
+											    <input class="form-check-input" type="checkbox" name='games[]' value='<%= franchise %>' autocomplete="off" checked> <%= franchise.toString().replace(/\-/g, " ") %>
+											</label>
+									    <% } else { %>
+										    <label class="form-check-label franchise-label">	
+											    <input class="form-check-input" type="checkbox" name='games[]' value='<%= franchise %>' autocomplete="off"> <%= franchise.toString().replace(/\-/g, " ") %>
+											</label>
+									    <% } %>
+						            <% }); %>
+						        </div>
+						    </div>
+							<div class='acct-settings-actions' id='email-actions'>
+								<button class='btn btn-secondary acct-btn' type='submit'>Update</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+<% include ./partials/footer %>

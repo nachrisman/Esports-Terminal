@@ -1,0 +1,15 @@
+<div class='registration-flex'>
+	<h1>Now, choose the games you enjoy.</h1>
+	<p>You don't have to choose any now, but if you'll have a custom home page if you do.</p>
+	<a href='/info' target='_blank'>Why aren't there more games?</a>
+</div>
+<div class='registration-flex' id='registration-meta'>
+	<% games.forEach(function(game) { %>
+		<div class='registration-meta-game-select'>
+			<label class='registration-meta-game-label'>
+				<img class='registration-meta-game-logo' src='<%= game.logopng %>' />
+				<input class='meta-game-check' type='checkbox' name='title[]' value='<%= game.title %>'>
+			</label>
+		</div>
+	 <% }); %>
+</div>

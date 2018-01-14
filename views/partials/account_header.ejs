@@ -9,36 +9,34 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-107294858-1');
 		</script>
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<script>
-			(adsbygoogle = window.adsbygoogle || []).push({
-			google_ad_client: "ca-pub-9897193498933044",
-			enable_page_level_ads: true
-			});
-		</script>
-		<title>Account - Esports Terminal</title>
+
+		<title>Esports Terminal - Account</title>
 		<meta charset='utf-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<meta itemprop="name" content="Esports Terminal" />
 		<meta itemprop="description" content="Esports news, events, META" />
 		<meta itemprop="image" content="/media/branding/logo_est_reg.png" />
+		
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="Esports Terminal">
 		<meta name="twitter:url" content="https://esportsterminal.com/news">
 		<meta name="twitter:title" content="Esports Terminal">
 		<meta name="twitter:description" content="All Esports, All the Time">
 		<meta name="twitter:image" content="/media/branding/logo_est_reg.png">
+		
 		<meta property="og:type"  content="website" />
 		<meta property="og:title" content="Esports Terminal" />
 		<meta property="og:image" content="/media/branding/logo_est_reg.png" />
 		<meta property="og:url"   content="https://esportsterminal.com/news" />
 		<meta property="og:description" content="All Esports, All the Time" />
 		<meta property="fb:app_id" content="112168332897520" />
+		
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 		<link href="https://fonts.googleapis.com/css?family=Poppins|Russo+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
 		<link rel='stylesheet' href='/stylesheets/stylesheet.css'>
+		
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -56,10 +54,22 @@
 			<div class="collapse navbar-collapse" id="main-nav-links">
 				<ul class="nav navbar-nav">
 					<li class="nav-item">
-						<a href="/news" class="nav-link">News</a>
+						<a href="/news" class="nav-link">Home</a>
 					</li>
-					<li class='nav-item'>
-						<a href='/overwatch-league' class='nav-link'>Overwatch League</a>
+					<li class="nav-item">
+						<a href="/street-fighter" class="nav-link">Street Fighter</a>
+					</li>
+					<li class="nav-item">
+						<a href="/marvel-vs-capcom" class="nav-link">Marvel vs. Capcom</a>
+					</li>
+					<li class="nav-item">
+						<a href="/tekken" class="nav-link">Tekken</a>
+					</li>
+					<li class="nav-item">
+						<a href="/soulcalibur" class="nav-link">Soulcalibur</a>
+					</li>
+					<li class="nav-item">
+						<a href="/arms" class="nav-link">ARMS</a>
 					</li>
 				</ul>
 				<ul class="nav navbar-nav ml-auto">
@@ -80,22 +90,22 @@
 					</li>
 					<% if(!currentUser) { %>
 					<li class="nav-item">
-						<a class="nav-link" href='/login'>Log In</a>
+						<a class="nav-link" href='/account/login'>Log In</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href='/register'>Create an Account</a>
+						<a class="nav-link" href='/account/register'>Create an Account</a>
 					</li>
 					<% } else { %>
-					<li class="nav-item">
-						<a class="nav-link" href='/meta'>My META</a>
-					</li>
 					<li class="nav-item">
 						<a class="nav-link" href='/account'>My Account</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href='/logout'>Logout</a>
+						<a class="nav-link" href='/account/logout'>Logout</a>
 					</li>
 					<% }; %>
+					<li class="nav-item">
+						<a class="nav-link" href="/donate">Donate</a>
+					</li>
 				</ul>
 			</div>
 		</nav>

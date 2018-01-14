@@ -1,7 +1,7 @@
-var passportLocalMongoose = require('passport-local-mongoose'), 
-	mongoose              = require('mongoose');
+var passportLocalMongoose = require("passport-local-mongoose"), 
+	mongoose              = require("mongoose");
 
-var userRoles = ['admin', 'editor', 'user'];
+var userRoles = ["admin", "editor", "user"];
 
 var userSchema = new mongoose.Schema({
 	firstName: String,
@@ -10,43 +10,28 @@ var userSchema = new mongoose.Schema({
 	password: String,
 	createdOn: {type: Date, default: Date.now},
 	phone: Number,
-	gender: {
-		type: String,
-		enum: ['male', 'female', 'unspecified'],
-		default: 'unspecified'
-	},
+	gender: {type: String, enum: ["male", "female", "unspecified"], default: "unspecified"},
 	email: String,
 	location: {
-		country: {type: String, default: 'United States'},
-		street: {type: String, default: 'none'},
-		city: {type: String, default: 'none'},
-		state: {type: String, default: 'none'},
+		country: {type: String, default: "United States"},
+		street: {type: String, default: "none"},
+		city: {type: String, default: "none"},
+		state: {type: String, default: "none"},
 		zip: {type: Number, default: null},
 	},
+	games: [String],
 	meta: [ {game: String, events: {type: Boolean, default: false}, news: {type: Boolean, default: false}} ],
 	podcast: {type: Boolean, default: true},
 	stream: {type: Boolean, default: true},
 	newsletter: {type: Boolean, default: true},
-	role:{
-		type: String,
-		enum: userRoles,
-		default: 'user'
-	},
+	role:{type: String, enum: userRoles, default: "user"},
 	active: {type: Boolean, default: false},
-	validationToken: {
-		token: String,
-		expiration: {type: Date, default: undefined}
+	validationToken: {token: String, expiration: {type: Date, default: undefined}
 	}
 });
 
-userSchema.virtual('fullname').get(function () {
-    return this.firstName + ' ' + this.lastName;
-});
-
-userSchema.virtual('roles').get(function () {
-    return userRoles;
-});
+userSchema.virtual("fullname").get(function(){ return this.firstName + " " + this.lastName; });
+userSchema.virtual("roles").get(function(){ return userRoles; });
 
 userSchema.plugin(passportLocalMongoose);
-
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);

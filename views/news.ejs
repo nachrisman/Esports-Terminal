@@ -1,175 +1,125 @@
 <% include ./partials/header %>
-			<div class='container-fluid'>
-				<div class='news-flex' id='news-main-container'>
-					<div class='section-header' id='news-header'>
-						<div id='news-header-ad'>
-							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-							<!-- Billboard Main -->
-							<ins class="adsbygoogle"
-							     style="display:inline-block;width:970px;height:250px"
-							     data-ad-client="ca-pub-9897193498933044"
-							     data-ad-slot="7876616131"></ins>
-							<script>
-								(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
-						</div>
-						<div id='news-header-ad-mobile'>
-							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-							<!-- EST - Large Mobile Banner -->
-							<ins class="adsbygoogle"
-							     style="display:inline-block;width:320px;height:100px"
-							     data-ad-client="ca-pub-9897193498933044"
-							     data-ad-slot="3672641657"></ins>
-							<script>
-								(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
-						</div>
-					</div>
-					<hr>
-					<div id='news-most-recent'>
-						<% if(mostRecentArticles.length == 0) { %>
-						<p>No Articles.. whaaaaat?</p>
-						<% } else { %>
-						<% mostRecentArticles.forEach(function(article) { %>
-						<div class='article-preview' id='<%= article._id %>'>
-							<a class='preview-link' href='/news/<%= article._id %>'>
-								<img class='article-preview-image' id='<%= article._id + "-image" %>' src='<%= article.image %>' alt='<%= article.title %>'>
-								<div class='preview-headline' id='<%= article._id + "-headline" %>'>
-									<p class='article-title'><%= article.title.substr(0, 100) %></p>
-								</div>
-							</a>
-						</div>
-						<% }); %>
-						<% }; %>
-					</div>
-					<hr>
-					<div class='section-header' id='search-query-header'>
-	                    <div class="search-form-container" id="search-form-container-news-feed">
-	                        <form id="search-again" action="/search/articles" method="GET">
-	                            <p>Search:</p>
-	                            <div id="search-again-input">
-	                              <input type="search" class="form-control" name='search' placeholder="what're ya lookin' for?">
-	                              <button class="btn btn-outline-secondary acct-btn" id="search-again-btn" type="submit">Get it!</button>
-	                            </div>
-	                        </form>
-	                    </div>
-                    </div>
-					<hr>
-					<div class='news-feed'>
-						<div id='news-feed-sidebar'>
-							<div class='section-header' id='news-sidebar-header'>
-								<h1 id='news-sidebar-title'>Last Week</h1>
-								<p>ICYMI</p>
-							</div>
-							<div id='news-sidebar-content'>
-								<% if(lastWeeksArticles.length == 0) { %>
-								<div class='no-news-message'>
-									<p class='no-news-message'></p>
-								</div>
-								<% } else { %>
-								<% lastWeeksArticles.forEach(function(article) { %>
-								<div class='article-preview' id='<%= article._id %>'>
-									<a class='preview-link' href='/news/<%= article._id %>'>
-										<img class='article-preview-image' id='<%= article._id + "-image" %>' src='<%= article.image %>' alt='<%= article.title %>'>
-										<div class='preview-headline' id='<%= article._id + "-headline" %>'>
-											<h3 class='article-title'><%= article.title.substr(0, 100) %></h3>
-										</div>
-									</a>
-								</div>
-								<% }); %>
-								<% }; %>
-							</div>
-							<div id='news-sidebar-ad'>
-								<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-								<!-- EST - Large Rectangle Sidebar -->
-								<ins class="adsbygoogle"
-								     style="display:inline-block;width:336px;height:280px"
-								     data-ad-client="ca-pub-9897193498933044"
-								     data-ad-slot="6101571867"></ins>
-								<script>
-									(adsbygoogle = window.adsbygoogle || []).push({});
-								</script>
-							</div>
-							<div id='news-sidebar-ad-mobile'>
-								<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-								<!-- EST - Mobile Medium Rectangle -->
-								<ins class="adsbygoogle"
-								     style="display:inline-block;width:300px;height:250px"
-								     data-ad-client="ca-pub-9897193498933044"
-								     data-ad-slot="7475197430"></ins>
-								<script>
-									(adsbygoogle = window.adsbygoogle || []).push({});
-								</script>
-							</div>
-							<div class='section-header' id='news-sidebar-header-random'>
-								<h1 id='news-sidebar-title'>Random</h1>
-								<p>An Article Lootbox</p>
-							</div>
-							<div id='news-sidebar-content-random'>
-								<% if(randomArticles.length == 0) { %>
-								<p>No Articles.. whaaaaat?</p>
-								<% } else { %>
-								<% randomArticles.forEach(function(randomArticle) { %>
-								<div class='article-preview' id='<%= randomArticle._id %>'>
-									<a class='preview-link' href='/news/<%= randomArticle._id %>'>
-										<img class='article-preview-image' id='<%= randomArticle._id + "-image" %>' src='<%= randomArticle.image %>' alt='<%= randomArticle.title %>'>
-										<div class='preview-headline' id='<%= randomArticle._id + "-headline" %>'>
-											<h3 class='article-title'><%= randomArticle.title.substr(0, 100) %></h3>
-										</div>
-									</a>
-								</div>
-								<% }); %>
-								<% }; %>
-							</div>
-							<div id='news-sidebar-ad'>
-								<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-								<!-- EST - Large Skyscraper Sidebar -->
-								<ins class="adsbygoogle"
-								     style="display:inline-block;width:300px;height:600px"
-								     data-ad-client="ca-pub-9897193498933044"
-								     data-ad-slot="2454928756"></ins>
-								<script>
-									(adsbygoogle = window.adsbygoogle || []).push({});
-								</script>
-							</div>
-						</div>
-						<div id='news-feed-main'>
-							<% var lastSeen = Date.parse(articles[articles.length - 1].published).toString(); %>
-							<% articles.forEach(function(article){ %>
-							<% if(article.contentType != 'video') { %>
-							<div class='post-preview'>
-								<article>
-									<div id='header-preview'>
-										<header>
-											<h1 class='article-header'><a href='/news/<%= article._id %>' ><%= article.title %></a></h1>
-											<a class='article-author-link' href='/search/author?search=<%= article.author %>'><%= article.author %></a>
-											<p class='article-pub-date'> - <%= article.published.toDateString() %></p>
-										</header>
-									</div>
-									<% if(article.contentType != 'video'){ %>
-									<div class='image-preview'>
-										<figure>
-											<a href='/news/<%= article._id %>'>
-												<img class='article-figure' src='<%= article.image %>' alt='<%= article.title %>'>
-											</a>
-										</figure>
-									</div>
-									<% } %>
-									<div class='post-content' id='content-preview'>
-										<div class='article-body-preview'><%- article.body.substr(0, 150) %>...</div>
-									</div>
-								</article>
-							</div>
-							<hr>
-							<% } %>
-							<% }); %>	
-						</div>
-					</div>
-					<% if(articles.length == 22) { %>
-					<div class='article-query-container'>
-						<a class='btn btn-outline-secondary acct-btn' href='/news/more-articles/<%= lastSeen %>'>More Articles</a>
-					</div>
-					<% } %>
+		<div class="container-fluid">
+			<div class="news-flex" id="news-main-container">
+				<div class="section-header page-indicator-container">
+				<% if(franchise){ %>
+					<h1 class="page-indicator franchise-name"><%= franchise.replace(/\-/g, " ").toUpperCase() %></h1>
+				<% } else { %>
+					<h1 class="page-indicator">All News</h1>
+					<p>Taking everything in at once, I dig it.</p>
+				<% } %>
 				</div>
+				<div id="news-most-recent">
+				<% if(mostRecentArticles.length > 0) { %>
+					<% mostRecentArticles.forEach(function(article) { %>
+					<div class="article-preview" id="<%= article._id %>">
+						<a class="preview-link" href="/news/<%= article._id %>">
+							<img class="article-preview-image" id="<%= article._id + '-image' %>" src="<%= article.image %>" alt="<%= article.title %>">
+							<div class="preview-headline" id="<%= article._id + '-headline' %>">
+								<p class="article-title"><%= article.title.substr(0, 100) %></p>
+							</div>
+						</a>
+					</div>
+					<% }); %>
+				<% } %>
+				</div>
+				<hr>
+				<div class="section-header" id="search-query-header">
+                    <div class="search-form-container" id="search-form-container-news-feed">
+                        <form id="search-again" action="/search/articles" method="GET">
+                            <p>Search:</p>
+                            <div id="search-again-input">
+                              <input type="search" class="form-control" name='search' placeholder="what're ya lookin' for?">
+                              <button class="btn btn-outline-secondary acct-btn" id="search-again-btn" type="submit">Get it!</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+				<hr>
+				<div class="news-feed">
+					<div id="news-feed-sidebar">
+						<div class="section-header" id="news-sidebar-header">
+							<h1 id="news-sidebar-title">Last Week</h1>
+							<p>ICYMI</p>
+						</div>
+						<div id="news-sidebar-content">
+						<% if(lastWeeksArticles.length == 0) { %>
+							<div class="no-news-message">
+								<p class="no-news">No articles from last week.</p>
+								<p class="no-news">Feel free to <a href="/contact" target="_blank">yell at us!</a></p>
+							</div>
+						<% } else { %>
+							<% lastWeeksArticles.forEach(function(article){ %>
+							<div class="article-preview" id="<%= article._id %>">
+								<a class="preview-link" href="/news/<%= article._id %>">
+									<img class="article-preview-image" id="<%= article._id + '-image' %>" src="<%= article.image %>" alt="<%= article.title %>">
+									<div class="preview-headline" id="<%= article._id + '-headline' %>">
+										<h3 class="article-title"><%= article.title.substr(0, 100) %></h3>
+									</div>
+								</a>
+							</div>
+							<% }); %>
+						<% } %>
+						</div>
+						<div class="section-header" id="news-sidebar-header-random">
+							<h1 id="news-sidebar-title">Random</h1>
+							<p>Rando Commando's</p>
+						</div>
+						<div id="news-sidebar-content-random">
+						<% if(randomArticles.length == 0) { %>
+							<p class="no-news">Something went wrong getting these rando's.</p>
+							<p class="no-news">Feel free to <a href="/contact" target="_blank">yell at us!</a></p>
+						<% } else { %>
+							<% randomArticles.forEach(function(randomArticle) { %>
+							<div class="article-preview" id="<%= randomArticle._id %>">
+								<a class="preview-link" href="/news/<%= randomArticle._id %>">
+									<img class="article-preview-image" id="<%= randomArticle._id + '-image' %>" src="<%= randomArticle.image %>" alt="<%= randomArticle.title %>">
+									<div class="preview-headline" id="<%= randomArticle._id + '-headline' %>">
+										<h3 class="article-title"><%= randomArticle.title.substr(0, 100) %></h3>
+									</div>
+								</a>
+							</div>
+							<% }); %>
+						<% } %>
+						</div>
+					</div>
+					<div id="news-feed-main">
+					<% if(articles.length > 0){ %>
+						<% var lastSeen = Date.parse(articles[articles.length - 1].published).toString(); %>
+						<% articles.forEach(function(article){ %>
+						<div class="post-preview">
+							<article>
+								<div id="header-preview">
+									<header>
+										<h1 class="article-header"><a href="/news/<%= article._id %>" ><%= article.title %></a></h1>
+										<a class="article-author-link" href="/search/author?search=<%= article.author %>"><%= article.author %></a>
+										<p class="article-pub-date"> - <%= article.published.toDateString() %></p>
+									</header>
+								</div>
+								<div class='image-preview'>
+									<figure>
+										<a href="/news/<%= article._id %>">
+											<img class="article-figure" src="<%= article.image %>" alt="<%= article.title %>">
+										</a>
+									</figure>
+								</div>
+								<div class="post-content" id="content-preview">
+									<div class="article-body-preview"><%- article.body.substr(0, 150) %>...</div>
+								</div>
+							</article>
+						</div>
+						<hr>
+						<% }); %>
+					<% } else { %>
+						<h1>More Content for <%= franchise.replace(/\-/g, " ").toUpperCase() %> coming soon!</h1>
+					<% } %>
+					</div>
+				</div>
+				<% if(articles.length == 22) { %>
+				<div class="article-query-container">
+					<a class="btn btn-outline-secondary acct-btn" href="/news/more-articles/<%= lastSeen %>">More Articles</a>
+				</div>
+				<% } %>
 			</div>
+		</div>
 <% include ./partials/footer %>

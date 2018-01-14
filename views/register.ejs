@@ -3,10 +3,10 @@
 			<div class='registration'>
 				<div class='registration-flex' id='registration-header'>
 					<h1>Hey there, good lookin'!</h1>
-					<p>Creating an account is easy. First, tell us who you are, then tell us what you want.</p>
+					<p>Fill this bad boy out and you'll be set. Easy!</p>
 				</div>
 				<div class='registration-flex' id='registration-container'>
-					<form class='acct-update-form' id='registration-form' action='/register' method='POST'>
+					<form class='acct-update-form' id='registration-form' action='/account/register' method='POST'>
 						<div id='user-acct-info'>
 							<div class='registration-form-section'>
 								<label for='firstName'>First Name:</label>
@@ -31,21 +31,6 @@
 									<% }); %>
 								</select>
 							</div>
-						</div>
-						<div class='registration-flex'>
-							<h1>Now, choose the games you enjoy.</h1>
-							<p>Seriously, that's it. Whatever games you choose will be a part of your custom home page.</p>
-							<a href='/info' target='_blank'>Why aren't there more games?</a>
-						</div>
-						<div class='registration-flex' id='registration-meta'>
-							<% games.forEach(function(game) { %>
-								<div class='registration-meta-game-select'>
-									<label class='registration-meta-game-label'>
-										<img class='registration-meta-game-logo' src='<%= game.logopng %>' />
-										<input class='meta-game-check' type='checkbox' name='title[]' value='<%= game.title %>'>
-									</label>
-								</div>
-							 <% }); %>
 						</div>
 						<div class='registration-flex' id='registration-actions'>
 							<button class='btn btn-secondary acct-btn' type='submit'>Create My Account</button>

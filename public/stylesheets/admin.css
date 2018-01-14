@@ -1,4 +1,6 @@
-/* body & html */
+/*=================================
+    GENERAL/TOP LEVEL STYLES
+===================================*/
 body, html {
     background-color:#fff;
     color:#000;
@@ -6,7 +8,9 @@ body, html {
     font-family: 'Poppins', sans-serif;
 }
 
-/* login page */
+/*=================
+    LOGIN PAGE
+===================*/
 #admin-login{
     display: flex;
     justify-content: center;
@@ -200,13 +204,8 @@ hr{
 
 #categories{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#owl-teams{
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -217,48 +216,4 @@ hr{
 
 #delete-game-action{
     margin-top: 50px;
-}
-
-/* Team Forms */
-#team-entry{
-    flex-wrap: wrap;
-}
-
-#team-member-input{
-    flex-basis: 50vw;
-}
-
-#memberInputs{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-#memberInputs .content-form-col{
-    flex-basis: 25vw;
-}
-
-#team-form-actions{
-    margin-top: 25px;
-    justify-content: center;
-}
-
-#team-form-actions .btn{
-    margin: 0 25px 0 25px;
-}
-
-#teamMembersEdit{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-#teamMembersEdit .content-form-col{
-    flex-basis: 25vw;
-}
-
-#addTeamMember{
-    color: #fff;
-    display: block;
-    margin: 0 auto 25px auto;
 }

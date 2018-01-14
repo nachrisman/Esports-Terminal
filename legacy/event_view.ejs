@@ -1,0 +1,140 @@
+<% include ./partials/event_header %>
+		<div class='container-fluid' id='primary-wrapper'>
+			<div class='row'>
+				<div class='col-xs-12 col-md-12' id='page-header'>
+					<h1>Events &amp; Tournaments</h1>
+					<form class='content-search' action='/search/events' method='GET'>
+						<div class="input-group">
+							<input type="text" class="form-control" name='search' placeholder="search events...">
+							<span class="input-group-btn">
+								<button class='btn btn-primary btn-est' type='submit'>Search</button>
+							</span>
+						</div>
+					</form>
+				</div>
+				<hr>
+			</div>
+			<div class='row'>
+				<div class='col-xs-4 col-md-4' id='sidebar-container'>
+					<div class='content-divider-sm'>
+						<h2>Related</h2>
+					</div>
+					<div class='preview'>
+					<% relatedArticles.forEach(function(relatedArticle) { %>
+					<%     if(relatedArticle.contentType == 'standard') { %>
+							<div class='article-preview'>
+								<a class='preview-link' href='/news/<%= relatedArticle._id %>'>
+									<div class='article-preview-image'>
+										<img class='article-preview-image' src='<%= relatedArticle.image %>' alt='<%= relatedArticle.title %>'>
+									</div>
+									<div class='preview-headline'>
+										<h3 class='article-title'><%= relatedArticle.title.substr(0, 30) %>...</h3>
+									</div>
+								</a>
+							</div>
+					<% } %>
+					<% }); %>
+					</div>
+					<div class='clear-div'>
+						<hr>
+					</div>
+					<div class='content-divider-sm'>
+						<h2>Random Picks</h2>
+					</div>
+					<div class='preview'>
+					<% if(randomArticles.length < 1) { %>
+						<p>┐(´•_•`)┌ Something went missing.</p>
+						<p>We might not be aware. Please <a href='/contact'>contact us</a></p>
+					<% } else { %>
+					<% randomArticles.forEach(function(randomArticle) { %>
+					<%     if(randomArticle.contentType != 'video') { %>
+							<div class='article-preview'>
+								<a class='preview-link' href='/news/<%= randomArticle._id %>'>
+									<div class='article-preview-image'>
+										<img class='article-preview-image' src='<%= randomArticle.image %>' alt='<%= randomArticle.title %>'>
+									</div>
+									<div class='preview-headline'>
+										<h3 class='article-title'><%= randomArticle.title.substr(0, 100) %></h3>
+									</div>
+								</a>
+							</div>
+					<% } %>
+					<% }); %>
+					<% }; %>
+					</div>
+				</div>
+				<div class='col-xs-8 col-md-8' id='post-wrapper'>
+					<article>
+						<header class='event-header'>
+							<h1><%= foundEvent.title %></h1>
+							<figure>
+								<img class='event-figure' src='<%= foundEvent.image %>' alt='<%= foundEvent.title %>'>
+							</figure>
+						</header>
+						<div class='event-meta-container'>
+							<div class='content-divider-md'>
+								<h2>When &amp; Where</h2>
+							</div>
+							<h3>Date: </h3><p><%= foundEvent.date.toDateString() %></p>
+							<h3>Location: </h3>
+							<p><%= foundEvent.venue %></p>
+							<% if(!foundEvent.state) { %>
+								<p><%= foundEvent.city + ', ' + foundEvent.country %></p>
+							<% } else { %>
+								<p><%= foundEvent.city + ', ' + foundEvent.state + ', ' + foundEvent.country %></p>
+							<% } %>
+							<% if(foundEvent.teams.length > 0) { %>
+							<% var teams = foundEvent.teams; %>
+								<h3>Teams</h3>
+								<% teams.forEach(function(team){ %>
+								<p><%= team %></p>
+					   
+								<% }); %>
+							<% } %>
+						</div>
+						<div class='post-content' id='event-description'>
+							<div class='content-divider-md'>
+								<h2>Everything Else</h2>
+							</div>
+							<div class='article-body'><%- foundEvent.description %></div>
+								<p class='article-body'>Source: <a class='source-link' href='<%= foundEvent.sourceLink %>' target='_blank'>Click Here</a></p>
+								<a class='btn btn-outline-primary btn-est-outline' href='/events'>Return to Events</a>
+							</div>
+					</article>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-xs-12 col-md-12' id='related-events'>
+					<div class='content-divider-lg'>
+						<h2>Related Events</h2>
+					</div>
+					<div class='row view-list'>
+						<div class='col-xs-12 col-md-12'>
+							<div class='table-responsive event-list'>
+								<table class='table'>
+									<thead>
+										<tr>
+											<th>Game/Event</th>
+											<th>Event Page</th>
+											<th>Location</th>
+											<th>Date/Time</th>
+										</tr>
+									</thead>
+									<tbody>
+									<% relatedEvents.forEach(function(relatedEvent) { %>
+										<tr>
+											<td><img class='event-game-thumbnail' src='<%= relatedEvent.image %>' alt='<%= relatedEvent.title %>'></td>
+											<td><a class='direct-event-link' href='/events/<%= relatedEvent._id %>'><%= relatedEvent.title %></a></td>
+											<td><%= relatedEvent.venue + ', ' + relatedEvent.city + ', ' + relatedEvent.state %></td>
+											<td><%= relatedEvent.date.toDateString()  %></td>
+										</tr>
+									<% }); %>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<% include ./partials/footer %>

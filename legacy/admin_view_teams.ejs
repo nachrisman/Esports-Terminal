@@ -1,0 +1,41 @@
+<% include ./partials/admin_header %>
+	  <div class='container-fluid'>
+	  			<div class='page-header'>
+					<h2>Teams</h2>
+					<a class="btn btn-primary btn-est" href="/admin/new-team" role="button">Add a New Team</a>
+				</div>
+				<hr>
+		<div class='row view-list'>
+			<div class='col-xs-12 col-md-12'>
+				<div class='table-responsive'>
+					<table class='table'>
+					  <thead>
+					    <tr>
+					      <th>Logo</th>
+						  <th>Name</th>
+						  <th>Game</th>
+						  <th>Number of Members</th>
+						  <th>Country</th>
+						  <th>Edit</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  <% teams.forEach(function(team){  %>
+					    <tr>
+					      <td><img src='<%= team.logo %>'></td>
+					      <td><%= team.name %></td>
+					      <td><%= team.game %></td>
+					      <td><%= team.members.length %></td>
+					      <td><%= team.country %></td>
+					      <td>
+					    	<a href='/admin/edit-team/<%= team._id %>'>Edit</a>
+					      </td>
+					    </tr>
+					  <% }); %>
+					  </tbody>
+				    </table>
+				  </div>
+				</div>
+			</div>
+	  </div>
+<% include ./partials/admin_footer %>

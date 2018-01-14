@@ -1,0 +1,103 @@
+<% include ./partials/admin_header %>
+		<div class='container-fluid'>
+			<div class='page-header'>
+				<h2>Edit '<%= team.name %>'</h2>
+				<a class='btn btn-primary btn-est' href='/admin/view-teams' role='button'>Return to Teams</a>
+			</div>
+			<hr>
+			<div class='content-form'>
+				<form class='article-form' id='team-entry' action='/admin/new-team' method='POST'>
+					<div class='content-form-col'>
+						<label for='name'>Name:</label>
+						<input class='form-control' type='text' name='team[name]' id='name' value='<%= team.name %>' required />
+						<label for='logo'>Logo URL: </label>
+						<input class='form-control' type='text' name='team[logo]' id='logo' value='<%= team.logo %>' required />
+						<label for='video'>Video:</label>
+						<input class='form-control' type='text' name='team[video]' id='video' value='<%= team.video %>' />
+						<label for='game'>Game: </label>
+						<select class='form-control custom-select' type='select' name='team[game]' id='game' required>
+							<option selected disabled>Select a Game</option>
+							<% games.forEach(function(game){ %>
+								<% if(team.game == game) { %>
+								<option value='<%= game.title %>' selected><%= game.title %></option>
+								<% } else { %>
+								<option value='<%= team.game %>'><%= team.game %></option>
+								<% } %>
+							<% }); %>
+						</select>
+						<label for='country'>Country:</label>
+						<select class='form-control custom-select' type='select' name='team[country]' id='country' required>
+							<option disabled selected>Select a Country</option>
+							<% countries.forEach(function(country){ %>
+								<% if(team.country == country) { %>
+							   <option value='<%= country %>' selected><%= country %></option> 
+							   <% } else { %>
+							   <option value='<%= country %>'><%= country %></option>
+							   <% } %>
+							<% }); %>
+						</select>
+					</div>
+					<div class='content-form-col'>
+						<label for='founded'>Date Founded:</label>
+						<input class='form-control' type='text' name='team[founded]' id='founded' value='<%= team.founded %>' />
+						<label for='website'>Website:</label>
+						<input class='form-control' type='text' name='team[website]' id='website' value='<%= team.website %>' />
+						<label for='coach'>Head Coach:</label>
+						<input class='form-control' type='text' name='team[coach]' id='coach' value='<%= team.coach %>' required />
+						<label for='division'>Division:</label>
+						<input class='form-control' type='text' name='team[division]' id='division' value='<%= team.division %>' />
+					</div>
+					<div class='content-form-col' id='team-member-input'>
+						<hr>
+						<div id='teamMembersEdit'>
+							<% var members = team.members; %>
+							<% members.forEach(function(member){ %>
+							<div class='content-form-col'>
+								<label for="firstName">First Name: </label>
+								<input class="form-control" type="text" name="team[members][firstName][]" id="firstName" value='<%= member.firstName %>' />
+								<label for="lastName">Last Name: </label>
+								<input class="form-control" type="text" name="team[members][lastName][]" id="lastName" value='<%= member.lastName %>' />
+								<label for="handle">Player Handle: </label>
+								<input class="form-control" type="text" name="team[members][handle][]" id="handle" value='<%= member.handle %>'  />
+								<label for="role">Role: </label>
+								<input class="form-control" type="text" name="team[members][role][]" id="role" value='<%= member.role %>' />
+							</div>
+							<div class='content-form-col'>
+								<label for="dob">Date of Birth: </label>
+								<input class="form-control" type="text" name="team[members][dob][]" id="dob" value='<%= member.dob %>' />
+								<label for="homeCountry">Home Country: </label>
+								<input class="form-control" name="team[members][homeCountry][]" id="homeCountry" value='<%= member.homeCountry %>' />
+								<label for="image">Image URL: </label>
+								<input class="form-control" type="text" name="team[members][image][]" id="image" value='<%= member.image %>' />
+								<label for="bio">Bio: </label>
+								<textarea class="form-control" name="team[members][bio][]" id="bio" rows="5" value='<%= member.bio %>' required><%= member.bio %></textarea>
+							</div>
+							<div class='content-form-col'>
+								<label for="instagram">Instagram: </label>
+								<input class="form-control" type="text" name="team[members][instagram][]" id="instagram" value='<%= member.instagram %>' />
+								<label for="facebook">Facebook: </label>
+								<input class="form-control" type="text" name="team[members][facebook][]" id="facebook" value='<%= member.facebook %>' />
+								<label for="twitch">Twitch: </label>
+								<input class="form-control" type="text" name="team[members][twitch][]" id="twitch" value='<%= member.twitch %>' />
+								<label for="twitter">Twitter: </label>
+								<input class="form-control" type="text" name="team[members][twitter][]" id="twitter" value='<%= member.twitter %>' />
+							</div>
+							<hr>
+							<% }); %>
+						</div>
+						<div class='content-form-actions' id='team-form-actions'>
+							<a class='btn btn-primary btn-est' id='addTeamMember'>Add a Member</a>
+							<button class='btn btn-outline-primary' type='submit'>Update Team</button>
+							<button class='btn btn-outline-danger' onclick="location.href='/admin/view-articles';">Cancel</button>
+						</div>
+					</div>
+				</form>
+				<div class='delete-item-container'>
+					<form class='delete-item' action='/admin/view-teams/<%= team._id %>?_method=DELETE' method='POST'>
+						<button class='btn btn-danger' type='submit'>Delete Team</button>
+					</form>
+				</div>
+			</div>
+			<hr>
+		</div>
+<% include ./partials/admin_footer %>

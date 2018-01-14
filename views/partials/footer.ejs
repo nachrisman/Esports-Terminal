@@ -10,25 +10,39 @@
 					<div class='footer-col-nav'>
 					<% if(!currentUser) { %>
 		  				<div class='footer-nav-section'>
-		  					<a class='footer-nav-item' href='/news'>News</a>
-						  	<a class='footer-nav-item' href='/overwatch-league'>Overwatch League</a>
-						  	<a class='footer-nav-item' href='/login'>Login</a>
-						  	<a class='footer-nav-item' href='/register'>Set Up Your META</a>
+		  					<a class='footer-nav-item' href='/news'>Home</a>
+						  	<a class='footer-nav-item' href='/street-fighter'>Street Fighter</a>
+						  	<a class='footer-nav-item' href='/marvel-vs-capcom'>Marvel vs. Capcom</a>
+						  	<a class='footer-nav-item' href='/tekken'>Tekken</a>
+						  	<a class='footer-nav-item' href='/soulcalibur'>Soulcalibur</a>
+						  	<a class='footer-nav-item' href='/arms'>ARMS</a>
 		  				</div>
-					  	<% } else { %>
-					  	<div class='footer-nav-section'>
-						  	<a class='footer-nav-item' href='/meta'>My META</a>
-						  	<a class='footer-nav-item' href='/news'>News</a>
-						  	<a class='footer-nav-item' href='/overwatch-league'>Overwatch League</a>
-						  	<a class='footer-nav-item' href='/logout'>Logout</a>						  		
-					  	</div>
-					  	<% }; %>
-					  	<div class='footer-nav-section'>
-					  		<a class='footer-nav-item' href='/info#about'>About Us</a>
+		  				<div class="footer-nav-section">
+		  					<a class='footer-nav-item' href='/login'>Login</a>
+						  	<a class='footer-nav-item' href='/register'>Create an Account</a>
+						  	<a class='footer-nav-item' href='/info#about'>About Us</a>
 						  	<a class='footer-nav-item' href='/info#faq'>FAQ</a>
 						  	<a class='footer-nav-item' href='/contact'>Contact</a>
 						  	<a class='footer-nav-item' href='/write-for-us'>Write for us!</a>
+		  				</div>
+					  	<% } else { %>
+					  	<div class='footer-nav-section'>
+						  	<a class='footer-nav-item' href='/news'>Home</a>
+						  	<a class='footer-nav-item' href='/street-fighter'>Street Fighter</a>
+						  	<a class='footer-nav-item' href='/marvel-vs-capcom'>Marvel vs. Capcom</a>
+						  	<a class='footer-nav-item' href='/tekken'>Tekken</a>
+						  	<a class='footer-nav-item' href='/soulcalibur'>Soulcalibur</a>
+						  	<a class='footer-nav-item' href='/arms'>ARMS</a>
 					  	</div>
+					  	<div class="footer-nav-section">
+					  		<a class='footer-nav-item' href='/account/settings'>My Account</a>
+						  	<a class='footer-nav-item' href='/info#about'>About Us</a>
+						  	<a class='footer-nav-item' href='/info#faq'>FAQ</a>
+						  	<a class='footer-nav-item' href='/contact'>Contact</a>
+						  	<a class='footer-nav-item' href='/write-for-us'>Write for us!</a>
+						  	<a class='footer-nav-item' href='/logout'>Logout</a>
+		  				</div>
+					  	<% }; %>
 					</div>
 				</div>
 				<div class='footer-col' id='footer-social-col'>
@@ -38,14 +52,13 @@
 					<div id='footer-social-links'>
 						<a href='https://www.twitter.com/esttweets' target='_blank'>Twitter</a>
 						<a href='https://www.facebook.com/esportsterminal' target='_blank'>Facebook</a>
-						<a href='https://www.instagram.com/esportsterminal' target='_blank'>Instagram</a>
 					</div>
 				</div>
 			</div>
 			<div id='footer-policies'>
 				<p>&copy; Copyright Esports Terminal 2018</p>
-				<a href='/privacy-policy' target='_blank'>Privacy Policy</a>
-				<a href='/terms-of-use' target='_blank'>Terms &amp; Conditions</a>
+				<a href='/privacy-policy'>Privacy Policy</a>
+				<a href='/terms-of-use'>Terms &amp; Conditions</a>
 			</div>
 		</footer>
   	</body>

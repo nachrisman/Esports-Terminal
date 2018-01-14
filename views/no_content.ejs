@@ -1,0 +1,22 @@
+<% include ./partials/header %>
+			<div class="container-fluid">
+				<div class="news-flex">
+					<div class="section-header page-indicator-container">
+						<h1 class="page-indicator franchise-name"><%= franchise.replace(/\-/g, " ").toUpperCase() %></h1>
+					</div>
+					<div class="no-content-message">
+						<h1>Whoops!</h1>
+						<img src="https://i.imgur.com/o8XEu0B.jpg">
+						<p>You've likely landed here for one of the following reasons:</p>
+						<ul>
+							<li>We are experiencing technical difficulties with this portion of the site</li>
+							<li>Somehow, you landed in an area of the site that doesn't exist</li>
+						</ul>
+						<p>Either way, we apologize! If it's technical difficulties, we're aware and are working on it!</p>
+						<p>If you think you're in the right place, but still landed here, <a href="/contact">contact us.</a></p>
+						<p>Otherwise, check out what we're up to <a href="https://twitter.com/esttweets" target="_blank">on Twitter</a>
+						or go back to the <a href="/news">main news page.</a></p>
+					</div>
+				</div>
+			</div>
+<% include ./partials/footer %>

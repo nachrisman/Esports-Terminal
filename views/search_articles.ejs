@@ -1,53 +1,31 @@
 <% include ./partials/header %>
-        <div class='container-fluid'>
-            <div class='search-query-flex'>
-                <div class='section-header' id='search-query-header'>
-                    <div class="search-form-container">
-                        <form id="search-again" action="/search/articles" method="GET">
-                            <p>Search again:</p>
-                            <div id="search-again-input">
-                              <input type="search" class="form-control" name='search' placeholder="what're ya lookin' for?">
-                              <button class="btn btn-outline-secondary acct-btn" id="search-again-btn" type="submit">Get it!</button>
-                            </div>
-                        </form>
-                        <hr>
-                    </div>
-                    <div id='article-view-header-ad'>
-						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-						 <!--Billboard Main -->
-						<ins class="adsbygoogle"
-						     style="display:inline-block;width:970px;height:250px"
-						     data-ad-client="ca-pub-9897193498933044"
-						     data-ad-slot="7876616131"></ins>
-						<script>
-							(adsbygoogle = window.adsbygoogle || []).push({});
-						</script>
-					</div>
-					<div id='article-view-header-ad-mobile'>
-						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-						<!-- EST - Large Mobile Banner -->
-						<ins class="adsbygoogle"
-						     style="display:inline-block;width:320px;height:100px"
-						     data-ad-client="ca-pub-9897193498933044"
-						     data-ad-slot="3672641657"></ins>
-						<script>
-							(adsbygoogle = window.adsbygoogle || []).push({});
-						</script>
+		<div class='container-fluid'>
+			<div class='search-query-flex'>
+				<div class='section-header' id='search-query-header'>
+					<div class="search-form-container">
+						<form id="search-again" action="/search/articles" method="GET">
+							<p>Search again:</p>
+							<div id="search-again-input">
+							  <input type="search" class="form-control" name='search' placeholder="what're ya lookin' for?">
+							  <button class="btn btn-outline-secondary acct-btn" id="search-again-btn" type="submit">Get it!</button>
+							</div>
+						</form>
+						<hr>
 					</div>
 					<div id='search-query-header-text'>
-					    <% if(foundArticles.length < 1) { %>
-					    <h1>We couldn't find anything for "<%= search %>"</h1>
-					    <% } else { %>
-					    <h1>Search results for "<%= search %>"</h1>
-					    <p>We dug deep. Here's what we found!</p>
-					    <% } %>
-					    <hr>
+						<% if(foundArticles.length < 1) { %>
+						<h1>We couldn't find anything for "<%= search %>"</h1>
+						<% } else { %>
+						<h1>Search results for "<%= search %>"</h1>
+						<p>We dug deep. Here's what we found!</p>
+						<% } %>
+						<hr>
 					</div>
-                </div>
-                <div class='search-query-results'>
-                    <% if(foundArticles && foundArticles.length > 0) { %>
-                        <% var lastSeen = Date.parse(foundArticles[foundArticles.length - 1].published); %>
-                        <% foundArticles.forEach(function(foundArticle){ %>
+				</div>
+				<div class='search-query-results'>
+					<% if(foundArticles && foundArticles.length > 0) { %>
+						<% var lastSeen = Date.parse(foundArticles[foundArticles.length - 1].published); %>
+						<% foundArticles.forEach(function(foundArticle){ %>
 							<% if(foundArticle.contentType != 'video') { %>
 							<div class='post-preview'>
 								<article>
@@ -74,20 +52,9 @@
 							</div>
 							<hr>
 							<% } %>
-                        <% }); %>
-                    <% } %>
-                    <div id='article-view-article-ad-mobile'>
-						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-						<!-- EST - Mobile Medium Rectangle -->
-						<ins class="adsbygoogle"
-						     style="display:inline-block;width:300px;height:250px"
-						     data-ad-client="ca-pub-9897193498933044"
-						     data-ad-slot="7475197430"></ins>
-						<script>
-							(adsbygoogle = window.adsbygoogle || []).push({});
-						</script>
-					</div>
-                </div>
-            </div>
-        </div>
+						<% }); %>
+					<% } %>
+				</div>
+			</div>
+		</div>
 <% include ./partials/footer %>

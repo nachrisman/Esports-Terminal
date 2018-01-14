@@ -1,0 +1,46 @@
+<% include ./partials/admin_header %>
+	  <div class='container-fluid'>
+	  			<div class='page-header'>
+					<h2>Events</h2>
+					<a class="btn btn-primary btn-est" href="/admin/new-event" role="button">Add a New Event</a>
+				</div>
+				<hr>
+	    <div class='row view-list'>
+			<div class='col-xs-12 col-md-12'>
+				<div class='table-responsive'>
+					<table class='table'>
+					  <thead>
+					    <tr>
+						  <th>Event Date</th>
+						  <th>Title</th>
+						  <th>Games</th>
+						  <th>Location</th>
+						  <th>City</th>
+						  <th>State</th>
+						  <th>EST Stream</th>
+						  <th>Edit/View</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					  <% events.forEach(function(event){ %>
+					    <tr>
+					      <td><%= event.date.toDateString() %></td>
+					      <td><%= event.title %></td>
+					      <td><%= event.games %></td>
+					      <td><%= event.venue %></td>
+					      <td><%= event.city %></td>
+					      <td><%= event.state %></td>
+					      <td><%= event.stream %></td>
+					      <td>
+					    	<a href='/admin/edit-event/<%= event._id %>'>Edit</a> / 
+					    	<a href='/events/<%= event._id %>'>View</a>
+					      </td>
+					    </tr>
+					  <% }); %>
+					  </tbody>
+				    </table>
+				</div>
+			</div>
+		</div>
+	  </div>
+<% include ./partials/admin_footer %>
