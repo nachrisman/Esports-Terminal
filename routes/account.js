@@ -183,7 +183,7 @@ router.delete("/delete-account", middleware.isLoggedIn, function(req, res){
 			req.flash("error", "There was an error in deleting your account. Please try again.");
 			return res.redirect("/delete-account");
 		} else {
-			var reason = req.body.deactivationReason;
+			var reason = req.body.deletionReason;
 			var comments = req.body.additionalComments;
 			var email = {
 				from: "accounts@esportsterminal.com",
