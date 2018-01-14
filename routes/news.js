@@ -11,7 +11,7 @@ router.get("/", function(req, res){
 	var today = moment().startOf("day"),
 		lastWeek = moment().subtract(7, "days");
 	
-	if(req.isAuthenticated()){
+	if(req.isAuthenticated() && req.user.games){
 		Game.find({franchise: {$in: req.user.games}}, function(err, games){
 			if(err){
 				console.log("Game Query Error: " + err.message);
