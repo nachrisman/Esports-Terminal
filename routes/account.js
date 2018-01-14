@@ -266,7 +266,7 @@ router.post("/register", function(req, res){
 								return res.redirect("/account/register");
 							} else {
 								req.flash("warning", "Please check your email to confirm your account!");
-								res.redirect("/account/meta-settings");
+								res.redirect("/account/settings");
 							}
 						});
 					});
