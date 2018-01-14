@@ -25,6 +25,7 @@
 						            <h3>News Filters</h3>
 						            <p>If you want your home page to only have news for certain games, change that here.</p>
 						        </div>
+						        <% if(currentUser.active){ %>
 						        <div class="form-check form-check-inline" id="franchise-settings-body">
 						            <% franchises.forEach(function(franchise){ %>
 						                <% if(currentUser.games.indexOf(franchise) > -1){ %>
@@ -38,6 +39,12 @@
 									    <% } %>
 						            <% }); %>
 						        </div>
+						        <% } else { %>
+						        <div class="account-settings-header">
+						        	<p class="text-danger">You must verify your account before you can customize your news settings. Please check your email.</p>
+						        	<a href='/resend-email-verification?uid=<%= currentUser._id %>'><p>Click to Resend Verification Email</p></a>
+						        </div>
+						        <% } %>
 						    </div>
 							<div class='acct-settings-actions' id='email-actions'>
 								<button class='btn btn-secondary acct-btn' type='submit'>Update</button>

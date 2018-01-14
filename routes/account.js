@@ -303,7 +303,7 @@ router.get("/verify",function(req,res){
 							return res.redirect("/account/meta-settings");
 						} else {
 							req.flash("success", "Your account has been verified. Thanks!");
-							res.redirect("/account/meta-settings");
+							res.redirect("/account/settings");
 						}
 					});
 				}
