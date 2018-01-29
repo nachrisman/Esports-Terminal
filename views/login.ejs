@@ -1,26 +1,20 @@
 <% include ./partials/header %>
-		<div class='container-fluid' id='primary-wrapper'>
-			<div id='login-page-flex'>
-				<div id='login-logo-top'>
-					<img src='/media/branding/login_top.png'>
-				</div>
-				<div id='login-form-container'>
-					<form action='/account/login' method='POST'>
-						<div id='login-credentials'>
-							<label for='username'>Username:</label>
-							<input class='form-control' type='text' name='username' id='username' placeholder='username' required />
-							<label for='password'>Password:</label>
-							<input class='form-control' type='password' name='password' id='password' placeholder='password' required />
+		<div class="container-fluid">
+			<div id="login-page-flex">
+				<div id="login-form-container">
+					<form action="/account/login" method="POST">
+						<div id="login-credentials">
+							<label for="username">Username:</label>
+							<input class="form-control" type="text" name="username" id="username" placeholder="username" required />
+							<label for="password">Password:</label>
+							<input class="form-control" type="password" name="password" id="password" placeholder="password" required />
 						</div>
-						<div class='login-actions'>
-							<button class='btn btn-secondary acct-btn' type='submit'>Log In</button>
-							<a href='/account/register'>Create an Account</a>
-							<a href='/account/forgot-password'>Forgot Password?</a>
+						<div class="login-actions">
+							<button class="btn btn-secondary acct-btn" type="submit">Log In</button>
+							<a href="/account/register">Create an Account</a>
+							<a href="/account/forgot-password">Forgot Password?</a>
 						</div>
 					</form>
-				</div>
-				<div id='login-logo-bottom'>
-					<img src='/media/branding/login_bottom.png'>
 				</div>
 			</div>
 		</div>

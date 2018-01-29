@@ -82,7 +82,7 @@ hr{
 
 #nav-logo{
     width:auto;
-    max-height:100px;
+    max-height:125px;
 }
 
 .collapse.navbar-collapse > ul{
@@ -964,10 +964,14 @@ hr{
 }
 
 /* Login Page */
+
+
 #login-page-flex{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 65vw;
+    margin: 0 auto;
 }
 
 #login-credentials{
@@ -995,6 +999,15 @@ hr{
 .login-actions a{
     margin: 10px;
     color: #333399;
+}
+
+#login-logo-top{
+    flex-basis: 10vw;
+    margin: 0 auto;
+}
+
+#login-form-container > form{
+    margin: 0 auto;
 }
 
 /* Site Info/FAQ */
