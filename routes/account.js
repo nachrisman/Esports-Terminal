@@ -18,7 +18,7 @@ var states	  = country.states("US"),
 /*=================
 	EMAIL AUTH
 ===================*/
-var options = {auth: {api_key: process.env.SENDGRID_API_KEY}};
+var options = {auth: {api_user: process.env.SENDGRID_USERNAME, api_key: process.env.SENDGRID_API_KEY}};
 var client = nodemailer.createTransport(sgTransport(options));
 
 /*====================================

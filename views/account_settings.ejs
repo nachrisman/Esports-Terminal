@@ -23,7 +23,7 @@
 						    <div id="franchise-settings">
 						        <div class="acct-settings-header">
 						            <h3>News Filters</h3>
-						            <p>If you want your home page to only have news for certain games, change that here.</p>
+						            <p>If you'd like to customize your META, do it here!</p>
 						        </div>
 						        <% if(currentUser.active){ %>
 						        <div class="form-check form-check-inline" id="franchise-settings-body">
@@ -41,8 +41,8 @@
 						        </div>
 						        <% } else { %>
 						        <div class="account-settings-header">
-						        	<p class="text-danger">You must verify your account before you can customize your news settings. Please check your email.</p>
-						        	<a href='/resend-email-verification?uid=<%= currentUser._id %>'><p>Click to Resend Verification Email</p></a>
+						        	<p class="text-danger">You must verify your account before you can create your META. Please check your email.</p>
+						        	<a href="/account/resend-email-verification?uid=<%= currentUser._id %>"><p>Click to Resend Verification Email</p></a>
 						        </div>
 						        <% } %>
 						    </div>
