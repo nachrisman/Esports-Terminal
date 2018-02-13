@@ -567,6 +567,22 @@ hr{
     white-space: pre-wrap;
 }
 
+.article-body > .article-figure {
+    width: 100%;
+    height: auto;
+}
+
+.article-body > .article-figure-caption{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    justify-content: flex-end;
+    color: #6E6E84;
+    font-size: 11pt;
+}
+
 .article-source{
     width: 100%;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
