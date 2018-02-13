@@ -562,6 +562,13 @@ hr{
     font-size: 11pt;
 }
 
+.article-body img{
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+    height: auto;
+}
+
 .article-body{
     text-align: left;
     white-space: pre-wrap;
@@ -599,12 +606,7 @@ hr{
     color: #333399;
 }
 
-.article-body img{
-    display: block;
-    margin: 0 auto;
-    max-width: 80%;
-    height: auto;
-}
+
 
 .article-body iframe{
     display: block;
