@@ -23,13 +23,13 @@ router.get("/:id", function(req, res){
 		if(err){
 			console.log("Article Query Error: " + err.message);
 			req.flash("error", "There was an error loading the page.");
-			return res.redirect("/main");
+			return res.redirect("/");
 		} else {
 			User.find({role: {$in: ["admin", "editor"]}}, function(err, creators){
 				if(err){
 					console.log("Error in User Query: " + err.message);
 					req.flash("error", "Error in User Query: " + err.message);
-					return res.redirect("/main");
+					return res.redirect("/");
 				} else {
 					metaTags.metaTagsUrl = "https://www.esportsterminal.com/news/" + foundArticle._id;
 					metaTags.metaTagsSite = "@esportsterminal";
@@ -60,7 +60,7 @@ router.post("/", function(req, res){
 			res.redirect("/admin/view-articles");
 		} else {
 			req.flash("success", "Article added successfully.");
-			res.redirect("/news");
+			res.redirect("/");
 		}
 	});
 });
