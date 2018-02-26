@@ -1,0 +1,35 @@
+<% include ./partials/admin_header %>
+		<div class="container-fluid">
+			<div class="page-header">
+				<h2>Add a New Video</h2>
+				<a class="btn btn-primary btn-est" href="/admin/view-videos" role="button">Return to Videos</a>
+			</div>
+			<hr>
+			<div class="content-form">
+				<form class="account-form" action="/admin/edit-video/<%= video._id %>?_method=PUT" method="POST">
+				    <div class="content-form-col">
+				        <label for="date">Date:</label>
+					    <input class="form-control" type="date" id="date" name="video[published]" value="<%= published %>" required />
+				        <label for="creator">Creator:</label>
+				        <select class="form-control custom-select" name="video[creator]" id="creator">
+				            <option disabled>Choose a Video Creator</option>
+				           <% creators.forEach(function(creator){ %>
+				               <% if(creator.username != video.creator){ %>
+				               <option value="<%= creator.username %>"><%= creator.username %></option>
+				               <% } else { %>
+				               <option value="<%= creator.username %>" selected><%= creator.username %></option>
+				               <% } %>
+				           <% }); %> 
+				        </select>
+				        <label for="video-link">Source Link:</label>
+				        <input class="form-control" name="video[sourceLink]" id="video-link" value="<%= video.sourceLink %>" required />
+				        <div class="content-form-actions">
+							<button class="btn btn-outline-primary" type="submit" value="Update Video">Update Video</button>
+							<button class="btn btn-outline-danger" disabled>Cancel</button>
+						</div>
+				    </div>
+				</form>
+			</div>
+			<hr>
+    	</div>
+<% include ./partials/admin_footer %>

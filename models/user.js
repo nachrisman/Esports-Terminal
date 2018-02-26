@@ -26,8 +26,12 @@ var userSchema = new mongoose.Schema({
 	newsletter: {type: Boolean, default: true},
 	role:{type: String, enum: userRoles, default: "user"},
 	active: {type: Boolean, default: false},
-	validationToken: {token: String, expiration: {type: Date, default: undefined}
-	}
+	validationToken: {token: String, expiration: {type: Date, default: undefined} },
+	twitter: String,
+	facebook: String,
+	youtube: String, 
+	website: String,
+	profileBanner: String
 });
 
 userSchema.virtual("fullname").get(function(){ return this.firstName + " " + this.lastName; });

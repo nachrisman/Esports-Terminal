@@ -1,0 +1,35 @@
+<% include ./partials/admin_header %>
+		<div class='container-fluid'>
+			<div class='page-header'>
+				<h2>Articles</h2>
+				<a class="btn btn-primary btn-est" href="/admin/new-video" role="button">Add a New Video</a>
+			</div>
+			<hr>
+		<div class='row view-list'>
+			<div class='col-xs-12 col-md-12'>
+				<div class='table-responsive'>
+					<table class='table'>
+					    <thead>
+					      <tr>
+					        <th>Published</th>
+					        <th>Creator</th>
+						    <th>Edit</th>
+						  </tr>
+					    </thead>
+					    <tbody>
+					    <% videos.forEach(function(video){ %>
+						  <tr>
+						    <td><%= video.published.toDateString() %></td>
+						    <td><%= video.creator %></td>
+						    <td>
+							  <a href='/admin/edit-video/<%= video._id %>'>Edit</a>
+							</td>
+						  </tr>
+					    <% }); %>
+					    </tbody>
+					  </table>
+				  </div>
+			</div>
+		</div>
+	</div>
+<% include ./partials/admin_footer %>

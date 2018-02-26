@@ -1,61 +1,38 @@
 <% include ./partials/header %>
-		<div class='container-fluid'>
-			<div id='contact-container'>
-				<div class='content-flex'>
-					<div class='section-header'>
-						<h1>Need to Contact Us?</h1>
-						<p>Fill out the form below, we'll get back to you as soon as possible!</p>
-					</div>
-					<div class='content-flex' id='contact-flex'>
-						<form class='acct-update-form' id='contact-form' action='/contact' method='POST'>
-							<% if(currentUser) { %>
-								<label for='first-name'>First Name:</label>
-								<input class='form-control' type='text' name='firstName' id='first-name' value='<%= currentUser.firstName %>' required />
-								<label for='last-name'>Last Name:</label>
-								<input class='form-control' type='text' name='lastName' id='last-name' value='<%= currentUser.lastName %>' required />
-								<label for='username'>Username:</label>
-								<input class='form-control' type='text' name='username' id='username' value='<%= currentUser.username %>' required />
-								<label for='email'>Email:</label>
-								<input class='form-control' type='email' name='email' id='email' value='<%= currentUser.email %>' required />
-								<label for='message'>Message:</label>
-								<textarea class='form-control' type='text' name='message' id='message' rows='8' required></textarea>
-							<% } else { %>
-								<label for='first-name'>First Name:</label>
-								<input class='form-control' type='text' name='firstName' id='first-name' required />
-								<label for='last-name'>Last Name:</label>
-								<input class='form-control' type='text' name='lastName' id='last-name' required />
-								<label for='username'>Username:</label>
-								<input class='form-control' type='text' name='username' id='username' />
-								<label for='email'>Email:</label>
-								<input class='form-control' type='email' name='email' id='email' required />
-								<label for='message'>Message:</label>
-								<textarea class='form-control' type='text' name='message' id='message' rows='8' required></textarea>
-							<% } %>
-							<div id='contact-actions'>
-								<button class='btn btn-secondary acct-btn' type='submit'>Submit</button>
-							</div>
-						</form>
-					</div>
+		<div class="container-fluid main-content-container" id="main-contact-container">
+			<div class="contact-form-section" id="contact-form-container">
+				<div class="section-indicator" id="contact-form-header">
+					<h1>Need to Contact Us?</h1>
+					<p>Fill out the form below, we'll get back to you as soon as possible!</p>
 				</div>
-				<div class='advert-sidebar-flex' id='contact-page-sidebar'>
-					<div class='content-flex' id='contact-page-info'>
-						<h1>Just so you know...</h1>
-						<p>We're an open book when it comes to talking with our users. So, 
-						if you feel that there is anything that you want to ask/tell us, just 
-						send us a message and we'll get back to you as soon as possible. 
-						We are also on social media, mainly Twitter, but also Facebook. 
-						Just click on one of the links below to be taken to our page, 
-						because we'll respond that way too (sometimes it's a little faster)!
-						</p>
-						<div id='contact-page-social'>
-							<a class="btn nav-link" id="nav-quick-social" href="http://www.twitter.com/esttweets"target="_blank">
-								<button type="button" class="btn btn-tw" id="quick-tw"><i class="fa fa-twitter"></i></button>
-							</a>
-							<a class="btn nav-link" href="https://www.facebook.com/esportsterminal" target="_blank">
-								<button type="button" class="btn btn-fb" id="quick-fb"><i class="fa fa-facebook"></i></button>
-							</a>
-						</div>
+				<form class='acct-update-form' id='contact-form' action='/contact' method='POST'>
+						<label for='first-name'>First Name:</label>
+						<input class='form-control' type='text' name='firstName' id='first-name' required />
+						<label for='last-name'>Last Name:</label>
+						<input class='form-control' type='text' name='lastName' id='last-name' required />
+						<label for='email'>Email:</label>
+						<input class='form-control' type='email' name='email' id='email' required />
+						<label for='message'>Message:</label>
+						<textarea class='form-control' type='text' name='message' id='message' rows='8' required></textarea>
+					<div id='contact-actions'>
+						<button class='btn btn-secondary acct-btn' type='submit'>Submit</button>
 					</div>
+				</form>
+			</div>
+			<div class="contact-form-section" id="contact-sidebar">
+				<img src="/media/branding/estera_headshot_smile.png" id="estera-contact">
+				<h1>Just so you know...</h1>
+				<p>We're very active on social media these days! So, if you find 
+				that sending us a message on Twitter or Facebook is easier, please do that! 
+				Usually we can reply a bit faster as well :)
+				</p>
+				<div id='contact-page-social'>
+					<a class="btn nav-link" id="nav-quick-social" href="http://www.twitter.com/esttweets"target="_blank">
+						<button type="button" class="btn btn-tw" id="quick-tw"><i class="fa fa-twitter"></i></button>
+					</a>
+					<a class="btn nav-link" href="https://www.facebook.com/esportsterminal" target="_blank">
+						<button type="button" class="btn btn-fb" id="quick-fb"><i class="fa fa-facebook"></i></button>
+					</a>
 				</div>
 			</div>
 		</div>

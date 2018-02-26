@@ -12,7 +12,6 @@ var methodOverride		  = require("method-override"),
 
 var adminRoutes 	= require("./routes/admin"),
 	newsRoutes  	= require("./routes/news"),
-	accountRoutes 	= require("./routes/account"),
 	indexRoutes 	= require("./routes/index");
 
 mongoose.Promise = global.Promise;
@@ -47,7 +46,6 @@ app.use(function(req, res, next){
 	next();
 });
 
-app.use("/account", accountRoutes),
 app.use("/admin", adminRoutes),
 app.use("/news", newsRoutes),
 app.use(indexRoutes);

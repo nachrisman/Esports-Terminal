@@ -1,48 +1,24 @@
-/*===============================
-    GENERAL/OVERALL PROPERTIES
-=================================*/
-body, html {
+/*====================
+    PRIMARY STYLES
+=====================*/
+body{
+    background-image: url("estera_look_right_opaque.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
     font-family: 'Poppins', sans-serif;
+    font-size: 14pt;
+}
+
+html{
     font-size: 14pt;
 }
 
 h1, h2{
     font-family: 'Russo One', sans-serif;
     text-align: center;
-}
-
-hr{
-    display: block;
-    border-color: #000;
-    border-color: rgba(0, 0, 0, 0.5);
-    width: 60%;
-}
-
-.content-divider-sm{
-    border-bottom: 3px solid red;
-    width: 50%;
-    margin: 0 auto 20px auto;
-}
-
-.content-divider-md{
-    border-bottom: 3px solid red;
-    width: 25%;
-    margin: 0 auto 20px auto;
-}
-
-.content-divider-lg{
-    border-bottom: 3px solid red;
-    width: 20%;
-    margin: 0 auto 20px auto;
-}
-
-.no-content-msg{
-    text-align:center;
-}
-
-.clear-div{
-    clear:both;
-    padding-top: 4px;
 }
 
 .btn-est{
@@ -69,391 +45,474 @@ hr{
     color: #fff;
 }
 
-/* navigation */
-.navbar-custom {
+.acct-btn{
+    padding: 5px 10px 5px 10px;
+    margin-top: 10px;
+    color: #333399;
     background-color: #fff;
-    margin-bottom:25px;
-    border-bottom: 1px solid black;
+    border-radius: 5px;
+    font-size: 1vw;
 }
 
-.navbar-nav > .nav-item > .nav-link {
+.acct-btn:hover{
+    background-color: #333399;
+    color: #fff;
+}
+
+/*========================
+        NAVIGATION
+==========================*/
+.navigation-container{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 10px auto;
+    width: 65vw;
+}
+
+.navigation-logo > img{
+    height: 100px;
+    width: auto;
+}
+
+.navigation{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 100%;
+    list-style: none;
+}
+
+.navigation-link{
+    font-family: 'Russo One', sans-serif;
+    font-size: 16pt;
     color: #000;
 }
 
-#nav-logo{
-    width:auto;
-    max-height:125px;
-}
-
-.collapse.navbar-collapse > ul{
-    font-size:14pt;
-    font-family: 'Russo One', sans-serif;
-    color:#000;
-    margin: 40px 0 0 20px;
-}
-
-.collapse.navbar-collapse li > a{
-    color:#000;
-}
-
-.collapse.navbar-collapse li > a:hover{
-    color:#636363;
-}
-
-#quick-fb, #quick-tw, #quick-ins{
-    color:#ffffff;
-    background-color:#333399;
-    margin-top:-10px;
-}
-
-.nav.navbar-nav.navbar-right{
-    margin-right:25px;
-}
-
-.est-nav > .active > a{
-    color: #333399 !important;
-}
-
-/*=====================
-    NEW CSS REFACTOR
-======================*/
-.section-header{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.section-header p{
-    color: #6E6E84;
-}
-
-.page-indicator-container{
-    justify-content: center;
-    align-items: center;
-}
-
-.page-indicator-container > p{
-    cursor: default;
-}
-
-.page-indicator{
-    font-family: 'Ceviche One', cursive;
+.navigation-link:hover{
     color: #333399;
-    cursor: default;
-    font-size: 42pt;
+    text-decoration: none;
 }
 
-.franchise-name{
-    font-size: 42pt;
+/*==========================
+    ARTICLE PREVIEWS
+===========================*/
+.article-preview {
+    position: relative;
+    height: 20vh;
+    width: 100%;
+    margin: 5px;
 }
 
-.page-indicator-mobile-container{
-    display: none;
-}
-
-.no-news{
-    color: #6E6E84;
-}
-
-.no-news > a{
-    color: #333399;
-}
-
-.no-content-message{
-    width: 65vw;
-    margin: 25px auto;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.no-content-message > img{
-    margin-bottom: 25px;
-}
-
-.no-content-message > p > a{
-    color: #333399;
-}
-
-/* Donation */
-.donation-flex{
-    width: 65vw;
-    margin: 0 auto;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.donation-info-section{
-    margin: 0 auto;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: left;
-}
-
-#paypal-donate{
-    margin: 0 auto 25px auto;
-}
-
-#paypal-donate-mobile{
-    display: none;
-}
-
-#donate-thank-you{
-    width: 50vw;
-}
-
-#donate-success-flex{
-    width: 50vw;
-}
-
-#donate-success-message{
-    width: 50vw;
-    margin-bottom: 25px;
-}
-
-/* Game-Specific Pages */
-.game-page-banner-container{
-    width: 40vw;
-    margin: 0 auto 10px auto;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    justify-content: center;
-}
-
-.game-page-banner{
-    width: 20vw;
+.article-preview-image{
     height: 100%;
-    margin: 0 auto;
+    width: 100%;
+    object-fit: cover;
 }
 
-.mid-page-banner{
-    margin: 25px auto;
+.preview-headline{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background-color: rgb(234, 16, 16);
+    background-color: rgba(234, 16, 16, 0.7);
+    opacity: 0;
+    -webkit-transition: opacity .9s ease-in-out, height .3s ease-in-out;;
+    -moz-transition: opacity .9s ease-in-out, height .3s ease-in-out;
+    -o-transition: opacity .9s ease-in-out, height .3s ease-in-out;
+    transition: opacity .9s ease-in-out, height .3s ease-in-out;
 }
 
-/* Privacy Policy / Terms & Conditions */
-.policies-flex{
-    width: 65vw;
-    margin: 0 auto;
+.preview-headline:hover{
+    opacity: 1;
+}
+
+.article-title{
+    font-size: 1.2vw;
+    color: #fff;
+}
+
+
+.main-content-container{
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: flex-start;
-}
-
-.policies-flex p{
-    text-align: left;
-}
-
-.policies-flex h1{
-    text-align: left;
-}
-
-/* Forgot Password */
-.forgot-pw-flex{
-    margin: 0 auto 25px auto;
+    justify-content: space-between;
+    margin: 0 auto;
     width: 65vw;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
 }
 
-#forgot-pw{
+.section-indicator{
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-content: center;
+    justify-content: center;
     align-items: center;
+    margin: 25px auto 15px auto;
+    width: 100%;
+    cursor: default;
 }
 
-#forgot-pw-change{
+.section-image{
+    height: 100px;
+    width: auto;
+}
+
+.section-indicator-title{
+    font-family: 'Ceviche One', cursive;
+    color: #333399;
+    text-shadow: rgb(255, 255, 255) 1px 0px 0px, 
+    rgb(255, 255, 255) 0.540302px 0.841471px 0px, 
+    rgb(255, 255, 255) -0.416147px 0.909297px 0px, 
+    rgb(255, 255, 255) -0.989992px 0.14112px 0px, 
+    rgb(255, 255, 255) -0.653644px -0.756802px 0px, 
+    rgb(255, 255, 255) 0.283662px -0.958924px 0px, 
+    rgb(255, 255, 255) 0.96017px -0.279415px 0px;
+}
+
+.subsection-indicator{
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: flex-start;
-    align-items: flex-start;
+    font-family: 'Russo One', sans-serif;
 }
 
-#forgot-pw > input{
-    flex-basis: 40%;
-    margin: 0 10px 0 10px;
-}
-
-#forgot-pw-change > input{
-    margin: 10px 0 10px 0;
-}
-
-#forgot-pw .btn, #forgot-pw-change .btn{
-    margin: 5px;
-}
-
-/* Search Results */
-.search-query-flex{
+.creators-panel{
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
-    flex-direction: column;
-    margin-bottom: 25px;
-}
-
-.search-form-container{
+    justify-content: center;
+    margin: 0 auto;
     width: 100%;
 }
 
-#search-again{
-    width: 65vw;
-    margin: 0 auto;
+.creator-container{
+    max-height: auto;
+    margin: 0 10px 0 10px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 21px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 21px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 21px -4px rgba(0,0,0,0.75);
+}
+
+.creator-banner-image{
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+.section-main-body > div{
+    margin: 25px 0 0 0;
+}
+
+#recent-content-main{
+    width: 100%;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-#search-again-input{
-    flex-basis: 50%;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-
-#search-again p{
-    margin: 5px 10px 5px 5px;
-}
-
-#search-again-btn{
+.article-preview {
+    position: relative;
+    height: 30vh;
+    width: 100%;
     margin: 5px;
 }
 
-#search-query-header{
-    width: 65vw;
-    margin: 0 auto;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+.article-preview-image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-#search-query-header-text{
-    margin: 25px auto;
+.preview-headline{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background-color: rgb(234, 16, 16);
+    background-color: rgba(234, 16, 16, 0.7);
+    opacity: 0;
+    -webkit-transition: opacity .9s ease-in-out, height .3s ease-in-out;;
+    -moz-transition: opacity .9s ease-in-out, height .3s ease-in-out;
+    -o-transition: opacity .9s ease-in-out, height .3s ease-in-out;
+    transition: opacity .9s ease-in-out, height .3s ease-in-out;
+}
+
+.article-title{
+    font-size: 1.2vw;
+    color: #fff;
+}
+
+.main-news-container{
+    width: 100%;
+    margin: 0 auto;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: center;
-}
-
-.search-query-results{
-    width: 40vw;
-    margin: 0 auto;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Article View */
-.article-view-flex{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 25px;
-}
-
-#article-view-header{
-    width: 90vw;
-    margin: 0 auto;
     flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.main-news-container .preview-headline{
+    opacity: 1;
+    padding: 0;
+    background-color: transparent;
+}
+
+.main-news-container .article-title{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.main-news-container .article-preview{
+    flex-basis: 48%;
+}
+
+.main-videos-container{
+    width: 100%;
+    margin: 0 auto;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
 }
 
-#article-view-header-ad-mobile{
-    display: none;
+#videos-most-recent iframe{
+    margin: 10px auto 10px auto;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 }
 
-#article-view-article-ad-mobile{
-    display: none;
-}
-
-.article-view-feed{
+#segment-logos{
     width: 65vw;
-    margin: 0 auto;
+    margin-top: 25px;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: 1px solid #000;
+}
+
+.segment-logo{
+    align-self: center;
+    width: 30%;
+    height: auto;
+}
+
+#estera-patreon{
+    width: 100%;
+}
+
+#social-buttons{
+    width: 100%;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/*==============================
+        CREATOR PROFILE
+================================*/
+.creator-profile-header{
+    width: 100%;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.creator-profile-image{
+    max-width: 100%;
+    align-self: center;
+}
+
+.creator-social-buttons{
+    width: 100%;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    justify-content: space-around;
+}
+
+.creator-social-link{
+    width: 40%;
+    height: auto;
+    align-self: center;
+}
+
+.creator-social-link img{
+    width: 100%;
+    height: auto;
+    align-self: center;
+}
+
+.creator-content{
+    width: 100%;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.creator-content-subsection{
+    width: 100%;
+    flex-grow: 2;
+}
+
+.creator-articles{
+    width: 100%;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
-#article-view-feed-main{
-    flex-basis: 39vw;
+.creator-articles #news-most-recent > .article-preview{
+    flex-basis: 100%;
+    max-width: 100%;
+    height: 281px;
 }
 
-#article-view-feed-main article{
+.creator-videos{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: space-around;
+    align-content: center;
+}
+
+#creator-videos-title{
+    margin-bottom: 0px;
+}
+
+.creator-videos iframe{
+    margin: 20px auto 20px auto;
+}
+
+/*=========================
+        CREATORS LIST
+===========================*/
+.creator-info-container{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.creator-bio-container{
+    margin: 25px auto;
+}
+
+.creator-info-image{
+    float: left;
+    width: 25%;
+    height: auto;
+    margin: 0 15px 0 0;
+}
+
+.creator-bio-header{
+    font-family: 'Russo One', sans-serif;
+    text-align: center;
+}
+
+/*=========================
+        ARTICLE VIEW
+==========================*/
+.article-header{
+    text-align: left;
+    font-size: 130%;
+}
+
+.article-header > a{
+    color: rgb(0, 0, 0);
+    color: rgba(0, 0, 0, 1.0);
+}
+
+.article-author-link{
+    font-size: 11pt;
+    color: #333399;
+}
+
+.article-pub-date{
+    font-size: 11pt;
+    color: #6E6E84;
+    text-align: left;
+}
+
+.article-author-link, .article-pub-date{
+    display: inline-block;
+}
+
+.article-author-link:hover{
+    color: #333399;
+}
+
+#article-view{
+    margin-top: 25px;
+    flex-direction: row;
+}
+
+.article-container{
+    width: 58%;
+    margin: 0 auto;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
@@ -464,58 +523,7 @@ hr{
 
 .article-view-title{
     text-align: left;
-    font-size: 1.5vw;
-}
-
-#article-view-feed-sidebar{
-    flex-basis: 30%;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#article-view-sidebar-ad{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-}
-
-#article-view-feed-sidebar-mobile{
-    display: none;
-}
-
-#article-view-sidebar-title{
-    font-size: 130%;
-}
-
-#article-view-sidebar-header{
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#article-view-sidebar-content{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-#article-view-sidebar-content .article-preview{
-    height: 10vh;
-    width: 100%;
+    font-size: 1.3vw;
 }
 
 .article-meta-container{
@@ -606,8 +614,6 @@ hr{
     color: #333399;
 }
 
-
-
 .article-body iframe{
     display: block;
     margin: 0 auto;
@@ -627,462 +633,36 @@ hr{
     margin-top: 25px;
 }
 
-.article-body-preview img{
-    display: block;
-    margin: 0 auto;
-    text-align: middle;
-}
-
-.article-body-preview iframe{
-    display: block;
-    margin: 0 auto;
-    text-align: middle;
-}
-
-
-/* News Page */
-.news-flex{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-}
-
-#news-header{
-    width: 90vw;
-    margin: 0 auto;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#news-header-ad-mobile{
-    display: none;
-}
-
-.news-feed{
-    width: 65vw;
-    margin: 0 auto;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#news-feed-main{
-    flex-basis: 60%;
-}
-
-#news-feed-sidebar{
+.article-sidebar{
+    padding-left: 25px;
     flex-basis: 30%;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border-left: 1px solid #000;
+    border-left: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-#title{
-    font-size: 130%;
-}
-
-#news-sidebar-header{
+.article-sidebar-logo{
     width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#news-sidebar-ad-mobile{
-    display: none;
-}
-
-#news-sidebar-header-random{
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#news-sidebar-content{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-#news-sidebar-header-random{
-    margin-top: 25px;
-}
-
-#news-sidebar-ad{
-    margin: 25px 0 25px 0;
-}
-
-.article-preview {
-    position: relative;
-    height: 20vh;
-    width: 100%;
-    margin: 5px;
-}
-
-.article-preview-image{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.preview-headline{
-    position:absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    padding: 15px;
-    background-color: rgb(234, 16, 16);
-    background-color: rgba(234, 16, 16, 0.7);
-    opacity: 0;
-    -webkit-transition: opacity .9s ease-in-out, height .3s ease-in-out;;
-    -moz-transition: opacity .9s ease-in-out, height .3s ease-in-out;
-    -o-transition: opacity .9s ease-in-out, height .3s ease-in-out;
-    transition: opacity .9s ease-in-out, height .3s ease-in-out;
-}
-
-.preview-headline:hover{
-    opacity: 1;
-}
-
-.article-title{
-    font-size: 1.2vw;
-    color: #fff;
-}
-
-#news-most-recent{
-    width: 60vw;
-    margin: 0 auto;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-#news-most-recent .preview-headline{
-    opacity: 1;
-    padding: 0;
-    background-color: transparent;
-}
-
-#news-most-recent .article-title{
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-#news-most-recent .article-preview{
-    height: 35vh;
-    flex-basis: 25vw;
-}
-
-#news-most-recent .article-preview:first-child{
-    height: 35vh;
-    flex-basis: 50vw;
-}
-
-.post-preview{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-}
-
-.post-preview article{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-}
-
-.article-header{
-    text-align: left;
-    font-size: 130%;
-}
-
-.article-header > a{
-    color: rgb(0, 0, 0);
-    color: rgba(0, 0, 0, 1.0);
-}
-
-.article-author-link{
-    font-size: 11pt;
-    color: #333399;
-}
-
-.article-pub-date{
-    font-size: 11pt;
-    color: #6E6E84;
-    text-align: left;
-}
-
-.article-author-link, .article-pub-date{
-    display: inline-block;
-}
-
-.article-author-link:hover{
-    color: #333399;
-}
-
-.article-query-container{
-    width: 90vw;
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    justify-content: center;
-    margin: 25px auto;
-}
-
-.article-query-container .btn{
-    width: 40vw;
-}
-
-/* User META */
-.meta-flex{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-#meta-header{
-    width: 65vw;
-    border-bottom: 1px solid #6E6E84;
-    margin-bottom: 25px;
-}
-
-.meta-option-flex{
-    width: 65vw;
-}
-
-.meta-option-header{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333399;
-    border-radius: 15px;
-    padding:15px;
-    margin:15px 0 15px 0;
-}
-
-.meta-option-title{
-    color: #fff;
-}
-
-.fa-arrow-circle-o-down{
-    margin-left: 25px;
-    color: #fff;
-    font-size: 3vw;
-}
-
-.meta-news-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 50px;
-}
-
-.meta-news-container .article-preview{
-    flex-basis: 30vw;
-    height: 30vh;
-    flex-grow: 1;
-}
-
-.meta-news-container .article-preview:first-child{
-    flex-basis: 100%;
-    flex-grow: 0;
-}
-
-/* Write For Us */
-#write-wrapper{
-    margin: 0 auto 25px auto;
-}
-
-#write-submission-header p{
-    text-align: left;
-}
-
-#write-submission-games{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-#write-submission-logo{
-    width: 200px;
     height: auto;
 }
 
-#write-submission-form{
-    margin: 0 auto;
+.twitter-timeline{
+    background: transparent;
 }
 
-.write-submission-section{
-    display: flex;
+/*=========================
+        CONTACT US
+===========================*/
+#main-contact-container{
+    flex-direction: row;
+}
+
+.contact-form-section{
+    width: 48%;
+}
+
+#contact-form-header{
     flex-direction: column;
     align-items: flex-start;
-}
-
-.write-submission-section p{
-    color: #6E6E84;
-}
-
-#write-submission-social, #write-submission-previous-work{
-    padding-top: 25px;
-}
-
-#write-submission-previous-work input{
-    margin: 10px 0 10px 0;
-}
-
-#write-submission-actions{
-    display: flex;
-    justify-content: center;
-}
-
-#write-submission-actions .btn{
-    margin-top: 25px;
-    width: 20vw;
-    font-size: 1.5vw;
-}
-
-/* Login Page */
-
-
-#login-page-flex{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 65vw;
-    margin: 0 auto;
-}
-
-#login-credentials{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#login-credentials label{
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-.login-actions{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-actions .btn{
-    width: 100%;
-}
-
-.login-actions a{
-    margin: 10px;
-    color: #333399;
-}
-
-#login-logo-top{
-    flex-basis: 10vw;
-    margin: 0 auto;
-}
-
-#login-form-container > form{
-    margin: 0 auto;
-}
-
-/* Site Info/FAQ */
-#site-info-container{
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-}
-
-.content-flex{
-    width: 60vw;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.mobile-advert-responsive{
-        display: none;
-    }
-
-.advert-sidebar-flex{
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    align-content: center;
-}
-
-.site-info-section{
-    margin-bottom: 25px;
-}
-
-.site-info-section a{
-    color: #333399;
-}
-
-.site-info-section p{
-    text-align: left;
-}
-
-#site-info-mobile-banner-top{
-    display: none;
-}
-
-/* Contact Page */
-#contact-container{
-    width: 60vw;
-    margin: 0 auto 25px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-}
-
-#contact-flex{
-    width: 30vw;
 }
 
 #contact-form{
@@ -1100,25 +680,6 @@ hr{
     font-size: 1.5vw;
 }
 
-#contact-page-sidebar{
-    margin-top: 25px;
-    flex-basis: 80%;
-    justify-content: flex-start;
-    height: 90vh;
-}
-
-#contact-page-info{
-    width: 100%;
-    padding-top: 25px;
-    justify-content: space-around;
-    align-items: flex-start;
-    align-content: center;
-}
-
-#contact-page-info p{
-    text-align: left;
-}
-
 #contact-page-social{
     width: 100%;
     display: flex;
@@ -1127,2314 +688,429 @@ hr{
     text-align: center;
 }
 
-/* Account Registration */
-#registration-wrapper{
-    display: flex;
-    justify-content: center;
-}
-.registration{
-    width: 55vw;
-    margin: 0 auto 25px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.registration-flex{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 25px 25px 0 0;
-}
-
-#registration-header{
-    border-bottom: 1px solid #6E6E84;
-}
-
-.registration p{
-    color: #6E6E84;
-    text-align: left;
-}
-
-.registration a{
-    color: #333399;
-}
-
-.registration h1{
-    text-align: left;
-}
-
-#registration-form{
-    width: 100%;
-}
-
-#user-acct-info{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-bottom: 1px solid #6E6E84;
-}
-
-.registration-form-section{
-    flex-basis: 40%;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 25px;
-}
-
-#registration-meta{
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    border-bottom: 1px solid #6E6E84;
-}
-
-.registration-meta-game-label > img{
-    padding: 10px;
-}
-
-.registration-meta-game-logo{
-    max-width: 150px;
-}
-
-#registration-actions{
-    flex-direction: row;
-    justify-content: center;
-}
-
-#registration-actions .btn{
-    width: 30vw;
-    font-size: 1.5vw;
-}
-
-/* User Account View */
-.acct-update-form label{
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-.account-settings{
-    min-height: 80vh;
-    min-width: 80vw;
-    display: flex;
-    justify-content: center;
-}
-
-.account-settings > div{
-    margin: 30px;
-}
-
-.acct-settings-col{
-    border-left: 1px solid #6E6E84;
-    padding-left: 25px;
-    display: flex;
-    flex-direction: column;
-}
-
-.acct-settings-header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: center;
-}
-
-.acct-settings-header p{
-    color: #6E6E84;
-}
-
-.acct-nav{
-    border-left: none;
-    flex-shrink: 0;
-    align-items: center;
-}
-
-.acct-nav-header{
-    width: 100%;
-    font-family: 'Russo One', sans-serif;
-    color: #6E6E84;
-}
-
-#acct-nav-links{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.acct-nav-item{
-    text-align: right;
-    padding: 5px 8px 5px 5px;
-    border-bottom: 1px solid #6E6E84;
-    border-right: 1px solid #6E6E84;
-    color: #6E6E84;
-}
-
-.acct-nav-item:hover{
-    text-decoration: none;
-    color: #333399;
-}
-
-.acct-update-form{
-    display: flex;
-    flex-direction: column;
-    width: 40vw;
-}
-
-.form-check-label{
-    margin: 0 10px 0 10px;
-}
-
-.acct-btn{
-    padding: 5px 10px 5px 10px;
-    margin-top: 10px;
-    color: #333399;
-    background-color: #fff;
-    border-radius: 5px;
-    font-size: 1vw;
-}
-
-.acct-btn:hover{
+#contact-page-social .btn{
     background-color: #333399;
     color: #fff;
 }
 
-.acct-settings-actions{
-    width: 100%;
-    margin-top: 25px;
-    display: flex;
-    justify-content: flex-end;
+#estera-contact{
+    margin: 0 auto;
 }
 
-.acct-settings-actions a{
-    color: #333399;
-}
-
-#email-settings{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-#email-settings-description p{
-    color: #6E6E84;
-}
-
-#email-settings-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#email-settings-body label{
-    font-weight: normal;
-}
-
-#sec-settings{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-#sec-settings-actions a{
-    color: #333399;
-    margin: 25px;
-}
-
-#acct-deactivation-actions{
-    justify-content: space-around;
-    align-items: flex-end;
-}
-
-.acct-action-warning{
-    border-top: 1px solid #6E6E84;
-    border-bottom: 1px solid #6E6E84;
-    padding: 25px 10px 10px 10px;
-    margin-top: 15px;
-}
-
-#acct-deletion-actions{
-    justify-content: space-around;
-    align-items: flex-end;
-}
-
-.acct-meta-game{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #6E6E84;
-    margin: 5px;
-}
-
-.acct-meta-game-option label{
-    font-weight: normal;
-    border-left: 1px solid #6E6E84;
-}
-
-#franchise-settings-body{
-    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-    display: -ms-flexbox;      /* TWEENER - IE 10 */
-    display: -webkit-flex;     /* NEW - Chrome */
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 25px;
-}
-
-#franchise-settings-body > label{
-    font-weight: normal;
-}
-
-.franchise-label{
-    font-family: 'Russo One';
-}
-
-/* Footer */
-footer{
-    padding-top: 15px;
-    border-top: 2px solid rgb(0, 0, 0);
-    border-top: 2px solid rgba(0, 0, 0, 0.5);
-    font-weight:normal;
-    font-size:10pt;
-}
-
-footer a{
-    color: #000;
-}
-
-#footer-wrapper{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 25px;
-}
-
-.footer-col{
-    flex-basis: 30vw;
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-}
-
-#footer-logo-col{
-    flex-basis: 5vw;
-}
-
-#footer-logo{
-    max-width: 125px;
-    max-height: 125px;
-}
-
-#footer-nav-col{
-    flex-basis: 50vw;
-    align-items: center;
-}
-
-.footer-col-nav{
-    width: 80%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.footer-nav-section{
-    display: flex;
-    flex-direction: column;
-}
-
-#footer-social-col{
-    flex-basis: 10vw;
-}
-
-#footer-social-links{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-content: space-around;
-}
-
-#contact-mobile-banner-top, #contact-mobile-banner-bottom,
-#contact-mobile-leaderboard-top{
-    display: none;
-}
-
-#footer-policies{
-    width: 50%;
+/*===================================
+    PRIVACY POLICY/TERMS&CONDITIONS
+=====================================*/
+.policies-flex{
+    width: 65vw;
     margin: 0 auto;
     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
     display: -ms-flexbox;      /* TWEENER - IE 10 */
     display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
 }
 
+.policies-flex p{
+    text-align: left;
+}
 
-/*============================
-    RESPONSIVE/MEDIA QUERIES
-=============================*/
+.policies-flex h1{
+    text-align: left;
+}
 
-/* Portrait Mode Phones */
-@media only screen
-and (max-width: 414px) {
-    .page-indicator-container{
-        justify-content: center;
-        align-items: center;
+/*====================
+        FOOTER
+======================*/
+footer{
+    padding-top: 15px;
+    font-weight: normal;
+    font-size: 10pt;
+}
+
+footer a{
+    color: #000;
+}
+
+.footer-container{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    width: 65vw;
+    border-top: 1px solid #000;
+}
+
+.footer-section{
+    flex-basis: 33%;
+    padding: 15px;
+}
+
+.footer-section > img{
+    height: 100px;
+    max-width: 100%;
+}
+
+.footer-section-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14pt;
+}
+
+.footer-navigation{
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+twitter-timeline{
+        background: transparent;
+        margin-left: 15px;
     }
-    
-    .page-indicator-container > p{
-        cursor: default;
-    }
-    
-    .page-indicator{
-        font-family: 'Ceviche One', cursive;
-        color: #333399;
-        cursor: default;
-        font-size: 24pt;
-    }
-    
-    .page-indicator-mobile-container{
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        justify-content: center;
-    }
-    
-    /* Donation */
-    .donation-flex{
-        width: 90vw;
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-    }
-    
-    .donation-info-section{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        text-align: left;
-    }
-    
-    #paypal-donate{
-        display: none;
-    }
-    
-    #paypal-donate-mobile{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        margin: 0 auto 25px auto;
-    }
-    
-    #donate-thank-you{
+
+@media only screen 
+and (min-width: 1024px) 
+and (max-width: 1440px){
+    .navigation-container{
         width: 90vw;
     }
     
-    #donate-success-flex{
-        width: 90vw;
-    }
-    
-    #donate-success-message{
-        width: 90vw;
-        margin-bottom: 25px;
-    }
-
-    /* Game-Specific Pages */
-    .game-page-banner-container{
-        width: 40vw;
-        margin: 0 auto 50px auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        
-    }
-    
-    .game-page-banner{
-        width: 100%;
-        height: 100%;
-    }
-    
-    /* Privacy Policy == Terms & Conditions */
-    .policies-flex{
-        width: 95vw;
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: flex-start;
-    }
-    
-    .policies-flex p{
-        text-align: left;
-    }
-    
-    .policies-flex h1{
-        text-align: left;
-    }
-
-    /* Forgot Password */
-    .forgot-pw-flex{
-        margin: 0 auto 25px auto;
-        width: 95vw;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    #forgot-pw{
-        width: 100%;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: flex-start;
-        align-items: center;
-    }
-    
-    #forgot-pw-change{
+    .main-content-container{
         width: 85vw;
     }
     
-    #forgot-pw-change-header{
-        width: 90vw;
-        margin: 0 auto;
+    .section-subsection{
+        width: 85vw;
     }
     
-    #forgot-pw > input{
-        width: 90%;
-        margin: 0;
+    .preview-headline .article-title{
+        font-size: 1.8vw;
     }
     
-    #forgot-pw-change > .btn{
-        margin: 5px auto;
-        flex-basis: 8vh;
+    .recent-video{
+        width: 400px;
+        height: 225px;
+    }
+    
+    #segment-logos{
         width: 100%;
     }
     
-    #forgot-pw .btn{
-        flex-basis: 8vh;
-        width: 80%;
-        margin: 15px auto;
-    }
-
-    /* Search Results */
-    .search-query-flex{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 25px;
-    }
-    
-    .search-form-container{
-        width: 100%;
-    }
-    
-    #search-again{
-        width: 100%;
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-    }
-    
-    #search-again-input{
-        flex-basis: 80%;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        margin-bottom: 10px;
-    }
-    
-    #search-again-input > input::placeholder{
-        color: #fff;
-    }
-    
-    #search-again p{
-        margin: 0 0 5px 0;
-    }
-    
-    #search-again-btn{
-        margin: 5px;
-        flex-basis: 20%;
-    }
-    
-    #search-query-header{
-        width: 95vw;
-        margin: 0 auto;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-    }
-    
-    #search-query-header-text{
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        align-content: flex-start;
-    }
-    
-    .search-query-results{
-        width: 95vw;
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    /* Article View */
-    .article-view-flex{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 25px;
-    }
-    
-    #article-view-header{
-        width: 60vw;
-        margin: 0 auto;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    #article-view-header-ad{
-        display: none;
-    }
-    
-    #article-view-sidebar-ad{
-        display: none;
-    }
-    
-    #article-view-header-ad-mobile{
-        display: block;
-    }
-    
-    #article-view-article-ad-mobile{
-        display: flex;
-        justify-content: center;
-        margin: 25px 0 25px 0;
-    }
-    
-    .article-view-feed{
-        width: 90vw;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    #article-view-feed-main{
-        flex-basis: 60%;
-    }
-    
-    #article-view-feed-main article{
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .article-view-title{
-        text-align: left;
-        font-size: 4.5vw;
-    }
-    
-    #article-view-feed-sidebar{
-        display: none;
-    }
-    
-    #article-view-feed-sidebar-mobile{
-        flex-basis: 30%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 25px 0 25px 0;
-    }
-    
-    #article-view-sidebar-title{
-        font-size: 130%;
-    }
-    
-    #article-view-sidebar-header{
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    #article-view-sidebar-content{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    #article-view-sidebar-content .article-preview{
-        height: 10vh;
-    }
-    
-    .article-meta-container{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .article-meta-container p{
-        color: #6E6E84;
-        padding: 0 10px 0 0;
-        font-size: 11pt;
-    }
-    
-    .article-meta-container a{
-        color: #333399;
-    }
-    
-    .post-content{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .article-figure {
-        width: 100%;
-        height: auto;
-    }
-    
-    .article-figure-caption{
-        display: flex;
-        justify-content: flex-end;
-        color: #6E6E84;
-        font-size: 11pt;
-    }
-    
-    .article-body{
-        text-align: left;
-        white-space: pre-wrap;
-    }
-    
-    .article-body img{
-        display: block;
-        margin: 0 auto;
-        max-width: 80%;
-        height: auto;
-    }
-    
-    .article-body iframe{
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        width: 350px;
-        height: 208px;
-    }
-    
-    #article-view-btn{
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
+    .creator-profile-header{
         margin-top: 25px;
     }
     
-    .article-body-preview img{
-        display: block;
-        margin: 0 auto;
-        text-align: middle;
+    .article-preview{
+        height: 40vh;
     }
     
-    .article-body-preview iframe{
-        display: block;
-        margin: 0 auto;
-        text-align: middle;
+    .footer-container{
+        width: 85vw;
     }
+}
 
-    /* News Page */
-    .news-flex{
-        display: flex;
+/* Portrait Mode Phones */
+@media only screen
+and (max-width: 414px){
+    .navigation-container{
+        margin: 0 auto;
+        width: 98vw;
         flex-direction: column;
+        align-items: center;
+        align-content: space-around;
+        flex-wrap: wrap;
     }
     
-    #news-header{
-        width: 60vw;
+    .navigation-logo{
+        width: 100%;
+        margin-bottom: 15px;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        justify-content: center;
+    }
+    
+    .navigation{
+        width: 90vw;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .navigation-link{
+        font-size: 12pt;
+    }
+    
+    #home-nav-link{
+        display: none;
+    }
+    
+    .main-content-container{
         margin: 0 auto;
-        flex-direction: row;
+    }
+    .creators-panel{
+        width: 100%;
         justify-content: space-around;
-        align-items: center;
-    }
-    
-    #news-header-ad-mobile{
-        display: block;
-    }
-    
-    #news-header-ad{
-        display: none;
-    }
-    
-    .news-feed{
-        width: 90vw;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        margin-bottom: -15px;
     }
     
-    #news-feed-main{
+    .creator-container{
+        flex-basis: 45%;
+        margin: 15px auto 15px auto;
+    }
+    
+    .navigation-container{
+        width: 50vw;
+    }
+    
+    .main-content-container{
+        width: 95vw;
+    }
+    
+    .section-subsection{
+        width: 95vw;
+    }
+    
+    .main-news-container .article-preview{
         flex-basis: 100%;
     }
     
-    #news-feed-sidebar{
-        display: none;
-    }
-    
-    #news-sidebar-title{
-        font-size: 130%;
-    }
-    
-    #news-sidebar-header{
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .no-news-message{
-        flex-basis: 100%;
-    }
-    
-    #news-sidebar-content{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    #news-sidebar-header-random{
-        display: none;
-    }
-    
-    #news-sidebar-content-random{
-        display: none;
-    }
-    
-    #news-sidebar-ad{
-        display: none;
-    }
-    
-    #news-sidebar-ad-mobile{
-        display: inline-block;
-        margin: 25px 0 25px 0;
-    }
-    
-    .article-preview {
-        position: relative;
-        height: 20vh;
-        margin: 5px;
-    }
-    
-    .article-preview-image{
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-    
-    .preview-headline{
-        position:absolute;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        padding: 15px;
-        background-color: rgb(234, 16, 16);
-        background-color: rgba(234, 16, 16, 0.7);
-        opacity: 0;
-        -webkit-transition: opacity .9s ease-in-out, height .3s ease-in-out;;
-        -moz-transition: opacity .9s ease-in-out, height .3s ease-in-out;
-        -o-transition: opacity .9s ease-in-out, height .3s ease-in-out;
-        transition: opacity .9s ease-in-out, height .3s ease-in-out;
-    }
-    
-    .preview-headline:hover{
-        opacity: 1;
-    }
-    
-    .article-title{
-        font-size: 3.5vw;
-        color: #fff;
-    }
-    
-    #news-most-recent{
-        width: 90vw;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    #news-most-recent .preview-headline{
-        opacity: 1;
-        padding: 0;
-        background-color: transparent;
-    }
-    
-    #news-most-recent .article-title{
-        padding: 10px;
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-    
-    #news-most-recent .article-preview{
-        height: 30vh;
-        flex-basis: 42vw;
-    }
-    
-    #news-most-recent .article-preview:first-child{
-        height: 35vh;
-        flex-basis: 100%;
-    }
-    
-    #news-sidebar-content .article-preview{
-        flex-basis: 100%;
-    }
-    
-    .post-preview{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .post-preview article{
-        width: 90vw;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .article-header{
-        text-align: left;
-        font-size: 100%;
-    }
-    
-    .article-header > a{
-        color: rgb(0, 0, 0);
-        color: rgba(0, 0, 0, 1.0);
-    }
-    
-    .article-author-link{
-        font-size: 11pt;
-        color: #333399;
-    }
-    
-    .article-pub-date{
-        font-size: 11pt;
-        color: #6E6E84;
-        text-align: left;
-    }
-    
-    .article-author-link, .article-pub-date{
-        display: inline-block;
-    }
-    
-    .article-author-link:hover{
-        color: #333399;
-    }
-    
-    /* User META */
-    .meta-flex{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 25px;
-    }
-    
-    #meta-header{
-        width: 65vw;
-        border-bottom: 1px solid #6E6E84;
-        margin-bottom: 25px;
-    }
-    
-    .meta-option-flex{
-        width: 90vw;
-    }
-    
-    .meta-option-header{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #333399;
-        border-radius: 15px;
-        padding: 15px;
-        margin: 5px 0 5px 0;
-    }
-    
-    .meta-option-title{
-        color: #fff;
-        font-size: 4vw;
-        text-align: left;
-    }
-    
-    .fa-arrow-circle-o-down{
-        margin-left: 25px;
-        color: #fff;
+    .preview-headline .article-title{
         font-size: 5vw;
     }
     
-    .meta-news-container{
+    .recent-video{
+        width: 300px;
+        height: 169px;
+    }
+    
+    #segment-logos{
+        width: 100%;
+    }
+    
+    .creator-profile-header{
+        margin-top: 25px;
+    }
+    
+    .article-preview{
+        height: 40vh;
+    }
+    
+    #article-view{
+        flex-direction: column;
+    }
+    
+    .article-container{
+        width: 90vw;
+    }
+    
+    .article-view-title{
+        font-size: 4.5vw;
+    }
+    
+    #article-view-btn .acct-btn{
+        font-size: 5vw;
+        margin-bottom: 10px;
+    }
+    
+    .article-sidebar{
+        width: 100%;
+        border-left: none;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 25px;
-    }
-    
-    .meta-news-container .article-preview{
-        flex-basis: 100%;
-        height: 30vh;
-        flex-grow: 0;
-    }
-    
-    .meta-news-container .article-preview:first-child{
-        flex-basis: 100%;
-        flex-grow: 0;
-    }
-    
-    .meta-news-container > .article-preview > .preview-link > .preview-headline{
-        opacity: 1;
-        padding: 0;
-        background-color: transparent;
-    }
-    
-    .meta-news-container > .article-preview > .preview-link > .preview-headline > .article-title{
-        padding: 10px;
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    /* Write For Us */
-    #write-submission-header h1{
-        text-align: left;
-    }
-    
-    #write-submission-games{
-        flex-direction: column;
-        margin-bottom: 25px;
-    }
-    
-    #write-submission-actions .btn{
-        font-size: 3vw;
-    }
-    
-    /* Site Info/FAQ */
-    #site-info-container{
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        align-items: flex-start;
-    }
-    
-    #site-info-mobile-banner-top{
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    
-    .advert-sidebar-flex{
-        display: none;
-    }
-    
-    .content-flex{
-        width: 100%;
-        align-items: flex-start;
-    }
-    
-    .mobile-advert-responsive{
-        display: flex;
         justify-content: center;
     }
     
-    .section-header p{
-        text-align: left;
+    .segment-logo-display{
+        flex-basis: 50%;
     }
     
-    .site-info-section{
-        margin-bottom: 25px;
-    }
-    
-    .site-info-section a{
-        color: #333399;
-    }
-    
-    .site-info-section p{
-        text-align: left;
-    }
-
-    /* Contact Page */
-    #contact-container{
+    #contact-form-container{
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-    }
-    
-    #contact-mobile-banner-top, #contact-mobile-banner-bottom{
-        display: block;
-    }
-    
-    #contact-mobile-banner-bottom{
-        margin-top: 25px;
-    }
-    
-    #contact-container .content-flex{
-        width: 100%;
-    }
-    
-    #contact-container .section-header{
-        margin-top: 25px;
-    }
-    
-    #contact-container .section-header p{
-        text-align: left;
-    }
-    
-    #contact-flex{
-        width: 100%;
-    }
-    
-    #contact-actions{
-        margin-top: 25px;
-        display: flex;
-        justify-content: center;
     }
     
     #contact-actions .btn{
-        width: 30vw;
         font-size: 4vw;
     }
     
-    #contact-sidebar-lg-rectangle{
+    #contact-sidebar{
         display: none;
     }
     
-    #contact-page-sidebar{
-        margin-top: 15px;
-        width: 100%;
-        justify-content: flex-start;
+    #get-involved-title{
+        font-size: 7.5vw;
     }
     
-    #contact-page-info{
-        width: 100%;
-        padding-top: 25px;
-        align-items: center;
+     #social-buttons a{
+        width: 50%;
     }
     
-    /* Account Registration */
-    #registration-wrapper{
-        display: flex;
-        justify-content: center;
-    }
-    
-    .registration{
-        width: 100%;
-        margin: 0 auto;
-    }
-    
-    #registration-header{
-        border-bottom: none;
-    }
-    
-    #user-acct-info{
-        flex-direction: column;
-        justify-content: space-around;
-    }
-    
-    .registration-form-section{
-        width: 100%;
-        flex-basis: 48%;
-    }
-    
-    #registration-meta{
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    .registration-meta-game-logo{
-        max-width: 125px;
-    }
-    
-    #registration-actions{
-        flex-direction: row;
-        justify-content: center;
-        margin-bottom: 25px;
-    }
-    
-    #registration-actions .btn{
-        width: 35vw;
-        font-size: 3vw;
-    }
-    
-    /* Login Page */
-    #login-logo-top, #login-logo-bottom{
-        display: none;
-    }
-    
-    #login-credentials{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    #login-credentials label{
-        font-weight: bold;
-        margin-top: 15px;
-    }
-    
-    .login-actions{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .login-actions .btn{
-        flex-basis: 5vh;
-        margin-top: 25px;
-        font-size: 4vw;
-    }
-    
-    /* Account Views */
-    .account-settings{
-        flex-direction: column;
-    }
-    
-    .acct-settings-header{
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: center;
-    }
-    
-    .acct-settings-header p{
-        text-align: left;
-    }
-    
-    .acct-settings-col{
-        border-left: none;
-        padding-left: 25px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .acct-update-form{
+    #social-buttons img{
         width: 100%;
     }
     
-    .acct-settings-actions{
-        margin-top: 15px;
-        justify-content: center;
+    #creators-list-title{
+        font-size: 7.5vw;
     }
     
-    .acct-btn{
-        flex-basis: 40vw;
-        height: 5vh;
-        margin-top: 0;
-        font-size: 4vw;
-    }
-    
-    .acct-meta-game{
-        width: 100%;
-        flex-direction: column;
-        border-bottom: 1px solid #6E6E84;
-        margin: 5px;
-    }
-    
-    .acct-meta-game-option{
-        width: 100%;
-        display: flex;
-    }
-    
-    .acct-meta-game-option label{
-        border-left: none;
-    }
-    
-    #acct-deactivation-actions, #acct-deletion-actions{
-        height: 10vh;
-        margin-bottom: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    #acct-deactivation-actions a, #acct-deletion-actions a{
-        margin-top: 15px;
-        text-align: center;
-    }
-    
-    #acct-deactivation-actions .acct-btn, #acct-deletion-actions .acct-btn{
-        flex-basis: 2vh;
-    }
-    
-    #email-settings-description h3{
-        font-size: 6vw;
-    }
-    
-    #email-actions{
-        height: 8vh;
-        border-bottom: 1px solid #6E6E84;
-    }
-    
-    #sec-settings{
-        margin-top: 25px;
-    }
-    
-    #sec-settings-actions{
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Footer */
-    .footer-flex{
-        margin: 0 auto;
-        width: 90vw;
-        height: 10vh;
-        justify-content: center;
-    }
-    
-    .footer-flex-col{
-        flex-basis: 100%;
-        flex-direction: column;
-    }
-    
-    .footer-nav{
-        background-color: yellow;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        width: 100%;
-        flex-basis: 100%;
-    }
-    
-    .footer-nav-item{
-        padding: 10px;
-    }
-    
-    .footer-nav-col{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    #footer-logo-col{
-        display: none;
-    }
-    
-    #footer-social-col{
-        display: none;
-    }
-    
-    /* Footer */
-    #footer-logo-col{
-        display: none;
-    }
-    
-    #footer-nav-col{
-        flex-basis: 90vw;
-    }
-
-    #footer-social-col{
-        display: none;
-    }
-    
-    #footer-policies{
-        width: 100%;
-        margin: 0 auto;
+    .creator-bio-container{
         display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
         display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
         display: -ms-flexbox;      /* TWEENER - IE 10 */
         display: -webkit-flex;     /* NEW - Chrome */
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         align-items: center;
+    }
+    
+    .creator-info-image{
+        width: 50%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+    
+    .footer-container{
+        width: 90vw;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #footer-logo{
+        flex-basis: 100%;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
+        display: flex;
+        justify-content: center;
     }
 }
 
 @media only screen
 and (min-width: 415px)
-and (max-width: 740px) {
-    /* Donation */
-    .donation-flex{
+and (max-width: 1023px){
+    .navigation-container{
         width: 90vw;
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
+        margin-bottom: -25px;
     }
     
-    .donation-info-section{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        text-align: left;
-    }
-    
-    #paypal-donate{
-        display: none;
-    }
-    
-    #paypal-donate-mobile{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        margin: 0 auto 25px auto;
-    }
-    
-    /* Game-Specific Pages */
-    .game-page-banner-container{
-        width: 40vw;
-        margin: 0 auto 50px auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-    }
-    
-    .game-page-banner{
+    .navigation-logo{
         width: 100%;
-        height: 100%;
-    }
-    
-    #mvc-logo{
-        width: 30vw;
-        margin: 0 auto;
-    }
-    
-    /* Privacy Policy == Terms & Conditions */
-    .policies-flex{
-        width: 95vw;
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: flex-start;
-    }
-    
-    .policies-flex p{
-        text-align: left;
-    }
-    
-    .policies-flex h1{
-        text-align: left;
-    }
-    
-    /* Forgot Password */
-    .forgot-pw-flex{
-        margin: 0 auto 25px auto;
-        width: 95vw;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    #forgot-pw{
-        width: 100%;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: flex-start;
-        align-items: center;
-    }
-    
-    #forgot-pw-change{
-        margin: 0 auto;
-        width: 80vw;
-    }
-    
-    #forgot-pw > input{
-        width: 90%;
-        margin: 0;
-    }
-    
-    #forgot-pw-change .btn{
-        width: 100%;
-        flex-basis: 12vh;
-    }
-    
-    #forgot-pw .btn{
-        flex-basis: 10vh;
-        width: 80%;
-        margin: 15px auto;
-    }
-    
-    /* Search Results */
-    .search-query-flex{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
         margin-bottom: 25px;
-    }
-    
-    .search-form-container{
-        width: 100%;
-    }
-    
-    #search-again{
-        width: 100%;
-        margin: 0 auto;
         display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
         display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
         display: -ms-flexbox;      /* TWEENER - IE 10 */
         display: -webkit-flex;     /* NEW - Chrome */
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        align-content: center;
     }
     
-    #search-again-input{
-        flex-basis: 80%;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        margin-bottom: 10px;
-    }
-    
-    #search-again-input > input::placeholder{
-        color: #fff;
-    }
-    
-    #search-again p{
-        margin: 0 0 5px 0;
-    }
-    
-    #search-again-btn{
-        margin: 5px;
-        flex-basis: 20%;
-    }
-    
-    #search-query-header{
+    .main-content-container{
         width: 95vw;
-        margin: 0 auto;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
     }
     
-    #search-query-header-text{
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        align-content: flex-start;
-    }
-    
-    .search-query-results{
+    .section-subsection{
         width: 95vw;
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
     }
     
-    /* Article View */
-    .article-view-flex{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 25px;
+    .preview-headline .article-title{
+        font-size: 2.3vw;
     }
     
-    #article-view-header{
-        width: 60vw;
-        margin: 0 auto;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
+    .recent-video{
+        width: 280px;
+        height: 158px;
     }
     
-    #article-view-header-ad{
-        display: none;
-    }
-    
-    #article-view-header-ad-mobile{
-        display: block;
-    }
-    
-    #article-view-article-ad-mobile{
-        display: flex;
-        justify-content: center;
-        margin: 25px 0 25px 0;
-    }
-    
-    .article-view-feed{
-        width: 90vw;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    #article-view-feed-main{
-        flex-basis: 60%;
-    }
-    
-    #article-view-feed-main article{
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .article-view-title{
-        text-align: left;
-        font-size: 4.5vw;
-    }
-    
-    #article-view-feed-sidebar{
-        display: none;
-    }
-    
-    #article-view-feed-sidebar-mobile{
-        flex-basis: 30%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 25px 0 25px 0;
-    }
-    
-    #article-view-sidebar-ad{
-        display: none;
-    }
-    
-    #article-view-sidebar-title{
-        font-size: 130%;
-    }
-    
-    #article-view-sidebar-header{
+    #segment-logos{
         width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
     }
     
-    #article-view-sidebar-content{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    #article-view-sidebar-content .article-preview{
-        height: 20vh;
-    }
-    
-    .article-meta-container{
-        display: flex;
-    }
-    
-    .article-meta-container p{
-        color: #6E6E84;
-        padding: 0 10px 0 0;
-        font-size: 11pt;
-    }
-    
-    .article-meta-container a{
-        color: #333399;
-    }
-    
-    .post-content{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .article-figure {
-        width: 100%;
-        height: auto;
-    }
-    
-    .article-figure-caption{
-        display: flex;
-        justify-content: flex-end;
-        color: #6E6E84;
-        font-size: 11pt;
-    }
-    
-    .article-body{
-        text-align: left;
-        white-space: pre-wrap;
-    }
-    
-    .article-body img{
-        display: block;
-        margin: 0 auto;
-        max-width: 80%;
-        height: auto;
-    }
-    
-    .article-body iframe{
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        width: 640px;
-        height: 360px;
-    }
-    
-    #article-view-btn{
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
+    .creator-profile-header{
         margin-top: 25px;
     }
     
-    .article-body-preview img{
-        display: block;
-        margin: 0 auto;
-        text-align: middle;
-    }
-    
-    .article-body-preview iframe{
-        display: block;
-        margin: 0 auto;
-        text-align: middle;
-    }
-    
-    /* News Page */
-    .news-flex{
-        display: flex;
-        flex-direction: column;
-    }
-    
-    #news-header{
-        width: 60vw;
-        margin: 0 auto;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    #news-header-ad-mobile{
-        display: block;
-    }
-    
-    #news-header-ad{
-        display: none;
-    }
-    
-    .news-feed{
-        width: 90vw;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    #news-feed-main{
-        flex-basis: 100%;
-    }
-    
-    #news-feed-sidebar{
-        display: none;
-    }
-    
-    #news-sidebar-title{
-        font-size: 130%;
-    }
-    
-    #news-sidebar-header{
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    #news-sidebar-content{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-    }
-    
-    .no-news-message{
-        flex-basis: 100%;
-    }
-    
-    #news-sidebar-header-random{
-        display: none;
-    }
-    
-    #news-sidebar-content-random{
-        display: none;
-    }
-    
-    #news-sidebar-ad{
-        display: none;
-    }
-    
-    #news-sidebar-ad-mobile{
-        display: inline-block;
-        margin: 25px 0 25px 0;
-    }
-    
-    .article-preview {
-        position: relative;
-        height: 20vh;
-        margin: 5px;
-    }
-    
-    .article-preview-image{
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-    
-    .preview-headline{
-        position:absolute;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        padding: 15px;
-        background-color: rgb(234, 16, 16);
-        background-color: rgba(234, 16, 16, 0.7);
-        opacity: 0;
-        -webkit-transition: opacity .9s ease-in-out, height .3s ease-in-out;;
-        -moz-transition: opacity .9s ease-in-out, height .3s ease-in-out;
-        -o-transition: opacity .9s ease-in-out, height .3s ease-in-out;
-        transition: opacity .9s ease-in-out, height .3s ease-in-out;
-    }
-    
-    .preview-headline:hover{
-        opacity: 1;
-    }
-    
-    .article-title{
-        font-size: 3vw;
-        color: #fff;
-    }
-    
-    #news-most-recent{
-        width: 90vw;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    #news-most-recent .preview-headline{
-        opacity: 1;
-        padding: 0;
-        background-color: transparent;
-    }
-    
-    #news-most-recent .article-title{
-        padding: 10px;
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-    
-    #news-most-recent .article-preview{
-        height: 50vh;
-        flex-basis: 42vw;
-    }
-    
-    #news-most-recent .article-preview:first-child{
-        height: 50vh;
-        flex-basis: 100%;
-    }
-    
-    #news-sidebar-content .article-preview{
-        flex-basis: 100%;
+    .article-preview{
         height: 40vh;
     }
     
-    .post-preview{
+    #social-buttons a{
+        width: 50%;
+    }
+    
+    #social-buttons img{
         width: 100%;
-        display: flex;
+    }
+    
+    #article-view{
         flex-direction: column;
     }
     
-    .post-preview article{
-        width: 90vw;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .article-header{
-        text-align: left;
-        font-size: 100%;
-    }
-    
-    .article-header > a{
-        color: rgb(0, 0, 0);
-        color: rgba(0, 0, 0, 1.0);
-    }
-    
-    .article-author-link{
-        font-size: 11pt;
-        color: #333399;
-    }
-    
-    .article-pub-date{
-        font-size: 11pt;
-        color: #6E6E84;
-        text-align: left;
-    }
-    
-    .article-author-link, .article-pub-date{
-        display: inline-block;
-    }
-    
-    .article-author-link:hover{
-        color: #333399;
-    }
-    
-    /* User META */
-    .meta-flex{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 25px;
-    }
-    
-    #meta-header{
-        width: 65vw;
-        border-bottom: 1px solid #6E6E84;
-        margin-bottom: 25px;
-    }
-    
-    .meta-option-flex{
+    .article-container{
         width: 90vw;
     }
     
-    .meta-option-header{
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #333399;
-        border-radius: 15px;
-        padding: 15px;
-        margin: 5px 0 5px 0;
+    .article-view-title{
+        font-size: 2.5vw;
     }
     
-    .meta-option-title{
-        color: #fff;
-        font-size: 4vw;
-        text-align: left;
-    }
-    
-    .fa-arrow-circle-o-down{
-        margin-left: 25px;
-        color: #fff;
-        font-size: 5vw;
-    }
-    
-    .meta-news-container{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin-bottom: 25px;
-    }
-    
-    .meta-news-container .article-preview{
-        flex-basis: 43vw;
-        height: 50vh;
-        flex-grow: 0;
-    }
-    
-    .meta-news-container .article-preview:first-child{
-        flex-basis: 43vw;
-        flex-grow: 0;
-    }
-    
-    .meta-news-container > .article-preview > .preview-link > .preview-headline{
-        opacity: 1;
-        padding: 0;
-        background-color: transparent;
-    }
-    
-    .meta-news-container > .article-preview > .preview-link > .preview-headline > .article-title{
-        padding: 10px;
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-    
-    /* Write For Us */
-    #write-submission-actions .btn{
+    #article-view-btn .acct-btn{
         font-size: 3vw;
     }
     
-    /* Site Info/FAQ */
-    #site-info-container{
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        align-items: flex-start;
-    }
-    
-    #site-info-mobile-banner-top{
-        display: flex;
+    .article-sidebar{
         width: 100%;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    
-    .advert-sidebar-flex{
-        display: none;
-    }
-    
-    .content-flex{
-        width: 100%;
-        align-items: flex-start;
-    }
-    
-    .mobile-advert-responsive{
+        border-left: none;
+        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+        display: -ms-flexbox;      /* TWEENER - IE 10 */
+        display: -webkit-flex;     /* NEW - Chrome */
         display: flex;
+        flex-direction: row;
         justify-content: center;
     }
     
-    .section-header p{
-        text-align: left;
+    .segment-logo-display{
+        flex-basis: 33%;
     }
     
-    .site-info-section{
-        margin-bottom: 25px;
-    }
-    
-    .site-info-section a{
-        color: #333399;
-    }
-    
-    .site-info-section p{
-        text-align: left;
-    }
-    
-    /* Contact Page */
-    #contact-container{
-        width: 95%;
-        height: 100%;
-        margin-bottom: 125px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-    }
-    
-    #contact-mobile-banner-top, #contact-mobile-banner-bottom{
-        display: inline-block;
-    }
-    
-    #contact-mobile-banner-bottom{
-        margin-top: 20px;
-    }
-    
-    #contact-container .content-flex{
-        width: 100%;
-    }
-    
-    #contact-container .section-header{
+    #main-contact-container{
         margin-top: 25px;
     }
     
-    #contact-container .section-header p{
-        text-align: left;
-    }
-    
-    #contact-flex{
-        width: 100%;
-    }
-    
-    #contact-actions{
-        margin-top: 25px;
-        display: flex;
-        justify-content: center;
+    #contact-form label{
+        margin-top: 15px;
     }
     
     #contact-actions .btn{
-        width: 30vw;
-        font-size: 4vw;
-    }
-    
-    #contact-sidebar-lg-rectangle{
-        display: none;
-    }
-    
-    #contact-page-sidebar{
-        margin-top: 15px;
-        width: 100%;
-        justify-content: flex-start;
-    }
-    
-    #contact-page-info{
-        width: 100%;
-        padding-top: 25px;
-        align-items: center;
-    }
-    
-    /* Account Registration */
-    #registration-wrapper{
-        display: flex;
-        justify-content: center;
-    }
-    
-    .registration{
-        width: 100%;
-        margin: 0 auto;
-    }
-    
-    #registration-header{
-        border-bottom: none;
-    }
-    
-    #user-acct-info{
-        justify-content: space-around;
-    }
-    
-    .registration-form-section{
-        flex-basis: 48%;
-    }
-    
-    #registration-meta{
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    .registration-meta-game-logo{
-        max-width: 125px;
-    }
-    
-    #registration-actions{
-        flex-direction: row;
-        justify-content: center;
-        margin-bottom: 25px;
-    }
-    
-    #registration-actions .btn{
-        width: 35vw;
         font-size: 3vw;
     }
     
-    /* Login Page */
-    #login-logo-top, #login-logo-bottom{
-        display: none;
-    }
-    
-    #login-credentials{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .login-actions{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .login-actions .btn{
-        flex-basis: 5vh;
-        margin-top: 25px;
-        font-size: 3vw;
-    }
-    
-    /* Account Views */
-    .acct-settings-header{
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: center;
-    }
-    
-    .acct-settings-header p{
-        text-align: left;
-    }
-    
-    .acct-settings-col{
-        border-left: none;
-        padding-left: 25px;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .acct-update-form{
+    #estera-contact{
         width: 100%;
+        height: auto;
     }
     
-    .acct-settings-actions{
-        margin-top: 15px;
-        justify-content: center;
+    .footer-container{
+        width: 95vw;
     }
     
-    .acct-btn{
-        flex-basis: 20vw;
-        margin-top: 0;
-        font-size: 3vw;
-    }
-    
-    .acct-meta-game{
+    .footer-section > img{
         width: 100%;
-        flex-direction: column;
-        border-bottom: 1px solid #6E6E84;
-        margin: 5px;
-    }
-    
-    .acct-meta-game-option{
-        width: 100%;
-        display: flex;
-    }
-    
-    .acct-meta-game-option label{
-        border-left: none;
-    }
-    
-    #acct-deactivation-actions, #acct-deletion-actions{
-        margin-bottom: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    #acct-deactivation-actions a, #acct-deletion-actions a{
-        margin-top: 15px;
-        text-align: center;
-    }
-    
-    #acct-deactivation-actions .acct-btn, #acct-deletion-actions .acct-btn{
-        flex-basis: 2vh;
-    }
-    
-    #email-settings-description h3{
-        font-size: 6vw;
-    }
-    
-    #sec-settings{
-        margin-top: 25px;
-    }
-    
-    #sec-settings-actions{
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Footer */
-    #footer-policies{
-        width: 100%;
-        margin: 0 auto;
-        display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
-        display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
-        display: -ms-flexbox;      /* TWEENER - IE 10 */
-        display: -webkit-flex;     /* NEW - Chrome */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        height: auto;
     }
 }

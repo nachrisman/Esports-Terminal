@@ -1,88 +1,57 @@
 <% include ./partials/article_header %>
-		<div class='container-fluid'>
-			<div class='article-view-flex' id='article-view-main-container'>
-				<hr>
-				<div class='article-view-feed'>
-					<div id='article-view-feed-sidebar'>
-						<div class='section-header' id='article-view-sidebar-header'>
-							<h1 id='article-view-sidebar-title'>Related</h1>
-							<p>You'll like these</p>
+		<% var user = undefined %>
+		<% creators.forEach(function(creator){ %>
+			<% if(creator.fullname == foundArticle.author){ %>
+				<% user = creator.username %>
+			<% } %>
+		<% }); %>
+		<div class="container-fluid main-content-container" id="article-view">
+			<div class="article-container">
+				<article>
+					<header>
+						<h1 class="article-view-title"><%= foundArticle.title %></h1>
+					</header>
+					<div class="article-meta-container">
+						<p class="article-author-label">Author: <a class="article-author-link" href="/<%= user %>"><%= foundArticle.author %></a></p>
+						<p class="article-pub-date">Published: <%= foundArticle.published.toDateString() %></p>
+						<% if(currentUser && currentUser.role == "admin") { %>
+							<a class="article-author-link" href="/admin/edit-article/<%= foundArticle._id %>">Edit Article</a>
+						<% } %>
+					</div>
+					<div class="post-content">
+						<figure>
+							<img class="article-figure" src="<%=foundArticle.image%>" alt="<%=foundArticle.title %>">
+							<figcaption class="article-figure-caption">
+								<p><%= foundArticle.imageCaption %> via <%= foundArticle.imageSource %></p>
+							</figcaption>
+						</figure>
+						<div class="article-body"><%- foundArticle.body %></div>
+						<% if(!foundArticle.sourceLink) { %>
+							
+						<% } else { %>
+						<div class="article-source">
+							<p>Source: <a target="_blank" href="<%= foundArticle.sourceLink %>">Click here</a></p>
 						</div>
-						<div id='article-view-sidebar-content'>
-							<% if(relatedArticles.length == 0) { %>
-							<p>┐(´•_•`)┌ No Related Videos.</p>
-							<% } else { %>
-							<% relatedArticles.forEach(function(relatedArticle) { %>
-							<div class='article-preview' id='<%= relatedArticle._id %>'>
-								<a class='preview-link' href='/news/<%= relatedArticle._id %>'>
-									<img class='article-preview-image' id='<%= relatedArticle._id + "-image" %>' src='<%= relatedArticle.image %>' alt='<%= relatedArticle.title %>'>
-									<div class='preview-headline' id='<%= relatedArticle._id + "-headline" %>'>
-										<h3 class='article-title'><%= relatedArticle.title.substr(0, 100) %></h3>
-									</div>
-								</a>
-							</div>
-							<% }); %>
-							<% }; %>
+						<% } %>
+						<div id="article-view-btn">
+							<a class="btn btn-outline-secondary acct-btn" href="/">Return to Home</a>
 						</div>
 					</div>
-					<div id='article-view-feed-main'>
-						<div id='article-view-container'>
-							<article>
-								<header>
-									<h1 class='article-view-title'><%= foundArticle.title %></h1>
-								</header>
-								<div class='article-meta-container'>
-									<p class='article-author-label'>Author: <a class='article-author-link' href='/search/author?search=<%= foundArticle.author %>'><%=foundArticle.author%></a></p>
-									<p class='article-pub-date'>Published: <%= foundArticle.published.toDateString() %></p>
-									<% if(currentUser && currentUser.role == 'admin') { %>
-										<a class='article-author-link' href='/admin/edit-article/<%= foundArticle._id %>'>Edit Article</a>
-									<% } %>
-								</div>
-								<div class='post-content'>
-									<figure>
-										<img class='article-figure' src='<%=foundArticle.image%>' alt='<%=foundArticle.title %>'>
-										<figcaption class='article-figure-caption'>
-											<p><%= foundArticle.imageCaption %> via <%= foundArticle.imageSource %></p>
-										</figcaption>
-									</figure>
-									<div class='article-body'><%- foundArticle.body %></div>
-									<% if(!foundArticle.sourceLink) { %>
-										
-									<% } else { %>
-									<div class='article-source'>
-										<p>Source: <a target='_blank' href='<%= foundArticle.sourceLink %>'>Click here</a></p>
-									</div>
-									<% } %>
-									<div id='article-view-btn'>
-										<a class='btn btn-outline-secondary acct-btn' href='/news'>Return to News</a>
-									</div>
-								</div>
-							</article>
-						</div>
-					</div>
-					<div id='article-view-feed-sidebar-mobile'>
-						<div class='section-header' id='article-view-sidebar-header'>
-							<h1 id='article-view-sidebar-title'>Related</h1>
-							<p>You'll like these</p>
-						</div>
-						<div id='article-view-sidebar-content'>
-							<% if(relatedArticles.length == 0) { %>
-							<p>┐(´•_•`)┌ No Related Videos.</p>
-							<% } else { %>
-							<% relatedArticles.forEach(function(relatedArticle) { %>
-							<div class='article-preview' id='<%= relatedArticle._id %>'>
-								<a class='preview-link' href='/news/<%= relatedArticle._id %>'>
-									<img class='article-preview-image' id='<%= relatedArticle._id + "-image" %>' src='<%= relatedArticle.image %>' alt='<%= relatedArticle.title %>'>
-									<div class='preview-headline' id='<%= relatedArticle._id + "-headline" %>'>
-										<h3 class='article-title'><%= relatedArticle.title.substr(0, 100) %></h3>
-									</div>
-								</a>
-							</div>
-							<% }); %>
-							<% }; %>
-						</div>
-					</div>
-				</div>
+				</article>
 			</div>
-		</div>		
+			<div class="article-sidebar">
+				<div class="segment-logo-display">
+					<% if(user == "robtv"){ %>
+					<img class="article-sidebar-logo" src="/media/branding/ctg_logo.png">
+					<% } %>
+					<% if(user == "ext0pd0ll"){ %>
+					<img class="article-sidebar-logo" src="/media/branding/ffp_logo.png">
+					<% } %>
+					<% if(user == "natech"){ %>
+					<img class="article-sidebar-logo" src="/media/branding/the_5050_logo.png">
+					<% } %>
+				</div>
+				<a class="twitter-timeline" data-height="800" data-chrome="transparent" data-tweet-limit="5" href="https://twitter.com/esttweets?ref_src=twsrc%5Etfw">Tweets by esttweets</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>
+		</div>
 <% include ./partials/footer %>

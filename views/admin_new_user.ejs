@@ -9,31 +9,15 @@
 				<form class='account-form' action='/admin/new-user' method='POST'>
 					<div class='content-form-col'>
 						<label for='first-name'>First Name:</label>
-						<input class='form-control' type='text' name='user[firstName]' id='first-name' required />
+						<input class='form-control' type='text' name='firstName' id='first-name' required />
 						<label for='last-name'>Last Name:</label>
-						<input class='form-control' type='text' name='user[lastName]' id='last-name' required />
+						<input class='form-control' type='text' name='lastName' id='last-name' required />
 						<label for='username'>Username:</label>
-						<input class='form-control' type='text' name='user[username]' id='username' required />
+						<input class='form-control' type='text' name='username' id='username' required />
 						<label for='email'>Email:</label>
-						<input class='form-control' type='text' name='user[email]' id='email' required />
-						<label for='gender'>Gender:</label>
-						<select class='form-control custom-select' type='select' name='user[gender]' id='gender'>
-							<% if(currentUser.gender === 'male') { %>
-								<option value='male' selected='selected'>Male</option>
-								<option value='female'>Female</option>
-								<option value='unspecified'>Prefer Not to Say</option>
-							<% } else if(currentUser.gender === 'female') { %>
-								<option value='male'>Male</option>
-								<option value='female' selected='selected'>Female</option>
-								<option value='unspecified'>Prefer Not to Say</option>
-							<% } else { %>
-								<option value='male'>Male</option>
-								<option value='female'>Female</option>
-								<option value='unspecified' selected='selected'>Prefer Not to Say</option>
-							<% }; %>
-						</select>
+						<input class='form-control' type='text' name='email' id='email' required />
 						<label for='role'>Access Level:</label>
-						<select class='form-control custom-select' type='select' name='user[role]' name='role'>
+						<select class='form-control custom-select' type='select' name='role'>
 							<option selected disabled>Select an Access Level</option>
 							<% currentUser.roles.forEach(function(role){ %>
 								<option value='<%= role %>'><%= role %></option>
@@ -41,28 +25,20 @@
 						</select>
 					</div>
 					<div class='content-form-col'>
-						<label for='phone'>Phone:</label>
-						<input class='form-control' type='text' name='user[phone]' id='phone' />
-						<label for='street'>Street:</label>
-						<input class='form-control' type='text' name='user[location][street]' id='street' />
-						<label for='city'>City:</label>
-						<input class='form-control' type='text' name='user[location][city]' id='city' />
-						<label for='zip'>Zip:</label>	
-						<input class='form-control' type='text' name='user[location][zip]' id='zip' />
-						<label for='state'>State: </label>
-						<select class='form-control custom-select' name='user[location][state]' id='state'>
-							<option selected disabled>Select a State</option>
-						<% states.forEach(function(state) { %>
-							<option value='<%= state %>'><%= state %></option>
-						<% }); %>
-						</select>
-						<label for='country'>Country: </label>
-						<select class='form-control custom-select' type='select' name='user[location][country]' id='country' required>
-							<option selected disabled>Select a Country</option>
-							<% countries.forEach(function(country) { %>
-								<option value='<%= country %>'><%= country %></option>
-						  <% }); %>
-						</select>
+						<label for="user-twitter">Twitter:</label>
+						<input class="form-control" type="text" name="twitter" id="user-twitter" />
+						<label for="user-facebook">Facebook:</label>
+						<input class="form-control" type="text" name="facebook" id="user-facebook" />
+						<label for="user-youtube">YouTube:</label>
+						<input class="form-control" type="text" name="youtube" id="user-youtube" />
+						<label for="user-website">Website:</label>
+						<input class="form-control" type="text" name="website" id="user-website" />
+						<label for="user-profile-banner">Profile Banner:</label>
+						<input class="form-control" type="text" name="profileBanner" id="user-profile-banner" />
+						<label for="password">Password:</label>
+						<input class="form-control" type="password" name="password" required />
+						<label for="confirm-password">Confirm Password:</label>
+						<input class="form-control" type="password" name="confirm-password" required />
 						<div class='content-form-actions'>
 							<button class='btn btn-outline-primary' type='submit' value='Add User'>Add User</button>
 							<button class='btn btn-outline-danger' onclick="location.href='/admin/view-users';" disabled>Cancel</button>

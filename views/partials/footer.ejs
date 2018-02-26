@@ -1,65 +1,57 @@
-		<footer>
-			<div class='container-fluid' id='footer-wrapper'>
-				<div class='footer-col' id='footer-logo-col'>
-					<img id='footer-logo' src='/media/branding/logo_est_reg.png'>
-				</div>
-				<div class='footer-col' id='footer-nav-col'>
-					<div class='footer-col-header'>
-						<p>Navigation</p>
-					</div>
-					<div class='footer-col-nav'>
-					<% if(!currentUser) { %>
-		  				<div class='footer-nav-section'>
-		  					<a class='footer-nav-item' href='/news'>Home</a>
-						  	<a class='footer-nav-item' href='/street-fighter'>Street Fighter</a>
-						  	<a class='footer-nav-item' href='/marvel-vs-capcom'>Marvel vs. Capcom</a>
-						  	<a class='footer-nav-item' href='/tekken'>Tekken</a>
-						  	<a class='footer-nav-item' href='/soulcalibur'>Soulcalibur</a>
-						  	<a class='footer-nav-item' href='/arms'>ARMS</a>
-		  				</div>
-		  				<div class="footer-nav-section">
-		  					<a class='footer-nav-item' href='/login'>Login</a>
-						  	<a class='footer-nav-item' href='/register'>Create an Account</a>
-						  	<a class='footer-nav-item' href='/info#about'>About Us</a>
-						  	<a class='footer-nav-item' href='/info#faq'>FAQ</a>
-						  	<a class='footer-nav-item' href='/contact'>Contact</a>
-						  	<a class='footer-nav-item' href='/write-for-us'>Write for us!</a>
-		  				</div>
-					  	<% } else { %>
-					  	<div class='footer-nav-section'>
-						  	<a class='footer-nav-item' href='/news'>Home</a>
-						  	<a class='footer-nav-item' href='/street-fighter'>Street Fighter</a>
-						  	<a class='footer-nav-item' href='/marvel-vs-capcom'>Marvel vs. Capcom</a>
-						  	<a class='footer-nav-item' href='/tekken'>Tekken</a>
-						  	<a class='footer-nav-item' href='/soulcalibur'>Soulcalibur</a>
-						  	<a class='footer-nav-item' href='/arms'>ARMS</a>
-					  	</div>
-					  	<div class="footer-nav-section">
-					  		<a class='footer-nav-item' href='/account/settings'>My Account</a>
-						  	<a class='footer-nav-item' href='/info#about'>About Us</a>
-						  	<a class='footer-nav-item' href='/info#faq'>FAQ</a>
-						  	<a class='footer-nav-item' href='/contact'>Contact</a>
-						  	<a class='footer-nav-item' href='/write-for-us'>Write for us!</a>
-						  	<a class='footer-nav-item' href='/logout'>Logout</a>
-		  				</div>
-					  	<% }; %>
-					</div>
-				</div>
-				<div class='footer-col' id='footer-social-col'>
-					<div class='footer-col-header'>
-						<p>EST Social</p>
-					</div>
-					<div id='footer-social-links'>
-						<a href='https://www.twitter.com/esttweets' target='_blank'>Twitter</a>
-						<a href='https://www.facebook.com/esportsterminal' target='_blank'>Facebook</a>
-					</div>
-				</div>
+	</body>
+	<footer>
+		<div class="container-fluid footer-container">
+			<div class="footer-section" id="footer-logo">
+				<img src="/media/branding/estera_battle_logo.png">
 			</div>
-			<div id='footer-policies'>
-				<p>&copy; Copyright Esports Terminal 2018</p>
-				<a href='/privacy-policy'>Privacy Policy</a>
-				<a href='/terms-of-use'>Terms &amp; Conditions</a>
+			<div class="footer-section">
+				<div class="footer-section-indicator">
+					<h1 class="footer-section-title">Navigation</h1>
+				</div>
+				<ul class="footer-navigation">
+					<a class="footer-navigation-link" href="/main">
+						<li>Home</li>
+					</a>
+					<a class="footer-navigation-link" href="/creators">
+						<li>Creators</li>
+					</a>
+					<a class="footer-navigation-link" href="/getinvolved">
+						<li>Get Involved</li>
+					</a>
+					<a class="footer-navigation-link" href="/contact">
+						<li>Contact Us</li>
+					</a>
+				</ul>
 			</div>
-		</footer>
-  	</body>
+			<div class="footer-section">
+				<div class="footer-section-indicator">
+					<h1 class="footer-section-title">Creators</h1>
+				</div>
+				<ul class="footer-navigation">
+					<a class="footer-navigation-link" href="/robtv">
+						<li>RobTV</li>
+					</a>
+					<a class="footer-navigation-link" href="/ext0pd0ll">
+						<li>Ginni Lou</li>
+					</a>
+					<a class="footer-navigation-link" href="/natech">
+						<li>Natech</li>
+					</a>
+				</ul>
+			</div>
+			<div class="footer-section">
+				<div class="footer-section-indicator">
+					<h1 class="footer-section-title">Social</h1>
+				</div>
+				<ul class="footer-navigation">
+					<a class="footer-navigation-link" href="http://www.twitter.com/esttweets" target="_blank">
+						<li>Twitter</li>
+					</a>
+					<a class="footer-navigation-link" href="http://www.facebook.com/esportsterminal" target="_blank">
+						<li>Facebook</li>
+					</a>
+				</ul>
+			</div>
+		</div>
+	</footer>
 </html>	

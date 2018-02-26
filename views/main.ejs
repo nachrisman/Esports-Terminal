@@ -1,0 +1,66 @@
+<% include ./partials/header %>
+		<div class="container-fluid main-content-container">
+			<div class="section-indicator">
+				<h1 class="section-indicator-title">Our Creators</h1>
+			</div>
+			<div class="creators-panel">
+				<div class="creator-container">
+					<a href="/robtv">
+						<img class="creator-banner-image" src="/media/branding/robtv_banner-100.jpg">
+					</a>
+				</div>
+				<div class="creator-container">
+					<a href="/ext0pd0ll">
+						<img class="creator-banner-image" src="/media/branding/ginni_banner-100.jpg">
+					</a>
+				</div>
+				<div class="creator-container">
+					<a href="/natech">
+						<img class="creator-banner-image" src="/media/branding/natech_banner-100.jpg">
+					</a>
+				</div>
+			</div>
+			<div class="section-main-body" id="recent-content-main">
+				<div class="section-subsection">
+					<div class="section-indicator">
+						<h1 class="section-indicator-title">Recent Articles</h1>
+					</div>
+					<div class="subsection-content main-news-container">
+					<% if(mostRecentArticles.length > 0) { %>
+						<% mostRecentArticles.forEach(function(article) { %>
+						<div class="article-preview" id="<%= article._id %>">
+							<a class="preview-link" href="/news/<%= article._id %>">
+								<img class="article-preview-image" id="<%= article._id + '-image' %>" src="<%= article.image %>" alt="<%= article.title %>">
+								<div class="preview-headline" id="<%= article._id + '-headline' %>">
+									<p class="article-title"><%= article.title.substr(0, 100) %></p>
+								</div>
+							</a>
+						</div>
+						<% }); %>
+					<% } %>
+					</div>
+				</div>
+				<div class="section-subsection">
+					<div class="subsection-content" id="videos-most-recent">
+						<% if(videos.length > 0) { %>
+					    <div class="creator-content-subsection">
+					        <div class="section-indicator" id="creator-videos-title">
+								<h1 class="section-indicator-title">Recent Videos</h1>
+							</div>
+							<div class="main-videos-container">
+								<% videos.forEach(function(video){ %>
+								<iframe class="recent-video" src="<%= video.sourceLink %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+								<% }); %>
+						    </div>
+					    </div>
+					    <% } %>
+					</div>
+				</div>
+				<div class="section-subsection" id="segment-logos">
+					<img class="segment-logo" src="/media/branding/ctg_logo.png">
+					<img class="segment-logo" src="/media/branding/ffp_logo.png">
+					<img class="segment-logo" src="/media/branding/the_5050_logo.png">
+				</div>
+			</div>
+		</div>
+<% include ./partials/footer %>

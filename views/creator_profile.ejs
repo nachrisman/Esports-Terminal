@@ -1,0 +1,63 @@
+<% include ./partials/header %>
+		<div class="container-fluid main-content-container">
+		    <div class="creator-profile-header">
+		        <img class="creator-profile-image" src="<%= creator.profileBanner %>">
+		    </div>
+			<div class="creator-content">
+			    <div class="creator-content-subsection">
+			        <div class="section-indicator" id="creator-articles-title">
+						<h1 class="section-indicator-title">Articles</h1>
+					</div>
+					<% if(articles.length > 0) { %>
+					<div class="creator-articles">
+					    <div class="main-news-container">
+    						<% articles.forEach(function(article) { %>
+    						<div class="article-preview" id="<%= article._id %>">
+    							<a class="preview-link" href="/news/<%= article._id %>">
+    								<img class="article-preview-image" id="<%= article._id + '-image' %>" src="<%= article.image %>" alt="<%= article.title %>">
+    								<div class="preview-headline" id="<%= article._id + '-headline' %>">
+    									<p class="article-title"><%= article.title.substr(0, 100) %></p>
+    								</div>
+    							</a>
+    						</div>
+    						<% }); %>
+    					</div>
+					</div>
+					<% } else { %>
+    			    <p>No Articles for this Creator yet!</p>
+    				<% } %>
+			    </div>
+			    <% if(videos.length > 0) { %>
+			    <div class="creator-content-subsection">
+			        <div class="section-indicator" id="creator-videos-title">
+						<h1 class="section-indicator-title">Videos</h1>
+					</div>
+					<div class="creator-videos">
+						<% videos.forEach(function(video){ %>
+						<iframe class="recent-video" src="<%= video.sourceLink %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						<% }); %>
+				    </div>
+			    </div>
+			    <% } %>
+			    <div class="creator-profile-header">
+			    	<div class="creator-social-buttons">
+		            <% if(creator.twitter){ %>
+		            <a class="creator-social-link" href="<%= creator.twitter %>" target="_blank">
+		                <img src="/media/branding/<%= creator.username %>_twitter.png">
+		            </a>
+		            <% } %>
+		            <% if(creator.youtube){ %>
+		            <a class="creator-social-link"  href="<%= creator.youtube %>" target="_blank">
+		                <img src="/media/branding/<%= creator.username %>_youtube.png">
+		            </a>
+		            <% } %>
+		        </div>
+			    </div>
+				<div class="section-subsection" id="segment-logos">
+					<img class="segment-logo" src="/media/branding/ctg_logo.png">
+					<img class="segment-logo" src="/media/branding/ffp_logo.png">
+					<img class="segment-logo" src="/media/branding/the_5050_logo.png">
+				</div>
+			</div>
+		</div>
+<% include ./partials/footer %>
