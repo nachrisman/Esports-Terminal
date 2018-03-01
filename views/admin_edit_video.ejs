@@ -29,6 +29,11 @@
 						</div>
 				    </div>
 				</form>
+				<div class='delete-item-container'>
+					<form class='delete-item' id='delete-video' action='/admin/view-video/<%= video._id %>?_method=DELETE' method='POST'>
+						<button class='btn btn-danger' type='submit'>Delete Video</button>
+					</form>
+				</div>
 			</div>
 			<hr>
     	</div>

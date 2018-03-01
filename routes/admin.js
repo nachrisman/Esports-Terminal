@@ -201,7 +201,20 @@ router.get("/view-videos", middleware.isAdmin, function(req, res){
 			res.render("admin_view_videos", {videos: videos});
 		}
 	});
-})
+});
+
+router.delete("/view-video/:id", middleware.isAdmin, function(req, res){
+	Video.findByIdAndRemove(req.params.id, function(err){
+		if(err){
+			console.log("Video Query by ID and Remove Error: " + err.message);
+			req.flash("error", "Video Query by ID and Remove Error: " + err.message);
+			return res.redirect("/admin/view-games");
+		} else {
+			req.flash("success", "Video has been deleted.");
+			res.redirect("/admin/view-videos");
+		}
+	});
+});
 
 /*=========================
 		ARTICLE CRUD
