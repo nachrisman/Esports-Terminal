@@ -4,6 +4,18 @@
 		        <img class="creator-profile-image" src="<%= creator.profileBanner %>">
 		    </div>
 			<div class="creator-content">
+				<% if(videos.length > 0) { %>
+			    <div class="creator-content-subsection">
+			        <div class="section-indicator" id="creator-videos-title">
+						<h1 class="section-indicator-title">Videos</h1>
+					</div>
+					<div class="creator-videos">
+						<% videos.forEach(function(video){ %>
+						<iframe class="recent-video" src="<%= video.sourceLink %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						<% }); %>
+				    </div>
+			    </div>
+			    <% } %>
 			    <div class="creator-content-subsection">
 			        <div class="section-indicator" id="creator-articles-title">
 						<h1 class="section-indicator-title">Articles</h1>
@@ -27,18 +39,6 @@
     			    <p>No Articles for this Creator yet!</p>
     				<% } %>
 			    </div>
-			    <% if(videos.length > 0) { %>
-			    <div class="creator-content-subsection">
-			        <div class="section-indicator" id="creator-videos-title">
-						<h1 class="section-indicator-title">Videos</h1>
-					</div>
-					<div class="creator-videos">
-						<% videos.forEach(function(video){ %>
-						<iframe class="recent-video" src="<%= video.sourceLink %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-						<% }); %>
-				    </div>
-			    </div>
-			    <% } %>
 			    <div class="creator-profile-header">
 			    	<div class="creator-social-buttons">
 		            <% if(creator.twitter){ %>
